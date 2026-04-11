@@ -97,7 +97,9 @@ contains
 !> @date 05/11/17  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive function JSON_minify(jsonname) result(jsonreturn)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSON_minify
+#endif
 
 IMPLICIT NONE
 
@@ -135,7 +137,9 @@ end function JSON_minify
 !> @date 08/12/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSON_failtest(error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSON_failtest
+#endif
 
 IMPLICIT NONE
 
@@ -166,7 +170,9 @@ end subroutine JSON_failtest
 !> @date 08/11/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSON_writeNMLintegers(inp, io_int, intlist, n_int, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSON_writeNMLintegers
+#endif
 
 IMPLICIT NONE
 
@@ -205,7 +211,9 @@ end subroutine JSON_writeNMLintegers
 !> @date 08/11/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSON_writeNMLreals(inp, io_real, reallist, n_real, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSON_writeNMLreals
+#endif
 
 IMPLICIT NONE
 
@@ -244,7 +252,9 @@ end subroutine JSON_writeNMLreals
 !> @date 08/11/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSON_writeNMLdoubles(inp, io_real, reallist, n_real, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSON_writeNMLdoubles
+#endif
 
 IMPLICIT NONE
 
@@ -283,7 +293,9 @@ end subroutine JSON_writeNMLdoubles
 !> @date 08/11/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSON_initpointers(p, inp, jsonname, namelistname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSON_initpointers
+#endif
 
 IMPLICIT NONE
 
@@ -322,7 +334,9 @@ end subroutine JSON_initpointers
 !> @date 08/11/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSON_cleanuppointers(p, inp, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSON_cleanuppointers
+#endif
 
 use io 
 
@@ -373,7 +387,9 @@ end subroutine JSON_cleanuppointers
 !> @date 08/11/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteKosselNameList(knl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteKosselNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -452,7 +468,9 @@ end subroutine JSONwriteKosselNameList
 !> @date 08/11/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteKosselMasterNameList(knl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteKosselMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -525,7 +543,9 @@ end subroutine JSONwriteKosselMasterNameList
 !> @date 08/11/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteMCNameList(mcnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteMCNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -602,7 +622,9 @@ end subroutine JSONwriteMCNameList
 !> @date 10/12/15 SS  1.2 changes to handle new mc program
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteMCCLNameList(mcnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteMCCLNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -698,7 +720,9 @@ end subroutine JSONwriteMCCLNameList
 !> @date 08/11/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteMCCLMultiLayerNameList(mcnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteMCCLMultiLayerNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -782,7 +806,9 @@ end subroutine JSONwriteMCCLMultiLayerNameList
 !> @date 08/12/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteEBSDMasterNameList(emnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteEBSDMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -859,7 +885,9 @@ end subroutine JSONwriteEBSDMasterNameList
 !> @date 12/28/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteEBSDclusterNameList(emnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteEBSDclusterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -922,7 +950,9 @@ end subroutine JSONwriteEBSDclusterNameList
 !> @date 09/15/15 SS  1.1 changes after clean up of ECPmasterListType
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteECPMasterNameList(ecpnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteECPMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1002,7 +1032,9 @@ end subroutine JSONwriteECPMasterNameList
 !> @date 08/12/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteEBSDNameList(enl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteEBSDNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1110,7 +1142,9 @@ end subroutine JSONwriteEBSDNameList
 !> @date 10/15/15 SS  1.2 changes for release
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteECPNameList(ecpnl, jsonname, error_cnt, twolayerflag)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteECPNameList
+#endif
 
 use ISO_C_BINDING
 use error
@@ -1258,7 +1292,9 @@ end subroutine JSONwriteECPNameList
 !> @date 08/12/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteLACBEDNameList(lacbednl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteLACBEDNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1335,7 +1371,9 @@ end subroutine JSONwriteLACBEDNameList
 !> @date 08/12/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteECPpatternNameList(ecpnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteECPpatternNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1401,7 +1439,9 @@ end subroutine JSONwriteECPpatternNameList
 !> @date 08/12/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwritePEDkinNameList(pednl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwritePEDkinNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1474,7 +1514,9 @@ end subroutine JSONwritePEDkinNameList
 !> @date 08/12/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwritePEDZANameList(pednl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwritePEDZANameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1556,7 +1598,9 @@ end subroutine JSONwritePEDZANameList
 !> @date 08/12/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteECCINameList(eccinl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteECCINameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1659,7 +1703,9 @@ end subroutine JSONwriteECCINameList
 !> @date 08/18/15 MDG 1.1 added other rotation representations
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteRFZNameList(rfznl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteRFZNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1734,7 +1780,9 @@ end subroutine JSONwriteRFZNameList
 !> @date 08/12/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONwriteDictIndxOpenCLNameList(dictindxnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONwriteDictIndxOpenCLNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1824,7 +1872,9 @@ end subroutine JSONwriteDictIndxOpenCLNameList
 !> @date 08/12/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadInteger(json, ep, ival, dval)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadInteger
+#endif
 
 use ISO_C_BINDING
 use io
@@ -1866,7 +1916,9 @@ end subroutine JSONreadInteger
 !> @date 08/12/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadIntegerVec(json, ep, ivec, dvec, n)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadIntegerVec
+#endif
 
 use ISO_C_BINDING
 use io
@@ -1912,7 +1964,9 @@ end subroutine JSONreadIntegerVec
 !> @date 08/12/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadReal(json, ep, rval, dval)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadReal
+#endif
 
 use ISO_C_BINDING
 use io
@@ -1957,7 +2011,9 @@ end subroutine JSONreadReal
 !> @date 08/12/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadRealVec(json, ep, rvec, dvec, n)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadRealVec
+#endif
 
 use ISO_C_BINDING
 use io
@@ -2003,7 +2059,9 @@ end subroutine JSONreadRealVec
 !> @date 08/12/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadDouble(json, ep, rval, dval)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadDouble
+#endif
 
 use ISO_C_BINDING
 use io
@@ -2048,7 +2106,9 @@ end subroutine JSONreadDouble
 !> @date 08/12/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadDoubleVec(json, ep, rvec, dvec, n)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadDoubleVec
+#endif
 
 use ISO_C_BINDING
 use io
@@ -2094,7 +2154,9 @@ end subroutine JSONreadDoubleVec
 !> @date 08/12/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadString(json, ep, sval, dval)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadString
+#endif
 
 use ISO_C_BINDING
 use io
@@ -2139,7 +2201,9 @@ end subroutine JSONreadString
 !> @date 08/20/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadLogical(json, ep, sval, dval)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadLogical
+#endif
 
 use ISO_C_BINDING
 use io
@@ -2182,7 +2246,9 @@ end subroutine JSONreadLogical
 !> @date 11/21/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive function JSONgetDouble(child,str,v) result(oval)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONgetDouble
+#endif
 
 use io
 use, intrinsic :: iso_fortran_env, only: wp => real64
@@ -2222,7 +2288,9 @@ end function JSONgetDouble
 !> @date 11/21/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive function JSONgetDoubleVector(child,nc,str,v) result(ovec)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONgetDoubleVector
+#endif
 
 use io
 use, intrinsic :: iso_fortran_env, only: wp => real64
@@ -2266,7 +2334,9 @@ end function JSONgetDoubleVector
 !> @date 11/21/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadFoilData(cell, defects, error_cnt, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadFoilData
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -2445,7 +2515,9 @@ end subroutine JSONreadFoilData
 !> @date 12/08/15 MDG 1.1 added Einclusion defect type
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadDefectFile(cell, jsonname, defects, error_cnt,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadDefectFile
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -2811,7 +2883,9 @@ end subroutine JSONreadDefectFile
 !> @date 08/12/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadKosselNameList(knl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadKosselNameList
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -2901,7 +2975,9 @@ end subroutine JSONreadKosselNameList
 !> @date 08/19/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadKosselMasterNameList(knl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadKosselMasterNameList
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -2987,7 +3063,9 @@ end subroutine JSONreadKosselMasterNameList
 !> @date 08/19/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadreflectorNameList(rnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadreflectorNameList
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -3054,7 +3132,9 @@ end subroutine JSONreadreflectorNameList
 !> @date 08/19/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadMCNameList(mcnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadMCNameList
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -3146,7 +3226,9 @@ end subroutine JSONreadMCNameList
 !> @date 09/09/15  MDG 1.1 added devid
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadMCCLNameList(mcnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadMCCLNameList
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -3249,7 +3331,9 @@ end subroutine JSONreadMCCLNameList
 !> @date 08/19/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadMCCLMultiLayerNameList(mcnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadMCCLMultiLayerNameList
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -3348,7 +3432,9 @@ end subroutine JSONreadMCCLMultiLayerNameList
 !> @date 08/19/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadEBSDMasterNameList(emnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadEBSDMasterNameList
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -3424,7 +3510,9 @@ end subroutine JSONreadEBSDMasterNameList
 !> @date 12/28/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadEBSDclusterNameList(emnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadEBSDclusterNameList
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -3499,7 +3587,9 @@ end subroutine JSONreadEBSDclusterNameList
 !> @date 09/15/15  SS  1.1 changes after clean up of ECPmasterListType
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadECPMasterNameList(ecpnl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadECPMasterNameList
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -3584,7 +3674,9 @@ end subroutine JSONreadECPMasterNameList
 !> @date 08/20/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadEBSDNameList(enl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadEBSDNameList
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers
@@ -3704,7 +3796,9 @@ end subroutine JSONreadEBSDNameList
 !> @date 08/20/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine JSONreadEBSDoverlapNameList(enl, jsonname, error_cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: JSONreadEBSDoverlapNameList
+#endif
 
 use ISO_C_BINDING
 use NameListHandlers

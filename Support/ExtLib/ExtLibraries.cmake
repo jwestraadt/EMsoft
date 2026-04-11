@@ -10,7 +10,7 @@ include(${CMP_SOURCE_DIR}/ExtLib/HDF5Support.cmake)
 # Json-Fortran comes with everything that cmake needs to determine the
 # include directories, libraries and other items. One only needs to put
 # the correct path onto the CMAKE_PREFIX_PATH variable.
-if (Fortran_COMPILER_NAME MATCHES "gfortran.*")
+if (EMsoft_FORTRAN_IS_GNU)
   find_package(jsonfortran-gnu REQUIRED)
   if( NOT jsonfortran-gnu_FOUND)
     message(STATUS "jsonfortran is REQUIRED for this project.")
@@ -19,13 +19,17 @@ if (Fortran_COMPILER_NAME MATCHES "gfortran.*")
   endif()
 endif()
 
-if (Fortran_COMPILER_NAME MATCHES "ifort.*")
+if (EMsoft_FORTRAN_IS_INTEL)
+  set(JSONFORTRAN_PACKAGE_NAME "jsonfortran-intel")
+  if(CMAKE_Fortran_COMPILER_ID STREQUAL "IntelLLVM")
+    set(JSONFORTRAN_PACKAGE_NAME "jsonfortran-intelllvm")
+  endif()
 
   # Find specific IFort libraries.
   include(${CMP_SOURCE_DIR}/ExtLib/IFortSupport.cmake)
   
-  find_package(jsonfortran-intel REQUIRED)
-  if( NOT jsonfortran-intel_FOUND)
+  find_package(${JSONFORTRAN_PACKAGE_NAME} REQUIRED)
+  if( NOT ${JSONFORTRAN_PACKAGE_NAME}_FOUND)
     message(STATUS "jsonfortran is REQUIRED for this project.")
     message(STATUS "jsonfortran source repository is at https://github.com/jacobwilliams/json-fortran")
     message(FATAL_ERROR "Please Download, Build and install. After install export the environment variable JSONFORTRAN_INSTALL to point to the installation location.")
@@ -43,7 +47,7 @@ include_directories(${jsonfortran_INCLUDE_DIRS})
 #------------------------------------------------------------------------------
 # Find the Intel Math Kernel Library (MKL) which has FFT functions
 # On mac systems, we will also need to build up the RPATH
-if (Fortran_COMPILER_NAME MATCHES "ifort.*")
+if (EMsoft_FORTRAN_IS_INTEL)
   # Define the interface layers and link type for MKL
   set(MKL_Link_Type Static)
   set(MKL_Interface_Layer 32)
@@ -69,7 +73,7 @@ endif()
 
 #------------------------------------------------------------------------------
 # Find the GFotran Specific or matched libraries
-if (Fortran_COMPILER_NAME MATCHES "gfortran.*")
+if (EMsoft_FORTRAN_IS_GNU)
   include(${CMP_SOURCE_DIR}/Modules/FindFFTW3.cmake)
 
   set(EMsoft_FORTRAN_SUPPORT_LIBS ${EMsoft_FORTRAN_SUPPORT_LIBS} gcc_eh gomp)

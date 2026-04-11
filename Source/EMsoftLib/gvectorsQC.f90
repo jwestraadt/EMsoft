@@ -101,7 +101,9 @@ contains
 !> @date  03/23/18 SS  4.4 adapted from QCmod.f90
 !--------------------------------------------------------------------------
 recursive subroutine Make2DQCRefList(listroot, rltail, nref)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Make2DQCRefList
+#endif
 
 use error
 
@@ -151,7 +153,9 @@ end subroutine Make2DQCRefList
 !> @date  03/23/18 SS  4.4 adapted from QCmod.f90
 !--------------------------------------------------------------------------
 recursive subroutine Add2DQCReflection(rltail,listroot,QCcell,nref,gg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Add2DQCReflection
+#endif
 
 use error
 
@@ -211,7 +215,9 @@ end subroutine Add2DQCReflection
 !> @date   06/17/14 MDG 1.2 replaced cell by top
 !--------------------------------------------------------------------------
 recursive subroutine Delete_QCgvectorlist(top)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Delete_QCgvectorlist
+#endif
 
 IMPLICIT NONE
 
@@ -244,7 +250,9 @@ end subroutine Delete_QCgvectorlist
 !> @date   05/01/18 SS 1.0 adapted from QCmod.f90
 !--------------------------------------------------------------------------
 recursive subroutine Delete_TDQCgvectorlist(top)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Delete_TDQCgvectorlist
+#endif
 
 IMPLICIT NONE
 
@@ -286,7 +294,9 @@ end subroutine Delete_TDQCgvectorlist
 !> @date  03/15/17 MDG 4.3 copied from gvectors module for QCmod adaptation
 !--------------------------------------------------------------------------
 recursive subroutine Make3DQCRefList(listroot, rltail, nref)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Make3DQCRefList
+#endif
 
 use error
 
@@ -335,7 +345,9 @@ end subroutine Make3DQCRefList
 !> @date  03/15/17 MDG 4.3 copied from gvectors module for QCmod adaptation
 !--------------------------------------------------------------------------
 recursive subroutine Add3DQCReflection(rltail,listroot,QCcell,nref,QCindex,gg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Add3DQCReflection
+#endif
 
 use error
 
@@ -399,7 +411,9 @@ end subroutine Add3DQCReflection
 !> @date  03/23/18 SS 1.1 adapted from QCmod.f90
 !--------------------------------------------------------------------------
 recursive subroutine Initialize_TDQCReflectionList(QCcell, listroot, BetheParameter, FN, k, nref, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_TDQCReflectionList
+#endif
 
 use local
 use typedefs
@@ -508,7 +522,9 @@ end subroutine Initialize_TDQCReflectionList
 !> @date 03/15/17 MDG 1.0 original, based on regular Initialize_ReflectionList
 !--------------------------------------------------------------------------
 recursive subroutine Initialize_QCReflectionList(QCcell, listroot, BetheParameter, FN, k, nref, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_QCReflectionList
+#endif
 
 use local
 use typedefs
@@ -620,7 +636,9 @@ end subroutine Initialize_QCReflectionList
 !> @date  06/17/14 MDG 2.1 added listroot, listrootw, nns, nnw arguments
 !--------------------------------------------------------------------------
 recursive subroutine QC_Apply_BethePotentials(QCcell, listroot, listrootw, BetheParameter, nref, nns, nnw)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_Apply_BethePotentials
+#endif
 
 use io
 use diffraction
@@ -761,7 +779,9 @@ end subroutine QC_Apply_BethePotentials
 !> @date  03/23/18 SS  2.2 adapted from QCmod.f90
 !--------------------------------------------------------------------------
 recursive subroutine TDQC_Apply_BethePotentials(QCcell, listroot, listrootw, BetheParameter, nref, nns, nnw)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TDQC_Apply_BethePotentials
+#endif
 
 use io
 use diffraction

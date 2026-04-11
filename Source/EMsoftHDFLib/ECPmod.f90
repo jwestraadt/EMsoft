@@ -116,7 +116,9 @@ contains
 !>                         not supported anymore
 !--------------------------------------------------------------------------
 recursive subroutine ECPreadMCfile(enl,acc,efile,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPreadMCfile
+#endif
 
 use NameListTypedefs
 use files
@@ -314,7 +316,9 @@ end subroutine ECPreadMCfile
 !>                         not supported anymore
 !--------------------------------------------------------------------------
 recursive subroutine ECPSinglereadMCfile(enl,acc,efile,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPSinglereadMCfile
+#endif
 
 use NameListTypedefs
 use files
@@ -513,7 +517,9 @@ end subroutine ECPSinglereadMCfile
 !> @date 09/15/15  SS  4.0 modified for ECP master program
 !--------------------------------------------------------------------------
 recursive subroutine ECPreadMasterfile(enl, master, mfile, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPreadMasterfile
+#endif
 
 use NameListTypedefs
 use files
@@ -664,7 +670,9 @@ end subroutine ECPreadMasterfile
 !> @date 11/02/15  SS 1.1 changed output image to be ecpnl%npix x ecpnl%npix instead of 2*ecpnl%npix+1
 !--------------------------------------------------------------------------
 recursive subroutine GetVectorsCone(ecpnl, klist, numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetVectorsCone
+#endif
 
 use local
 use io
@@ -732,7 +740,9 @@ end subroutine GetVectorsCone
 !> @date 04/06/16  SS 1.2 modified for single ECP pattern calculation
 !--------------------------------------------------------------------------
 recursive subroutine GetVectorsConeSingle(ecpnl, klist, numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetVectorsConeSingle
+#endif
 
 use local
 use io
@@ -801,7 +811,9 @@ end subroutine GetVectorsConeSingle
 !> @date 01/25/17 MDG 1.3 copied from GetVectorsConeSingle for one axis case modification
 !--------------------------------------------------------------------------
 recursive subroutine GetVectorsConeZA(ecpnl, klist, numk, theta)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetVectorsConeZA
+#endif
 
 use local
 use io
@@ -866,7 +878,9 @@ end subroutine GetVectorsConeZA
 !> @date 10/12/15  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine ECPreadangles(enl,angles,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPreadangles
+#endif
 
 use NameListTypedefs
 use io
@@ -983,7 +997,9 @@ end subroutine ECPreadangles
 !> @date 10/27/15  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine ECPGenerateDetector(ecpnl, master, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPGenerateDetector
+#endif
 
 use NameListTypedefs
 use io
@@ -1085,7 +1101,9 @@ end subroutine ECPGenerateDetector
 !> @date 10/27/15  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine ECPGetWeightFactors(ecpnl, master, acc, weightfact, nsig, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPGetWeightFactors
+#endif
 
 use NameListTypedefs
 use io
@@ -1178,7 +1196,9 @@ end subroutine ECPGetWeightFactors
 !> @date 01/26/16  SS  3.2 adjusted for ECPIndexing program
 !--------------------------------------------------------------------------
 recursive subroutine ECPIndexingreadMCfile(enl,acc,efile,verbose,NoHDFInterfaceOpen)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPIndexingreadMCfile
+#endif
 
 use NameListTypedefs
 use files
@@ -1377,7 +1397,9 @@ end subroutine ECPIndexingreadMCfile
 !> @date 01/16/16  SS  4.1 adjusted for ECPIndexing program
 !--------------------------------------------------------------------------
 recursive subroutine ECPIndexingreadMasterfile(enl, master, mfile, verbose, NoHDFInterfaceOpen)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPIndexingreadMasterfile
+#endif
 
 use NameListTypedefs
 use files
@@ -1542,7 +1564,9 @@ end subroutine ECPIndexingreadMasterfile
 !> @date 01/26/16  SS 1.2 adjusted for ECPIndexing program
 !--------------------------------------------------------------------------
 recursive subroutine GetVectorsConeIndexing(ecpnl, klist, numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetVectorsConeIndexing
+#endif
 
 use local
 use io
@@ -1608,7 +1632,9 @@ end subroutine GetVectorsConeIndexing
 !> @date 01/26/16  SS 1.1 adjusted for ECPIndexing
 !--------------------------------------------------------------------------
 recursive subroutine ECPIndexingGenerateDetector(ecpnl, master, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPIndexingGenerateDetector
+#endif
 
 use NameListTypedefs
 use io
@@ -1711,7 +1737,9 @@ end subroutine ECPIndexingGenerateDetector
 !> @date 01/26/16  SS 1.1 adjusted for ECPIndexing
 !--------------------------------------------------------------------------
 recursive subroutine ECPIndexingGetWeightFactors(ecpnl, master, acc, weightfact, nsig, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPIndexingGetWeightFactors
+#endif
 
 use NameListTypedefs
 use io
@@ -1799,7 +1827,9 @@ end subroutine ECPIndexingGetWeightFactors
 !--------------------------------------------------------------------------
 recursive function GetPointGroup(xtalname,NoHDFInterfaceOpen,sgnumber) result(pgnum) &
 bind(c, name = 'GetPointGroup')
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetPointGroup
+#endif
 
 ! use typedefs
 use error
@@ -1913,7 +1943,9 @@ end function GetPointGroup
 !> @date 11/22/16  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine ECPkinematicreadMasterfile(enl, master, mfile, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPkinematicreadMasterfile
+#endif
 
 use NameListTypedefs
 use files
@@ -2051,7 +2083,9 @@ end subroutine ECPkinematicreadMasterfile
 !> @date 03/17/17 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CalcECPatternSingleFull(ipar,qu,accum,mLPNH,mLPSH,rgx,rgy,rgz,binned,mask)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcECPatternSingleFull
+#endif
 
 use local
 use typedefs
@@ -2149,7 +2183,9 @@ recursive subroutine readECPDotProductFile(dpfile, ecpnl, hdferr, ECPDIdata, get
                                            getEulerAngles, getFit, getIQ, getKAM, getOSM, getPhase, getPhi1, &
                                            getPhi, getPhi2, getSEMsignal, getTopDotProductList, getTopMatchIndices, &
                                            getValid, getXPosition, getYPosition, getRefinedDotProducts, getRefinedEulerAngles)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: readECPDotProductFile
+#endif
 
 use local
 use typedefs

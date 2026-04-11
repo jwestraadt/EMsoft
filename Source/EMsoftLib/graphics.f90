@@ -74,7 +74,9 @@ contains
 !> @date   06/0914  MDG 3.0 added cell argument
 !--------------------------------------------------------------------------
 recursive subroutine ProjectionMatrix(cell,iview,M)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ProjectionMatrix
+#endif
 
 use crystal
 
@@ -137,7 +139,9 @@ end subroutine
 !> @date   06/09/14 MDG 4.0 added hexset argument
 !--------------------------------------------------------------------------
 recursive subroutine GetViewingDirection(hexset,iview)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetViewingDirection
+#endif
 
 use crystal
 use postscript
@@ -180,7 +184,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 modified IO 
 !--------------------------------------------------------------------------
 recursive subroutine GetDrawingSpace(sp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetDrawingSpace
+#endif
 
 use io
 
@@ -218,7 +224,9 @@ end subroutine
 !> @date   06/09/14 MDG 4.0 added PS and cell arguments
 !--------------------------------------------------------------------------
 recursive subroutine StereoProj(PS,cell,sp,iview,hm,km,lm,topbot)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: StereoProj
+#endif
 
 use crystal
 use symmetry
@@ -345,7 +353,9 @@ end subroutine
 !> @date   06/09/14 MDG 4.0 added cell argument 
 !--------------------------------------------------------------------------
 recursive subroutine ComputeViewTrans(cell,iview,M,VD)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ComputeViewTrans
+#endif
 
 use crystal
 
@@ -427,7 +437,9 @@ end subroutine
 !> @date   06/09/14 MDG 4.0 made AXO and PS as arguments instead of globals
 !--------------------------------------------------------------------------
 recursive subroutine initparameterset(AXO)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: initparameterset
+#endif
 
 use postscript
 
@@ -447,7 +459,9 @@ type(axonotype),INTENT(INOUT)	:: AXO
 end subroutine
 ! ###################################################################
 recursive subroutine setmenu(AXO,what)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: setmenu
+#endif
 use postscript
 
 IMPLICIT NONE
@@ -520,7 +534,9 @@ end subroutine
 ! ###################################################################
 
 recursive subroutine drawing(AXO,PS,AX,progdesc,imanum,zz,inten,nx,ny,dmode,axname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: drawing
+#endif
 
 use postscript
 use constants
@@ -783,7 +799,9 @@ real(kind=sgl)      :: alfa,v1,v2,w1,w2,w3,n(3),e(3),l(3),h(3),pointx,pointy,xr,
 end subroutine drawing
 ! ###################################################################
 recursive subroutine initframe(AX,mode,db)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: initframe
+#endif
  
 use postscript
 
@@ -822,7 +840,9 @@ end subroutine
 
 ! ###################################################################
 recursive subroutine axonometry(AXO,PS,AX,progdesc,imanum,zz,nx,ny,g,axname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: axonometry
+#endif
 use postscript
 use io
 
@@ -986,7 +1006,9 @@ end subroutine
 !-------------------------------------------------------------------------
 !  ******************************************************************************
 integer recursive function stringl(t)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: stringl
+#endif
 
 IMPLICIT NONE
 
@@ -1001,7 +1023,9 @@ integer(kind=irg) :: i
 end function
 !  *****************************************************************************
 real recursive function power(n)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: power
+#endif
 !  raises 10 to the power n
 !  this seems silly, but for negative powers this is a simple way to do it
 
@@ -1021,7 +1045,9 @@ integer(kind=irg)    :: n
 end function
 !  ******************************************************************************
 integer recursive function omag(x)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: omag
+#endif
 !    determines the order of magnitude of a real value x
 !    
 !                    n-1                n
@@ -1059,7 +1085,9 @@ real(kind=sgl)      :: x,magn,y
 end function
 !  ******************************************************************************
 real recursive function limit(l,n,hilo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: limit
+#endif
 
 IMPLICIT NONE
 
@@ -1089,7 +1117,9 @@ intent(INOUT)     :: l
 end function
 !  ******************************************************************************
 recursive subroutine border(mode,xmin,xmax,n)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: border
+#endif
 !    
 !     border determines the world coordinates of the upper and
 !                                 n
@@ -1185,7 +1215,9 @@ character(3)                  :: mode
 end subroutine
 !  ******************************************************************************
 recursive subroutine setticks(cp,d,low,high,ts,cs,cw,ch,sh,ich,typ,sx,sy)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: setticks
+#endif
 
 use postscript
 
@@ -1284,7 +1316,9 @@ real(kind=sgl),parameter      :: logtick(9) = (/0.000000000,0.301029996,0.477121
 end subroutine
 !  ******************************************************************************)
 recursive subroutine setexponent(n,s)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: setexponent
+#endif
 
 use postscript
 
@@ -1325,7 +1359,9 @@ intent(IN)              :: n,s
 end subroutine
 !  ******************************************************************************
 real recursive function determinestep(m,range)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: determinestep
+#endif
 
 IMPLICIT NONE
 
@@ -1350,7 +1386,9 @@ real(kind=sgl),parameter  :: x(4) = (/2.0,3.0,6.0,15.0/), y(4) = (/0.4,0.5,1.0,2
 end function
 !  ******************************************************************************
 integer recursive function getshift(low,high,m)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getshift
+#endif
 ! 
 !     determines the maximum length of the numbering at an axis
 !     
@@ -1390,7 +1428,9 @@ character(3)      :: m
 end function 
 !  ******************************************************************************)
 recursive subroutine drawborder(low,high,n,s,m)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: drawborder
+#endif
 
 use postscript
 
@@ -1495,7 +1535,9 @@ character(4)            :: settick
 end subroutine
 !  ******************************************************************************
 recursive subroutine drawfigure(xmin,xmax,ymin,ymax,pmode,mark,points,xmode,ymode,xvec,yvec)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: drawfigure
+#endif
 
 use postscript
  
@@ -1566,7 +1608,9 @@ end subroutine
 !  ******************************************************************************
 recursive subroutine axis(AX,points,xvec,yvec,xmin,xmax,ymin,ymax,xautorange,yautorange, &
                 xmode,ymode,pmode,mark,scalex,scaley,overplot,db,title,xtitle,ytitle)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: axis
+#endif
 
 use postscript
 
@@ -1720,7 +1764,9 @@ contains
 
 !---------------------------------------------
 recursive subroutine make_node(i,j,nd)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: make_node
+#endif
 
 IMPLICIT NONE
 
@@ -1738,7 +1784,9 @@ end subroutine make_node
 
 !---------------------------------------------
 recursive subroutine make_central_node(i,j,nd)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: make_central_node
+#endif
 
 IMPLICIT NONE
 
@@ -1755,7 +1803,9 @@ end subroutine make_central_node
 
 !---------------------------------------------
 recursive subroutine make_triangle(n1,n2,n3,t)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: make_triangle
+#endif
 
 IMPLICIT NONE
 
@@ -1782,7 +1832,9 @@ end subroutine make_triangle
 
 !---------------------------------------------
 recursive subroutine make_vector(n1,n2,t1,t2)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: make_vector
+#endif
 
 IMPLICIT NONE
 
@@ -1833,7 +1885,9 @@ end subroutine
 !---------------------------------------------
 
 recursive subroutine plot_line(t,v)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: plot_line
+#endif
 
 use postscript 
 
@@ -1865,7 +1919,9 @@ end subroutine
 
 !---------------------------------------------
 recursive subroutine plot_contour
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: plot_contour
+#endif
 
 use postscript 
 
@@ -1929,7 +1985,9 @@ end subroutine
 !---------------------------------------------
 
 recursive subroutine contour
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: contour                      
+#endif
 !                                              
 ! definition of vectors, nodes and triangles
 !                                              

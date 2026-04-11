@@ -58,7 +58,9 @@ contains
 !> @date 07/30/19  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function getXRDwavenumber(kV) result(wavenumber)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getXRDwavenumber
+#endif
 
 IMPLICIT NONE
 

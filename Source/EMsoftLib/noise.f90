@@ -48,7 +48,9 @@ IMPLICIT NONE
 contains
 
 recursive function alogam ( x, ifault )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: alogam
+#endif
 ! this function can be used to compute the volume of a super ellipsoid. 
 
 !*****************************************************************************80
@@ -135,7 +137,9 @@ recursive function alogam ( x, ifault )
 end function alogam
 !*****************************************************************************
 real(kind=sgl) FUNCTION ran(idum)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ran
+#endif
 !
 ! copied from Numerical Recipes
 !
@@ -143,12 +147,12 @@ real(kind=sgl) FUNCTION ran(idum)
  INTEGER, PARAMETER :: K4B=selected_int_kind(9)
  INTEGER(K4B), INTENT(INOUT) :: idum
 !f2py intent(in,out) ::  idum
-! “Minimal” random number generator of Park and Miller combined with a Marsaglia shift sequence. 
+! ???Minimal??? random number generator of Park and Miller combined with a Marsaglia shift sequence. 
 ! Returns a uniform random deviate between 0.0 and 1.0 (exclusive of the endpoint values). 
-! This fully portable, scalar generator has the “traditional” (not Fortran 90) calling 
+! This fully portable, scalar generator has the ???traditional??? (not Fortran 90) calling 
 ! sequence with a random deviate as the returned function value: call with idum a negative 
 ! integer to initialize; thereafter, do not alter idum except to reinitialize. The period 
-! of this generator is about 3.1 × 10^18.
+! of this generator is about 3.1 ?? 10^18.
  INTEGER(K4B), PARAMETER :: IA=16807,IM=2147483647,IQ=127773,IR=2836
  REAL, SAVE :: am
  INTEGER(K4B), SAVE :: ix=-1,iy=-1,k
@@ -168,7 +172,9 @@ real(kind=sgl) FUNCTION ran(idum)
 END FUNCTION ran
 !*****************************************************************************
 real(kind=sgl) FUNCTION POIDEV(XM,IDUM)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: POIDEV
+#endif
 ! 
 ! this is essentially the poidev routine from Numerical Recipes,
 ! but converted to Fortran-90

@@ -67,7 +67,9 @@ contains
 !--------------------------------------------------------------------------
 recursive subroutine Initialize_Cell(cell,Dyn,rlp,xtalname, dmin, voltage, &
                                      verbose, existingHDFhead, nthreads, initLUT, noLUT, interpolate)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_Cell
+#endif
 
 use local
 use typedefs
@@ -323,7 +325,9 @@ end subroutine Initialize_Cell
 !--------------------------------------------------------------------------
 recursive subroutine Initialize_Multicell(cell,Dyn,rlp,xtalname, dmin, voltage,  &
                                      numatoms,numsites, occupancy, dwfs, verbose, existingHDFhead, initLUT, interpolate)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_Multicell
+#endif
 
 use local
 use typedefs

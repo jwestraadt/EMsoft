@@ -68,7 +68,9 @@ contains
 !> @date 12/01/15 MDG 2.1 simplification of input parameters
 !--------------------------------------------------------------------------
 recursive subroutine Calckvectorcone(cell,khead,k,ga,ktxy,ktrad,ktstep,numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Calckvectorcone
+#endif
 
 use io
 use error
@@ -200,7 +202,9 @@ end subroutine Calckvectorcone
 !> @date 12/01/15 MDG 1.1 simplifcation of input variables
 !--------------------------------------------------------------------------
 recursive subroutine Calckvectortrace(cell,khead,k,ga,ktxy,ktxy2,ktrad,ktstep,numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Calckvectortrace
+#endif
 
 use io
 use error
@@ -288,7 +292,9 @@ end subroutine Calckvectortrace
 !> @date 10/22/14  MDG 1.2 corrected definition of Sgh and simplified loops; resolves issue #3
 !--------------------------------------------------------------------------
 recursive subroutine ECCICalcSgh(cell,nn,Sgh,nat)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECCICalcSgh
+#endif
 
 use local
 use crystal
@@ -422,7 +428,9 @@ end subroutine ECCICalcSgh
 !C
 !C***********************************************************************
 RECURSIVE LOGICAL FUNCTION NANCHK(X)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: NANCHK
+#endif
 
 IMPLICIT NONE
 REAL,INTENT(IN)      :: X

@@ -1,5 +1,7 @@
 subroutine bakvec ( n, t, e, m, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: bakvec 
+#endif
 
 !*****************************************************************************80
 !
@@ -111,7 +113,9 @@ subroutine bakvec ( n, t, e, m, z, ierr )
   return
 end
 subroutine balanc ( n, a, low, igh, scale )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: balanc 
+#endif
 
 !*****************************************************************************80
 !
@@ -367,7 +371,9 @@ subroutine balanc ( n, a, low, igh, scale )
   return
 end
 subroutine balbak ( n, low, igh, scale, m, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: balbak 
+#endif
 
 !*****************************************************************************80
 !
@@ -481,7 +487,9 @@ subroutine balbak ( n, low, igh, scale, m, z )
   return
 end
 subroutine bandr ( n, mb, a, d, e, e2, matz, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: bandr 
+#endif
 
 !*****************************************************************************80
 !
@@ -836,7 +844,9 @@ subroutine bandr ( n, mb, a, d, e, e2, matz, z )
   return
 end
 subroutine bandv ( n, mbw, a, e21, m, w, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: bandv 
+#endif
 
 !*****************************************************************************80
 !
@@ -1296,7 +1306,9 @@ subroutine bandv ( n, mbw, a, e21, m, w, z, ierr )
   return
 end
 subroutine bisect ( n, eps1, d, e, e2, lb, ub, mm, m, w, ind, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: bisect 
+#endif
 
 !*****************************************************************************80
 !
@@ -1698,7 +1710,9 @@ subroutine bisect ( n, eps1, d, e, e2, lb, ub, mm, m, w, ind, ierr )
   return
 end
 subroutine bqr ( n, mb, a, t, r, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: bqr 
+#endif
 
 !*****************************************************************************80
 !
@@ -2077,7 +2091,9 @@ subroutine bqr ( n, mb, a, t, r, ierr )
   return
 end
 subroutine cbabk2 ( n, low, igh, scale, m, zr, zi )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cbabk2 
+#endif
 
 !*****************************************************************************80
 !
@@ -2196,7 +2212,9 @@ subroutine cbabk2 ( n, low, igh, scale, m, zr, zi )
   return
 end
 subroutine cbal ( n, ar, ai, low, igh, scale )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cbal 
+#endif
 
 !*****************************************************************************80
 !
@@ -2450,7 +2468,9 @@ subroutine cbal ( n, ar, ai, low, igh, scale )
   return
 end
 subroutine cdiv ( ar, ai, br, bi, cr, ci )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cdiv 
+#endif
 
 !*****************************************************************************80
 !
@@ -2529,7 +2549,9 @@ subroutine cdiv ( ar, ai, br, bi, cr, ci )
   return
 end
 subroutine cg ( n, ar, ai, wr, wi, matz, zr, zi, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cg 
+#endif
 
 !*****************************************************************************80
 !
@@ -2640,7 +2662,9 @@ subroutine cg ( n, ar, ai, wr, wi, matz, zr, zi, ierr )
   return
 end
 subroutine ch ( n, ar, ai, w, matz, zr, zi, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ch 
+#endif
 
 !*****************************************************************************80
 !
@@ -2745,7 +2769,9 @@ subroutine ch ( n, ar, ai, w, matz, zr, zi, ierr )
   return
 end
 subroutine cinvit ( n, ar, ai, wr, wi, select, mm, m, zr, zi, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cinvit 
+#endif
 
 !*****************************************************************************80
 !
@@ -3101,7 +3127,9 @@ subroutine cinvit ( n, ar, ai, wr, wi, select, mm, m, zr, zi, ierr )
   return
 end
 subroutine combak ( n, low, igh, ar, ai, int, m, zr, zi )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: combak 
+#endif
 
 !*****************************************************************************80
 !
@@ -3225,7 +3253,9 @@ subroutine combak ( n, low, igh, ar, ai, int, m, zr, zi )
   return
 end
 subroutine comhes ( n, low, igh, ar, ai, int )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: comhes 
+#endif
 
 !*****************************************************************************80
 !
@@ -3372,7 +3402,9 @@ subroutine comhes ( n, low, igh, ar, ai, int )
   return
 end
 subroutine comlr ( n, low, igh, hr, hi, wr, wi, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: comlr 
+#endif
 
 !*****************************************************************************80
 !
@@ -3664,7 +3696,9 @@ subroutine comlr ( n, low, igh, hr, hi, wr, wi, ierr )
   go to 220
 end
 subroutine comlr2 ( n, low, igh, int, hr, hi, wr, wi, zr, zi, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: comlr2 
+#endif
 
 !*****************************************************************************80
 !
@@ -4160,7 +4194,9 @@ subroutine comlr2 ( n, low, igh, int, hr, hi, wr, wi, zr, zi, ierr )
   return
 end
 subroutine comqr ( n, low, igh, hr, hi, wr, wi, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: comqr 
+#endif
 
 !*****************************************************************************80
 !
@@ -4477,7 +4513,9 @@ subroutine comqr ( n, low, igh, hr, hi, wr, wi, ierr )
   return
 end
 subroutine comqr2 ( n, low, igh, ortr, orti, hr, hi, wr, wi, zr, zi, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: comqr2 
+#endif
 
 !*****************************************************************************80
 !
@@ -5038,7 +5076,9 @@ subroutine comqr2 ( n, low, igh, ortr, orti, hr, hi, wr, wi, zr, zi, ierr )
   return
 end
 subroutine cortb ( n, low, igh, ar, ai, ortr, orti, m, zr, zi )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cortb 
+#endif
 
 !*****************************************************************************80
 !
@@ -5168,7 +5208,9 @@ subroutine cortb ( n, low, igh, ar, ai, ortr, orti, m, zr, zi )
   return
 end
 subroutine corth ( n, low, igh, ar, ai, ortr, orti )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: corth 
+#endif
 
 !*****************************************************************************80
 !
@@ -5348,7 +5390,9 @@ subroutine corth ( n, low, igh, ar, ai, ortr, orti )
   return
 end
 subroutine csroot ( xr, xi, yr, yi )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: csroot 
+#endif
 
 !*****************************************************************************80
 !
@@ -5427,7 +5471,9 @@ subroutine csroot ( xr, xi, yr, yi )
   return
 end
 subroutine elmbak ( n, low, igh, a, ind, m, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: elmbak 
+#endif
 
 !*****************************************************************************80
 !
@@ -5547,7 +5593,9 @@ subroutine elmbak ( n, low, igh, a, ind, m, z )
   return
 end
 subroutine elmhes ( n, low, igh, a, ind )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: elmhes 
+#endif
 
 !*****************************************************************************80
 !
@@ -5683,7 +5731,9 @@ subroutine elmhes ( n, low, igh, a, ind )
   return
 end
 subroutine eltran ( n, low, igh, a, ind, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: eltran 
+#endif
 
 !*****************************************************************************80
 !
@@ -5800,7 +5850,9 @@ subroutine eltran ( n, low, igh, a, ind, z )
   return
 end
 subroutine figi ( n, t, d, e, e2, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: figi 
+#endif
 
 !*****************************************************************************80
 !
@@ -5918,7 +5970,9 @@ subroutine figi ( n, t, d, e, e2, ierr )
   return
 end
 subroutine figi2 ( n, t, d, e, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: figi2 
+#endif
 
 !*****************************************************************************80
 !
@@ -6043,7 +6097,9 @@ subroutine figi2 ( n, t, d, e, z, ierr )
   return
 end
 subroutine hqr ( n, low, igh, h, wr, wi, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: hqr 
+#endif
 
 !*****************************************************************************80
 !
@@ -6419,7 +6475,9 @@ subroutine hqr ( n, low, igh, h, wr, wi, ierr )
   go to 60
 end
 subroutine hqr2 ( n, low, igh, h, wr, wi, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: hqr2 
+#endif
 
 !*****************************************************************************80
 !
@@ -7100,7 +7158,9 @@ subroutine hqr2 ( n, low, igh, h, wr, wi, z, ierr )
   return
 end
 subroutine htrib3 ( n, a, tau, m, zr, zi )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: htrib3 
+#endif
 
 !*****************************************************************************80
 !
@@ -7224,7 +7284,9 @@ subroutine htrib3 ( n, a, tau, m, zr, zi )
   return
 end
 subroutine htribk ( n, ar, ai, tau, m, zr, zi )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: htribk 
+#endif
 
 !*****************************************************************************80
 !
@@ -7349,7 +7411,9 @@ subroutine htribk ( n, ar, ai, tau, m, zr, zi )
   return
 end
 subroutine htrid3 ( n, a, d, e, e2, tau )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: htrid3 
+#endif
 
 !*****************************************************************************80
 !
@@ -7568,7 +7632,9 @@ subroutine htrid3 ( n, a, d, e, e2, tau )
   return
 end
 subroutine htridi ( n, ar, ai, d, e, e2, tau )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: htridi 
+#endif
 
 !*****************************************************************************80
 !
@@ -7786,7 +7852,9 @@ subroutine htridi ( n, ar, ai, d, e, e2, tau )
   return
 end
 subroutine imtql1 ( n, d, e, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: imtql1 
+#endif
 
 !*****************************************************************************80
 !
@@ -7980,7 +8048,9 @@ subroutine imtql1 ( n, d, e, ierr )
   return
 end
 subroutine imtql2 ( n, d, e, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: imtql2 
+#endif
 
 !*****************************************************************************80
 !
@@ -8205,7 +8275,9 @@ subroutine imtql2 ( n, d, e, z, ierr )
   return
 end
 subroutine imtqlv ( n, d, e, e2, w, ind, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: imtqlv 
+#endif
 
 !*****************************************************************************80
 !
@@ -8429,7 +8501,9 @@ subroutine imtqlv ( n, d, e, e2, w, ind, ierr )
   return
 end
 subroutine invit ( n, a, wr, wi, select, mm, m, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: invit 
+#endif
 
 !*****************************************************************************80
 !
@@ -8994,7 +9068,9 @@ subroutine invit ( n, a, wr, wi, select, mm, m, z, ierr )
   return
 end
 subroutine minfit ( nm, m, n, a, w, ip, b, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: minfit 
+#endif
 
 !*****************************************************************************80
 !
@@ -9397,7 +9473,9 @@ subroutine minfit ( nm, m, n, a, w, ip, b, ierr )
   return
 end
 subroutine ortbak ( n, low, igh, a, ort, m, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ortbak 
+#endif
 
 !*****************************************************************************80
 !
@@ -9506,7 +9584,9 @@ subroutine ortbak ( n, low, igh, a, ort, m, z )
   return
 end
 subroutine orthes ( n, low, igh, a, ort )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: orthes 
+#endif
 
 !*****************************************************************************80
 !
@@ -9645,7 +9725,9 @@ subroutine orthes ( n, low, igh, a, ort )
   return
 end
 subroutine ortran ( n, low, igh, a, ort, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ortran 
+#endif
 
 !*****************************************************************************80
 !
@@ -9761,7 +9843,9 @@ subroutine ortran ( n, low, igh, a, ort, z )
   return
 end
 function pythag ( a, b )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: pythag 
+#endif
 
 !*****************************************************************************80
 !
@@ -9857,7 +9941,9 @@ function pythag ( a, b )
   return
 end
 subroutine qzhes ( n, a, b, matz, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: qzhes 
+#endif
 
 !*****************************************************************************80
 !
@@ -10096,7 +10182,9 @@ subroutine qzhes ( n, a, b, matz, z )
   return
 end
 subroutine qzit ( n, a, b, eps1, matz, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: qzit 
+#endif
 
 !*****************************************************************************80
 !
@@ -10651,7 +10739,9 @@ subroutine qzit ( n, a, b, eps1, matz, z, ierr )
   return
 end
 subroutine qzval ( n, a, b, alfr, alfi, beta, matz, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: qzval 
+#endif
 
 !*****************************************************************************80
 !
@@ -11079,7 +11169,9 @@ subroutine qzval ( n, a, b, alfr, alfi, beta, matz, z )
   return
 end
 subroutine qzvec ( n, a, b, alfr, alfi, beta, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: qzvec 
+#endif
 
 !*****************************************************************************80
 !
@@ -11477,7 +11569,9 @@ subroutine qzvec ( n, a, b, alfr, alfi, beta, z )
   return
 end
 subroutine r8_swap ( x, y )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8_swap 
+#endif
 
 !*****************************************************************************80
 !
@@ -11513,7 +11607,9 @@ subroutine r8_swap ( x, y )
   return
 end
 subroutine r8mat_print ( m, n, a, title )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8mat_print 
+#endif
 
 !*****************************************************************************80
 !
@@ -11558,7 +11654,9 @@ subroutine r8mat_print ( m, n, a, title )
   return
 end
 subroutine r8mat_print_some ( m, n, a, ilo, jlo, ihi, jhi, title )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8mat_print_some 
+#endif
 
 !*****************************************************************************80
 !
@@ -11662,7 +11760,9 @@ subroutine r8mat_print_some ( m, n, a, ilo, jlo, ihi, jhi, title )
   return
 end
 subroutine r8vec_print ( n, a, title )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8vec_print 
+#endif
 
 !*****************************************************************************80
 !
@@ -11706,7 +11806,9 @@ subroutine r8vec_print ( n, a, title )
   return
 end
 subroutine r8vec2_print ( n, a1, a2, title )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8vec2_print 
+#endif
 
 !*****************************************************************************80
 !
@@ -11765,7 +11867,9 @@ subroutine r8vec2_print ( n, a1, a2, title )
   return
 end
 subroutine ratqr ( n, eps1, d, e, e2, m, w, ind, bd, type, idef, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ratqr 
+#endif
 
 !*****************************************************************************80
 !
@@ -12088,7 +12192,9 @@ subroutine ratqr ( n, eps1, d, e, e2, m, w, ind, bd, type, idef, ierr )
   return
 end
 subroutine rebak ( n, b, dl, m, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rebak 
+#endif
 
 !*****************************************************************************80
 !
@@ -12167,7 +12273,9 @@ subroutine rebak ( n, b, dl, m, z )
   return
 end
 subroutine rebakb ( n, b, dl, m, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rebakb 
+#endif
 
 !*****************************************************************************80
 !
@@ -12250,7 +12358,9 @@ subroutine rebakb ( n, b, dl, m, z )
   return
 end
 subroutine reduc ( n, a, b, dl, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: reduc 
+#endif
 
 !*****************************************************************************80
 !
@@ -12415,7 +12525,9 @@ subroutine reduc ( n, a, b, dl, ierr )
   return
 end
 subroutine reduc2 ( n, a, b, dl, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: reduc2 
+#endif
 
 !*****************************************************************************80
 !
@@ -12583,7 +12695,9 @@ subroutine reduc2 ( n, a, b, dl, ierr )
   return
 end
 subroutine rg ( n, a, wr, wi, matz, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rg 
+#endif
 
 !*****************************************************************************80
 !
@@ -12695,7 +12809,9 @@ subroutine rg ( n, a, wr, wi, matz, z, ierr )
   return
 end
 subroutine rgg ( n, a, b, alfr, alfi, beta, matz, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rgg 
+#endif
 
 !*****************************************************************************80
 !
@@ -12810,7 +12926,9 @@ subroutine rgg ( n, a, b, alfr, alfi, beta, matz, z, ierr )
   return
 end
 subroutine rs ( n, a, w, matz, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rs 
+#endif
 
 !*****************************************************************************80
 !
@@ -12900,7 +13018,9 @@ subroutine rs ( n, a, w, matz, z, ierr )
   return
 end
 subroutine rsb ( n, mb, a, w, matz, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rsb 
+#endif
 
 !*****************************************************************************80
 !
@@ -13015,7 +13135,9 @@ subroutine rsb ( n, mb, a, w, matz, z, ierr )
   return
 end
 subroutine rsg ( n, a, b, w, matz, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rsg 
+#endif
 
 !*****************************************************************************80
 !
@@ -13137,7 +13259,9 @@ subroutine rsg ( n, a, b, w, matz, z, ierr )
   return
 end
 subroutine rsgab ( n, a, b, w, matz, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rsgab 
+#endif
 
 !*****************************************************************************80
 !
@@ -13242,7 +13366,9 @@ subroutine rsgab ( n, a, b, w, matz, z, ierr )
   return
 end
 subroutine rsgba ( n, a, b, w, matz, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rsgba 
+#endif
 
 !*****************************************************************************80
 !
@@ -13349,7 +13475,9 @@ subroutine rsgba ( n, a, b, w, matz, z, ierr )
   return
 end
 subroutine rsm ( n, a, w, m, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rsm 
+#endif
 
 !*****************************************************************************80
 !
@@ -13455,7 +13583,9 @@ subroutine rsm ( n, a, w, m, z, ierr )
   return
 end
 subroutine rsp ( n, nv, a, w, matz, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rsp 
+#endif
 
 !*****************************************************************************80
 !
@@ -13576,7 +13706,9 @@ subroutine rsp ( n, nv, a, w, matz, z, ierr )
   return
 end
 subroutine rspp ( n, nv, a, w, matz, z, ierr, m, type )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rspp 
+#endif
 
 !*****************************************************************************80
 !
@@ -13719,7 +13851,9 @@ subroutine rspp ( n, nv, a, w, matz, z, ierr, m, type )
   return
 end
 subroutine rst ( n, w, e, matz, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rst 
+#endif
 
 !*****************************************************************************80
 !
@@ -13827,7 +13961,9 @@ subroutine rst ( n, w, e, matz, z, ierr )
   return
 end
 subroutine rt ( n, a, w, matz, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rt 
+#endif
 
 !*****************************************************************************80
 !
@@ -13948,7 +14084,9 @@ subroutine rt ( n, a, w, matz, z, ierr )
   return
 end
 subroutine svd ( m, n, a, w, matu, u, matv, v, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: svd 
+#endif
 
 !*****************************************************************************80
 !
@@ -14407,7 +14545,9 @@ subroutine svd ( m, n, a, w, matu, u, matv, v, ierr )
   return
 end
 subroutine timestamp ( )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: timestamp 
+#endif
 
 !*****************************************************************************80
 !
@@ -14489,7 +14629,9 @@ subroutine timestamp ( )
   return
 end
 subroutine tinvit ( n, d, e, e2, m, w, ind, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tinvit 
+#endif
 
 !*****************************************************************************80
 !
@@ -14853,7 +14995,9 @@ subroutine tinvit ( n, d, e, e2, m, w, ind, z, ierr )
   return
 end
 subroutine tql1 ( n, d, e, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tql1 
+#endif
 
 !*****************************************************************************80
 !
@@ -15063,7 +15207,9 @@ subroutine tql1 ( n, d, e, ierr )
   return
 end
 subroutine tql2 ( n, d, e, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tql2 
+#endif
 
 !*****************************************************************************80
 !
@@ -15305,7 +15451,9 @@ subroutine tql2 ( n, d, e, z, ierr )
   return
 end
 subroutine tqlrat ( n, d, e2, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tqlrat 
+#endif
 
 !*****************************************************************************80
 !
@@ -15510,7 +15658,9 @@ subroutine tqlrat ( n, d, e2, ierr )
   return
 end
 subroutine trbak1 ( n, a, e, m, z ) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: trbak1 
+#endif
 
 !*****************************************************************************80
 !
@@ -15615,7 +15765,9 @@ subroutine trbak1 ( n, a, e, m, z )
   return
 end
 subroutine trbak3 ( n, nv, a, m, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: trbak3 
+#endif
 
 !*****************************************************************************80
 !
@@ -15730,7 +15882,9 @@ subroutine trbak3 ( n, nv, a, m, z )
   return
 end
 subroutine tred1 ( n, a, d, e, e2 )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tred1 
+#endif
 
 !*****************************************************************************80
 !
@@ -15919,7 +16073,9 @@ subroutine tred1 ( n, a, d, e, e2 )
   return
 end
 subroutine tred2 ( n, a, d, e, z )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tred2 
+#endif
 
 !*****************************************************************************80
 !
@@ -16137,7 +16293,9 @@ subroutine tred2 ( n, a, d, e, z )
   return
 end
 subroutine tred3 ( n, nv, a, d, e, e2 )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tred3 
+#endif
 
 !*****************************************************************************80
 !
@@ -16315,7 +16473,9 @@ subroutine tred3 ( n, nv, a, d, e, e2 )
   return
 end
 subroutine tridib ( n, eps1, d, e, e2, lb, ub, m11, m, w, ind, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tridib 
+#endif
 
 !*****************************************************************************80
 !
@@ -16760,7 +16920,9 @@ subroutine tridib ( n, eps1, d, e, e2, lb, ub, m11, m, w, ind, ierr )
   return
 end
 subroutine tsturm ( n, eps1, d, e, e2, lb, ub, mm, m, w, z, ierr )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tsturm 
+#endif
 
 !*****************************************************************************80
 !

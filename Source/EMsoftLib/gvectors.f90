@@ -77,7 +77,9 @@ contains
 !> @date  06/17/14 MDG 4.2 modification for separate reflist pointers; removed cell pointer
 !--------------------------------------------------------------------------
 recursive subroutine MakeRefList(listroot, rltail, nref)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MakeRefList
+#endif
 
 use error
 
@@ -127,7 +129,9 @@ end subroutine MakeRefList
 !> @date  09/08/15 MDG 4.3 added qg entry
 !--------------------------------------------------------------------------
 recursive subroutine AddReflection(rltail,listroot,cell,nref,hkl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: AddReflection
+#endif
 
 use error
 use constants
@@ -193,7 +197,9 @@ end subroutine AddReflection
 !> @date  03/29/18 MDG 4.1 removed stdout argument
 !--------------------------------------------------------------------------
 recursive subroutine Printrlp(rlp,first)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Printrlp
+#endif
  
 use io
 use constants
@@ -271,7 +277,9 @@ end subroutine Printrlp
 !> @date 03/14/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine Laue_Init_Reflist(cell, lmnl, reflist, gcnt, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Laue_Init_Reflist
+#endif
 
 use local
 use io
@@ -427,7 +435,9 @@ end subroutine Laue_Init_Reflist
 !> @date 01/29/20 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine Laue_Init_Unit_Reflist(cell, lmnl, reflist, gcnt, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Laue_Init_Unit_Reflist
+#endif
 
 use local
 use io
@@ -654,7 +664,9 @@ end subroutine Laue_Init_Unit_Reflist
 !> @date  06/17/14 MDG 2.1 added listroot, listrootw, nns, nnw arguments
 !--------------------------------------------------------------------------
 recursive subroutine Apply_BethePotentials(cell, listroot, listrootw, BetheParameter, nref, nns, nnw)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Apply_BethePotentials
+#endif
 
 use io
 use diffraction
@@ -794,7 +806,9 @@ end subroutine Apply_BethePotentials
 !> @date  12/01/15 MDG 4.2 modified routine to work with new BetheParameters criteria and mods to ECCI and STEMDCI programs
 !--------------------------------------------------------------------------
 recursive subroutine Prune_ReflectionList(cell,khead,reflist,Dyn,BetheParameter,numk,nbeams)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Prune_ReflectionList
+#endif
 
 use io
 use crystal
@@ -963,7 +977,9 @@ end subroutine Prune_ReflectionList
 !> @date   06/09/14 MDG 2.0 added cell, reflist and BetheParameter as arguments
 !--------------------------------------------------------------------------
 recursive subroutine Compute_DynMat(cell,reflist,Dyn,BetheParameter,calcmode,kk,kt,IgnoreFoilNormal,IncludeSecondOrder)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Compute_DynMat
+#endif
 
 use error
 use constants
@@ -1305,7 +1321,9 @@ end subroutine Compute_DynMat
 !> @date   09/27/16 MDG 1.2 removed defunct variables from name list
 !--------------------------------------------------------------------------
 recursive subroutine Set_Bethe_Parameters(BetheParameter,silent,filename)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Set_Bethe_Parameters
+#endif
 
 use io
 
@@ -1377,7 +1395,9 @@ end subroutine Set_Bethe_Parameters
 !> @date  06/09/14 MDG 2.1 added cell argument 
 !--------------------------------------------------------------------------
 recursive subroutine ShortestGFOLZ(cell,k,ga,gb,gshort,gp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ShortestGFOLZ
+#endif
 
 use io
 use crystal
@@ -1451,7 +1471,9 @@ end subroutine ShortestGFOLZ
 !> @date 11/18/15 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetSubReflist(cell, listroot, BetheParameter, FN, kk, nref, listrootw, nns, nnw, first)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSubRefList
+#endif
 
 use local
 use typedefs
@@ -1596,7 +1618,9 @@ end subroutine GetSubRefList
 !> @date   06/17/14 MDG 1.2 replaced cell by top
 !--------------------------------------------------------------------------
 recursive subroutine Delete_gvectorlist(top)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Delete_gvectorlist
+#endif
 
 IMPLICIT NONE
 
@@ -1642,7 +1666,9 @@ end subroutine Delete_gvectorlist
 !> @date 10/05/13 MDG 1.2 limit the range of reflections by means of the convergence angle (optional)
 !--------------------------------------------------------------------------
 recursive subroutine Compute_ReflectionListZoneAxis(cell,listroot,BetheParameter,FN,dmin,k,ga,gb,nref)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Compute_ReflectionListZoneAxis
+#endif
 
 use local
 use io

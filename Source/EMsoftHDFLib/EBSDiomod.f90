@@ -71,7 +71,9 @@ contains
 !> @date 09/01/21 MDG 1.8 added orthorhombic setting option
 !--------------------------------------------------------------------------
 recursive subroutine ctfebsd_writeFile(ebsdnl,xtalname,ipar,indexmain,eulerarray,resultmain,OSMmap,IQmap,noindex,orthoset,orthoSG)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ctfebsd_writeFile
+#endif
 
 use NameListTypedefs
 use typedefs
@@ -273,8 +275,8 @@ do ii = 1,ipar(3)
     eu = euler(2)
     if (eu.lt.0) eu = eu + 360.0
     write(str6,'(F12.3)') eu
-! intercept the hexagonal case, for which we need to subtract 30° from the third Euler angle
-! Note: after working with Lionel Germain, we concluded that we do not need to subtract 30° 
+! intercept the hexagonal case, for which we need to subtract 30?? from the third Euler angle
+! Note: after working with Lionel Germain, we concluded that we do not need to subtract 30?? 
 ! in the ctf file, because the fundamental zone is already oriented according to the Oxford
 ! convention... That means that we need to subtract the angle for the .ang file (to be implemented)
 ! [modified by MDG on 3/5/18]
@@ -322,7 +324,9 @@ end subroutine ctfebsd_writeFile
 !> @date 12/01/18 MDG 1.2 replaced BC=OSMmap, BC=IQmap, BANDS=pattern index columns
 !--------------------------------------------------------------------------
 recursive subroutine ctftkd_writeFile(tkdnl,ipar,indexmain,eulerarray,resultmain,OSMmap,IQmap,noindex)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ctftkd_writeFile
+#endif
 
 use NameListTypedefs
 use typedefs
@@ -483,7 +487,7 @@ do ii = 1,ipar(3)
     eu = euler(2)
     if (eu.lt.0) eu = eu + 360.0
     write(str6,'(F12.3)') eu
-! intercept the hexagonal case, for which we need to subtract 30° from the third Euler angle
+! intercept the hexagonal case, for which we need to subtract 30?? from the third Euler angle
     if ((LaueGroup.eq.8).or.(LaueGroup.eq.9)) euler(3) = euler(3) - 30.0
     eu = euler(3)
     if (eu.lt.0) eu = eu + 360.0
@@ -528,7 +532,9 @@ end subroutine ctftkd_writeFile
 !> @date 09/01/21 MDG 2.1 added orthorhombic space group settings
 !--------------------------------------------------------------------------
 recursive subroutine angebsd_writeFile(ebsdnl,xtalname,ipar,indexmain,eulerarray,resultmain,IQmap,noindex,orthoset,orthoSG)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: angebsd_writeFile
+#endif
 
 use NameListTypedefs
 use constants 
@@ -749,7 +755,9 @@ end subroutine angebsd_writeFile
 !> @date 11/08/18 MDG 2.0 rewrite and testing
 !--------------------------------------------------------------------------
 recursive subroutine angtkd_writeFile(tkdnl,ipar,indexmain,eulerarray,resultmain,IQmap,noindex)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: angtkd_writeFile
+#endif
 
 use NameListTypedefs
 use constants 
@@ -928,7 +936,9 @@ end subroutine angtkd_writeFile
 !> @date 08/18/19 MDG 1.0 original, based on ctfebsd_writeFile routine 
 !--------------------------------------------------------------------------
 recursive subroutine ctfmerge_writeFile(ebsdnl,xtalname,ipar,eangles,phaseID,dplist,OSMlist,IQmap)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ctfmerge_writeFile
+#endif
 
 use NameListTypedefs
 use typedefs
@@ -1083,8 +1093,8 @@ do ii = 1,ipar(1)
     eu = euler(2)
     if (eu.lt.0) eu = eu + 360.0
     write(str6,'(F12.3)') eu
-! intercept the hexagonal case, for which we need to subtract 30° from the third Euler angle
-! Note: after working with Lionel Germain, we concluded that we do not need to subtract 30° 
+! intercept the hexagonal case, for which we need to subtract 30?? from the third Euler angle
+! Note: after working with Lionel Germain, we concluded that we do not need to subtract 30?? 
 ! in the ctf file, because the fundamental zone is already oriented according to the Oxford
 ! convention... That means that we need to subtract the angle for the .ang file (to be implemented)
 ! [modified by MDG on 3/5/18]
@@ -1134,7 +1144,9 @@ end subroutine ctfmerge_writeFile
 !> @date 08/18/19 MDG 1.0 original based opn angebsd_writeFile
 !--------------------------------------------------------------------------
 recursive subroutine angmerge_writeFile(ebsdnl,xtalname,ipar,eangles,phaseID,dplist,IQmap)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: angmerge_writeFile
+#endif
 
 use NameListTypedefs
 use constants 

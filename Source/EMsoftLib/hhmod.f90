@@ -93,7 +93,9 @@ contains
 !> @date    08/13/19 MDG 1.0 adapted from .f77 original
 !--------------------------------------------------------------------------
 recursive subroutine NEWTON(MAPN) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: NEWTON
+#endif
 
 IMPLICIT NONE
 
@@ -167,7 +169,9 @@ end subroutine NEWTON
 !> @date    01/30/17 MDG 1.1 added optional name list file variable
 !--------------------------------------------------------------------------
 recursive subroutine ANCALC(MAP, MKAP, MAPN, MA, SCALE30) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ANCALC
+#endif
 
 IMPLICIT NONE
 
@@ -448,7 +452,9 @@ end subroutine ANCALC
 !> @date    08/13/19 MDG 1.0 adapted from .f77 original
 !--------------------------------------------------------------------------
 recursive subroutine PANCALC(MAP, MKAP, MAPN, MA, MP, SCALE30) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PANCALC
+#endif
 
 IMPLICIT NONE
 
@@ -1104,7 +1110,9 @@ end subroutine PANCALC
 !> @date    08/13/19 MDG 1.0 adapted from .f77 original
 !--------------------------------------------------------------------------
 recursive subroutine RKM(MRD)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: RKM
+#endif
 
 ! Note:
 ! The original RKM routine was rather complicated due to the extensive
@@ -1250,7 +1258,9 @@ end subroutine RKM
 !> @date    08/13/19 MDG 1.0 adapted from .f77 original
 !--------------------------------------------------------------------------
 recursive subroutine DERIV(MRD)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DERIV
+#endif
 ! 
 !************************************************************** 
 !*     SUBROUTINE DERIV   BERECHNUNG DER ABLEITUNG VON        * 

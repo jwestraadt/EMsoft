@@ -112,7 +112,9 @@ character(55),parameter,private :: PSpreamble(23) = (/ &
         "L Cl S } def                                           ", &
         "%%EndProlog                                            ", &
         "72 dup scale                                           " /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PSpreamble
+#endif
 
 
 ! font-related stuff
@@ -122,8 +124,12 @@ character(20),parameter :: PSfonts(5) = (/"Symbol              ", &
                                           "Times-BoldItalic    ", &
                                           "Times-Italic        ", &
                                           "Times-Roman         "/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PSlbl
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PSfonts
+#endif
 
 contains 
 
@@ -148,7 +154,9 @@ contains
 !> @date   06/08/14 MDG 4.0 added PS, progdesc, imanum as arguments
 !--------------------------------------------------------------------------
 recursive subroutine PS_openfile(PS, progdesc, imanum, dontask)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_openfile
+#endif
 
 use io
 use files
@@ -222,7 +230,9 @@ end subroutine
 !> @date   06/08/14 MDG 4.0 added PS as argument
 !--------------------------------------------------------------------------
 recursive subroutine PS_closefile(PS)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_closefile
+#endif
 
 use files
 
@@ -261,7 +271,9 @@ end subroutine
 !> @date   06/08/14 MDG 4.0 added PS as argument
 !--------------------------------------------------------------------------
 recursive subroutine PS_newpage(PS, frm, btxt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_newpage
+#endif
 
 IMPLICIT NONE
 
@@ -315,7 +327,9 @@ end subroutine
 !> @date   06/08/14 MDG 4.0 added PS and cell as argument
 !--------------------------------------------------------------------------
 recursive subroutine PS_cellinfo(PS, cell, xo, yo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_cellinfo
+#endif
 
 IMPLICIT NONE
 
@@ -356,7 +370,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_clippath
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_clippath
+#endif
 
 IMPLICIT NONE
 
@@ -381,7 +397,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_translate(x,y)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_translate
+#endif
 
 IMPLICIT NONE
 
@@ -408,7 +426,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_move(x,y)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_move
+#endif
 
 IMPLICIT NONE
 
@@ -435,7 +455,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_draw(x,y)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_draw
+#endif
 
 IMPLICIT NONE
 
@@ -465,7 +487,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_line_gray(x1,y1,x2,y2,gray)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_line_gray
+#endif
         
 IMPLICIT NONE
 
@@ -498,7 +522,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_setlinewidth(x)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_setlinewidth
+#endif
 
 IMPLICIT NONE
 
@@ -526,7 +552,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_square(x,y,edge)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_square
+#endif
 
 IMPLICIT NONE
 
@@ -564,7 +592,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_filledsquare(x,y,edge,graylevel)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_filledsquare
+#endif
        
 IMPLICIT NONE
 
@@ -603,7 +633,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_cross(x,y,edge,lw)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_cross
+#endif
         
 IMPLICIT NONE
 
@@ -647,7 +679,9 @@ end subroutine
 !> @date   12/21/18 MDG 4.0 new color model
 !--------------------------------------------------------------------------
 recursive subroutine PS_sphere(x,y,r,clr)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_sphere
+#endif
 
 use constants
 
@@ -683,7 +717,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_arc(x0,y0,x,y,radius,ang1,ang2)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_arc
+#endif
 
 IMPLICIT NONE
 
@@ -715,7 +751,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_circle(x,y,radius)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_circle
+#endif
 
 IMPLICIT NONE
 
@@ -745,7 +783,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_filledcircle(x,y,radius,graylevel)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_filledcircle
+#endif
         
 IMPLICIT NONE
 
@@ -775,7 +815,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_drawframe(x,y)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_drawframe
+#endif
         
 IMPLICIT NONE
 
@@ -805,7 +847,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_drawrect(x1,y1,x2,y2)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_drawrect
+#endif
         
 IMPLICIT NONE
 
@@ -843,7 +887,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_line(x1,y1,x2,y2)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_line
+#endif
         
 IMPLICIT NONE
 
@@ -876,7 +922,9 @@ end subroutine
 !> @date   06/08/14 MDG 4.0 added PS as argument
 !--------------------------------------------------------------------------
 recursive subroutine PS_setdash(PS, num)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_setdash
+#endif
 
 IMPLICIT NONE
 
@@ -908,7 +956,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_closepathS  
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_closepathS 
+#endif
 
 IMPLICIT NONE
 
@@ -930,7 +980,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_stroke
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_stroke
+#endif
 
 IMPLICIT NONE
 
@@ -952,7 +1004,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_gsave
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_gsave
+#endif
 
 IMPLICIT NONE
 
@@ -974,7 +1028,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_grestore
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_grestore
+#endif
 
 IMPLICIT NONE
 
@@ -996,7 +1052,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_closepath   
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_closepath
+#endif
 
 IMPLICIT NONE
 
@@ -1018,7 +1076,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_newpath     
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_newpath
+#endif
 
 IMPLICIT NONE
 
@@ -1044,7 +1104,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_text(x,y,line)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_text
+#endif
 
 IMPLICIT NONE
 
@@ -1076,7 +1138,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_textv(x,y,line)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_textv
+#endif
 
 IMPLICIT NONE
 
@@ -1109,7 +1173,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_texttitle(x,y,line,q)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_texttitle
+#endif
 
 IMPLICIT NONE
 
@@ -1143,7 +1209,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_textvtitle(x,y,line,q)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_textvtitle
+#endif
 
 IMPLICIT NONE
 
@@ -1180,7 +1248,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_textint(x,y,line,vl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_textint
+#endif
 
 IMPLICIT NONE
 
@@ -1215,7 +1285,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_textvar(x,y,line,vl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_textvar
+#endif
 
 IMPLICIT NONE
 
@@ -1250,7 +1322,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_textvar8(x,y,line,vl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_textvar8
+#endif
 
 IMPLICIT NONE
 
@@ -1286,7 +1360,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_textballoon(x,y,line,font,sc)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_textballoon
+#endif
 
 IMPLICIT NONE
 
@@ -1332,7 +1408,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_balloon(x,y,le,he,w)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_balloon
+#endif
 
 IMPLICIT NONE
 
@@ -1366,7 +1444,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_setfont(line,sc)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_setfont
+#endif
 
 IMPLICIT NONE
 
@@ -1404,7 +1484,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine Printhkl(x,y,h,k,l)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Printhkl
+#endif
 
 IMPLICIT NONE
 
@@ -1474,7 +1556,9 @@ end subroutine
 !> @date   06/08/14 MDG 4.0 added PS as argument
 !--------------------------------------------------------------------------
 recursive subroutine DumpIndices(PS,hexset,S,h,k,l,c,x,y,n)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DumpIndices
+#endif
 
 use crystal
 
@@ -1606,7 +1690,9 @@ end subroutine
 !> @date   06/09/14 MDG 4.0 added argument hexset
 !--------------------------------------------------------------------------
 recursive subroutine PrintIndices(S,hexset,h,k,l,x,y)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PrintIndices
+#endif
 
 IMPLICIT NONE
 
@@ -1647,7 +1733,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine PS_DumpImage(imaint,imanum,x0,y0,npx,npy,scl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_DumpImage
+#endif
 
 IMPLICIT NONE
 
@@ -1688,7 +1776,9 @@ end subroutine
 !> @date   06/08/14 MDG 4.0 added imaint and imanum as arguments
 !--------------------------------------------------------------------------
 recursive subroutine PS_DumpImageDistort(imaint,imanum,x0,y0,npx,npy,sclx,scly)   
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PS_DumpImageDistort
+#endif
 
 IMPLICIT NONE
 
@@ -1754,7 +1844,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine IndexReduce(hkl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: IndexReduce
+#endif
 
 IMPLICIT NONE
 
@@ -1797,7 +1889,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine IndexReduceMB(hkl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: IndexReduceMB
+#endif
 
 IMPLICIT NONE
 
@@ -1844,7 +1938,9 @@ end subroutine
 !< @date   06/09/14 MDG 4.0 added argument hexset
 !--------------------------------------------------------------------------
 recursive subroutine IndexString(hexset,st,hkl,sp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: IndexString
+#endif
 
 use crystal 
 
@@ -1945,7 +2041,9 @@ end subroutine
 !> @date   06/09/14 MDG 4.0 added arguments PS, cell
 !--------------------------------------------------------------------------
 recursive subroutine DrawSPFrame(PS,cell,CX,CY,CRad,iview,sp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DrawSPFrame
+#endif
 
 IMPLICIT NONE
 
@@ -2005,7 +2103,9 @@ end subroutine
 !> @date   06/09/14 MDG 4.0 added hexset argument
 !--------------------------------------------------------------------------
 recursive subroutine GetIndex(hexset,ind,sp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetIndex
+#endif
 
 use crystal
 use io

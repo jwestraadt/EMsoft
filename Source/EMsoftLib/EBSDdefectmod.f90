@@ -71,7 +71,9 @@ contains
 !> @date 11/04/19  MDG 1.0 original (forked from CalcLgh in MBmodule)
 ! ###################################################################
 recursive subroutine CalcLghdepth(DMat,Lgh,thick,kn,nn,gzero,depthstep,lambdaE,izz)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcLghdepth
+#endif
 
 use local
 use io
@@ -218,7 +220,9 @@ end subroutine CalcLghdepth
 !> @date 11/04/19  MDG 1.0 copied from original in MBmodule.f90 
 !--------------------------------------------------------------------------
 recursive subroutine getSghfromLUTsum(cell,reflist,nns,numset,nat,Sgh)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getSghfromLUTsum
+#endif
 
 use local
 use typedefs

@@ -92,7 +92,9 @@ contains
 !--------------------------------------------------------------------------
 subroutine EBSDDIdriver(Cnmldeffile, Cprogname, cproc, ctimeproc, cerrorproc, objAddress, cancel) &
            bind(c, name='EBSDDIdriver') 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDDIdriver
+#endif
 
 use local
 use typedefs
@@ -1449,7 +1451,9 @@ end subroutine EBSDDIdriver
 !> @date 11/13/17 MDG 2.0 moved several OpenCL init statements to main calling program
 !--------------------------------------------------------------------------
 recursive subroutine InnerProdGPU(cl_expt,cl_dict,Ne,Nd,correctsize,results,numd,selnumd,kernel,context,command_queue)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InnerProdGPU
+#endif
 
 use local
 use clfortran

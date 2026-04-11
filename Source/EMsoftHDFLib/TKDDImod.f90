@@ -78,7 +78,9 @@ contains
 !> @date 05/07/17  MDG 1.0 original based on EBSD version
 !--------------------------------------------------------------------------
 recursive subroutine TKDIndexingreadMasterfile(enl, master, mfile, verbose, NoHDFInterfaceOpen)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TKDIndexingreadMasterfile
+#endif
 
 use local
 use typedefs
@@ -255,7 +257,9 @@ end subroutine TKDIndexingreadMasterfile
 !> @date 06/25/22  MDG  2.1 correction in gam factor
 !--------------------------------------------------------------------------
 recursive subroutine TKDIndexingGenerateDetector(enl, acc, master, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TKDIndexingGenerateDetector
+#endif
 
 use local
 use typedefs
@@ -437,7 +441,9 @@ end subroutine TKDIndexingGenerateDetector
 !> @date 05/07/17  MDG 1.0 original based on similar EBSD routine
 !--------------------------------------------------------------------------
 recursive subroutine TKDIndexingreadMCfile(enl,acc,efile,verbose,NoHDFInterfaceOpen)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TKDIndexingreadMCfile
+#endif
 
 use local
 use typedefs

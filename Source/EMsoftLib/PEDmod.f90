@@ -63,7 +63,9 @@ contains
 !> @date 04/28/16  SS 1.1 corrected array bound error
 !--------------------------------------------------------------------------
 recursive subroutine CalcKINPEDPatternSingle(pednl, cell, reflistarray, sanglearray, nref, qu, pedpattern)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcKINPEDPatternSingle
+#endif
 
 use NameListTypedefs
 use typedefs
@@ -201,7 +203,9 @@ end subroutine CalcKINPEDPatternSingle
 !> @date 11/23/15  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine Denoise_PED(pednl, img_in, img_out)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Denoise_PED
+#endif
 
 use local
 use ISO_C_BINDING
@@ -280,7 +284,9 @@ end subroutine Denoise_PED
 !--------------------------------------------------------------------------
 recursive subroutine Denoise_Pattern(flx, fly, fpf, fpowp, fsigma_w, fprinf, fnoisinf, ficd, img_in, &
                      img_out) bind(C, name = 'Denoise_Pattern')
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Denoise_Pattern
+#endif
 
 use local
 use,INTRINSIC :: ISO_C_BINDING
@@ -365,7 +371,9 @@ end subroutine Denoise_Pattern
 !--------------------------------------------------------------------------
 
 recursive subroutine ctfped_writeFile(pednl,ipar,indexmain,eulerarray,resultmain)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ctfped_writeFile
+#endif
 
 use local
 use NameListTypedefs

@@ -84,7 +84,9 @@ contains
 !> @date 03/21/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine QC_setMetricParameters2DQC(QCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_setMetricParameters2DQC 
+#endif
 
 use error
 use math
@@ -343,7 +345,9 @@ end subroutine QC_setMetricParameters2DQC
 !> @date 06/26/18 SS  2.0 changed basis vectors and format same as 2DQC
 !--------------------------------------------------------------------------
 recursive subroutine QC_setMetricParameters3DQC(QCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_setMetricParameters3DQC 
+#endif
 
 use error
 use math
@@ -438,7 +442,9 @@ end subroutine QC_setMetricParameters3DQC
 !> @date 06/13/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine QC_TransSpace2DQC(cell, t, d, inspace, outspace)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_TransSpace2DQC
+#endif
 
 IMPLICIT NONE
 
@@ -512,7 +518,9 @@ end subroutine QC_TransSpace2DQC
 !> @date 06/26/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine QC_TransSpace3DQC(cell, t, d, inspace, outspace)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_TransSpace3DQC
+#endif
 
 IMPLICIT NONE
 
@@ -584,7 +592,9 @@ end subroutine QC_TransSpace3DQC
 !> @date 03/21/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function QC_getGvector2DQC(QCcell, QCindex, OP) result(gvector)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_getGvector2DQC 
+#endif
 
 use error
 
@@ -623,7 +633,9 @@ end function QC_getGvector2DQC
 !> @date 06/25/18 SS  1.1 moved to this module
 !--------------------------------------------------------------------------
 recursive function QC_getGvector3DQC(QCcell, QCindex, OP) result(gvector)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_getGvector3DQC 
+#endif
 
 use error
 
@@ -660,7 +672,9 @@ end function QC_getGvector3DQC
 !> @date 03/21/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function QC_getvectorLength2DQC(QCcell, QCindex, OP, space) result(gl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_getvectorLength2DQC
+#endif
 
 use error
 
@@ -727,7 +741,9 @@ end function QC_getvectorLength2DQC
 !> @date 06/26/18 SS  1.2 added space as an input variable
 !--------------------------------------------------------------------------
 recursive function QC_getvectorLength3DQC(QCcell, QCindex, OP, space) result(gl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_getvectorLength3DQC 
+#endif
 
 use error
 
@@ -788,7 +804,9 @@ end function QC_getvectorLength3DQC
 !> @date   03/21/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function ShapeTransformTriangle(QCcell, ap, g) result(stt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ShapeTransformTriangle
+#endif
 
 use error
 
@@ -919,7 +937,9 @@ end function ShapeTransformTriangle
 !> @date   03/21/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function ShapeTransformPolygonCa(QCcell, hkl, asite) result(stp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ShapeTransformPolygonCa
+#endif
 
 use error
 
@@ -981,7 +1001,9 @@ end function ShapeTransformPolygonCa
 !> @date   02/01/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function ShapeTransformPyramid(QCcell, ap, g) result(stp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ShapeTransformPyramid
+#endif
 
 use error
 
@@ -1201,7 +1223,9 @@ end function
 !> @date   02/01/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function ShapeTransformTriacontahedron(QCcell, hkl, asite) result(stt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ShapeTransformTriacontahedron
+#endif
 
 
 IMPLICIT NONE

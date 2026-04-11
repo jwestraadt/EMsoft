@@ -93,7 +93,9 @@ contains
 !> @date 04/02/17 MDG 1.0 new routine, needed for two-phase disorientations
 !--------------------------------------------------------------------------
 recursive subroutine getFZtypeandorder(pgnum1,FZtype,FZorder,pgnum2) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getFZtypeandorder
+#endif
 
 use typedefs
 use constants
@@ -198,7 +200,9 @@ end subroutine getFZtypeandorder
 !> @date 07/04/19 MDG 1.3 added optional parameter to rotate the FZ into an arbitrary orientation
 !--------------------------------------------------------------------------
 recursive function IsinsideFZ(rod,FZtype,FZorder,qFZ) result(insideFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: IsinsideFZ
+#endif
 
 use constants
 use math
@@ -265,7 +269,9 @@ end function IsinsideFZ
 !> @date 03/24/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function insideIcosahedralFZ(rod) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: insideIcosahedralFZ
+#endif
 
 use constants
 
@@ -304,7 +310,9 @@ end function insideIcosahedralFZ
 !> @date 06/04/15 MDG 2.1 corrected infty to inftyd (double precision infinity)
 !--------------------------------------------------------------------------
 recursive function insideCyclicFZ(rod,FZtype,FZorder) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: insideCyclicFZ
+#endif
 
 use constants
 use math
@@ -356,7 +364,9 @@ end function insideCyclicFZ
 !> @date 02/21/19  MDG 2.1 correction of initial truncation factor from 1.5 to sqrt(3); only affected 222 point group
 !--------------------------------------------------------------------------
 recursive function insideDihedralFZ(rod,order) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: insideDihedralFZ
+#endif
 
 use constants
 
@@ -449,7 +459,9 @@ end function insideDihedralFZ
 !> @date 06/04/15 MDG 2.2 simplified handling of components of r
 !--------------------------------------------------------------------------
 recursive function insideCubicFZ(rod,ot) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: insideCubicFZ
+#endif
 
 use constants
 
@@ -499,7 +511,9 @@ end function insideCubicFZ
 !> @date 04/01/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function insideCubeHexFZ(rod) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: insideCubeHexFZ
+#endif
 
 use constants
 
@@ -539,7 +553,9 @@ end function insideCubeHexFZ
 !> @date 02/20/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine delete_FZlist(top)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: delete_FZlist
+#endif
 
 use typedefs 
 
@@ -624,7 +640,9 @@ end subroutine delete_FZlist
 !> @date 07/04/19 MDG 2.4 added option to rotate FZ before sampling
 !--------------------------------------------------------------------------
 recursive subroutine SampleRFZ(nsteps,pgnum,gridtype,FZcnt,FZlist, qFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SampleRFZ
+#endif
 
 use typedefs
 use constants
@@ -761,7 +779,9 @@ end subroutine SampleRFZ
 !> @date 04/07/15 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CubochoricNeighbors(cubneighbor,nn,cub,stepsize)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CubochoricNeighbors
+#endif
 
 use constants
 
@@ -813,7 +833,9 @@ end subroutine CubochoricNeighbors
 !> @date 09/17/16 MDG 1.0 fcc twin FZ for 60@[111] (also MacKenzie cell)
 !--------------------------------------------------------------- -----------
 recursive subroutine SamplefcctwinRFZ(nsteps,FZcnt,FZlist)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SamplefcctwinRFZ
+#endif
 
 use local
 use constants
@@ -840,7 +862,7 @@ logical                              :: inside
 ! a point is inside a polyhedron if the dot product of a vector from that
 ! point to any vertex of each face with the face normal is positive
 
-! this routine is specifically written for the fcc twin 60°@[111]; the FZ in 
+! this routine is specifically written for the fcc twin 60??@[111]; the FZ in 
 ! that case has the following vertex positions with respect to the standard
 ! 432 rfz (determined with the EMRFZ program):
 nv = 14
@@ -998,7 +1020,9 @@ end subroutine SamplefcctwinRFZ
 !> @date 04/07/15 SS  1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine SampleRFZtwin(nsteps,pgnum,qt,FZcnt,FZlist)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SampleRFZtwin
+#endif
 
 use local
 use constants
@@ -1117,7 +1141,9 @@ end subroutine SampleRFZtwin
 !> @date 04/19/16 MDG 1.1 changed value of N to be along the semi-edge instead of the edge
 !--------------------------------------------------------------------------
 recursive subroutine sample_isoCube(misang, N, CMcnt, CMlist) ! CM = Constant Misorientation
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: sample_isoCube
+#endif
 
 use constants
 use typedefs
@@ -1258,7 +1284,9 @@ end subroutine sample_isoCube
 !> @date 04/19/16 MDG 1.1 changed value of N to be along the semi-edge instead of the edge
 !--------------------------------------------------------------------------
 recursive subroutine sample_isoCubeFilled(misang, N, CMcnt, CMlist) ! CM = Constant Misorientation
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: sample_isoCubeFilled
+#endif
 
 use constants
 use typedefs
@@ -1341,7 +1369,9 @@ end subroutine sample_isoCubeFilled
 !> @date 02/01/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine sample_Cone(unitvector, dpmin, N, FZtype, FZorder, cnt, list) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: sample_Cone
+#endif
 
 use constants
 use typedefs
@@ -1440,7 +1470,9 @@ end subroutine sample_Cone
 !> @date 08/16/17 MDG 1.1 incorporate family symmetry for the input unitvector
 !--------------------------------------------------------------------------
 recursive subroutine sample_Fiber(itmp, num, dpmin, N, FZtype, FZorder, cnt, list) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: sample_Fiber
+#endif
 
 use constants
 use typedefs
@@ -1539,7 +1571,9 @@ end subroutine sample_Fiber
 !> @date 03/03/16 SS/MDG 1.0 original (merged from two separate implementations)
 !--------------------------------------------------------------------------
 recursive subroutine SampleIsoMisorientation(rhozero, misang, CMcnt, CMlist) ! CM = Constant Misorientation
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SampleIsoMisorientation
+#endif
 
 use constants
 use typedefs
@@ -1595,7 +1629,9 @@ end subroutine SampleIsoMisorientation
 !> @date 12/22/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getEulersfromFile(eulerfile, FZcnt, FZlist)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getEulersfromFile
+#endif
 
 use constants
 use typedefs
@@ -1669,7 +1705,9 @@ end subroutine getEulersfromFile
 !> @date 09/09/16 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive function IsinsideMFZ(rod,MFZtype,MFZorder) result(insideMFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: IsinsideMFZ
+#endif
 
 use constants
 use math
@@ -1710,7 +1748,9 @@ end function IsinsideMFZ
 !> @date 09/09/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function insideCubicMFZ(rod,ot) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: insideCubicMFZ
+#endif
 
 use constants
 
@@ -1761,7 +1801,9 @@ end function insideCubicMFZ
 !> @date 09/15/16 MDG 1.0 completed all orders
 !--------------------------------------------------------------------------
 recursive function insideDihedralMFZ(rod,MFZorder) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: insideDihedralMFZ
+#endif
 
 use constants
 
@@ -1817,7 +1859,9 @@ end function insideDihedralMFZ
 !> @date 06/18/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getVertex(order, vertex)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getVertex
+#endif
 
 use constants
 
@@ -1939,7 +1983,9 @@ end subroutine getVertex
 !> @date 02/22/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MKCC(a, b, c) result(CC)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MKCC
+#endif
 
 use constants
 
@@ -1971,7 +2017,9 @@ end function MKCC
 !> @date 02/22/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MKS2(a, b, c) result(S2)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MKS2
+#endif
 
 use constants
 
@@ -2004,7 +2052,9 @@ end function MKS2
 !> @date 02/22/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getMacKenzieDistribution(pgnum, Nmisor, misor, MK)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getMacKenzieDistribution
+#endif
 
 use constants
 use typedefs

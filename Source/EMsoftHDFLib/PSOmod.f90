@@ -53,7 +53,9 @@ module PSO
 contains
 
     recursive subroutine particle_init(part, num_parameters,min,max)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: particle_init
+#endif
         ! initializes the particles 
         use, intrinsic :: ISO_Fortran_env
         implicit none
@@ -90,7 +92,9 @@ contains
     end subroutine particle_init
 
     subroutine swarm_init(swarm, num_param, minimum, maximum)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: swarm_init
+#endif
         ! intializes the swarm by generating the initial guesses for the optimization problem
         implicit none
         type (particle), dimension(:), intent(inout) :: swarm
@@ -105,7 +109,9 @@ contains
     end subroutine swarm_init
 
    subroutine swarm_init_single(swarm, num_param, minimum, maximum)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: swarm_init_single
+#endif
         ! intializes the swarm by generating the initial guesses for the optimization problem
         implicit none
         type (particle), intent(inout) :: swarm
@@ -116,7 +122,9 @@ contains
     end subroutine swarm_init_single
 
     recursive subroutine print_particle(part)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: print_particle
+#endif
         ! prints all of the variables stored within a particle object
         implicit none
         type (particle),intent(in) :: part
@@ -135,7 +143,9 @@ contains
     end subroutine print_particle
 
     recursive subroutine random_init()
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: random_init
+#endif
         ! set the seed for random number generation
         implicit none
         integer(kind=4) :: i,n,clock
@@ -154,7 +164,9 @@ contains
 
   subroutine find_min(swarm, best, w, w_damp, c1, c2, Dim_XC, st_initial,de,&
      mcnl, mpnl, EBSDMCdata, EBSDMPdata, patterndata, enl, offset3, minimum, maximum)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: find_min
+#endif
         use local
         use typedefs
         use NameListTypedefs
@@ -238,7 +250,9 @@ contains
     
 subroutine objective_function(offset3, value,st_initial, objval, &
   Dim_XC, enl, patterndata, numangles, objective, mcnl, mpnl, EBSDMCdata, EBSDMPdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: objective_function
+#endif
     use local
     use typedefs
     use NameListTypedefs
@@ -761,7 +775,9 @@ end subroutine objective_function
 
 
 subroutine RotationCorrection(q_c, Fmatrix,delta, thetac, st_initial, X_value, Dim_XC, numangles) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: RotationCorrection
+#endif
 
 use quaternions
 use rotations
@@ -806,7 +822,9 @@ end if
 end subroutine RotationCorrection
 
 function randperm(num)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: randperm
+#endif
     use local
     implicit none
     integer(kind=irg), intent(in) :: num
@@ -836,7 +854,9 @@ function randperm(num)
 subroutine DE_Fortran90(Dim_XC, XCmin, XCmax, VTR, NP, itermax, F_XC, &
 CR_XC, strategy, objective, bestmem_XC, bestval, nfeval, F_CR, method, refresh, &
 enl,patterndata,st_initial,offset3, mcnl, mpnl, EBSDMCdata, EBSDMPdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DE_Fortran90
+#endif
 !.......................................................................
 !    
 !                     Differential Evolution Algorithm
@@ -1086,7 +1106,9 @@ end subroutine DE_Fortran90
 
 subroutine NelderMeadSimplex(offset3, start, ynewlo, st_initial, n, &
 enl, patterndata, objective, mcnl, mpnl, EBSDMCdata, EBSDMPdata, icount, numres)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: NelderMeadSimplex
+#endif
   use local
   use typedefs
   use NameListTypedefs
@@ -1176,7 +1198,9 @@ enl, patterndata, objective, mcnl, mpnl, EBSDMCdata, EBSDMPdata, icount, numres)
 
   subroutine nelmin ( n, start, xmin, ynewlo, reqmin, step, konvge, kcount, icount, numres, &
    ifault, st_initial, enl, patterndata,  objective, mcnl, mpnl, EBSDMCdata, EBSDMPdata, offset3)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: nelmin
+#endif
   
   !*****************************************************************************80
   !

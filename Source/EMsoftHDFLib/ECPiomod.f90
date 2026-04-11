@@ -68,7 +68,9 @@ contains
 !> @date 07/10/16 MDG 1.5 swapped Error, MAD, and BC columns
 !--------------------------------------------------------------------------
 recursive subroutine ctfecp_writeFile(ecpnl,ipar,indexmain,eulerarray,resultmain,noindex)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ctfecp_writeFile
+#endif
 
 use NameListTypedefs
 use HDF5
@@ -236,7 +238,7 @@ do ii = 1,ipar(3)
     write(str8,'(I8)') 0 ! integer zero error; was indx, which is now moved to BC
     write(str5,'(F12.3)') euler(1) - 90.0  ! conversion from TSL to Oxford convention
     write(str6,'(F12.3)') euler(2)
-! intercept the hexagonal case, for which we need to subtract 30° from the third Euler angle
+! intercept the hexagonal case, for which we need to subtract 30?? from the third Euler angle
     if ((LaueGroup.eq.8).or.(LaueGroup.eq.9)) euler(3) = euler(3) - 30.0
     write(str7,'(F12.3)') euler(3)
     write(str4,'(F12.6)') resultmain(1,ii)   ! this replaces MAD
@@ -282,7 +284,9 @@ end subroutine ctfecp_writeFile
 !--------------------------------------------------------------------------
 recursive subroutine h5ecp_writeFile(ecpnl, dstr, tstrb, ipar, resultmain, &
                             indexmain, eulerarray, progname, nmldeffile)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5ecp_writeFile
+#endif
 
 use NameListTypedefs
 use io
@@ -488,7 +492,9 @@ end subroutine h5ecp_writeFile
 !> @date 02/11/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine h5ecp_writeInfo(dstr, tstrb, tstre, progname, ecpnl, nmldeffile, HDF_head)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5ecp_writeInfo
+#endif
 
 use NameListTypedefs
 use NameListHandlers

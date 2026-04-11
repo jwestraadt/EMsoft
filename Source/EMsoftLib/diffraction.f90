@@ -184,7 +184,9 @@ contains
 !> @date   12/02/14 MDG 3.1 added voltage as argument
 !--------------------------------------------------------------------------
 recursive subroutine GetVoltage(cell, rlp, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetVoltage
+#endif
 
 use io
 
@@ -230,7 +232,9 @@ end subroutine
 !> @date   12/02/14 MDG 3.1 removed mAccvol as global variable
 !--------------------------------------------------------------------------
 recursive subroutine CalcWaveLength(cell,rlp,skip,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcWaveLength
+#endif
 
 use constants
 use symmetry
@@ -326,7 +330,9 @@ end subroutine
 !> @date   03/26/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive function CalcDiffAngle(cell,h,k,l) result(tt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcDiffAngle
+#endif
 
 use crystal
 
@@ -355,7 +361,9 @@ end function
 !> @date  03/26/13  MDG  1.0 added for HEDM project
 !--------------------------------------------------------------------------
 recursive function LorentzPF(theta,HEDM) result(tt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: LorentzPF
+#endif
 
 use crystal
 
@@ -406,7 +414,9 @@ end function
 !> @date  08/09/18 MDG 5.0 added option to use precomputed FSCATT values stored in cell structure
 !--------------------------------------------------------------------------
 recursive subroutine CalcUcg(cell,rlp,hkl,applyqgshift,interpolate)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcUcg
+#endif
 
 use crystal
 use symmetry
@@ -781,7 +791,9 @@ end subroutine CalcUcg
 !> @date   08/09/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PreCalcFSCATT(cell, dmin, gstep)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PreCalcFSCATT
+#endif
 
 use crystal
 !use symmetry
@@ -856,7 +868,9 @@ end subroutine PreCalcFSCATT
 !> @date   08/09/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getScatfac(cell, s, sfarray, ntypes)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getScatfac
+#endif
 
 use crystal
 !use symmetry
@@ -909,7 +923,9 @@ end subroutine getScatfac
 !> @date   06/09/14 MDG 4.0 added cell as argument 
 !--------------------------------------------------------------------------
 recursive function CalcsgSingle(cell,gg,kk,FN) result(sg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcsgSingle
+#endif
 
 use crystal
 
@@ -957,7 +973,9 @@ end function CalcsgSingle
 !> @date   06/09/14 MDG 4.0 added cell as argument
 !--------------------------------------------------------------------------
 recursive function CalcsgDouble(cell,gg,kk,FN) result(sg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcsgDouble
+#endif
 
 use crystal
 
@@ -1012,7 +1030,9 @@ end function CalcsgDouble
 !> @date   03/26/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine TBCalcSM(Ar,Ai,sg,z,xig,xigp,xizero,betag)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TBCalcSM
+#endif
 
 use constants
 
@@ -1114,7 +1134,9 @@ end subroutine
 !> @date   03/26/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine TBCalcInten(It,Is,sg,z,xig,xigp,xizero,betag)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TBCalcInten
+#endif
 
 use constants
 
@@ -1193,7 +1215,9 @@ end subroutine
 !> @date   12/02/14 MDG 4.2 added camlen as argument; modified Vg and Vgsave arrays
 !--------------------------------------------------------------------------
 recursive subroutine DiffPage(PS,cell,rlp,camlen)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DiffPage
+#endif
 
 use postscript
 use crystal
@@ -1523,7 +1547,9 @@ end subroutine DiffPage
 !> @date  06/09/14  MDG 4.0 added PS argument
 !--------------------------------------------------------------------------
 recursive subroutine DumpZAP(PS,cell,xo,yo,u,v,w,p,np,first,indi,laL,icnt,dbdiff,Vg,Vgsave,rg,rfamily,rnumfam,hhcc)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DumpZAP
+#endif
 
 use io
 use postscript
@@ -1700,7 +1726,9 @@ end subroutine
 !> @date  06/09/14  MDG 4.0 added PS, cell as arguments
 !--------------------------------------------------------------------------
 recursive subroutine DumpPP(PS,cell,xo,yo,np,laL,icnt,Vgsave,rg,rnumfam)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DumpPP
+#endif
 
 use postscript
 
@@ -1801,7 +1829,9 @@ end subroutine
 !> @date   03/26/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine studylist(list,slect,np,ppat)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: studylist
+#endif
 
 IMPLICIT NONE
 
@@ -1928,7 +1958,9 @@ end subroutine
 !> @date  06/15/14 MDG 4.0 updated for removal of all globals
 !--------------------------------------------------------------------------
 recursive subroutine BWsolve(M,W,CGG,CGinv,nn,IPIV)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: BWsolve
+#endif
 
 use local
 use error
@@ -2118,7 +2150,9 @@ end subroutine BWsolve
 !  11/27/01 MDG 2.1 added kind support
 ! ###################################################################
 recursive subroutine CalcFresnelPropagator(beam,dimi,dimj,dz,scl,propname,lambda)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcFresnelPropagator
+#endif
 
 use constants
 use io

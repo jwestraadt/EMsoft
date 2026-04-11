@@ -42,7 +42,9 @@ contains
 ! my version of intialize_cell
 
 recursive subroutine Initialize_Cell_MD(cell, latticeparm, Dyn,rlp,xtalname, dmin, voltage, verbose, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_Cell_MD
+#endif
 
 use local
 use typedefs
@@ -208,7 +210,9 @@ end subroutine Initialize_Cell_MD
 
 !============================================================
 recursive subroutine CalcWaveLength_MD(cell,rlp,skip,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcWaveLength_MD
+#endif
 
 use constants
 use symmetry
@@ -289,7 +293,9 @@ end subroutine CalcWaveLength_MD
 
 !--------------------------------------------------------------------------
 recursive subroutine CrystalData_MD(cell,verbose, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CrystalData_MD
+#endif
 
 use io
 use crystal
@@ -327,7 +333,9 @@ end subroutine CrystalData_MD
 
 !--------------------------------------------------------------------------
 recursive subroutine ReadDataHDF_MD(cell, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReadDataHDF_MD
+#endif
 
 use io
 use crystal
@@ -455,7 +463,9 @@ end subroutine ReadDataHDF_MD
 !------------------------------------------------------------------------
 
 recursive subroutine Initialize_ReflectionList_MD(cell, listroot, BetheParameter, FN, k, dmin, dmax, nref, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_ReflectionList_MD
+#endif
 
 use local
 use typedefs
@@ -565,7 +575,9 @@ end subroutine Initialize_ReflectionList_MD
 !> @date   08/09/18 JT  1.1 modified for MD data
 !--------------------------------------------------------------------------
 recursive subroutine PreCalcFSCATTMD(cell, dmin, gstep, atomtypes, atomtypesAN, dwfs, dwflg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PreCalcFSCATTMD
+#endif
 
 use crystal
 !use symmetry
@@ -635,7 +647,9 @@ end subroutine PreCalcFSCATTMD
 !-----------------------------------------------------------------
 
 recursive subroutine CalcUcg_MD(cell, rlp, hkl, atom_ntype, atom_type, maxnumincell, apos, interpolate, atomtypes, dwflg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcUcg_MD
+#endif
 
 use crystal
 use symmetry
@@ -928,7 +942,9 @@ end subroutine CalcUcg_MD
 !> @date   08/09/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getScatfacMD(cell, s, sfarray, atomtypes)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getScatfacMD
+#endif
 
 use crystal
 !use symmetry
@@ -966,7 +982,9 @@ end subroutine getScatfacMD
 !-----------------------------------------------------------------
 
 recursive subroutine CalcUcg_MD2(cell,rlp,hkl,applyqgshift)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcUcg_MD2
+#endif
 
 use crystal
 use symmetry
@@ -1132,7 +1150,9 @@ end subroutine CalcUcg_MD2
 
 
 recursive subroutine Initialize_Cell_2(cell,Dyn,rlp,xtalname, dmin, voltage, verbose, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_Cell_2
+#endif
 
 use local
 use typedefs
@@ -1369,7 +1389,9 @@ end subroutine Initialize_Cell_2
 ! ==========================================================
 
 recursive logical function IsGAllowed_MD(cell,g)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: IsGAllowed_MD
+#endif
 
 IMPLICIT NONE
 
@@ -1395,7 +1417,9 @@ end function IsGAllowed_MD
 
 recursive subroutine GetDynMat_MD(cell, atom_ntype, atom_type, maxnumincell, apos, listroot, listrootw, rlp, &
                                   DynMat, nns, nnw, BlochMode)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetDynMat_MD
+#endif
 
 use local
 use typedefs
@@ -1621,7 +1645,9 @@ end subroutine GetDynMat_MD
 !--------------------------------------------------------------------------
 
 recursive subroutine MDSortData(numatoms,rawatomdata,maxnumincell,lpabc,kji,labelarray,posarray)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MDSortData
+#endif
 
 use quaternions
 
@@ -1710,7 +1736,9 @@ end subroutine MDSortData
 !--------------------------------------------------------------------------
 recursive subroutine GetDynMatMasterMD(cell, listroot, DynMat, rlp, maxnumincell, atom_ntype, atom_type, apos, nref, &
                                         gglist, gp, LUTqg, interpolate, dwflg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetDynMatMasterMD
+#endif
 
 use local
 use typedefs
@@ -1837,7 +1865,9 @@ end subroutine GetDynMatMasterMD
 !--------------------------------------------------------------------------
 
 recursive subroutine DeallocateSgList(linkedlist)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DeallocateSgList
+#endif
 
 use local
 use typedefs
@@ -1879,7 +1909,9 @@ end subroutine DeallocateSgList
 !--------------------------------------------------------------------------
 
 recursive subroutine DispGridInterp(boxdims,tiltangle,dispfield,dispfieldinterp,tiltY)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DispGridInterp
+#endif
 
 use local
 use typedefs

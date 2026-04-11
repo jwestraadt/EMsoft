@@ -51,7 +51,9 @@ contains
   ! @return: one of the file types enumerated in the image module
   ! @signature: function image_get_extension(filename) result(ext)
   module procedure image_get_extension
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: image_get_extension
+#endif
     integer                      :: i, c
     character(len=32)            :: s
     integer          , parameter :: cA = iachar('A')
@@ -77,7 +79,9 @@ contains
   ! @param this: image_t to flatten
   ! @signature: subroutine image_flatten_rgba(this)
   module procedure image_flatten_rgba
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: image_flatten_rgba
+#endif
    integer                     :: i
     integer(int8) , allocatable :: tempBuff(:)
 
@@ -120,7 +124,9 @@ contains
   ! @return: image_t with file data (empty on failure)
   ! @signature: function image_read(filename, iostat, iomsg) result(im)
   module procedure image_read
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: image_read
+#endif
   integer            :: stat
     character(len=128) :: msg
     integer            :: ext
@@ -180,7 +186,9 @@ contains
   ! @param (optional) iomsg: error message (filled if 0.ne.iostat)
   ! @signature: subroutine image_write(this, filename, iostat, iomsg)
   module procedure image_write
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: image_write
+#endif
    integer            :: stat
     character(len=128) :: msg
     integer            :: ext

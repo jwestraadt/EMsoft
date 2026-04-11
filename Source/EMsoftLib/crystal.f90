@@ -102,7 +102,9 @@ contains
 !> @date   07/30/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GetEMsoftXtalSystem(iSG) result(xs)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMsoftXtalSystem
+#endif
 
 IMPLICIT NONE
 
@@ -147,7 +149,9 @@ end function GetEMsoftXtalSystem
 !> @date   06/06/14 MDG 4.2 moved routine to crystal module
 !--------------------------------------------------------------------------
 recursive subroutine ResetCell(cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ResetCell
+#endif
 
 IMPLICIT NONE
 
@@ -218,7 +222,9 @@ end subroutine ResetCell
 !> @date   01/10/14 MDG 3.0 removed Kronecker delta matrix
 !--------------------------------------------------------------------------
 recursive subroutine CalcMatrices(cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcMatrices
+#endif
 
 use error
 use constants
@@ -342,7 +348,9 @@ end subroutine CalcMatrices
 !> @date    01/10/14 MDG 4.0 checked for changes to unitcell type
 !--------------------------------------------------------------------------
 recursive subroutine TransSpaceDouble(cell,t,d,inspace,outspace)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TransSpaceDouble
+#endif
 
 IMPLICIT NONE
 
@@ -425,7 +433,9 @@ end subroutine TransSpaceDouble
 !> @date    06/05/14 MDG 4.1 cell pointer argument
 !--------------------------------------------------------------------------
 recursive subroutine TransSpaceSingle(cell, t, d, inspace, outspace)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TransSpaceSingle
+#endif
 
 IMPLICIT NONE
 
@@ -516,7 +526,9 @@ end subroutine  TransSpaceSingle
 !> @date   06/05/14 MDG 4.1 cell pointer argument
 !--------------------------------------------------------------------------
 recursive subroutine TransCoor(cell, t, d, talpha, space, direction)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TransCoor
+#endif
 
 use math, ONLY: mInvert 
 
@@ -576,7 +588,9 @@ end subroutine TransCoor
 !> @date   06/05/14 MDG 4.1 cell pointer argument
 !--------------------------------------------------------------------------
 recursive function CalcDotSingle(cell, p,q,space) result(cdot)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcDotSingle
+#endif
 
 IMPLICIT NONE
 
@@ -617,7 +631,9 @@ end function CalcDotSingle
 !> @date   06/05/14 MDG 4.1 cell pointer argument
 !--------------------------------------------------------------------------
 recursive function CalcDotDouble(cell, p, q, space) result(cdot)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcDotDouble
+#endif
 
 IMPLICIT NONE
 
@@ -660,7 +676,9 @@ end function CalcDotDouble
 !> @date   06/05/14 MDG 4.1 cell pointer argument
 !--------------------------------------------------------------------------
 recursive subroutine NormVecSingle(cell, p, space)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: NormVecSingle
+#endif
 
 IMPLICIT NONE
 
@@ -702,7 +720,9 @@ end subroutine NormVecSingle
 !> @date   06/05/14 MDG 4.1 cell pointer argument
 !--------------------------------------------------------------------------
 recursive subroutine NormVecDouble(cell, p, space)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: NormVecDouble
+#endif
 
 IMPLICIT NONE
 
@@ -744,7 +764,9 @@ end subroutine NormVecDouble
 !> @date   06/05/14 MDG 4.1 cell pointer argument
 !--------------------------------------------------------------------------
 recursive function CalcLengthSingle(cell, p, space) result(x)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcLengthSingle
+#endif
 
 IMPLICIT NONE
 
@@ -781,7 +803,9 @@ end function CalcLengthSingle
 !> @date   06/05/14 MDG 4.1 cell pointer argument
 !--------------------------------------------------------------------------
 recursive function CalcLengthDouble(cell, p, space) result(x)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcLengthDouble
+#endif
 
 IMPLICIT NONE
 
@@ -818,7 +842,9 @@ end function CalcLengthDouble
 !> @date   06/05/14 MDG 4.1 cell pointer argument
 !--------------------------------------------------------------------------
 recursive function CalcAngleSingle(cell, p, q, space) result(a)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcAngleSingle
+#endif
 
 use error
 use constants
@@ -879,7 +905,9 @@ end function CalcAngleSingle
 !> @date   06/05/14 MDG 4.1 cell pointer argument
 !--------------------------------------------------------------------------
 recursive function CalcAngleDouble(cell,p,q,space) result(a)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcAngleDouble
+#endif
 
 use error
 use constants
@@ -950,7 +978,9 @@ end function CalcAngleDouble
 !> @date   06/05/14 MDG 4.1 cell pointer argument
 !--------------------------------------------------------------------------
 recursive subroutine CalcCrossSingle(cell,p,q,r,inspace,outspace,iv)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcCrossSingle
+#endif
 
 use math
 
@@ -1043,7 +1073,9 @@ end subroutine CalcCrossSingle
 !> @date   01/10/14 MDG 4.0 checked for changes to unitcell type
 !--------------------------------------------------------------------------
 recursive subroutine CalcCrossDouble(cell,p,q,r,inspace,outspace,iv)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcCrossDouble
+#endif
 
 use math
 
@@ -1127,7 +1159,9 @@ end subroutine CalcCrossDouble
 !> @date   01/10/14 MDG 4.0 checked for changes to unitcell type
 !--------------------------------------------------------------------------
 recursive subroutine MilBrav(p,q,d)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MilBrav
+#endif
 
 IMPLICIT NONE
 
@@ -1205,7 +1239,9 @@ end subroutine MilBrav
 !> @date   04/20/18 MDG 5.0 prepare code for 2D and 3D quasicrystals
 !--------------------------------------------------------------------------
 recursive subroutine GetLatParm(cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetLatParm
+#endif
 
 use io
 
@@ -1360,7 +1396,9 @@ end subroutine GetLatParm
 !> @date   01/10/14 MDG 4.0 checked for changes to unitcell type
 !--------------------------------------------------------------------------
 recursive subroutine GetAsymPos(cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetAsymPos
+#endif
 
 use io
 
@@ -1444,7 +1482,9 @@ end subroutine GetAsymPos
 !> @date   01/10/14 MDG 4.0 modified to a fixed size table
 !--------------------------------------------------------------------------
 recursive subroutine DisplayElements()
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DisplayElements
+#endif
 
 use io
 
@@ -1494,7 +1534,9 @@ end subroutine DisplayElements
 !> @date    4/01/21 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine findinline(list,sl,ch,pos,j,rep)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: findinline
+#endif
 
 IMPLICIT NONE
 
@@ -1543,7 +1585,9 @@ end subroutine findinline
 !> @date   04/01/21 MDG 5.0 complete rewrite; routine now only called when there are fractions in the string
 !--------------------------------------------------------------------------
 recursive subroutine extractposition(instring,pt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: extractposition
+#endif
 
 IMPLICIT NONE
 
@@ -1626,7 +1670,9 @@ end subroutine extractposition
 !> @date   08/10/18 MDG 4.2 correct weight factors for average atomic number...
 !--------------------------------------------------------------------------
 recursive subroutine CalcDensity(cell, dens, avZ, avA, Z2percent)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcDensity
+#endif
 
 use constants
 
@@ -1693,7 +1739,9 @@ end subroutine CalcDensity
 !> @date   03/29/18 MDG 4.2 removed stdout 
 !--------------------------------------------------------------------------
 recursive subroutine GetOR(orel)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetOR
+#endif
 
 use io
 
@@ -1751,7 +1799,9 @@ end subroutine GetOR
 !> @date   09/21/15 SS  4.2 correction in final step (buggy lines commented out and new lines marked)
 !--------------------------------------------------------------------------
 recursive function ComputeOR(orel, cellA, cellB, direction) result(TT)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ComputeOR
+#endif
 
 use math
 use io
@@ -1838,7 +1888,9 @@ end function ComputeOR
 !> @date   06/05/14 MDG 4.1 added unit cell pointer argument and HOLZdata argument
 !--------------------------------------------------------------------------
 recursive function CalcsgHOLZ(cell,HOLZdata,gg,kt,lambda) result(exer)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcsgHOLZ
+#endif
 
 IMPLICIT NONE
 
@@ -1898,7 +1950,9 @@ end function CalcsgHOLZ
 !> @date   06/05/14 MDG 4.1 added unit cell pointer argument and HOLZdata argument
 !--------------------------------------------------------------------------
 recursive subroutine GetHOLZGeometry(cell,HOLZdata,g1,g2,uvw,fn)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetHOLZGeometry
+#endif
 
 use io
 use error
@@ -2017,7 +2071,9 @@ end subroutine GetHOLZGeometry
 !> @date   06/05/14 MDG 4.1 added unit cell pointer argument and HOLZdata argument
 !--------------------------------------------------------------------------
 recursive function GetHOLZcoordinates(cell,HOLZdata,gg,kt,lambda) result(pxy)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetHOLZcoordinates
+#endif
 
 IMPLICIT NONE
 
@@ -2078,7 +2134,9 @@ end function GetHOLZcoordinates
 !> @date 09/23/15 commented out a few lines
 !--------------------------------------------------------------------------
 recursive function Convert_kgs_to_Substrate(cell, cellS, kg, TTinv, FN) result(kgS)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Convert_kgs_to_Substrate
+#endif
 
 use local
 use typedefs

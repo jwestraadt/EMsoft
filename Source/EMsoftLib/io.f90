@@ -107,7 +107,9 @@ contains
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 !--------------------------------------------------------------------------
 recursive subroutine Message(mess,frm,advance)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Message
+#endif
 
 character(*),INTENT(IN)                 :: mess         !< message string
 character(*),OPTIONAL,INTENT(IN)        :: frm          !< optional formatting string
@@ -148,7 +150,9 @@ end subroutine Message
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine ReadValueString( Qstring, rd_string, frm)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReadValueString
+#endif
 
 character(*),INTENT(IN)                         :: Qstring
 character(*),INTENT(OUT)                        :: rd_string
@@ -182,7 +186,9 @@ end subroutine ReadValueString
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine ReadValueStringArray(Qstring, rd_string, num, frm)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReadValueStringArray
+#endif
 
 character(*),INTENT(IN)                         :: Qstring
 character(1),INTENT(OUT)                        :: rd_string(num)
@@ -222,7 +228,9 @@ end subroutine ReadValueStringArray
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine ReadValueIntShort(Qstring, rd_int, num)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReadValueIntShort
+#endif
 
 character(*), INTENT(IN)                        :: Qstring
 integer(kind=ish),INTENT(OUT)                   :: rd_int(*)
@@ -258,7 +266,9 @@ end subroutine ReadValueIntShort
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine ReadValueIntLong(Qstring, rd_int, num)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReadValueIntLong
+#endif
 
 character(*), INTENT(IN)                        :: Qstring
 integer(kind=irg),INTENT(OUT)                   :: rd_int(*)
@@ -294,7 +304,9 @@ end subroutine ReadValueIntLong
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine ReadValueRealSingle(Qstring, rd_real, num)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReadValueRealSingle
+#endif
 
 character(*), INTENT(IN)                        :: Qstring
 real(kind=sgl),INTENT(OUT)                      :: rd_real(*)
@@ -331,7 +343,9 @@ end subroutine ReadValueRealSingle
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine ReadValueRealDouble(Qstring, rd_real, num)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReadValueRealDouble
+#endif
 
 character(*), INTENT(IN)                        :: Qstring
 real(kind=dbl),INTENT(OUT)                      :: rd_real(*)
@@ -372,7 +386,9 @@ end subroutine ReadValueRealDouble
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine WriteValueString(Qstring, out_string, frm, advance)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WriteValueString
+#endif
 
 character(*),INTENT(IN)                         :: Qstring 
 character(*),INTENT(IN)                         :: out_string
@@ -413,7 +429,9 @@ end subroutine WriteValueString
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine WriteValueIntShort(Qstring, out_int, num, frm, advance)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WriteValueIntShort
+#endif
 
 character(*), INTENT(IN)                        :: Qstring
 integer(kind=ish),INTENT(IN)                    :: out_int(*)
@@ -466,7 +484,9 @@ end subroutine WriteValueIntShort
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine WriteValueIntLong(Qstring, out_int, num, frm, advance)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WriteValueIntLong
+#endif
 
 character(*), INTENT(IN)                        :: Qstring
 integer(kind=irg),INTENT(IN)                    :: out_int(*)
@@ -519,7 +539,9 @@ end subroutine WriteValueIntLong
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine WriteValueIntLongLong(Qstring, out_int, num, frm, advance)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WriteValueIntLongLong
+#endif
 
 character(*), INTENT(IN)                        :: Qstring
 integer(kind=ill),INTENT(IN)                    :: out_int(*)
@@ -574,7 +596,9 @@ end subroutine WriteValueIntLongLong
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine WriteValueRealSingle(Qstring, out_real, num, frm, advance)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WriteValueRealSingle
+#endif
 
 character(*), INTENT(IN)                        :: Qstring
 real(kind=sgl),INTENT(IN)                       :: out_real(*)
@@ -629,7 +653,9 @@ end subroutine WriteValueRealSingle
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine WriteValueRealDouble(Qstring, out_real, num, frm, advance)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WriteValueRealDouble
+#endif
 
 character(*), INTENT(IN)                        :: Qstring
 real(kind=dbl),INTENT(IN)                       :: out_real(*)
@@ -683,7 +709,9 @@ end subroutine WriteValueRealDouble
 !> @date 03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine WriteValueRealComplex(Qstring, out_cmplx, num, frm, advance)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WriteValueRealComplex
+#endif
 
 character(*), INTENT(IN)                        :: Qstring
 complex(kind=sgl),INTENT(IN)                    :: out_cmplx(*)
@@ -722,7 +750,9 @@ end subroutine WriteValueRealComplex
 
 
 recursive subroutine PrintMatrixd(s,a)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PrintMatrixd
+#endif
 
 use local
 
@@ -741,7 +771,9 @@ write (stdout,"(/)")
 end subroutine
 
 recursive subroutine PrintMatrixcd(s,a)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PrintMatrixcd
+#endif
 
 use local
 

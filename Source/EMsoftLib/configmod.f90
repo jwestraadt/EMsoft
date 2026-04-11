@@ -65,7 +65,9 @@ contains
 !> @date 10/28/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine print_EMsoft_configuration_strings(CP, fname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: print_EMsoft_configuration_strings
+#endif
 
 use local
 
@@ -158,7 +160,9 @@ end subroutine print_EMsoft_configuration_strings
 !> @date 01/22/18 MDG 1.1 added strvals array
 !--------------------------------------------------------------------------
 subroutine C2F_configuration_strings(cptr, CS) ! bind(C)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: C2F_configuration_strings
+#endif
 
 use local
 

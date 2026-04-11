@@ -77,7 +77,9 @@ contains
 !> @date  06/10/14 MDG 4.0 added Dyn, cell, ktmp, and BetheParameter arguments
 !--------------------------------------------------------------------------
 subroutine CalcBWint(Dyn,cell,ktmp,BetheParameter,nn,nw,nt,thick,inten)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcBWint
+#endif
 
 use io
 use diffraction
@@ -180,7 +182,9 @@ end subroutine CalcBWint
 !> @date  06/10/14 MDG 4.0 added Dyn, cell, ktmp, and BetheParameter arguments
 !--------------------------------------------------------------------------
 subroutine CalcCBEDint(DynMat,cell,kn,BetheParameter,nn,nt,thick,inten)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcCBEDint
+#endif
 
 use io
 use diffraction
@@ -262,7 +266,9 @@ end subroutine CalcCBEDint
 !> @date  11/28/14 MDG 4.1 forked from CalcBWint
 !--------------------------------------------------------------------------
 subroutine CalcPEDint(DynMat,cell,kn,nn,nt,thick,inten)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcPEDint
+#endif
 
 use io
 use diffraction
@@ -344,7 +350,9 @@ end subroutine CalcPEDint
 !> @date  06/16/14 MDG 4.2 made routine recursive for OPenMP
 !--------------------------------------------------------------------------
 recursive subroutine CalcKint(DynMat,kn,nn,nt,thick,Iz)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcKint
+#endif
 
 use local
 use io
@@ -422,7 +430,9 @@ end subroutine CalcKint
 !> @date  02/14/15 MDG 4.3 spawned from CalcKint
 !--------------------------------------------------------------------------
 recursive subroutine CalcKthick(DynMat,kn,nn,thresh,Iz)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcKthick
+#endif
 
 use local
 use io
@@ -493,7 +503,9 @@ end subroutine CalcKthick
 !> @date 12/03/20 MDG 2.0 adds OpenMP to speed up the computation for large unit cells
 !--------------------------------------------------------------------------
 recursive subroutine Initialize_SghLUT(cell, dmin, numset, nat, verbose, nthreads)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_SghLUT
+#endif
 
 use local
 use typedefs
@@ -629,7 +641,9 @@ end subroutine Initialize_SghLUT
 !> @date 12/14/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine Initialize_SghLUTEEC(cell, dmin, numset, ctmp, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_SghLUTEEC
+#endif
 
 use local
 use typedefs
@@ -737,7 +751,9 @@ end subroutine Initialize_SghLUTEEC
 !> @date 05/03/16  MDG 1.0 original 
 !--------------------------------------------------------------------------
 recursive subroutine getSghfromLUT(cell,reflist,nns,numset,nat,Sgh)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getSghfromLUT
+#endif
 
 use local
 use typedefs
@@ -791,7 +807,9 @@ end subroutine getSghfromLUT
 !> @date 12/14/19  MDG 1.0 original 
 !--------------------------------------------------------------------------
 recursive subroutine getSghfromLUTEEC(cell,reflist,nns,Sgh)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getSghfromLUTEEC
+#endif
 
 use local
 use typedefs
@@ -849,7 +867,9 @@ end subroutine getSghfromLUTEEC
 !> @date 03/05/21  MDG 2.2 commented nat array initialization; should be done in main program
 !--------------------------------------------------------------------------
 recursive subroutine preCalcSgh(cell,kkk,numset,nat,Sghvec)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: preCalcSgh
+#endif
 
 use local
 use typedefs
@@ -924,7 +944,9 @@ end subroutine preCalcSgh
 !> @date 12/13/19  MDG 1.0 original 
 !--------------------------------------------------------------------------
 recursive subroutine preCalcSghEEC(cell,kkk,nSites,iSites,Sghvec)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: preCalcSghEEC
+#endif
 
 use local
 use typedefs
@@ -993,7 +1015,9 @@ end subroutine preCalcSghEEC
 !> @date 03/05/21  MDG 2.2 commented nat array initialization; should be done in main program
 !--------------------------------------------------------------------------
 recursive subroutine CalcSgh(cell,reflist,nn,numset,Sgh,nat)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcSgh
+#endif
 
 use local
 use typedefs
@@ -1079,7 +1103,9 @@ end subroutine CalcSgh
 !> @date 03/05/21  MDG 2.0 commented nat array initialization; should be done in main program
 !--------------------------------------------------------------------------
 recursive subroutine CalcSghMaster(cell,reflist,nn,numset,Sgh,nat)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcSghMaster
+#endif
 
 use local
 use typedefs
@@ -1172,7 +1198,9 @@ end subroutine CalcSghMaster
 !> @date 09/09/15  MDG 4.1 verification of matrix multiplications after Silicon pattern issues
 ! ###################################################################
 recursive subroutine CalcLgh(DMat,Lgh,thick,kn,nn,gzero,depthstep,lambdaE,izz)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcLgh
+#endif
 
 use local
 use io
@@ -1310,7 +1338,9 @@ end subroutine CalcLgh
 !> @date 04/21/21  MDG 1.0 original, based on CalcLgh
 ! ###################################################################
 recursive subroutine CalcLgh_anisotropic(DMat,Lgh,thick,kn,chig,nn,gzero,depthstep,lambdaE,izz)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcLgh_anisotropic
+#endif
 
 use local
 use io
@@ -1454,7 +1484,9 @@ end subroutine CalcLgh_anisotropic
 !> @date 04/21/21  MDG 1.0 original, based on Winkelmann paper
 ! ###################################################################
 recursive subroutine getChigCorrections(cell, reflist, nn, ani, dk, qu, chig)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getChigCorrections
+#endif
 
 use local
 use io
@@ -1540,7 +1572,9 @@ end subroutine getChigCorrections
 !> @date  11/21/19 MDG 3.2 optional parameter to turn off inclusion of normal absorption on diagonal
 !--------------------------------------------------------------------------
 recursive subroutine GetDynMat(cell, listroot, listrootw, rlp, DynMat, nns, nnw, BlochMode, noNormAbs)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetDynMat
+#endif
 
 use local
 use typedefs
@@ -1760,7 +1794,9 @@ end subroutine GetDynMat
 !> @date  06/18/14 MDG 2.2 corrected some pointer allocation errors in other routines; this one now works fine.
 !--------------------------------------------------------------------------
 recursive subroutine GetDynMatMaster(cell, listroot, DynMat, nref)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetDynMatMaster
+#endif
 
 use local
 use typedefs
@@ -1837,7 +1873,9 @@ end subroutine GetDynMatMaster
 !> @date 11/18/13  MDG 1.0 major rewrite from older ECP program; merged with ECPz
 !--------------------------------------------------------------------------
 recursive subroutine CalcLghECP(DMat,Lgh,nn,nt,thick,kn,gzero)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcLghECP
+#endif
 
 use local
 use io
@@ -1927,7 +1965,9 @@ end subroutine CalcLghECP
 !--------------------------------------------------------------------------
 recursive subroutine CalcsigmaggSubstrate(cell_subs,nns_film,refliststrong_subs,S0,Sigmagg,&
                                           filmthickness,substhickness,lambdaZ,thick,nt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcsigmaggSubstrate
+#endif
                                           
 
 use local
@@ -2087,7 +2127,9 @@ end subroutine CalcsigmaggSubstrate
 
 recursive subroutine GetStrongBeamsSubs(cell_film,cell_subs,reflist_film,refliststrong_subs,&
 k0,FN_film,FN_subs,nns_film,dmin,TTinv,rlp_subs,dthick)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetStrongBeamsSubs
+#endif
 
 
 use typedefs
@@ -2235,7 +2277,9 @@ end subroutine GetStrongBeamsSubs
 !> @date   12/2/14 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine Delete_StrongBeamList(self)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Delete_StrongBeamList
+#endif
 
 use local
 use typedefs

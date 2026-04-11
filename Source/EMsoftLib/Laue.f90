@@ -62,7 +62,9 @@ contains
 !> @date 07/30/19  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine Lauereadangles(orientationfilename,numangles,angles,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lauereadangles
+#endif
 
 use typedefs
 use NameListTypedefs
@@ -177,7 +179,9 @@ end subroutine Lauereadangles
 !> @date 09/06/19 MDG 1.1 correct scale factor
 !--------------------------------------------------------------------------
 recursive function getLauePattern(lnl, qu, reflist, kouter, kinner, npx, npy, refcnt) result(pattern)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getLauePattern
+#endif
 
 use local
 use typedefs
@@ -274,7 +278,9 @@ end function getLauePattern
 !--------------------------------------------------------------------------
 recursive function getLaueSlitPattern(lnl, qu, reflist, lmin, lmax, refcnt, &
                                       kinpre, kvec, kvox, binarize) result(pattern)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getLaueSlitPattern
+#endif
 
 use local
 use typedefs
@@ -482,7 +488,9 @@ end function getLaueSlitPattern
 !> @date 07/30/19  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine addLauereflection(pattern, npx, npy, kp, sfs, spotw) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: addLauereflection
+#endif
 
 IMPLICIT NONE
 
@@ -547,7 +555,9 @@ end subroutine addLauereflection
 !> @date 07/30/19  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine addLaueSlitreflection(pattern, npx, npy, kp, sfs, spotw) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: addLauereflection
+#endif
 
 IMPLICIT NONE
 
@@ -612,7 +622,9 @@ end subroutine addLaueSlitreflection
 !> @date 02/21/20  MDG 1.1 uses forward sampling to generate back-projection
 !--------------------------------------------------------------------------
 recursive function backprojectLauePattern(kk, delta, L, Lstart, Ldims, LPdims, Lpat, BPmode, LegendreArray) result(mLPNH)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: backprojectLauePattern
+#endif
 
 use local
 use typedefs
@@ -676,7 +688,7 @@ yquat = (/ 1.D0/sqrt(2.D0), 0.D0, -1.D0/sqrt(2.D0), 0.D0 /)
 !           q = (/ -0.5D0*sqrt(1.D0+L/p), py*r, pz*r /)
 !   ! this is the normal in the azimuthal plane (x,z); next we need to apply the rotation by phi 
 !   ! around x to bring the vector into the correct location
-!   ! also rotate these unit vectors by 90° around the y-axis so that they fall in along the equator
+!   ! also rotate these unit vectors by 90?? around the y-axis so that they fall in along the equator
 !           q = quat_Lp(yquat,quat_Lp(quat, q))
 !           q = q/norm2(q) 
 !   ! convert to the Legendre lattitude 
@@ -893,7 +905,7 @@ end subroutine InsertIntensity
 !         n2 = q(2) * (/ kk(2) + L - p(2), 0.D0, r /)
 ! ! these are the normals in the azimuthal plane (x,z); next we need to apply the rotation by phi 
 ! ! around x to bring the vector into the correct location
-! ! also rotate these unit vectors by 90° around the y-axis so that they fall in along the equator
+! ! also rotate these unit vectors by 90?? around the y-axis so that they fall in along the equator
 !         rn1 = quat_Lp(yquat,quat_Lp(quat, n1))
 !         rn2 = quat_Lp(yquat,quat_Lp(quat, n2))
 !         rn1 = rn1/norm2(rn1) 

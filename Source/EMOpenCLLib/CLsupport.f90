@@ -79,7 +79,9 @@ contains
 !
 ! -----------------------------------------------------------------------------
 recursive subroutine CLquery_platform_info(platform_id)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CLquery_platform_info
+#endif
 
 use ISO_C_BINDING
 
@@ -335,7 +337,9 @@ end subroutine CLquery_platform_info
 !> @date 01/15/17  MDG 1.1 added functionality for second opencl folder for developers...
 !--------------------------------------------------------------------------
 recursive subroutine CLread_source_file(sourcefile, csource, slength)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CLread_source_file
+#endif
 
 use local
 use error
@@ -444,7 +448,9 @@ end subroutine CLread_source_file
 !> @date 01/15/17  MDG 1.1 added functionality for second opencl folder for developers...
 !--------------------------------------------------------------------------
 recursive subroutine CLread_source_file_wrapper(sourcefile, csource, slength)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CLread_source_file_wrapper
+#endif
 
 use local
 use error
@@ -518,7 +524,9 @@ end subroutine CLread_source_file_wrapper
 !> @date 02/23/16  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CLinit_PDCCQ(platform, nump, selnump, device, numd, selnumd, devinfo, context, command_queue)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CLinit_PDCCQ
+#endif
 
 use ISO_C_BINDING
 use error
@@ -611,7 +619,9 @@ end subroutine CLinit_PDCCQ
 !> @date 02/28/18  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CLinit_multiPDCCQ(platform, nump, selnump, device, numd, usenumd, selnumd, devinfo, context, command_queue)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CLinit_multiPDCCQ
+#endif
 
 use ISO_C_BINDING
 use error
@@ -714,7 +724,9 @@ end subroutine CLinit_multiPDCCQ
 !> @date 06/06/16  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CLerror_check(routine, ierr, nonfatal)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CLerror_check
+#endif
 
 use ISO_C_BINDING
 use error 

@@ -95,7 +95,9 @@ contains
 !> @date  06/25/18 SS  4.5 moved to diffractyionQC module
 !--------------------------------------------------------------------------
 recursive function QC_getUcg2DQC(QCcell, hkl, qg, Vmod, Vpmod, xig, xgp) result(Ucg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_getUcg2DQC
+#endif
 
 use error
 use constants
@@ -263,7 +265,9 @@ end function QC_getUcg2DQC
 !> @date  06/25/18 SS  4.4 moved to diffractyionQC module
 !--------------------------------------------------------------------------
 recursive function QC_getUcg3DQC(QCcell, hkl, qg, Vmod, Vpmod, xig, xgp) result(Ucg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_getUcg3DQC
+#endif
 
 use error
 use constants
@@ -420,7 +424,9 @@ end function QC_getUcg3DQC
 !> @date  03/23/18 SS  1.1 copied from QCmod.f90 and adapted for 2-D QC
 !--------------------------------------------------------------------------
 recursive subroutine QC_CalcWaveLength2DQC(QCcell,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_CalcWaveLength2DQC
+#endif
 
 use constants
 use io
@@ -504,7 +510,9 @@ end subroutine QC_CalcWaveLength2DQC
 !> @date  06/25/18 SS  1.1 moved to this module
 !--------------------------------------------------------------------------
 recursive subroutine QC_CalcWaveLength3DQC(QCcell,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_CalcWaveLength3DQC
+#endif
 
 use constants
 use io
@@ -584,7 +592,9 @@ end subroutine QC_CalcWaveLength3DQC
 !> @date   06/25/18 SS  1.2 moved to diffractionQC module
 !--------------------------------------------------------------------------
 recursive function QC_Calcsg2DQC(QCcell,gg,kk,FN) result(sg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_Calcsg2DQC
+#endif
 
 IMPLICIT NONE
 
@@ -626,7 +636,9 @@ end function QC_Calcsg2DQC
 !> @date   03/15/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function QC_Calcsg3DQC(QCcell,gg,kk,FN) result(sg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_Calcsg3DQC
+#endif
 
 IMPLICIT NONE
 

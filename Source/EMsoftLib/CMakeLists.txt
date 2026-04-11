@@ -179,6 +179,9 @@ set(EMsoftLib_SRCS
 # Put just the *.c files into their own library so Visual Studio will compile
 # everything correctly. VS can NOT have both fortran and C files in the same target
 add_library(EMsoftLib_C STATIC ${EMsoftLib_C_SRCS})
+if(WIN32 AND BUILD_SHARED_LIBS)
+  target_compile_definitions(EMsoftLib PRIVATE EMSOFT_USE_DLLEXPORT)
+endif()
 set_target_properties (EMsoftLib_C PROPERTIES
   LINKER_LANGUAGE Fortran
    # Fortran_MODULE_DIRECTORY ${CMAKE_Fortran_MODULE_DIRECTORY}
@@ -199,7 +202,7 @@ target_link_libraries(EMsoftLib
                 jsonfortran 
                 bcls::bcls            
 )
-if (Fortran_COMPILER_NAME MATCHES "ifort.*")
+if (EMsoft_FORTRAN_IS_INTEL)
   target_link_libraries(EMsoftLib
                   ${MKL_LIBRARIES}
   )
@@ -232,7 +235,7 @@ if(WIN32)
                           $<$<COMPILE_LANGUAGE:Fortran>:/Qopenmp>
                           $<$<COMPILE_LANGUAGE:Fortran>:/Qdiag-disable:11082>
                           $<$<COMPILE_LANGUAGE:Fortran>:/Qdiag-disable:7025>
-                          $<$<COMPILE_LANGUAGE:Fortran>:/Qip>
+                          $<$<COMPILE_LANGUAGE:Fortran>:${EMsoft_WINDOWS_INTEL_IPO_FLAG}>
                         #  $<$<COMPILE_LANGUAGE:Fortran>:/heap-arrays>
                           )
   target_link_options(EMsoftLib PUBLIC /STACK:2000000000 /machine:x64)
@@ -260,7 +263,7 @@ else()
   endif()
 
 
-  elseif (Fortran_COMPILER_NAME MATCHES "ifort.*")
+  elseif (EMsoft_FORTRAN_IS_INTEL)
   # First, Flags that should be used under any build condition
     target_compile_options(EMsoftLib PUBLIC 
                                             #$<$<COMPILE_LANGUAGE:Fortran>:-heap-arrays>
@@ -360,6 +363,7 @@ install(
   COMPONENT
     Devel
 )
+
 
 
 

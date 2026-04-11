@@ -68,7 +68,9 @@ contains
 !> @date 04/27/20 MDG 1.1 move array (de)allocation inside parallel region (resolves issue on Windows)
 !--------------------------------------------------------------------------
 subroutine EMEBSDrefinement(progname, ronl, nmldeffile)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMEBSDrefinement
+#endif
 
 use local
 use typedefs 
@@ -809,7 +811,7 @@ if (ronl%method.eq.'FIT') then
                       myebsdnl%L = ebsdnl%L - DPCL(sampley)
                       call GenerateEBSDDetector(myebsdnl, mcnl, EBSDMCdata, myEBSDdetector, verbose=.FALSE.)
 
-! first undo the pattern center shift by an equivalent rotation (see J. Appl. Cryst. (2017). 50, 1664–1676, eq.15)
+! first undo the pattern center shift by an equivalent rotation (see J. Appl. Cryst. (2017). 50, 1664???1676, eq.15)
                       if ((dx.ne.0.0).or.(dy.ne.0.0)) then 
                         qu = eu2qu(eulerPS(1:3,kk,ll))
                         rho = dx**2+dy**2
@@ -1102,7 +1104,9 @@ end subroutine EMEBSDrefinement
 !> @date 12/28/15 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function getExpEBSDpatterns(enl) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getExpEBSDpatterns
+#endif
 
 use local
 use typedefs
@@ -1188,7 +1192,9 @@ end function getExpEBSDpatterns
 !> @date 01/05/15 MDG 1.1 added w parameter to set size of hi-pass filter window
 !--------------------------------------------------------------------------
 recursive subroutine EBSDprepExpPatterns(enl,rdata,dims,w,applymask,normalize) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDprepExpPatterns
+#endif
 
 use local
 use typedefs
@@ -1310,7 +1316,9 @@ end subroutine EBSDprepExpPatterns
 !> @date 10/11/16  MDG 2.4 conversion to new HDF5 file organization
 !--------------------------------------------------------------------------
 recursive subroutine EBSDIndexingreadMCfile(enl,acc,efile,verbose,NoHDFInterfaceOpen)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDIndexingreadMCfile
+#endif
 
 use local
 use typedefs
@@ -1423,7 +1431,9 @@ end subroutine EBSDIndexingreadMCfile
 !> @date 01/26/16  SS  3.2 adjusted for EBSDIndexing 
 !--------------------------------------------------------------------------
 recursive subroutine EBSDIndexingreadMasterfile(enl, master, mfile, verbose, NoHDFInterfaceOpen)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDIndexingreadMasterfile
+#endif
 
 use local
 use typedefs
@@ -1598,7 +1608,9 @@ end subroutine EBSDIndexingreadMasterfile
 !> @date 02/19/19  MDG  2.0 corrects pattern orientation (manual indexing revealed an unwanted upside down flip)
 !--------------------------------------------------------------------------
 recursive subroutine EBSDIndexingGenerateDetector(enl, acc, master, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDIndexingGenerateDetector
+#endif
 
 use local
 use typedefs
@@ -1772,7 +1784,9 @@ end subroutine EBSDIndexingGenerateDetector
 !> @date 02/19/19  MDG  3.0 corrects pattern orientation (manual indexing revealed an unwanted upside down flip)
 !--------------------------------------------------------------------------
 recursive subroutine EBSDFastIndexingGenerateDetector(enl, acc, master, nlines, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDFastIndexingGenerateDetector
+#endif
 
 use local
 use typedefs
@@ -1952,7 +1966,9 @@ end subroutine EBSDFastIndexingGenerateDetector
 !> @date 02/07/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function getEBSDIQ(dimx, dimy, pattern, init) result(Q)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getEBSDIQ
+#endif
 
 use local
 use typedefs
@@ -2050,7 +2066,9 @@ end function getEBSDIQ
 !> @date 03/15/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine get_EBSDDI_memory_pattern(ebsdnl, holdexpt, holddict)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: get_EBSDDI_memory_pattern
+#endif
 
 use local
 use typedefs
@@ -2104,7 +2122,9 @@ end subroutine get_EBSDDI_memory_pattern
 !> @date 03/17/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CalcEBSDPatternSingleApprox(ipar,qu,acc_array,mLPNH,mLPSH,rgx,rgy,rgz,binned,mask,prefactor)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcEBSDPatternSingleApprox
+#endif
 
 use local
 use typedefs
@@ -2223,7 +2243,9 @@ recursive subroutine  readEBSDDotProductFile(dpfile, ebsdnl, hdferr, EBSDDIdata,
                                             getPhi, getPhi2, getSEMsignal, getTopDotProductList, getTopMatchIndices, & 
                                             getValid, getXPosition, getYPosition, getRefinedDotProducts, &
                                             getRefinedEulerAngles, getDictionaryEulerAngles, presentFolder, isTKD)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: readEBSDDotProductFile
+#endif
 
 use local
 use typedefs

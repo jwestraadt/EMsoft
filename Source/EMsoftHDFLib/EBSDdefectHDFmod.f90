@@ -90,7 +90,9 @@ contains
 !> @date 11/05/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine EBSDreadorpcdefHDF(enl,ipar,fpar,orpcdef)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDreadorpcdefHDF
+#endif
 
 use NameListTypedefs
 use io

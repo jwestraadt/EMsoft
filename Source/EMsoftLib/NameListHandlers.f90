@@ -61,7 +61,9 @@ contains
 !> @date 04/22/18  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetGrainVizNameList(nmlfile, gvnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetGrainVizNameList
+#endif
 
 use error
 
@@ -140,7 +142,9 @@ end subroutine GetGrainVizNameList
 !> @date 07/18/18  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetChangeSettingNameList(nmlfile, csnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetChangeSettingNameList
+#endif
 
 use error
 
@@ -206,7 +210,9 @@ end subroutine GetChangeSettingNameList
 !> @date 07/19/18  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetCTFNameList(nmlfile, csnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetCTFNameList
+#endif
 
 use error
 
@@ -281,7 +287,9 @@ end subroutine GetCTFNameList
 !> @date 07/19/18  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetANGNameList(nmlfile, csnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetANGNameList
+#endif
 
 use error
 
@@ -356,7 +364,9 @@ end subroutine GetANGNameList
 !> @date 05/22/19  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEulersNameList(nmlfile, csnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEulersNameList
+#endif
 
 use error
 
@@ -434,7 +444,9 @@ end subroutine GetEulersNameList
 !> @date 04/22/18  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetGBONameList(nmlfile, gbonl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetGBONameList
+#endif
 
 use error
 
@@ -509,7 +521,9 @@ end subroutine GetGBONameList
 !> @date 04/22/18  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetGBOdmNameList(nmlfile, gbonl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetGBOdmNameList
+#endif
 
 use error
 
@@ -586,7 +600,9 @@ end subroutine GetGBOdmNameList
 !> @date 05/05/18  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetoSLERPNameList(nmlfile, onl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetoSLERPNameList
+#endif
 
 use error
 
@@ -683,7 +699,9 @@ end subroutine GetoSLERPNameList
 !> @date 06/13/14  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetLorentzNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetLorentzNameList
+#endif
 
 use error
 
@@ -816,7 +834,9 @@ end subroutine GetLorentzNameList
 !> @date 02/21/17  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetMultiPhaseNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetMultiPhaseNameList
+#endif
 
 use error
 
@@ -891,7 +911,9 @@ end subroutine GetMultiPhaseNameList
 !> @date 06/13/14  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetKosselNameList(nmlfile, knl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetKosselNameList
+#endif
 
 use error
 
@@ -989,7 +1011,9 @@ end subroutine GetKosselNameList
 !> @date 09/09/14  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetKosselMasterNameList(nmlfile, knl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetKosselMasterNameList
+#endif
 
 use error
 
@@ -1078,7 +1102,9 @@ end subroutine GetKosselMasterNameList
 !> @date 06/18/14  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetCPLMmasterNameList(nmlfile, omnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetCPLMmasterNameList
+#endif
 
 use error
 
@@ -1169,7 +1195,9 @@ end subroutine GetCPLMmasterNameList
 !> @date 03/14/19  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetLaueMasterNameList(nmlfile, lmnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetLaueMasterNameList
+#endif
 
 use error
 
@@ -1289,7 +1317,9 @@ end subroutine GetLaueMasterNameList
 !> @dete 07/30/19  MDG 1.1 reorganization of namelist
 !--------------------------------------------------------------------------
 recursive subroutine GetLaueNameList(nmlfile, lnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetLaueNameList
+#endif
 
 use error
 
@@ -1398,7 +1428,9 @@ end subroutine GetLaueNameList
 !> @dete 07/30/19  MDG 1.1 reorganization of namelist
 !--------------------------------------------------------------------------
 recursive subroutine GetLaueSlitNameList(nmlfile, lnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetLaueSlitNameList
+#endif
 
 use error
 
@@ -1561,7 +1593,9 @@ end subroutine GetLaueSlitNameList
 !> @date 09/21/17  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetCPLMNameList(nmlfile, omnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetCPLMNameList
+#endif
 
 use error
 
@@ -1638,7 +1672,9 @@ end subroutine GetCPLMNameList
 !> @date 06/18/14  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetMCNameList(nmlfile, mcnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetMCNameList
+#endif
 
 use error
 
@@ -1739,7 +1775,9 @@ end subroutine GetMCNameList
 !> @date 12/01/15  PGC 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetMCLIPSSNameList(nmlfile, mcnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetMCLIPSSNameList
+#endif
 
 use error
 
@@ -1858,7 +1896,9 @@ end subroutine GetMCLIPSSNameList
 !> @date 01/31/17 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetConvertOrientationsNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetConvertOrientationsNameList
+#endif
 
 use error
 
@@ -1963,7 +2003,9 @@ end subroutine GetConvertOrientationsNameList
 !> @date 06/13/17 MDG 1.1 added support for .mrc files
 !--------------------------------------------------------------------------
 recursive subroutine GetOrientationVizNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetOrientationVizNameList
+#endif
 
 use error
 
@@ -2104,7 +2146,9 @@ end subroutine GetOrientationVizNameList
 !> @date 11/10/19 MDG 1.2 added interaction volume parameters
 !--------------------------------------------------------------------------
 recursive subroutine GetMCCLNameList(nmlfile, mcnl, initonly, writetofile)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetMCCLNameList
+#endif
 
 use error
 
@@ -2277,7 +2321,9 @@ end subroutine GetMCCLNameList
 !> @date 06/18/14  SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetMCCLMultiLayerNameList(nmlfile, mcnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetMCCLMultiLayerNameList
+#endif
 
 use error
 
@@ -2391,7 +2437,9 @@ end subroutine GetMCCLMultiLayerNameList
 !> @date 06/24/16  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetDisorientationsNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetDisorientationsNameList
+#endif
 
 use error
 
@@ -2463,7 +2511,9 @@ end subroutine GetDisorientationsNameList
 !> @date 06/24/16  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetAverageOrientationNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetAverageOrientationNameList
+#endif
 
 use error
 
@@ -2546,7 +2596,9 @@ end subroutine GetAverageOrientationNameList
 !> @date 07/29/16  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetOrientationSimilarityNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetOrientationSimilarityNameList
+#endif
 
 use error
 
@@ -2612,7 +2664,9 @@ end subroutine GetOrientationSimilarityNameList
 !> @date 07/29/16  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetKAMNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetKAMNameList
+#endif
 
 use error
 
@@ -2681,7 +2735,9 @@ end subroutine GetKAMNameList
 !> @date 07/29/16  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetDvsDNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetDvsDNameList
+#endif
 
 use error
 
@@ -2770,7 +2826,9 @@ end subroutine GetDvsDNameList
 !> @date 10/25/19  MDG 2.1 remove .sht support; moved to new GetEBSDMasterSHTNameList routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDMasterNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDMasterNameList
+#endif
 
 use error
 
@@ -2872,7 +2930,9 @@ end subroutine GetEBSDMasterNameList
 !> @date 12/18/20  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetISEMasterNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetISEMasterNameList
+#endif
 
 use error
 
@@ -2956,7 +3016,9 @@ end subroutine GetISEMasterNameList
 !> @date 12/13/19  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEECMasterNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEECMasterNameList
+#endif
 
 use error
 
@@ -3046,7 +3108,9 @@ end subroutine GetEECMasterNameList
 !> @date 10/21/19  MDG 2.0 adds support for .sht file format
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDMasterSHTNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDMasterSHTNameList
+#endif
 
 use error
 
@@ -3149,7 +3213,9 @@ end subroutine GetEBSDMasterSHTNameList
 !> @date 11/13/18  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDSingleMasterNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDSingleMasterNameList
+#endif
 
 use error
 
@@ -3234,7 +3300,9 @@ end subroutine GetEBSDSingleMasterNameList
 !> @date 10/22/19  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetlocalOSMMasterNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetlocalOSMMasterNameList
+#endif
 
 use error
 
@@ -3307,7 +3375,9 @@ end subroutine GetlocalOSMMasterNameList
 !> @date 11/06/17  MDG 1.1 added combinesites parameter
 !--------------------------------------------------------------------------
 recursive subroutine GetTKDMasterNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetTKDMasterNameList
+#endif
 
 use error
 
@@ -3390,7 +3460,9 @@ end subroutine GetTKDMasterNameList
 !> @date 12/10/16  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDMasterOpenCLNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDMasterOpenCLNameList
+#endif
 
 use error
 
@@ -3492,7 +3564,9 @@ end subroutine GetEBSDMasterOpenCLNameList
 !> @date 06/19/14  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDclusterNameList(nmlfile, emnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDclusterNameList
+#endif
 
 use error
 
@@ -3573,7 +3647,9 @@ end subroutine GetEBSDclusterNameList
 !> @date 01/04/18 MDG 1.3 added to Public repo
 !--------------------------------------------------------------------------
 recursive subroutine GetECPQCMasterNameList(nmlfile, ecpnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetECPQCMasterNameList
+#endif
 
 use error
 
@@ -3651,7 +3727,9 @@ end subroutine GetECPQCMasterNameList
 !> @date 01/04/18 MDG 1.3 added to Public repo
 !--------------------------------------------------------------------------
 recursive subroutine GetCTEMQCNameList(nmlfile, ctemqcnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetCTEMQCNameList
+#endif
 
 use error
 
@@ -3746,7 +3824,9 @@ end subroutine GetCTEMQCNameList
 !> @date 09/15/15  SS 1.2 clean up of the subroutine
 !--------------------------------------------------------------------------
 recursive subroutine GetECPMasterNameList(nmlfile, ecpnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetECPMasterNameList
+#endif
 
 use error
 
@@ -3833,7 +3913,9 @@ end subroutine GetECPMasterNameList
 !> @date 05/31/16 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetreflectorNameList(nmlfile, rnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetreflectorNameList
+#endif
 
 use error
 
@@ -3859,7 +3941,7 @@ logical                                        :: kinematical
 namelist /EBSDreflectors/ increment, dmin, masterfile, listfile, numlist, nthreads, outputformat, kinematical
 
 ! set the input parameters to default values (except for xtalname, which must be present)
-increment = 0.025               ! angular increment [°]
+increment = 0.025               ! angular increment [??]
 dmin = 0.05                     ! smallest d-spacing to include in dynamical matrix [nm]
 numlist = 20
 nthreads = 1
@@ -3913,7 +3995,9 @@ end subroutine GetreflectorNameList
 !> @date 05/31/16 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetkinematicalNameList(nmlfile, knl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetkinematicalNameList
+#endif
 
 use error
 
@@ -3988,7 +4072,9 @@ end subroutine GetkinematicalNameList
 !> @date 05/16/19  MDG 1.1 disable energyfile parameter from namelist file
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDNameList
+#endif
 
 use error
 
@@ -4189,7 +4275,9 @@ end subroutine GetEBSDNameList
 !> @date 04/04/21  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDBatchNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDBatchNameList
+#endif
 
 use error
 use ISO_C_BINDING
@@ -4340,7 +4428,9 @@ end subroutine GetEBSDBatchNameList
 !> @date 07/28/20  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetBSENameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetBSENameList
+#endif
 
 use error
 
@@ -4470,7 +4560,9 @@ end subroutine GetBSENameList
 !> @date 11/05/19  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDdefectNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDdefectNameList
+#endif
 
 use error
 
@@ -4595,7 +4687,9 @@ end subroutine GetEBSDdefectNameList
 !> @date 01/24/18 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetHREBSDpreviewNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetHREBSDpreviewNameList
+#endif
 
 use error
 
@@ -4721,7 +4815,9 @@ end subroutine GetHREBSDpreviewNameList
 !> @date 01/30/20  CZ 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetHREBSDNameList(nmlfile, HREBSD, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetHREBSDNameList
+#endif
 
 use error
 
@@ -4879,7 +4975,9 @@ end subroutine GetHREBSDNameList
 !> @date 01/30/20  CZ 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDDENameList(nmlfile, enl, de, p,initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDDENameList
+#endif
 
 use error
 
@@ -5165,7 +5263,9 @@ end subroutine GetEBSDDENameList
 !> @date 05/09/17  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetTKDNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetTKDNameList
+#endif
 
 use error
 
@@ -5324,7 +5424,9 @@ end subroutine GetTKDNameList
 !> @date 09/24/19  MDG 1.1 expanded for up to three variant phases
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDoverlapNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDoverlapNameList
+#endif
 
 use error
 
@@ -5465,7 +5567,9 @@ end subroutine GetEBSDoverlapNameList
 !> @date 01/03/18  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetTKDoverlapNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetTKDoverlapNameList
+#endif
 
 use error
 
@@ -5565,7 +5669,9 @@ end subroutine GetTKDoverlapNameList
 !> @date 01/03/18  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetTKDspotsNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetTKDspotsNameList
+#endif
 
 use error
 
@@ -5683,7 +5789,9 @@ end subroutine GetTKDspotsNameList
 !> @date 01/25/17 MDG 1.0 new structure
 !--------------------------------------------------------------------------
 recursive subroutine GetECPZANameList(nmlfile, ecpnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetECPZANameList
+#endif
 
 use error
 
@@ -5766,7 +5874,9 @@ end subroutine GetECPZANameList
 !> @date 10/15/15 SS  1.2 changes for release
 !--------------------------------------------------------------------------
 recursive subroutine GetECPNameList(nmlfile, ecpnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetECPNameList
+#endif
 
 use error
 
@@ -5911,7 +6021,9 @@ end subroutine GetECPNameList
 !> @date 07/01/14  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetLACBEDNameList(nmlfile, lacbednl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetLACBEDNameList
+#endif
 
 use error
 
@@ -6006,7 +6118,9 @@ end subroutine GetLACBEDNameList
 !> @date 11/24/18  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetCBEDNameList(nmlfile, cbednl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetCBEDNameList
+#endif
 
 use error
 
@@ -6104,7 +6218,9 @@ end subroutine GetCBEDNameList
 !> @date 06/19/14  SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetECPpatternNameList(nmlfile,ecpnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetECPpatternNameList
+#endif
 
 use error
 
@@ -6175,7 +6291,9 @@ end subroutine GetECPpatternNameList
 !> @date 03/02/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetPEDkinNameList(nmlfile,pednl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetPEDkinNameList
+#endif
 
 use error
 
@@ -6267,7 +6385,9 @@ end subroutine GetPEDKINNameList
 !> @date 07/09/14 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetPEDZANameList(nmlfile,pednl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetPEDZANameList
+#endif
 
 use error
 
@@ -6372,7 +6492,9 @@ end subroutine GetPEDZANameList
 !> @date 11/24/15 MDG 1.1 adapted for new namelist variables
 !--------------------------------------------------------------------------
 recursive subroutine GetECCINameList(nmlfile,eccinl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetECCINameList
+#endif
 
 use error
 
@@ -6514,7 +6636,9 @@ end subroutine GetECCINameList
 !> @date 02/01/17 MDG 1.4 added conical sampling mode
 !--------------------------------------------------------------------------
 recursive subroutine GetRFZNameList(nmlfile,rfznl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetRFZNameList
+#endif
 
 use error
 
@@ -6611,7 +6735,9 @@ end subroutine GetRFZNameList
 !> @date 13/01/15 SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetDictIndxOpenCLNameList(nmlfile,dictindxnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetDictIndxOpenCLNameList
+#endif
 
 use error
 use local
@@ -6727,7 +6853,9 @@ end subroutine GetDictIndxOpenCLNameList
 !> @date 13/01/15 SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetPEDIndxNameList(nmlfile,pednl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetPEDIndxNameList
+#endif
 
 use error
 use local
@@ -6867,7 +6995,9 @@ end subroutine GetPEDIndxNameList
 !> @date 01/24/18 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDDIpreviewNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDDIpreviewNameList
+#endif
 
 use error
 
@@ -6986,7 +7116,9 @@ end subroutine GetEBSDDIpreviewNameList
 !> @date 01/26/16  SS 1.2 adjusted for EBSDIndexing
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDIndexingNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDIndexingNameList
+#endif
 
 use error
 use io
@@ -7459,7 +7591,9 @@ end subroutine GetEBSDIndexingNameList
 !> @date 02/17/18 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetADPNameList(nmlfile, adpnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetADPNameList
+#endif
 
 use error
 
@@ -7582,7 +7716,9 @@ end subroutine GetADPNameList
 !> @date 08/17/19 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetOSMNameList(nmlfile, osmnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetOSMNameList
+#endif
 
 use error
 
@@ -7649,7 +7785,9 @@ end subroutine GetOSMNameList
 !> @date 08/17/19 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetdpmergeNameList(nmlfile, dpmnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetdpmergeNameList
+#endif
 
 use error
 
@@ -7731,7 +7869,9 @@ end subroutine GetdpmergeNameList
 !> @date 05/07/17 MDG 1.0 new routine, based on EBSD routine
 !--------------------------------------------------------------------------
 recursive subroutine GetTKDIndexingNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetTKDIndexingNameList
+#endif
 
 use error
 
@@ -7971,7 +8111,9 @@ end subroutine GetTKDIndexingNameList
 !> @date 06/24/15  SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetZAdefectNameList(nmlfile, ZAdefect, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetZAdefectNameList
+#endif
 
 use error
 
@@ -8115,7 +8257,9 @@ end subroutine GetZADefectNameList
 !> @date 01/26/16  SS 1.1 modified for EMsoft3.1 indexing code
 !--------------------------------------------------------------------------
 recursive subroutine GetECPIndexingNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetECPIndexingNameList
+#endif
 
 use error
 
@@ -8243,7 +8387,9 @@ end subroutine GetECPIndexingNameList
 !> @date 02/22/16  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetEMDPFit4NameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMDPFit4NameList
+#endif
 
 use error
 
@@ -8500,7 +8646,9 @@ end subroutine GetEMDPFit4NameList
 !> @date 02/22/16  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetEMDPFitNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMDPFitNameList
+#endif
 
 use error
 
@@ -8690,7 +8838,9 @@ end subroutine GetEMDPFitNameList
 !> @date 02/22/16  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetECPSingleNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetECPSingleNameList
+#endif
 
 use error
 
@@ -8790,7 +8940,9 @@ end subroutine GetECPSingleNameList
 !--------------------------------------------------------------------------
 
 recursive SUBROUTINE GetSTEMDCINameList(nmlfile, dcinl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSTEMDCINameList
+#endif
 
 use error
 
@@ -8898,7 +9050,9 @@ END SUBROUTINE GetSTEMDCINameList
 !> @date 07/02/17  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive SUBROUTINE GetSTEMGeometryNameList(nmlfile, dcinl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSTEMGeometryNameList
+#endif
 
 use error
 
@@ -8980,7 +9134,9 @@ END SUBROUTINE GetSTEMGeometryNameList
 !> @date 02/22/16  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetRefineOrientationNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetRefineOrientationNameList
+#endif
 
 use error
 
@@ -9092,7 +9248,9 @@ end subroutine GetRefineOrientationNameList
 !> @date 03/05/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetFitalphavariantsNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetFitalphavariantsNameList
+#endif
 
 use error
 
@@ -9176,7 +9334,9 @@ end subroutine GetFitalphavariantsNameList
 !> @date 02/22/16  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetFitOrientationPSNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetFitOrientationPSNameList
+#endif
 
 use error
 use constants
@@ -9256,7 +9416,9 @@ end subroutine GetFitOrientationPSNameList
 !> @date 01/04/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetRefineMartensiteNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetRefineMartensiteNameList
+#endif
 
 use error
 use constants
@@ -9341,7 +9503,9 @@ end subroutine GetRefineMartensiteNameList
 !> @date 10/20/16  SS 1.0 new routine; adapted from GetMCCLNameList
 !--------------------------------------------------------------------------
 recursive subroutine GetMCCLsphereNameList(nmlfile, mcnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetMCCLsphereNameList
+#endif
 
 use error
 
@@ -9466,7 +9630,9 @@ end subroutine GetMCCLsphereNameList
 !> @date 01/15/17 MDG 1.0 new routine; adapted from GetMCCLNameList
 !--------------------------------------------------------------------------
 recursive subroutine GetMCCLfoilNameList(nmlfile, mcnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetMCCLfoilNameList
+#endif
 
 use error
 
@@ -9578,7 +9744,9 @@ end subroutine GetMCCLfoilNameList
 !> @date 01/24/17  SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDFullNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDFullNameList
+#endif
 
 use error
 
@@ -9746,7 +9914,9 @@ end subroutine GetEBSDFullNameList
 !> @date 04/21/21 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDanisotropicNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDanisotropicNameList
+#endif
 
 use error
 
@@ -9902,7 +10072,9 @@ end subroutine GetEBSDanisotropicNameList
 !--------------------------------------------------------------------------
 
 recursive SUBROUTINE GetSRdefectNameList(nmlfile, srdnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSRdefectNameList
+#endif
 
 use error
 
@@ -10043,7 +10215,9 @@ END SUBROUTINE GetSRdefectNameList
 !> @date 04/02/17  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetPFInversionNameList(nmlfile, epf, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetPFInversionNameList
+#endif
 
 use error
 use constants
@@ -10125,7 +10299,9 @@ end subroutine GetPFInversionNameList
 !> @date 06/28/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetEMgammaNameList(nmlfile, epf, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMgammaNameList
+#endif
 
 use error
 use constants
@@ -10225,7 +10401,9 @@ end subroutine GetEMgammaNameList
 !> @date 06/28/17 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetEMgammaOpenCLNameList(nmlfile, epf, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMgammaOpenCLNameList
+#endif
 
 use error
 use constants
@@ -10320,7 +10498,9 @@ end subroutine GetEMgammaOpenCLNameList
 !> @date 06/28/17 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetEMTwoPhaseNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMTwoPhaseNameList
+#endif
 
 use error
 use constants
@@ -10402,7 +10582,9 @@ end subroutine GetEMTwoPhaseNameList
 !> @date 02/22/16  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetMDElectronPropNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetMDElectronPropNameList
+#endif
 
 use error
 
@@ -10502,7 +10684,9 @@ end subroutine GetMDElectronPropNameList
 !> @date 11/20/17 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetEMgammaSTEMNameList(nmlfile, epf, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMgammaSTEMNameList
+#endif
 
 use error
 use constants
@@ -10591,7 +10775,9 @@ end subroutine GetEMgammaSTEMNameList
 !> @date 05/10/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetEMTGBSTEMNameList(nmlfile, epf, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMTGBSTEMNameList
+#endif
 
 use error
 use constants
@@ -10676,7 +10862,9 @@ end subroutine GetEMTGBSTEMNameList
 !> @date 02/21/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetEMCBEDQCNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMCBEDQCNameList
+#endif
 
 use error
 use constants
@@ -10753,7 +10941,9 @@ end subroutine GetEMCBEDQCNameList
 !> @date 06/28/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetEMCBED2DQCNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMCBED2DQCNameList
+#endif
 
 use error
 use constants
@@ -10832,7 +11022,9 @@ end subroutine GetEMCBED2DQCNameList
 !> @date 02/21/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSDQCMasterNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSDQCMasterNameList
+#endif
 
 use error
 use constants
@@ -10900,7 +11092,9 @@ end subroutine GetEBSDQCMasterNameList
 !> @date 05/1/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetEBSD2DQCMasterNameList(nmlfile, enl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEBSD2DQCMasterNameList
+#endif
 
 use error
 use constants
@@ -10979,7 +11173,9 @@ end subroutine GetEBSD2DQCMasterNameList
 !--------------------------------------------------------------------------
 
 recursive subroutine GetEMmdSTEMNameList(nmlfile, msnml, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMmdSTEMNameList
+#endif
 
 use error
 use constants
@@ -11102,7 +11298,9 @@ end subroutine GetEMmdSTEMNameList
 !--------------------------------------------------------------------------
 
 recursive subroutine GetEMIntegrateSTEMNameList(nmlfile, isnml, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMIntegrateSTEMNameList
+#endif
 
 use error
 use constants
@@ -11183,7 +11381,9 @@ end subroutine GetEMIntegrateSTEMNameList
 !> @date 08/15/19  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine GetEMhh4NameList(nmlfile, hhnl, initonly)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetEMhh4NameList
+#endif
 
 use error
 

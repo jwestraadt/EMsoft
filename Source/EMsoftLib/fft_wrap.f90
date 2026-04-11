@@ -65,7 +65,9 @@ implicit none
   ! this should make it easier to manage automatically
   type(FFTWisdomType) :: FFTWisdom ! may call FFTWisdom%load() before planning 
                                    ! and FFTWisdom%save() afterwards (auto save doesn't work yet)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: FFTWisdom
+#endif
 
 
   !@brief: wrapper class to handle memory allocation for FFTs
@@ -189,7 +191,9 @@ contains
   !> @date 08/06/19 WCL 1.0 original
   !--------------------------------------------------------------------------
   recursive function FFTWisdomType_Name(fileExists) result(name)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: FFTWisdomType_Name
+#endif
     use local
   implicit none
     logical            ,intent(out),optional    :: fileExists ! boolean for if the file exists
@@ -229,7 +233,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
   !> @date 08/06/19 WCL converted to object oriented
   !--------------------------------------------------------------------------
   recursive subroutine FFTWisdomType_Load(this)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: FFTWisdomType_Load
+#endif
     use FFTW3MOD
     use error
   implicit none
@@ -261,7 +267,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
   !> @date 08/06/19 WCL converted to object oriented
   !--------------------------------------------------------------------------
   recursive subroutine FFTWisdomType_Save(this)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: FFTWisdomType_Save
+#endif
     use FFTW3MOD
     use error
     use io
@@ -282,7 +290,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
 
   !@brief: automatically clean up on destruction
   recursive subroutine FFTWisdomType_Finalize(this)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: FFTWisdomType_Finalize
+#endif
   implicit none
     type(FFTWisdomType),intent(inout) :: this
     call this%save()
@@ -298,7 +308,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
   !@brief   : (re)allocate a buffer
   !@param sz: size of array to allocate (number of doubles)
   recursive subroutine FFTBuffer_AllocReal(this, sz)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: FFTBuffer_AllocReal
+#endif
   implicit none
     class  (FFTBuffer),INTENT(INOUT) :: this 
     integer           ,INTENT(IN   ) :: sz
@@ -310,7 +322,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
   !@brief   : (re)allocate a buffer
   !@param sz: size of array to allocate (number of complex doubles)
   recursive subroutine FFTBuffer_AllocCplx(this, sz)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: FFTBuffer_AllocCplx
+#endif
   implicit none
     class  (FFTBuffer),INTENT(INOUT) :: this 
     integer           ,INTENT(IN   ) :: sz
@@ -321,7 +335,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
 
   !@brief: deallocate a buffer (if it is allocated)
   recursive subroutine FFTBuffer_Free(this)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: FFTBuffer_Free
+#endif
   implicit none
     class(FFTBuffer),INTENT(INOUT) :: this 
 
@@ -335,7 +351,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
 
   !@brief: automatically clean up on destruction
   recursive subroutine FFTBuffer_Finalize(this)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: FFTBuffer_Finalize
+#endif
   implicit none
     type(FFTBuffer),INTENT(INOUT) :: this
     call this%free()
@@ -349,7 +367,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
 
   !@brief: allocate space for the ptr and zero
   recursive subroutine FFTPlan_Init(this)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: FFTPlan_Init
+#endif
   implicit none
     class(FFTPlan),INTENT(INOUT) :: this
     call this%destroy() ! clean out any existing plan
@@ -359,7 +379,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
 
   !@brief: deallocate a buffer (if it is allocated)
   recursive subroutine FFTPlan_Destroy(this)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: FFTPlan_Destroy
+#endif
   implicit none
     class(FFTPlan),INTENT(INOUT) :: this
     if(allocated(this%ptr)) then ! there may be a plan stored here
@@ -371,7 +393,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
 
   !@brief: automatically clean up on destruction
   recursive subroutine FFTPlan_Finalize(this)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: FFTPlan_Finalize
+#endif
   implicit none
     type(FFTPlan),INTENT(INOUT) :: this
     call this%destroy()
@@ -387,7 +411,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
   !@param sz  [IN] integer: length of transform (length of real data)
   !@param flg [IN] integer: planning flags
   recursive subroutine RealFFT_Init(this, sz, flg)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: RealFFT_Init
+#endif
   implicit none
     class  (RealFFT         ),INTENT(INOUT)          :: this 
     integer                  ,INTENT(IN   )          :: sz
@@ -425,7 +451,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
   !@param signal : real data to compute DFT of
   !@param spectra: location to write half complex DFT
   recursive subroutine RealFFT_Fwd(this, signal, spectra)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: RealFFT_Fwd
+#endif
   implicit none
     class  (RealFFT         ),INTENT(IN   )         :: this
     real   (c_double        ),INTENT(IN   ),pointer :: signal (:)
@@ -437,7 +465,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
   !@param spectra: half complex DFT to compute inverse of
   !@param signal : location to write real signal
   recursive subroutine RealFFT_Inv(this, spectra, signal)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: RealFFT_Inv
+#endif
   implicit none
     class  (RealFFT         ),INTENT(IN   )         :: this
     complex(c_double_complex),INTENT(IN   ),pointer :: spectra(:)
@@ -456,7 +486,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
   !@param sz  [IN] integer: cube size lenth length of transform (sz*sz*sz cube)
   !@param flg [IN] integer: planning flags
   recursive subroutine Real3DFFT_Init(this, sz, flg)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: Real3DFFT_Init
+#endif
   implicit none
     class  (Real3DFFT       ),INTENT(INOUT)          :: this 
     integer                  ,INTENT(IN   )          :: sz
@@ -493,7 +525,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
   !@param spectra: half complex DFT to compute inverse of
   !@param signal : location to write real signal
   recursive subroutine Real3DFFT_Inv(this, spectra, signal)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: Real3DFFT_Inv
+#endif
   implicit none
     class  (Real3DFFT       ),INTENT(IN   )         :: this
     complex(c_double_complex),INTENT(IN   ),pointer :: spectra(:,:,:)
@@ -520,7 +554,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
   !@param sz  [IN] integer: cube size lenth length of transform (sz*sz*sz cube)
   !@param flg [IN] integer: planning flags
   recursive subroutine RealSep3DFFT_Init(this, sz, flg)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: RealSep3DFFT_Init
+#endif
   implicit none
     class  (RealSep3DFFT    ),INTENT(INOUT)          :: this 
     integer                  ,INTENT(IN   )          :: sz
@@ -599,7 +635,9 @@ write (*,*) 'wisdom file '//trim(wisdomFile), fileExists
   !@param signal : location to write real signal
   !@param dx     : spacing of non zero YZ planes (at 1, 1+dx, 1+dx*2, 1+dx*3, ...)
   recursive subroutine RealSep3DFFT_Inv(this, spectra, signal, dx)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: RealSep3DFFT_Inv
+#endif
   implicit none
     class  (RealSep3DFFT    ),INTENT(IN   )         :: this
     complex(c_double_complex),INTENT(IN   ),pointer :: spectra(:,:,:)

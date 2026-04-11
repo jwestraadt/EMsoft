@@ -86,8 +86,12 @@ IMPLICIT NONE
 ! uncomment these for the Morawiec version.
 real(kind=sgl), parameter :: epsijk = 1.0
 real(kind=dbl), parameter :: epsijkd = 1.D0
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: epsijk
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: epsijkd
+#endif
 
 ! In the first case, epsijk=-1, the rotation 120@[111] will result in 
 ! an axis angle pair of [111], 2pi/3.  In the second case, the axis-angle 
@@ -134,17 +138,39 @@ real(kind=dbl), parameter :: cPi=3.141592653589793238D0, cLight = 299792458.D0, 
                              cCharge = 1.602176634D-19, cRestmass = 9.1093837090D-31, &
                              cMoment = 9.2740100707D-24, cJ2eV = 1.602176565D-19, &
                              cAvogadro = 6.02214076D23
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cPi
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cPlanck
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cPermea
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cCharge
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cMoment
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cAvogadro
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cLight
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cBoltzmann
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cPermit
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cRestmass
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cJ2eV
+#endif
 
 !> element symbols (we'll do 1-98 for all parameter lists)
 character(2), dimension(98) :: ATOM_sym=(/' H','He','Li','Be',' B',' C',' N',' O',' F','Ne', &
@@ -157,7 +183,9 @@ character(2), dimension(98) :: ATOM_sym=(/' H','He','Li','Be',' B',' C',' N',' O
                                           'Lu','Hf','Ta',' W','Re','Os','Ir','Pt','Au','Hg', &
                                           'Tl','Pb','Bi','Po','At','Rn','Fr','Ra','Ac','Th', &
                                           'Pa',' U','Np','Pu','Am','Cm','Bk','Cf'/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ATOM_sym
+#endif
 
 !> Shannon-Prewitt ionic radii in nanometer
 real(kind=sgl), dimension(98) :: ATOM_SPradii=(/0.010,0.010,0.680,0.300,0.160,0.150,0.148,0.146,0.133,0.500, &
@@ -170,7 +198,9 @@ real(kind=sgl), dimension(98) :: ATOM_SPradii=(/0.010,0.010,0.680,0.300,0.160,0.
                                                 0.050,0.050,0.680,0.600,0.520,0.500,0.500,0.500,0.137,0.112, &
                                                 0.140,0.132,0.740,0.230,0.227,0.500,0.175,0.137,0.111,0.990, &
                                                 0.090,0.083,0.500,0.108,0.500,0.500,0.500,0.500/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ATOM_SPradii
+#endif
 
 !> atomic (metallic) radii in nanometer (0.100 if not known/applicable)
 real(kind=sgl), dimension(98) :: ATOM_MTradii=(/0.100,0.100,0.156,0.112,0.100,0.100,0.100,0.100,0.100,0.100, &
@@ -183,7 +213,9 @@ real(kind=sgl), dimension(98) :: ATOM_MTradii=(/0.100,0.100,0.156,0.112,0.100,0.
                                                 0.173,0.158,0.147,0.141,0.137,0.135,0.135,0.138,0.144,0.155, &
                                                 0.171,0.174,0.182,0.168,0.100,0.100,0.100,0.100,0.100,0.180, &
                                                 0.163,0.154,0.150,0.164,0.100,0.100,0.100,0.100/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ATOM_MTradii
+#endif
 
 !> atom colors for PostScript drawings
 character(3), dimension(98) :: ATOM_color=(/'blu','grn','blu','blu','red','bro','blu','red','grn','grn', &
@@ -290,7 +322,9 @@ real(kind=sgl), dimension(3,92) :: ATOM_colors = reshape( (/ &
                                             0.14893,0.99596,0.47105, &
                                             0.53332,0.53332,0.53332, &
                                             0.47773,0.63362,0.66714 /), (/3,92/))
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ATOM_colors
+#endif
 
 !> atomic weights for things like density computations (from NIST elemental data base)
 real(kind=sgl),dimension(98)    :: ATOM_weights(98) = (/1.00794, 4.002602, 6.941, 9.012182, 10.811, &
@@ -313,7 +347,9 @@ real(kind=sgl),dimension(98)    :: ATOM_weights(98) = (/1.00794, 4.002602, 6.941
                                                         222.0, 223.0, 226.0, 227.0, 232.03806, &
                                                         231.03588, 238.02891, 237.0, 244.0, 243.0, &
                                                         247.0, 251.0, 252.0 /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ATOM_weights
+#endif
 
 
 ! these are a bunch of constants used for Lambert and related projections; they are all in double precision
@@ -373,7 +409,9 @@ type LambertParametersType
 end type LambertParametersType
 
 type(LambertParametersType)        :: LPs
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: LPs
+#endif
 
 
 
@@ -409,11 +447,15 @@ type(LambertParametersType)        :: LPs
 !
 integer(kind=irg),dimension(36)     :: FZtarray = (/ 0,0,1,1,1,2,2,2,1,1,1,2,2,2,2,1,1,2, &
                                                      2,2,1,1,1,2,2,2,2,3,3,4,3,4,5,2,2,2 /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: FZtarray
+#endif
 
 integer(kind=irg),dimension(36)     :: FZoarray = (/ 0,0,2,2,2,2,2,2,4,4,4,4,4,4,4,3,3,3, &
                                                      3,3,6,6,6,6,6,6,6,0,0,0,0,0,0,8,10,12 /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: FZoarray
+#endif
 
 real(kind=sgl),dimension(81)        :: Butterfly9x9 = (/-10.0, -15.0, -22.0, -22.0, -22.0, -22.0, -22.0, -15.0, -10.0, &
                                                        -1.0, -6.0, -13.0, -22.0, -22.0, -22.0, -13.0, -6.0, -1.0, &
@@ -424,7 +466,9 @@ real(kind=sgl),dimension(81)        :: Butterfly9x9 = (/-10.0, -15.0, -22.0, -22
                                                         3.0, 6.0, 4.0, -3.0, -22.0, -3.0, 4.0, 6.0, 3.0, & 
                                                        -1.0, -6.0, -13.0, -22.0, -22.0, -22.0, -13.0, -6.0, -1.0, &
                                                        -10.0, -15.0, -22.0, -22.0, -22.0, -22.0, -22.0, -15.0, -10.0/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Butterfly9x9
+#endif
 
 ! vertex coordinates of the icosahedron (normalized)
 real(kind=dbl),dimension(3,12)      :: IcoVertices = reshape( (/ 0D0,0.D0,1.D0, &
@@ -439,7 +483,9 @@ real(kind=dbl),dimension(3,12)      :: IcoVertices = reshape( (/ 0D0,0.D0,1.D0, 
                                      0.72360679774997896964D0,0.52573111211913360603D0,-0.44721359549995793928D0, &
                                     -0.27639320225002103036D0,0.85065080835203993218D0,-0.44721359549995793928D0, &
                                      0.D0,0.D0,-1.D0 /), (/3,12/))
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: IcoVertices
+#endif
 
 
 end module

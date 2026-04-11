@@ -51,7 +51,9 @@ IMPLICIT NONE
 contains
 
 recursive subroutine PGM_Write_File(fname, nx, ny, image) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PGM_Write_File
+#endif
 
 character(fnlen),INTENT(IN) 		:: fname
 integer(kind=irg),INTENT(IN)  		:: nx,ny

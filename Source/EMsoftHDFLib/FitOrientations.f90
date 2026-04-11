@@ -63,7 +63,9 @@ contains
 recursive subroutine EMFitOrientationcalfunEBSD(ipar, initmeanval, expt, accum, &
                                 mLPNH, mLPSH, n, x, f, mask, prefactor, rgx, rgy, rgz,&
                                 stepsize, gammaval, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMFitOrientationcalfunEBSD
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structures.
 ! The following is the mapping:
@@ -286,7 +288,9 @@ end subroutine EMFitOrientationcalfunEBSD
 recursive subroutine EMFitOrientationcalfunECP(ipar, initmeanval, expt, accum, &
                                 mLPNH, mLPSH, n, x, f, mask, prefactor, rgx, rgy, rgz,&
                                 stepsize, gammaval, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMFitOrientationcalfunECP
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structures.
 ! The following is the mapping:

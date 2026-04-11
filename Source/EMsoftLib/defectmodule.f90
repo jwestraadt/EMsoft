@@ -67,7 +67,9 @@ contains
 !> @date  11/24/15 MDG 1.1 added Ydislocations, stacking faults, inclusions and voids
 !--------------------------------------------------------------------------
 recursive subroutine InitializeDefects(cell,defects,jsonname,npix,npiy,L,gf,error_cnt,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InitializeDefects
+#endif
 
 use local
 use typedefs
@@ -201,7 +203,9 @@ end subroutine InitializeDefects
 !> @date 11/22/15 MDG 1.0 new routine in Release 3.1; read portion replaced with JSONreadFoilData in JSONsupport
 !--------------------------------------------------------------------------
 recursive subroutine init_foil_data(cell,defects,npix,npiy,L,dinfo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_foil_data
+#endif
 
 use crystal
 use io
@@ -274,7 +278,9 @@ end subroutine init_foil_data
 !> @date 11/23/15 MDG 4.2 moved from dislocation.f90 to defectmodule.f90
 !--------------------------------------------------------------------------
 recursive subroutine init_dislocation_data(cell,defects,DF_npix,DF_npiy,DF_gf,L,dinfo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_dislocation_data
+#endif
 
 use io
 use files
@@ -334,7 +340,9 @@ end subroutine init_dislocation_data
 !> @date   06/10/14 MDG 4.1 added foil argument
 !--------------------------------------------------------------------------
 recursive subroutine init_stacking_fault_data(cell,defects,DF_L,DF_npix,DF_npiy,DF_g,dinfo,ECCI)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_stacking_fault_data
+#endif
 
 use io
 use files
@@ -405,7 +413,9 @@ end subroutine init_stacking_fault_data
 !> @date 11/23/15 MDG 4.1 made foil part of defects
 !--------------------------------------------------------------------------
 recursive subroutine init_YSH_dislocation_data(cell,defects,DF_npix,DF_npiy,DF_gf,L,dinfo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_YSH_dislocation_data
+#endif
 
 use io
 use files
@@ -460,7 +470,9 @@ end subroutine init_YSH_dislocation_data
 !> @date 11/23/15 MDG 4.2 removed foil and put it inside defects
 !--------------------------------------------------------------------------
 recursive subroutine init_void_data(defects,DF_L,DF_npix,DF_npiy,dinfo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_void_data
+#endif
 
 use io
 use files
@@ -513,7 +525,9 @@ end subroutine init_void_data
 !> @date  11/23/15 MDG 4.2 made foil part of defects
 !--------------------------------------------------------------------------
 recursive subroutine init_inclusion_data(defects,DF_L,DF_npix,DF_npiy,dinfo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_inclusion_data
+#endif
 
 use io
 use files
@@ -570,7 +584,9 @@ end subroutine init_inclusion_data
 !> @date  12/11/15 MDG 4.4 reworked based on IDL ellipsoid.pro script
 !--------------------------------------------------------------------------
 recursive subroutine init_Einclusion_data(cell,defects,DF_L,DF_npix,DF_npiy,dinfo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_Einclusion_data
+#endif
 
 use io
 use files
@@ -637,7 +653,9 @@ end subroutine init_Einclusion_data
 !> @date 06/09/14 MDG 4.0 added cell and foil as argument
 !--------------------------------------------------------------------------
 recursive subroutine initialize_foil_geometry(cell,foil,dinfo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: initialize_foil_geometry
+#endif
 
 use local
 use typedefs
@@ -835,7 +853,9 @@ end subroutine initialize_foil_geometry
 !> @date  11/21/15 MDG 4.2 moved foil into defects structure
 !--------------------------------------------------------------------------
 recursive subroutine makedislocation(cell,defects,inum,dinfo,DF_L)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: makedislocation
+#endif
 
 use math
 use constants
@@ -1168,7 +1188,9 @@ end subroutine makedislocation
 !> @date   06/10/14 MDG 2.1 added foil as argument 
 !--------------------------------------------------------------------------
 recursive subroutine makestackingfault(cell,defects,inum,DF_L,nx,ny,DF_g,dinfo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::  makestackingfault
+#endif
 
 use math
 use constants
@@ -1361,7 +1383,9 @@ end subroutine makestackingfault
 !> @date   06/10/14 MDG 2.1 added foil argument
 !--------------------------------------------------------------------------
 recursive subroutine makestackingfaultECCI(cell,defects,inum,DF_L,nx,ny,DF_g,dinfo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: makestackingfaultECCI
+#endif
 
 use math
 use constants
@@ -1609,7 +1633,9 @@ end subroutine makestackingfaultECCI
 !> @date   06/09/14 MDG 4.0 added defects as argument
 !--------------------------------------------------------------------------
 recursive function YSHDisp(defects,x,y,z,ii) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: YSHDisp
+#endif
 
 use constants
 
@@ -1779,7 +1805,9 @@ end function YSHDisp
 !> @date 06/10/14 MDG 4.1 added foil argument
 !--------------------------------------------------------------------------
 recursive subroutine makeYSHdislocation(cell,defects,i,dinfo, L)    
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: makeYSHdislocation
+#endif
 
 use constants
 use crystal
@@ -1943,7 +1971,9 @@ end subroutine makeYSHdislocation
 !> @date 12/13/15 MDG 1.1 corrections to some of the auxiliary expressions; sphere limit is now correct
 !--------------------------------------------------------------------------
 recursive subroutine InitializeEshelbyInclusion(cell,defects,i,dinfo,L,npix,npiy)    
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InitalizeEshelbyInclusion
+#endif
 
 use local
 use constants
@@ -2169,7 +2199,9 @@ end subroutine InitializeEshelbyInclusion
 !> @date 12/13/15 MDG 1.1 corrections to some of the auxiliary expressions; sphere limit is now correct
 !--------------------------------------------------------------------------
 recursive function Eshelby_disp(defects, i, xyz) result(u)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Eshelby_disp
+#endif
 ! 
 ! implement the displacement field equations for an isotropic ellipsoidal inclusion
 !
@@ -2335,7 +2367,9 @@ end function Eshelby_disp
 !> @date  11/23/15 MDG 4.2 removed foil argument and placed it inside defects
 !--------------------------------------------------------------------------
 recursive subroutine CalcR(cell,defects,i,j)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcR
+#endif
 
 use local
 use constants

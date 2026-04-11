@@ -117,7 +117,7 @@ function(Add_EMsoft_Executable)
       $<$<COMPILE_LANGUAGE:Fortran>:/Qopenmp>
       $<$<COMPILE_LANGUAGE:Fortran>:/Qdiag-disable:11082>
       $<$<COMPILE_LANGUAGE:Fortran>:/Qdiag-disable:7025>
-      $<$<COMPILE_LANGUAGE:Fortran>:/Qip>
+      $<$<COMPILE_LANGUAGE:Fortran>:${EMsoft_WINDOWS_INTEL_IPO_FLAG}>
       )
   endif()
 endfunction()

@@ -52,7 +52,9 @@ IMPLICIT NONE
 contains 
 
 recursive function getISEintensity(kloc, atomcnt, atomlist, atomrad, rsphere, a, b, usehex) result(inten)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getISEintensity
+#endif
 
 IMPLICIT NONE
 

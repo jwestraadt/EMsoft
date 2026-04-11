@@ -63,7 +63,9 @@ contains
 !> @date   03/17/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine Time_tick(t)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Time_tick
+#endif
 
 IMPLICIT NONE
 
@@ -84,7 +86,9 @@ end subroutine Time_tick
 !> @date   03/17/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function Time_tock(t) result(tock)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Time_tock
+#endif
 
 IMPLICIT NONE
 
@@ -110,7 +114,9 @@ end function Time_tock
 !> @date   06/05/14 MDG 3.0 added TT as argument
 !--------------------------------------------------------------------------
 recursive subroutine Time_reset(TT)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Time_reset
+#endif
 
 IMPLICIT NONE
 
@@ -144,7 +150,9 @@ end subroutine Time_reset
 !> @date   06/05/14 MDG 3.0 added TT as argument
 !--------------------------------------------------------------------------
 recursive subroutine Time_report(TT, interval)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Time_report
+#endif
 
 IMPLICIT NONE
 
@@ -171,7 +179,9 @@ end subroutine Time_report
 !> @date   06/05/14 MDG 3.0 added TT as argument
 !--------------------------------------------------------------------------
 recursive subroutine Time_start(TT)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Time_start
+#endif
 
 IMPLICIT NONE
 
@@ -200,7 +210,9 @@ end subroutine Time_start
 !> @date   06/05/14 MDG 3.0 added TT as argument
 !--------------------------------------------------------------------------
 recursive subroutine Time_estimate(TT, numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Time_estimate
+#endif
 
 IMPLICIT NONE
 
@@ -240,7 +252,9 @@ end subroutine Time_estimate
 !> @date   06/05/14 MDG 3.0 added TT as argument
 !--------------------------------------------------------------------------
 recursive subroutine Time_remaining(TT, ik, numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Time_remaining
+#endif
 
 IMPLICIT NONE
 
@@ -296,7 +310,9 @@ end subroutine Time_remaining
 !> @date   06/05/14 MDG 3.0 changed IO
 !--------------------------------------------------------------------------
 recursive subroutine PrintTime(tm)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PrintTime
+#endif
 
 IMPLICIT NONE
 
@@ -344,7 +360,9 @@ end subroutine PrintTime
 !> @date   06/05/14 MDG 3.0 added TT; changed IO
 !--------------------------------------------------------------------------
 recursive subroutine Time_stop(TT, numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Time_stop
+#endif
 
 IMPLICIT NONE
 

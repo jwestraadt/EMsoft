@@ -67,7 +67,9 @@ contains
 !> @date 01/25/16 MDG 1.1 minor mods to make routine more efficient
 !--------------------------------------------------------------------------
 recursive subroutine BarrelDistortion(D, img, nnx, nny)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: BarrelDistortion
+#endif
 
 use math
 

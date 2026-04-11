@@ -68,7 +68,9 @@ contains
 !>                         moved subroutine into its own module file (detectors.f90)
 !--------------------------------------------------------------------------
 recursive subroutine GenerateEBSDDetector(enl, mcnl, EBSDMCdata, EBSDdetector, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GenerateEBSDDetector
+#endif
 
 use local
 use typedefs
@@ -249,7 +251,9 @@ end subroutine GenerateEBSDDetector
 !> @date 04/21/21  MDG 1.0 original based on the GenerateEBSDDetector routine
 !--------------------------------------------------------------------------
 recursive subroutine EBSDanisotropicGenerateDetector(enl, mcnl, EBSDMCdata, EBSDdetector, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDanisotropicGenerateDetector
+#endif
 
 use local
 use typedefs
@@ -366,7 +370,9 @@ end subroutine EBSDanisotropicGenerateDetector
 !>                         moved subroutine into its own module file (detectors.f90)
 !--------------------------------------------------------------------------
 recursive subroutine GenerateEBSDBatchDetector(enl, mcnl, EBSDMCdata, EBSDdetector, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GenerateEBSDBatchDetector
+#endif
 
 use local
 use typedefs
@@ -550,7 +556,9 @@ end subroutine GenerateEBSDBatchDetector
 !> @date 02/19/19  MDG 3.0 corrects pattern orientation (manual indexing revealed an unwanted upside down flip)
 !--------------------------------------------------------------------------
 recursive subroutine GeneratemyEBSDDetector(enl, mcnl, EBSDMCdata, nsx, nsy, numE, tgx, tgy, tgz, accum_e_detector, patcntr, bg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GeneratemyEBSDDetector
+#endif
 
 use local
 use typedefs
@@ -742,7 +750,9 @@ end subroutine GeneratemyEBSDDetector
 !> @date 11/05/19  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GeneratedefectEBSDDetector(enl, mcnl, nsx, nsy, tgx, tgy, tgz, patcntr)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GeneratedefectEBSDDetector
+#endif
 
 use local
 use typedefs
@@ -843,7 +853,9 @@ end subroutine GeneratedefectEBSDDetector
 !> @date 02/19/19 MDG 2.0 corrects pattern orientation (manual indexing revealed an unwanted upside down flip)
 !--------------------------------------------------------------------------
 recursive subroutine EBSDFullGenerateDetector(enl, EBSDdetector, numEbins, numzbins, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDFullGenerateDetector
+#endif
 
 use local
 use typedefs

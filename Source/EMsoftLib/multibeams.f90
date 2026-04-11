@@ -55,14 +55,30 @@ integer(kind=irg),allocatable  :: idx(:)
 real(kind=sgl)                 :: glen(numr)                    ! length of g-vectors
 real(kind=sgl),allocatable     :: gm(:), V(:,:)
 logical,allocatable            :: al(:)                         ! array of allowed reflections
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: numr
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: family
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: numfam
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: idx
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: glen
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: gm
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: V
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: al
+#endif
 
 end module multibeams
 

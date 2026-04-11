@@ -87,7 +87,9 @@ contains
 !> @date    05/23/18 SS 1.0 original, adapted from SaveDataHDF
 !--------------------------------------------------------------------------
 recursive subroutine Save2DQCDataHDF(cell, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Save2DQCDataHDF
+#endif
 
 use io
 use crystal
@@ -212,7 +214,9 @@ end subroutine Save2DQCDataHDF
 !                           icosahedral case
 !--------------------------------------------------------------------------
 recursive subroutine Save3DQCDataHDF(cell, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Save3DQCDataHDF
+#endif
 
 use io
 use crystal
@@ -341,7 +345,9 @@ end subroutine Save3DQCDataHDF
 !> @date    05/23/18 SS 1.0 original, adapted from ReadDataHDF above
 !--------------------------------------------------------------------------
 recursive subroutine Read2DQCDataHDF(cell, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Read2DQCDataHDF
+#endif
 
 use io
 use crystal
@@ -461,7 +467,9 @@ end subroutine Read2DQCDataHDF
 !> @date    05/25/18 SS 1.0 original, adapted from ReadDataHDF above
 !--------------------------------------------------------------------------
 recursive subroutine Read3DQCDataHDF(cell, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Read3DQCDataHDF
+#endif
 
 use io
 use crystal
@@ -563,7 +571,9 @@ end subroutine Read3DQCDataHDF
 !> @date    05/23/18 SS 1.0 original, adapted from subroutine above
 !--------------------------------------------------------------------------
 recursive subroutine Dump2DQXtalInfo(cell)    
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Dump2DQXtalInfo
+#endif
 
 use constants
 use io
@@ -625,7 +635,9 @@ end subroutine Dump2DQXtalInfo
 !> @date    05/25/18 SS 1.0 original, adapted from subroutine above
 !--------------------------------------------------------------------------
 recursive subroutine Dump3DQXtalInfo(cell)    
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Dump3DQXtalInfo
+#endif
 
 use constants
 use io
@@ -686,7 +698,9 @@ end subroutine Dump3DQXtalInfo
 !> @date    06/25/18 SS 1.1 name changed; handled by module interface
 !--------------------------------------------------------------------------
 recursive subroutine QCrystal2DData(cell, verbose, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QCrystal2DData
+#endif
 
 use io
 use crystal
@@ -740,7 +754,9 @@ end subroutine QCrystal2DData
 !> @date    06/25/18 SS 1.1 original
 !--------------------------------------------------------------------------
 recursive subroutine QCrystal3DData(cell, verbose, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QCrystal3DData
+#endif
 
 use io
 use files
@@ -792,7 +808,9 @@ end subroutine QCrystal3DData
 !> @date 05/23/18 SS 1.0 original, adapted from routine above
 !--------------------------------------------------------------------------
 recursive subroutine Initialize_2DQCCell(cell, xtalname, dmin_qc, dmin_p, voltage, nthreads, verbose, existingHDFhead, initLUT)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_2DQCCell
+#endif
 
 use files
 use io
@@ -1029,7 +1047,9 @@ end subroutine Initialize_2DQCCell
 !> @date 06/25/18 SS 1.0 original, adapted from routine above
 !--------------------------------------------------------------------------
 recursive subroutine Initialize_3DQCCell(cell, xtalname, dmin, voltage, nthreads, verbose, existingHDFhead, initLUT)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_3DQCCell
+#endif
 
 use files
 use io

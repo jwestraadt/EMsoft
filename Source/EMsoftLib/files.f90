@@ -78,7 +78,9 @@ contains
 !> @date   07/31/18 MDG 4.2 added a few more output parameters
 !--------------------------------------------------------------------------
 recursive subroutine DumpXtalInfo(cell)    
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DumpXtalInfo
+#endif
 
 use constants
 use io
@@ -168,7 +170,9 @@ end subroutine DumpXtalInfo
 !> @date   09/08/19 MDG 1.0 first attempt
 !--------------------------------------------------------------------------
 recursive subroutine ConvertWiki2PDF(nt,wikilist)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ConvertWiki2PDF
+#endif
 
 use io
 use error 
@@ -296,7 +300,9 @@ end subroutine ConvertWiki2PDF
 !> @date   03/29/18 MDG 3.1 removed stdout argument
 !--------------------------------------------------------------------------
 recursive subroutine CopyTemplateFiles(nt,templatelist,json)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CopyTemplateFiles
+#endif
 
 use io
 use error 
@@ -437,7 +443,9 @@ end subroutine CopyTemplateFiles
 !> @date   09/08/19 MDG 4.0 add support for automatic pandoc wiki->pdf conversion
 !--------------------------------------------------------------------------
 recursive subroutine Interpret_Program_Arguments_with_nml(nmldefault,numt,templatelist,progname,silent)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Interpret_Program_Arguments_with_nml
+#endif
 
 use io
 
@@ -563,7 +571,9 @@ end subroutine Interpret_Program_Arguments_with_nml
 !> @date   09/08/19 MDG 4.0 add support for automatic pandoc wiki->pdf conversion
 !--------------------------------------------------------------------------
 recursive subroutine Interpret_Program_Arguments_no_nml(numt,templatelist,progname,flagset)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Interpret_Program_Arguments_no_nml
+#endif
 
 use io
 

@@ -70,7 +70,9 @@ contains
 !> @date    01/30/17 MDG 1.1 added optional name list file variable
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_openFile(dunit, povray_filename, nmlfile)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_openFile
+#endif
 
 IMPLICIT NONE
 
@@ -132,7 +134,9 @@ end subroutine PoVRay_openFile
 !> @date    09/08/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_setCamera(dunit, locationline, skyline)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_setCamera
+#endif
 
 IMPLICIT NONE
 
@@ -172,7 +176,9 @@ end subroutine PoVRay_setCamera
 !> @date    09/08/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_setLightSource(dunit, lightline, nobackground)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_setLightSource
+#endif
 
 IMPLICIT NONE
 
@@ -209,7 +215,9 @@ end subroutine PoVRay_setLightSource
 !> @date    11/23/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_addEulerBox(dunit)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_addEulerBox
+#endif
 
 IMPLICIT NONE
 
@@ -245,7 +253,9 @@ end subroutine PoVRay_addEulerBox
 !> @date    11/23/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_declare_DF3file(dunit, df3name, levelset)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_declare_DF3file
+#endif
 
 IMPLICIT NONE
 
@@ -328,7 +338,9 @@ end subroutine PoVRay_declare_DF3file
 !> @date    11/23/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_write_DF3file(dunit, df3name, volume, ndims, scalingmode)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_write_DF3file
+#endif
 
 IMPLICIT NONE
 
@@ -414,7 +426,9 @@ end subroutine PoVRay_write_DF3file
 !> @date    09/08/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_addWireFrameSphere(dunit, sphereRadius)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_addWireFrameSphere
+#endif
 
 IMPLICIT NONE
 
@@ -488,7 +502,9 @@ end subroutine PoVRay_addWireFrameSphere
 !> @date    09/08/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_addReferenceFrame(dunit, ac, cylr)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_addReferenceFrame
+#endif
 
 IMPLICIT NONE
 
@@ -530,7 +546,9 @@ end subroutine PoVRay_addReferenceFrame
 !> @date    09/08/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_addSphere(dunit, ctr, radius, rgb)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_addSphere
+#endif
 
 IMPLICIT NONE
 
@@ -562,7 +580,9 @@ end subroutine PoVRay_addSphere
 !> @date    09/08/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_addCylinder(dunit, p1, p2, radius, rgb)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_addCylinder
+#endif
 
 IMPLICIT NONE
 
@@ -590,7 +610,9 @@ end subroutine PoVRay_addCylinder
 !> @date    09/08/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_addCubochoricCube(dunit)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_addCubochoricCube
+#endif
 
 IMPLICIT NONE
 
@@ -630,7 +652,9 @@ end subroutine PoVRay_addCubochoricCube
 !> @date    05/05/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function PoVRay_fliprotationmatrix(M) result(O)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_fliprotationmatrix
+#endif
 
 IMPLICIT NONE
 
@@ -671,7 +695,9 @@ end function PoVRay_fliprotationmatrix
 !> @date    09/10/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_getpos_FZ432(dims, cpos, s_edge, t_edge, ns, d, nt, MFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_getpos_FZ432
+#endif
 
 IMPLICIT NONE
 
@@ -826,7 +852,9 @@ end subroutine PoVRay_getpos_FZ432
 !> @date    09/10/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_getpos_FZ23(dims, cpos, s_edge, t_edge, ns, d, nt, MFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_getpos_FZ23
+#endif
 
 IMPLICIT NONE
 
@@ -921,7 +949,9 @@ end subroutine PoVRay_getpos_FZ23
 !> @date    02/05/17 MDG 1.1 correction of d parameter
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_getpos_FZ622(dims, cpos, s_edge, t_edge, ns, d, nt, MFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_getpos_FZ622
+#endif
 
 IMPLICIT NONE
 
@@ -1079,7 +1109,9 @@ end subroutine PoVRay_getpos_FZ622
 !> @date    09/10/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_getpos_FZ422(dims, cpos, s_edge, t_edge, ns, d, nt, MFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_getpos_FZ422
+#endif
 
 IMPLICIT NONE
 
@@ -1205,7 +1237,9 @@ end subroutine PoVRay_getpos_FZ422
 !> @date    09/10/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_getpos_FZ32(dims, cpos, s_edge, t_edge, ns, d, nt, MFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_getpos_FZ32
+#endif
 
 IMPLICIT NONE
 
@@ -1319,7 +1353,9 @@ end subroutine PoVRay_getpos_FZ32
 !> @date    09/10/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_getpos_FZ222(dims, cpos, s_edge, t_edge, ns, d, nt, MFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_getpos_FZ222
+#endif
 
 IMPLICIT NONE
 
@@ -1429,7 +1465,9 @@ end subroutine PoVRay_getpos_FZ222
 !> @date    11/23/16 MDG 1.1 added Euler representation
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_drawFZ(dunit, rmode, cylr, FZtype, FZorder, MFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_drawFZ
+#endif
 
 IMPLICIT NONE
 
@@ -1969,7 +2007,9 @@ end subroutine PoVRay_drawFZ
 !> @date    09/09/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_initFZ2(dunit, rmode)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_initFZ2
+#endif
 
 IMPLICIT NONE
 
@@ -1982,7 +2022,7 @@ real(kind=dbl)          :: euld(3), om(3,3), ro1(4), ro2(4), culast(3), holast(3
 type(orientationtype)   :: ot
 type(orientationtyped)  :: otd
 integer(kind=irg)       :: i,j,k, icnt, imax, nt, ns, h_edge(2,100)
-! the parameter a represents infinity as tan(178°/2)
+! the parameter a represents infinity as tan(178??/2)
 real(kind=dbl)          :: a = 570.289922125538D0, b = 1.0D0, c = 1.0D0, cpos(3,200), dt = 114.57984425107713D0, &
                            ds = 2.0D0, d = 1.7320508075688772D0, dd, zz = 0.D0, oo = 1.D0, dtor =  0.017453292D0
 
@@ -2126,7 +2166,9 @@ end subroutine PoVRay_initFZ2
 !> @date    09/09/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_initFZ3(dunit, rmode)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_initFZ3
+#endif
 
 IMPLICIT NONE
 
@@ -2139,7 +2181,7 @@ real(kind=dbl)          :: euld(3), om(3,3), ro1(4), ro2(4), culast(3), holast(3
 type(orientationtype)   :: ot
 type(orientationtyped)  :: otd
 integer(kind=irg)       :: i,j,k, icnt, imax, nt, ns, h_edge(2,104)
-! the parameter a represents infinity as tan(178°/2)
+! the parameter a represents infinity as tan(178??/2)
 real(kind=dbl)          :: a = 57.289922125538D0, b = 1.0D0, c = 0.577350269120D0, cpos(3,208), dt = 114.57984425107713D0, &
                            ds = 2.0D0, d = 1.7320508075688772D0, dd, zz = 0.D0, oo = 1.D0, dtor =  0.017453292D0, &
                            c2 = 1.7320508075688767D0
@@ -2297,7 +2339,9 @@ end subroutine PoVRay_initFZ3
 !> @date    09/09/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_initFZ4(dunit, rmode)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_initFZ4
+#endif
 
 IMPLICIT NONE
 
@@ -2310,7 +2354,7 @@ real(kind=dbl)          :: euld(3), om(3,3), ro1(4), ro2(4), culast(3), holast(3
 type(orientationtype)   :: ot
 type(orientationtyped)  :: otd
 integer(kind=irg)       :: i,j,k, icnt, imax, nt, ns, h_edge(2,52)
-! the parameter a represents infinity as tan(178°/2)
+! the parameter a represents infinity as tan(178??/2)
 real(kind=dbl)          :: a = 57.289922125538D0, b = 1.0D0, c = 1.0D0, cpos(3,104), dt = 114.57984425107713D0, &
                            ds = 2.0D0, d = 1.7320508075688772D0, dd, zz = 0.D0, oo = 1.D0, dtor =  0.017453292D0
 
@@ -2453,7 +2497,9 @@ end subroutine PoVRay_initFZ4
 !> @date    09/09/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine PoVRay_initFZ6(dunit, rmode)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PoVRay_initFZ6
+#endif
 
 IMPLICIT NONE
 
@@ -2466,7 +2512,7 @@ real(kind=dbl)          :: euld(3), om(3,3), ro1(4), ro2(4), culast(3), holast(3
 type(orientationtype)   :: ot
 type(orientationtyped)  :: otd
 integer(kind=irg)       :: i,j,k, icnt, imax, nt, ns, h_edge(2,52)
-! the parameter a represents infinity as tan(178°/2)
+! the parameter a represents infinity as tan(178??/2)
 real(kind=dbl)          :: a = 57.289922125538D0, b = 1.0D0, c = 1.0D0, cpos(3,104), dt = 114.57984425107713D0, &
                            ds = 2.0D0, d = 1.7320508075688772D0, dd, zz = 0.D0, oo = 1.D0, dtor =  0.017453292D0
 

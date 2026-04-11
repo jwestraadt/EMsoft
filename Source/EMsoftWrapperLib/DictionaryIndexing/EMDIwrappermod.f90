@@ -222,7 +222,9 @@ contains
 !--------------------------------------------------------------------------
 recursive subroutine EMsoftCpreprocessEBSDPatterns(ipar, fpar, spar, mask, exptIQ, ADPmap, cproc, objAddress, cancel) &
            bind(c, name='EMsoftCpreprocessEBSDPatterns')    ! this routine is callable from a C/C++ program
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoftCpreprocessEBSDPatterns
+#endif
 
 use local
 use configmod
@@ -692,7 +694,9 @@ end subroutine EMsoftCpreprocessEBSDPatterns
 !--------------------------------------------------------------------------
 recursive subroutine EMsoftCpreprocessSingleEBSDPattern(ipar, fpar, inputpattern, outputpattern) &
            bind(c, name='EMsoftCpreprocessSingleEBSDPattern')    ! this routine is callable from a C/C++ program
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoftCpreprocessSingleEBSDPattern
+#endif
 
 use local
 use configmod
@@ -808,7 +812,9 @@ end subroutine EMsoftCpreprocessSingleEBSDPattern
 !--------------------------------------------------------------------------
 recursive subroutine EMsoftCEBSDDIpreview(ipar, fpar, spar, averagedpattern, patternarray) &
            bind(c, name='EMsoftCEBSDDIpreview')    ! this routine is callable from a C/C++ program
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoftCEBSDDIpreview
+#endif
 
 use local
 use configmod
@@ -1118,7 +1124,9 @@ end subroutine EMsoftCEBSDDIpreview
 recursive subroutine EMsoftCEBSDDI(ipar, fpar, spar, dpatterns, epatterns, resultmain, indexmain, &
                                    cproc, cerrorproc, objAddress, cancel) &
           bind(c, name='EMsoftCEBSDDI')    ! this routine is callable from a C/C++ program
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoftCEBSDDI
+#endif
 
 use local
 use typedefs
@@ -1628,7 +1636,9 @@ end subroutine EMsoftCEBSDDI
 recursive subroutine EMsoftCEBSDRefine(ipar, fpar, accum_e, mLPNH, mLPSH, variants, epatterns, startEulers, &
                                        startdps, eumain, dpmain, cproc, objAddress, cancel) &
           bind(c, name='EMsoftCEBSDRefine')    ! this routine is callable from a C/C++ program
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoftCEBSDRefine
+#endif
 
 use local
 use typedefs 

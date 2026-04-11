@@ -51,7 +51,9 @@ contains
 !> @date 12/08/16     SS 1.2 all computations in quaternions to avoid infinity problem
 !--------------------------------------------------------------------------
 recursive subroutine ForwardProjection(ncub, ODF, PFhkl_eqv, neqv, nLam, PFLam, pgnum, cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ForwardProjection
+#endif
 
 use local
 use constants
@@ -222,7 +224,9 @@ end subroutine ForwardProjection
 !> @date 12/08/16  SS 1.2 all computations in quaternion to avoid infinity problem
 !--------------------------------------------------------------------------
 recursive subroutine BackProjection(ncub, ODF, PFhkl, nLam, PFLam, pgnum, cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: BackProjection
+#endif
 
 use local
 use constants
@@ -383,7 +387,9 @@ end subroutine BackProjection
 !--------------------------------------------------------------------------
 
 subroutine StereoInverse(xy,radius,xyz,ierr)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: StereoInverse
+#endif
 
 use local
 use Lambert
@@ -435,7 +441,9 @@ end subroutine StereoInverse
 !> @date 03/31/17  SS 1.0 original
 !--------------------------------------------------------------------------
 subroutine InterpolateLambert(xyz,PFLam,nLam,res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InterpolateLambert
+#endif
 
 use local
 use Lambert
@@ -495,7 +503,9 @@ end subroutine InterpolateLambert
 !> @date 04/02/17  SS 1.0 original
 !--------------------------------------------------------------------------
 function PFLamToStereo(nLam, PFLam) result(PFstereo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PFLamToStereo
+#endif
 
 use local
 use Lambert
@@ -791,7 +801,9 @@ end subroutine WriteStereoOutline
 !> @date 05/17/17  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine SymmetrizeODF(ncub, ODFlin, dict)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SymmetrizeODF
+#endif
 
 use local 
 use rotations

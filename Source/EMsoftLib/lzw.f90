@@ -81,7 +81,9 @@ contains
   ! @brief: initialize an lzw string table (dictionary)
   ! @param this: dict to initialize
   subroutine dict_init(this)
+#ifdef EMSOFT_USE_DLLEXPORT
  !DEC$ ATTRIBUTES DLLEXPORT :: dict_init
+#endif
    class(dict) , intent(inout) :: this ! dict to initialize
     integer                     :: i
     this%prevChar(:) = -1
@@ -97,7 +99,9 @@ contains
   ! @param code: index of string to look up
   ! @return: length of string
   function dict_code_string_length(this, code) result(length)
+#ifdef EMSOFT_USE_DLLEXPORT
  !DEC$ ATTRIBUTES DLLEXPORT :: dict_code_string_length
+#endif
    class(dict)   , intent(in) :: this
     integer(int16), intent(in) :: code
     integer(int16)             :: length, i
@@ -115,7 +119,9 @@ contains
   ! @param string: array to write string into
   ! @param endindex: index of final character position in string
   subroutine dict_build_code_string(this, code, string, endindex)
+#ifdef EMSOFT_USE_DLLEXPORT
  !DEC$ ATTRIBUTES DLLEXPORT :: dict_build_code_string
+#endif
    class(dict)   , intent(in   ) :: this
     integer(int16), intent(in   ) :: code
     integer(int8 ), intent(inout) :: string(:)
@@ -138,7 +144,9 @@ contains
   ! @param string: string table value for code
   ! @return: bytes extracted
   function dict_decode(this, code, oldCode, string) result(count)
+#ifdef EMSOFT_USE_DLLEXPORT
  !DEC$ ATTRIBUTES DLLEXPORT :: dict_decode
+#endif
    class(dict)   , intent(inout)              :: this
     integer(int16), intent(in   )              :: code, oldCode
     integer(int8 ), intent(inout), allocatable :: string(:)
@@ -193,7 +201,9 @@ contains
   ! @param this: stream to initialize
   ! @param encoded: encoded stream to read from
   subroutine stream_init(this, encoded)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: stream_init
+#endif
     class(stream) , intent(inout)         :: this ! stream to initialize
     integer(int8 ), intent(in   ), target :: encoded(:)
     this%index = 1
@@ -206,7 +216,9 @@ contains
   ! @param this: stream to extract bits from
   ! @return: extracted bits padded to 16 bits wide
   function stream_extract(this) result(code)
+#ifdef EMSOFT_USE_DLLEXPORT
  !DEC$ ATTRIBUTES DLLEXPORT :: image_flatten_rgba
+#endif
    class(stream) , intent(inout) :: this ! stream to extract bits from
     integer(int16)                :: code ! extracted bits padded to 16 wide
     integer(int16)                :: b0, b1, b2
@@ -243,7 +255,9 @@ contains
   ! @param decoded: decoded buffer (must already be allocated with enough space to hold the decompressed result)
   ! @result bytesRead: bytes read into the the decoded array
   function lzw_decode(encoded, decoded) result(bytesRead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: lzw_decode
+#endif
     integer(int8 ), intent(in   ), target :: encoded(:)
     integer(int16)                        :: code, oldCode, i
     integer(int64)                        :: bytesRead

@@ -110,38 +110,54 @@ endif()
 
 set(IFORT_COMPILER_RDIST_LIBRARIES "")
 set(IFORT_COMPILER_LIBRARIES "")
+set(INTEL_FORTRAN_RUNTIME_SEARCH_DIRS "${IFORT_COMPILER_ROOT_DIR}/bin")
+set(INTEL_FORTRAN_RUNTIME_SEARCH_DIRS ${INTEL_FORTRAN_RUNTIME_SEARCH_DIRS} "${IFORT_COMPILER_RDIST_DIR}/${IFORT_COMPILER_ARCH_DIR}/compiler")
+get_filename_component(INTEL_FORTRAN_BIN_DIR ${CMAKE_Fortran_COMPILER} DIRECTORY)
+if(NOT "${INTEL_FORTRAN_BIN_DIR}" STREQUAL "")
+  list(INSERT INTEL_FORTRAN_RUNTIME_SEARCH_DIRS 0 "${INTEL_FORTRAN_BIN_DIR}")
+endif()
+set(INTEL_FORTRAN_RUNTIME_DIR "")
+foreach(search_dir ${INTEL_FORTRAN_RUNTIME_SEARCH_DIRS})
+  if(EXISTS "${search_dir}")
+    set(INTEL_FORTRAN_RUNTIME_DIR "${search_dir}")
+    break()
+  endif()
+endforeach()
 
 if(WIN32)
+  if("${INTEL_FORTRAN_RUNTIME_DIR}" STREQUAL "")
+    message(FATAL_ERROR "Unable to determine the Intel Fortran runtime directory. Looked in: ${INTEL_FORTRAN_RUNTIME_SEARCH_DIRS}")
+  endif()
   AddIFortCopyInstallRules(LIBNAME ifcoremd
                           LIBPREFIX lib
-                          LIBPATH ${IFORT_COMPILER_RDIST_DIR}/${IFORT_COMPILER_ARCH_DIR}/compiler
+                          LIBPATH ${INTEL_FORTRAN_RUNTIME_DIR}
                           TYPES ${BUILD_TYPES})
   AddIFortCopyInstallRules(LIBNAME mmd
                           LIBPREFIX lib
-                          LIBPATH ${IFORT_COMPILER_RDIST_DIR}/${IFORT_COMPILER_ARCH_DIR}/compiler
+                          LIBPATH ${INTEL_FORTRAN_RUNTIME_DIR}
                           TYPES ${BUILD_TYPES})
 
   # These next libraries do not seem to have a debug version....
   set(BUILD_TYPES Release)
   AddIFortCopyInstallRules(LIBNAME ifportmd
                           LIBPREFIX lib
-                          LIBPATH ${IFORT_COMPILER_RDIST_DIR}/${IFORT_COMPILER_ARCH_DIR}/compiler
+                          LIBPATH ${INTEL_FORTRAN_RUNTIME_DIR}
                           TYPES ${BUILD_TYPES})
   AddIFortCopyInstallRules(LIBNAME iomp5md
                           LIBPREFIX lib
-                          LIBPATH ${IFORT_COMPILER_RDIST_DIR}/${IFORT_COMPILER_ARCH_DIR}/compiler
+                          LIBPATH ${INTEL_FORTRAN_RUNTIME_DIR}
                           TYPES ${BUILD_TYPES})
   AddIFortCopyInstallRules(LIBNAME svml_dispmd
                           LIBPREFIX ""
-                          LIBPATH ${IFORT_COMPILER_RDIST_DIR}/${IFORT_COMPILER_ARCH_DIR}/compiler
+                          LIBPATH ${INTEL_FORTRAN_RUNTIME_DIR}
                           TYPES ${BUILD_TYPES})
 endif()
 
 # If we are using IFort
 set(FORTRAN_OPEN_MP_DEFS "")
-if (Fortran_COMPILER_NAME MATCHES "ifort.*")
+if (EMsoft_FORTRAN_IS_INTEL OR Fortran_COMPILER_NAME MATCHES "ifort.*" OR Fortran_COMPILER_NAME MATCHES "ifx.*" OR CMAKE_Fortran_COMPILER_ID STREQUAL "IntelLLVM")
   if(WIN32)
-    set(FORTRAN_OPEN_MP_DEFS "/Qopenmp /Qdiag-disable:11082 /Qip")
+    set(FORTRAN_OPEN_MP_DEFS "/Qopenmp /Qdiag-disable:11082 ${EMsoft_WINDOWS_INTEL_IPO_FLAG}")
   else()
     set(FORTRAN_OPEN_MP_DEFS "-qopenmp -assume byterecl")
   endif()

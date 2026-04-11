@@ -65,7 +65,9 @@ contains
 !> @date 11/10/18 NDG 1.1 added optional TSLsymmetry argument
 !--------------------------------------------------------------------------
 recursive subroutine getXtalData(xtalname, cellparams, SGnum, TSLsymmetry)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getXtalData
+#endif
 
 use NameListTypedefs
 use HDF5

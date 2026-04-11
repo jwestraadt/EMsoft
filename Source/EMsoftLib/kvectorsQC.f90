@@ -100,7 +100,9 @@ contains
 !> @date   06/26/18 SS 1.1 moved to kvectorsQC module
 !--------------------------------------------------------------------------
 recursive subroutine TDQC_Calckvectors(khead,QCcell,npx,numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TDQC_Calckvectors
+#endif
 
 use io
 use error
@@ -196,7 +198,9 @@ end subroutine TDQC_Calckvectors
 !> @date   06/26/18 SS 1.1 moved to kvectorsQC module
 !--------------------------------------------------------------------------
 recursive subroutine TDQC_Addkvector(ktail,QCcell,numk,xy,i,j)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TDQC_Addkvector
+#endif
 
 use io
 use typedefs
@@ -263,7 +267,9 @@ end subroutine TDQC_Addkvector
 !> @date   06/26/18 SS  1.2 moved to kvectorsQC module
 !--------------------------------------------------------------------------
 recursive subroutine QC_Calckvectors(khead,QCcell,npx,npy,numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_Calckvectors
+#endif
 
 use io
 use error
@@ -308,7 +314,7 @@ ktail%kn = 1.0/QCcell%mLambda
 
 !open(unit=dataunit,file='kvectors.txt',status='unknown',form='formatted')
 
-! we'll delineate the triangular area by cutting off points at 38.66° from horizontal, i.e., when j/i > ratio
+! we'll delineate the triangular area by cutting off points at 38.66?? from horizontal, i.e., when j/i > ratio
 istart = 0
 iend = npx
 jstart = 0
@@ -346,7 +352,9 @@ end subroutine QC_Calckvectors
 !> @date   06/26/18 SS  1.2 moved to kvectorsQC module
 !--------------------------------------------------------------------------
 recursive subroutine GetVectorsConeCBEDQC(cbednl, klist, numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetVectorsConeCBEDQC
+#endif
 
 use local
 use io
@@ -417,7 +425,9 @@ end subroutine GetVectorsConeCBEDQC
 !> @date 02/28/18  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetVectorsConeCBED2DQC(cbednl, klist, numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetVectorsConeCBED2DQC
+#endif
 
 use local
 use io
@@ -497,7 +507,9 @@ end subroutine GetVectorsConeCBED2DQC
 !> @date   06/26/18 SS  2.5 moved to kvectorsQC module
 !--------------------------------------------------------------------------
 recursive subroutine QC_Addkvector(ktail,QCcell,numk,xy,i,j)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_Addkvector
+#endif
 
 use io
 use typedefs
@@ -551,7 +563,9 @@ end subroutine QC_Addkvector
 !> @date   06/26/18 SS 1.1 moved to kvectorsQC module
 !--------------------------------------------------------------------------
 recursive subroutine TDQC_applySymmetry(dict, npx, numset, Iarrayout, Iarray, QCtype)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TDQC_applySymmetry
+#endif
 
 use Lambert
 use dictmod
@@ -690,7 +704,9 @@ end subroutine TDQC_calcequiv
 !> @date   06/26/18 SS 1.1 moved to kvectorsQC module
 !--------------------------------------------------------------------------
 recursive subroutine QC_ApplyInversionSymmetry(ipx,ipy,ipz,npx,iequiv,nequiv)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_ApplyInversionSymmetry
+#endif
 
 use local
 use Lambert
@@ -752,7 +768,9 @@ end subroutine QC_ApplyInversionSymmetry
 !> @date   06/26/18 SS  1.1 moved to kvectorsQC module
 !--------------------------------------------------------------------------
 recursive subroutine QC_applyIcosahedralSymmetry(npx, nsamples, npy, numset, mLPNH, mLPSH, Iarray)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_applyIcosahedralSymmetry
+#endif
 
 use Lambert
 use dictmod

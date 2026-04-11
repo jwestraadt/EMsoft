@@ -76,7 +76,9 @@ contains
 !> @date  06/05/14 MDG 4.1 made cell an argument instead of global variable 
 !--------------------------------------------------------------------------
 recursive subroutine SYM_fillgen(cell,t,isgn)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SYM_fillgen
+#endif
 
 IMPLICIT NONE
 
@@ -152,7 +154,9 @@ end subroutine SYM_fillgen
 !> @date  06/05/14 MDG 4.1 made cell an argument instead of global variable 
 !--------------------------------------------------------------------------!     
 recursive subroutine MakeGenerators(cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MakeGenerators
+#endif
 
 use math
 
@@ -277,7 +281,9 @@ end subroutine MakeGenerators
 !> @date  06/05/14 MDG 4.1 made cell an argument instead of global variable 
 !--------------------------------------------------------------------------
 recursive subroutine matrixmult(cell, k1, k2)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: matrixmult
+#endif
    
 IMPLICIT NONE
 
@@ -389,7 +395,9 @@ end function isitnew
 !> @date  06/05/14 MDG 4.1 made cell an argument instead of global variable 
 !--------------------------------------------------------------------------
 recursive subroutine GenerateSymmetry(cell,dopg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GenerateSymmetry
+#endif
 
 IMPLICIT NONE
 
@@ -498,7 +506,9 @@ end subroutine GenerateSymmetry
 !> @date  06/05/14 MDG 4.1 made cell an argument instead of global variable; replaced itmp by argument
 !--------------------------------------------------------------------------
 recursive subroutine CalcFamily(cell,ind,num,space,itmp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcFamily
+#endif
 
 IMPLICIT NONE
 
@@ -575,7 +585,9 @@ end subroutine CalcFamily
 !> @date  06/18/18 MDG 4.2 added code to intercept rare rounding problem (happened with alpha-quartz)
 !--------------------------------------------------------------------------
 recursive subroutine CalcOrbit(cell,m,n,ctmp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcOrbit
+#endif
 
 IMPLICIT NONE
 
@@ -664,7 +676,9 @@ end subroutine CalcOrbit
 !> @date  12/13/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CalcEquivPos(cell,site,n,ctmp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcEquivPos
+#endif
 
 IMPLICIT NONE
 
@@ -761,7 +775,9 @@ end subroutine CalcEquivPos
 !> @date  06/05/14 MDG 4.1 made cell an argument instead of global variable; replaced itmp by argument
 !--------------------------------------------------------------------------
 recursive subroutine CalcStar(cell,kk,n,stmp,space)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcStar
+#endif
 
 IMPLICIT NONE
 
@@ -839,7 +855,9 @@ end subroutine CalcStar
 !> @date  12/18/20 MDG 5.0 added optional argument for number of cells to be generated
 !--------------------------------------------------------------------------
 recursive subroutine CalcPositions(cell,switch,numcells)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcPositions
+#endif
 
 use io
 use error
@@ -1010,7 +1028,9 @@ end subroutine CalcPositions
 !> @date  08/14/15 MDG 4.2 minor change in handling of iset for space group with only one setting
 !--------------------------------------------------------------------------
 recursive subroutine GetSetting(cell, iset)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSetting
+#endif
 
 use io
 
@@ -1077,7 +1097,9 @@ end subroutine GetSetting
 !> @date  01/14/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine ListPointGroups
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ListPointGroups
+#endif
 
 use io 
 use typedefs
@@ -1135,7 +1157,9 @@ end subroutine ListPointGroups
 !> @date  06/05/14 MDG 4.1 made cell an argument instead of global variable
 !--------------------------------------------------------------------------
 recursive subroutine GetSpaceGroup(cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSpaceGroup
+#endif
 
 use io
 
@@ -1237,7 +1261,9 @@ end subroutine GetSpaceGroup
 !> @date  01/10/14 MDG 4.0 SG is now part of the unitcell type
 !--------------------------------------------------------------------------
 recursive subroutine GetOrder(k,il,num,jcnt,itmp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetOrder
+#endif
 
 IMPLICIT NONE
 
@@ -1313,7 +1339,9 @@ end subroutine GetOrder
 !> @date  06/05/14 MDG 4.1 added unit cell pointer as argument
 !--------------------------------------------------------------------------
 recursive subroutine ShortestG(cell,k,gone,gtwo,isym)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ShortestG
+#endif
 
 use error
 use crystal
@@ -1514,7 +1542,9 @@ end subroutine ShortestG
 !> @date  06/05/14 MDG 4.1 added unit cell pointer as argument
 !--------------------------------------------------------------------------
 recursive logical function IsGAllowed(cell,g)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: IsGAllowed
+#endif
 
 IMPLICIT NONE
 
@@ -1577,7 +1607,9 @@ end function IsGAllowed
 !> @date  06/05/14 MDG 4.1 added unit cell pointer as argument
 !--------------------------------------------------------------------------
 recursive subroutine BFsymmetry(cell,uvw,j,isym,ir)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: BFsymmetry
+#endif
 
 IMPLICIT NONE
 
@@ -1625,7 +1657,9 @@ end subroutine BFsymmetry
 !> @date  06/05/14 MDG 4.1 added unit cell pointer as argument
 !--------------------------------------------------------------------------
 recursive function GetPatternSymmetry(cell,uvw,pgnum,verbose) result(dgn)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetPatternSymmetry
+#endif
 
 use io
 
@@ -1693,7 +1727,9 @@ end function GetPatternSymmetry
 !> @date  06/05/14 MDG 4.1 added unit cell pointer as argument
 !--------------------------------------------------------------------------
 recursive function GetDiffractionGroup(cell,uvw,pgn) result(dgn)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetDiffractionGroup
+#endif
 
 use io
 
@@ -2245,7 +2281,9 @@ end function GetDiffractionGroup
 !> @date  01/10/14 MDG 4.0 SG is now part of the unitcell type
 !--------------------------------------------------------------------------
 recursive subroutine Generate2DSymmetry(TDPG,pgn)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Generate2DSymmetry
+#endif
 
 use error
 
@@ -2393,7 +2431,9 @@ end subroutine Generate2DSymmetry
 !> @date  06/05/14 MDG 4.1 added unit cell pointer as argument
 !--------------------------------------------------------------------------
 recursive subroutine CheckPatternSymmetry(cell,k,ga,isym,thetam)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CheckPatternSymmetry
+#endif
 
 use error
 use crystal
@@ -2461,7 +2501,9 @@ end subroutine CheckPatternSymmetry
 !> @date  07/30/18 MDG 1.3 correction of space groups 166 and 167 (after error in Calcite EBSD master)
 !--------------------------------------------------------------------------
 recursive function getHexvsRho(cell,pgnum) result(stnum)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getHexvsRho
+#endif
 
 use local
 use constants
@@ -2532,7 +2574,9 @@ end function getHexvsRho
 !> @date  09/05/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function SYM_getmultiplicity(t) result(stmult)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SYM_getmultiplicity
+#endif
 
 use local
 use constants
@@ -2578,7 +2622,9 @@ end function SYM_getmultiplicity
 !> @date  09/05/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function SYM_getposition(t) result(st)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SYM_getposition
+#endif
 
 use local
 use constants
@@ -2643,7 +2689,9 @@ end function SYM_getposition
 !> @date  09/06/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function interpretWyckoffletter(t,x,y,z) result(st)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: interpretWyckoffletter
+#endif
 
 use local
 use constants
@@ -2702,7 +2750,9 @@ end function interpretWyckoffletter
 !> @date  09/06/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine SYM_getWPstring(sgnum,wpstring) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SYM_getWPstring
+#endif
 
 use local
 use constants
@@ -2756,7 +2806,9 @@ end subroutine SYM_getWPstring
 !> @date  09/05/16 MDG 1.0 original routine
 !--------------------------------------------------------------------------
 recursive subroutine SYM_printWyckoffPositions(sgnum,wpstring,WyckoffList) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SYM_printWyckoffPositions
+#endif
 
 use local
 use constants
@@ -2844,7 +2896,9 @@ end subroutine SYM_printWyckoffPositions
 !> @date   09/06/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetAsymPosWyckoff(cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetAsymPosWyckoff
+#endif
 
 use io
 use crystal
@@ -2956,7 +3010,9 @@ end subroutine GetAsymPosWyckoff
 !> @date   10/07/16 MDG 1.1 corrected (added) case accum=0 which caused FatalError
 !--------------------------------------------------------------------------
 recursive subroutine extractWyckoffposition(Wyckoffpos, pt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: extractWyckoffposition
+#endif
 
 use error 
 use io
@@ -3031,7 +3087,9 @@ end subroutine extractWyckoffposition
 !> @date   10/18/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function getLaueGroupNumber(SGnum) result(LGN)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getLaueGroupNumber
+#endif
 
 use constants
 use typedefs

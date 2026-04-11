@@ -65,7 +65,9 @@ contains
 !> @date   02/14/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_get_basicMuellerMatrix(MMtype) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_basicMuellerMatrix
+#endif
 
 use io
 
@@ -79,8 +81,8 @@ select case (MMtype)
         call Message('The following basic Mueller matrix types are available:')
         call Message('1: linear horizontal polarizer (along x)')
         call Message('2: linear vertical polarizer (along y)')
-        call Message('3: linear polarizer at +45°')
-        call Message('4: linear polarizer at -45°')
+        call Message('3: linear polarizer at +45??')
+        call Message('4: linear polarizer at -45??')
         call Message('5: quarter-wave plate, fast axis vertical')
         call Message('6: quarter-wave plate, fast axis horizontal')
         call Message('7: circular polarizer, right-handed')
@@ -101,14 +103,14 @@ select case (MMtype)
         res%M(4,1:4) = (/ 0.D0, 0.D0, 0.D0, 0.D0 /)
         res%M = 0.5D0 * res%M
     case (3)
-        res%descriptor = 'linear polarizer at +45°'
+        res%descriptor = 'linear polarizer at +45??'
         res%M(1,1:4) = (/ 1.D0, 0.D0, 1.D0, 0.D0 /)
         res%M(2,1:4) = (/ 0.D0, 0.D0, 0.D0, 0.D0 /)
         res%M(3,1:4) = (/ 1.D0, 0.D0, 1.D0, 0.D0 /)
         res%M(4,1:4) = (/ 0.D0, 0.D0, 0.D0, 0.D0 /)
         res%M = 0.5D0 * res%M
     case (4)
-        res%descriptor = 'linear polarizer at -45°'
+        res%descriptor = 'linear polarizer at -45??'
         res%M(1,1:4) = (/ 1.D0, 0.D0,-1.D0, 0.D0 /)
         res%M(2,1:4) = (/ 0.D0, 0.D0, 0.D0, 0.D0 /)
         res%M(3,1:4) = (/-1.D0, 0.D0, 1.D0, 0.D0 /)
@@ -167,7 +169,9 @@ end function MC_get_basicMuellerMatrix
 !> @date   02/12/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_get_diattenuator(px, py, polar) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_diattenuator
+#endif
 
 IMPLICIT NONE
 
@@ -223,7 +227,9 @@ end function MC_get_diattenuator
 !> @date   02/12/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_get_rotator(theta) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_rotator
+#endif
 
 IMPLICIT NONE
 
@@ -257,7 +263,9 @@ end function MC_get_rotator
 !> @date   02/12/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_get_retarder(phi) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_retarder
+#endif
 
 IMPLICIT NONE
 
@@ -291,7 +299,9 @@ end function MC_get_retarder
 !> @date   09/05/19 MDG 1.1 added normalincidence optional parameter
 !--------------------------------------------------------------------------
 recursive function MC_rotate_MuellerMatrix(MM, theta, normalincidence) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_rotate_MuellerMatrix
+#endif
 
 IMPLICIT NONE
 
@@ -329,7 +339,9 @@ end function MC_rotate_MuellerMatrix
 !> @date   02/12/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine MC_print_MuellerMatrix(MM)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_print_MuellerMatrix
+#endif
 
 use io 
 
@@ -365,7 +377,9 @@ end subroutine MC_print_MuellerMatrix
 !> @date   02/12/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_propagateStokesVector(MM, SV, descriptor) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_propagateStokesVector
+#endif
 
 IMPLICIT NONE
 
@@ -394,7 +408,9 @@ end function MC_propagateStokesVector
 !> @date   02/14/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_concatenateMuellerMatrices(MM1, MM2) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_concatenateMuellerMatrices
+#endif
 
 IMPLICIT NONE
 
@@ -428,7 +444,9 @@ end function MC_concatenateMuellerMatrices
 !> @date   02/12/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_get_EllipticityAngle(SV) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_EllipticityAngle
+#endif
 
 use constants
 use io
@@ -465,7 +483,9 @@ end function MC_get_EllipticityAngle
 !> @date   02/12/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_get_OrientationAngle(SV) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_OrientationAngle
+#endif
 
 use constants
 
@@ -493,7 +513,9 @@ end function MC_get_OrientationAngle
 !> @date   02/13/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_get_AuxiliaryAngle(SV) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_AuxiliaryAngle
+#endif
 
 use constants
 use io
@@ -526,7 +548,9 @@ end function MC_get_AuxiliaryAngle
 !> @date   02/13/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_get_PhaseShiftAngle(SV) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_PhaseShiftAngle
+#endif
 
 use constants
 use io
@@ -562,7 +586,9 @@ end function MC_get_PhaseShiftAngle
 !> @date   02/12/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_get_Polarization(SV) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_Polarization
+#endif
 
 use io
 
@@ -593,7 +619,9 @@ end function MC_get_Polarization
 !> @date   02/13/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_get_Stokes_EO(chi, psi, descriptor) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_Stokes_EO
+#endif
 
 IMPLICIT NONE
 
@@ -628,7 +656,9 @@ end function MC_get_Stokes_EO
 !> @date   02/13/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_get_Stokes_AD(alpha, delta, descriptor) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_Stokes_AD
+#endif
 
 IMPLICIT NONE
 
@@ -668,7 +698,9 @@ end function MC_get_Stokes_AD
 !> @date   02/13/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine MC_get_AD_from_EO(chi, psi, alpha, delta)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_AD_from_EO
+#endif
 
 use constants
 
@@ -732,7 +764,9 @@ end subroutine MC_get_AD_from_EO
 !> @date   02/13/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine MC_get_EO_from_AD(alpha, delta, chi, psi)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_get_EO_from_AD
+#endif
 
 use constants
 
@@ -786,7 +820,9 @@ end subroutine MC_get_EO_from_AD
 !> @date   09/05/19 MDG 1.1 corrects sign error in normal incidence rvals(1) parameter
 !--------------------------------------------------------------------------
 recursive function MC_getUniaxialReflectivities(wl, epsac, nincident, dc, beamtilt) result(rvals)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_getUniaxialReflectivities
+#endif
 
 use constants
 
@@ -891,7 +927,9 @@ end function MC_getUniaxialReflectivities
 !> @date   09/06/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function MC_getSampleMuellerMatrix(rvals) result(MM)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MC_getSampleMuellerMatrix
+#endif
 
 IMPLICIT NONE
 

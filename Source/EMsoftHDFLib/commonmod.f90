@@ -49,7 +49,9 @@ contains
 !> @date 01/10/18 MDG 1.0 original, based on getEBSDIQ routine, but only init part
 !--------------------------------------------------------------------------
 recursive subroutine init_getEBSDIQ(dimx, dimy, pattern, ksqarray, Jres, planf) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_getEBSDIQ
+#endif
 
 use local
 use typedefs
@@ -124,7 +126,9 @@ end subroutine init_getEBSDIQ
 !> @date 07/19/20 MDG 1.1 removed problematic fftw_cleanup call
 !--------------------------------------------------------------------------
 recursive function computeEBSDIQ(dimx, dimy, pattern, ksqarray, Jres, planf) result(Q)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: computeEBSDIQ
+#endif
 
 
 use local
@@ -195,7 +199,9 @@ end function computeEBSDIQ
 !> @date 09/06/16 MDG 1.1 correction of issue where the acos() function returned NAN
 !--------------------------------------------------------------------------
 recursive subroutine EBSDgetAverageOrientations(ipar, Eulers, tmi, dplist, avEuler, disorient)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDgetAverageOrientations
+#endif
 
 use dictmod
 use rotations
@@ -348,7 +354,9 @@ end subroutine EBSDgetAverageOrientations
 !> @date 07/28/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine EBSDgetOrientationSimilarityMap(idims, tmi, nm, ipf_wd, ipf_ht, osm)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDgetOrientationSimilarityMap
+#endif
 
 use math
 use io
@@ -463,7 +471,9 @@ end subroutine EBSDgetOrientationSimilarityMap
 !> @date 06/27/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine EBSDgetIndexingSuccessMap(ipar, tmi, ea, ebsdnl, ism)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDgetIndexingSuccessMap
+#endif
 
 use NameListTypedefs
 use omp_lib
@@ -550,7 +560,9 @@ end subroutine EBSDgetIndexingSuccessMap
 !> @date 07/30/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine EBSDgetKAMMap(numeu, eulers, ipf_wd, ipf_ht, dict, kam)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDgetKAMMap
+#endif
 
 use math
 use io

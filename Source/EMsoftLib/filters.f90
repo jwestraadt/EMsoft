@@ -67,7 +67,9 @@ contains
 !> @date 11/16/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine applyGaussianBeamSpread(ipar, fpar, Vxyz, w, verbose) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: applyGaussianBeamSpread
+#endif
 
 use constants
 
@@ -161,7 +163,9 @@ end subroutine applyGaussianBeamSpread
 !> @date 03/23/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function applyPoissonNoise(image, nx, ny, idum) result(noisy)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: applyPoissonNoise
+#endif
 
 use noise
 
@@ -202,7 +206,9 @@ end function applyPoissonNoise
 !> @date 01/23/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function image_histogram( nx, ny, im ) result(h)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: image_histogram
+#endif
 
 IMPLICIT NONE
 
@@ -242,7 +248,9 @@ end function image_histogram
 !> @date 04/23/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function image_jointhistogram( nx, ny, im1, im2 ) result(h)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: image_jointhistogram
+#endif
 
 IMPLICIT NONE
 
@@ -281,7 +289,9 @@ end function image_jointhistogram
 !> @date 01/23/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function cumul_histogram( nx, ny, im ) result(h)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cumul_histogram
+#endif
 
 IMPLICIT NONE
 
@@ -342,7 +352,9 @@ end function cumul_histogram
 !> @date 04/23/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function image_entropy( h ) result(e)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: image_entropy
+#endif
 
 IMPLICIT NONE
 
@@ -381,7 +393,9 @@ end function image_entropy
 !> @date 04/23/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function image_jointentropy( h ) result(e)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: image_jointentropy
+#endif
 
 IMPLICIT NONE
 
@@ -424,7 +438,9 @@ end function image_jointentropy
 !> @date 04/23/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function image_mutualinformation( nx, ny, im1, im2 ) result(mi)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: image_mutualinformation
+#endif
 
 IMPLICIT NONE
 
@@ -467,7 +483,9 @@ end function image_mutualinformation
 !> @date 01/27/16 MDG 1.1 correction of off-by-one error in final array copy
 !--------------------------------------------------------------------------
 recursive function adhisteq( nr, dimx, dimy, im, verbose ) result(output)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: adhisteq
+#endif
 
 IMPLICIT NONE
 
@@ -612,7 +630,9 @@ end function adhisteq
 !> @date 01/09/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getADPmap(iunit, nexpt, L, wd, ht, dpmap)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getADPmap
+#endif
 
 integer(kind=irg),INTENT(IN)        :: iunit
 integer(kind=irg),INTENT(IN)        :: nexpt
@@ -696,7 +716,9 @@ end subroutine getADPmap
 !> @date 01/09/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getADPmapRAM(epatterns, nexpt, cs, L, wd, ht, dpmap)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getADPmapRAM
+#endif
 
 integer(kind=irg),INTENT(IN)        :: nexpt
 integer(kind=irg),INTENT(IN)        :: cs
@@ -778,7 +800,9 @@ end subroutine getADPmapRAM
 !> @date 02/02/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CalcHoughLUT( dimx, LUT ) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcHoughLUT
+#endif
 
 use constants
 
@@ -843,7 +867,9 @@ end subroutine CalcHoughLUT
 !> @date 02/02/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HoughTransform( dimx, LUT, im, HT ) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HoughTransform
+#endif
 
 IMPLICIT NONE
 
@@ -886,7 +912,9 @@ end subroutine HoughTransform
 !> @date 06/03/16 MDG 1.1 modified mask to inverted Gaussian profile; added init optional parameter
 !--------------------------------------------------------------------------
 recursive function HiPassFilter(rdata,dims,w,init,destroy) result(fdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HiPassFilter
+#endif
 
 use FFTW3mod
 
@@ -987,7 +1015,9 @@ end function HiPassFilter
 !> @date 07/14/20 MDG 1.3 commented out fftw_cleanup; possibly caused issue with ifort compiler
 !--------------------------------------------------------------------------
 recursive subroutine init_HiPassFilter(w, dims, hpmask, inp, outp, planf, planb) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_HiPassFilter
+#endif
 
 use FFTW3mod
 
@@ -1050,7 +1080,9 @@ end subroutine init_HiPassFilter
 !> @date 07/14/20 MDG 1.3 commented out fftw_cleanup
 !--------------------------------------------------------------------------
 recursive function applyHiPassFilter(rdata, dims, w, hpmask, inp, outp, planf, planb) result(fdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: applyHiPassFilter
+#endif
 
 use FFTW3mod
 
@@ -1100,7 +1132,9 @@ end function applyHiPassFilter
 !> @date 05/17/17 MDG 1.0 original, taken from regular routine above
 !--------------------------------------------------------------------------
 recursive subroutine HiPassFilterC(rdata,dims,w,init,destroy,fdata) bind(c, name='HiPassFilterC')
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HiPassFilterC
+#endif
 
 use FFTW3mod
 use,INTRINSIC :: ISO_C_BINDING
@@ -1190,7 +1224,9 @@ end subroutine HiPassFilterC
 !> @date 12/06/16 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine ButterflyMask9x9(input, output, dims)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ButterflyMask9x9
+#endif
 
 use constants
 
@@ -1244,7 +1280,9 @@ end subroutine ButterflyMask9x9
 !> @date 12/06/16 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine InversionDivision(input, output, dims)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InversionDivision
+#endif
 
 IMPLICIT NONE
 
@@ -1292,7 +1330,9 @@ end subroutine InversionDivision
 !> @date 03/18/2021 CZ 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HannWindow(roi_size, window)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HannWindow
+#endif
 
 use constants
 
@@ -1326,7 +1366,9 @@ end subroutine HannWindow
 !--------------------------------------------------------------------------
 recursive subroutine init_BandPassFilter(dims, high_pass, low_pass, hpmask_shifted, &
 lpmask_shifted, inp, outp, planf, planb) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_BandPassFilter
+#endif
 
 use FFTW3mod
 
@@ -1411,7 +1453,9 @@ end subroutine init_BandPassFilter
 !> @date 03/18/21 CZ 1.0 original
 !--------------------------------------------------------------------------
 recursive function applyBandPassFilter(rdata, dims, hpmask, lpmask, inp, outp, planf, planb) result(fdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: applyBandPassFilter
+#endif
 
 use FFTW3mod
 

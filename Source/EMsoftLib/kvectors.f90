@@ -66,7 +66,9 @@ contains
 !> @date   04/29/13 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function Kdelta(i,j) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Kdelta
+#endif
 
 IMPLICIT NONE
 
@@ -119,7 +121,9 @@ end function Kdelta
 !> @date   01/07/19 MDG 3.2 adds Legendre lattitude grid sampling for spherical indexing
 !--------------------------------------------------------------------------
 recursive subroutine Calckvectors(khead,cell,k,ga,ktmax,npx,npy,numk,isym,ijmax,mapmode,usehex,LegendreArray)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Calckvectors
+#endif
 
 use io
 use error
@@ -1200,7 +1204,9 @@ end subroutine Calckvectors
 !> @date   08/31/15 MDG 1.0 original 
 !--------------------------------------------------------------------------
 recursive function InsideHexGrid(xy) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InsideHexGrid
+#endif
 
 use Lambert
 
@@ -1260,7 +1266,9 @@ end function InsideHexGrid
 !> @date   06/09/14 MDG 2.0 added khead and cell arguments
 !--------------------------------------------------------------------------
 recursive subroutine CalckvectorsSymmetry(khead,cell,TDPG,k,ga,ktmax,npx,npy,numk,isym,ijmax,klaue,debug)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalckvectorsSymmetry
+#endif
 
 use io
 use error
@@ -1412,7 +1420,9 @@ end subroutine CalckvectorsSymmetry
 !> @date   06/09/14 MDG 2.0 added ktail and cell as arguments
 !--------------------------------------------------------------------------
 recursive subroutine Add_knode(ktail,cell,i,j,numk,delta,gan,gperp,kstar,klaue,hexgrid)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Add_knode
+#endif
 
 use error
 use crystal
@@ -1479,7 +1489,9 @@ end subroutine Add_knode
 !> @date   04/29/13 MDG 1.1 modified for kvectors module
 !--------------------------------------------------------------------------
 recursive function GetSextant(x,y) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSextant
+#endif
 
 IMPLICIT NONE
 
@@ -1545,7 +1557,9 @@ end function GetSextant
 !> @date   01/07/19 MDG 2.5 adds Legendre lattitude grid sampling
 !--------------------------------------------------------------------------
 recursive subroutine AddkVector(ktail,cell,numk,xy,i,j,usehex,addSH,LegendreLattitude)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: AddkVector
+#endif
 
 use io
 use typedefs
@@ -1648,7 +1662,9 @@ end subroutine AddkVector
 !> @date   04/29/13 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine Delete_kvectorlist(khead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Delete_kvectorlist
+#endif
 
 IMPLICIT NONE
 
@@ -1688,7 +1704,9 @@ end subroutine Delete_kvectorlist
 !> @date   08/25/14 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CalckvectorsECP(khead,cell,rotmat,thetac,npx,npy,numk,FN)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalckvectorsECP
+#endif
 
 use io
 use local
@@ -1806,7 +1824,9 @@ end subroutine CalckvectorsECP
 !> @date   08/31/15 MDG 1.1 changes to AddkVector; THIS ROUTINE WILL NEED TO BE MODIFIED !!!!!!
 !--------------------------------------------------------------------------
 recursive subroutine CalckvectorsGPU(khead,cell,npx,npix,centralpix,numk,usehex)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalckvectorsGPU
+#endif
 
 use io
 use local

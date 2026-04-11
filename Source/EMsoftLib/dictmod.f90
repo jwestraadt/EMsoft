@@ -144,7 +144,9 @@ contains
 !> @date 02/05/15 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function DI_RotateToMu(N, lmu, y) result(ymu)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DI_RotateToMu
+#endif
 
 use local
 
@@ -201,7 +203,9 @@ end function DI_RotateToMu
 !> @date 01/07/15 MDG 1.0 original, based on Yu-Hui's Matlab code, output transposed
 !--------------------------------------------------------------------------
 recursive function randUniformSphere(N,seed) result(ranSphere)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: randUniformSphere
+#endif
 
 use local
 use math
@@ -245,7 +249,9 @@ end function randUniformSphere
 !> @date 01/07/15 MDG 1.0 original, based on Yu-Hui's Matlab code
 !--------------------------------------------------------------------------
 recursive function DI_SampleDD(N, seed, mu, kappa, Dtype) result(sDD)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DI_SampleDD
+#endif
 
 use local
 use error
@@ -312,7 +318,9 @@ end function DI_SampleDD
 !> @date 02/05/15 MDG 1.1 consolidated routines for VMF and WAT distributions
 !--------------------------------------------------------------------------
 recursive function randDDMarginal(N, k, seed, Dtype) result(t)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: randDDMarginal
+#endif
 
 use local
 use math
@@ -363,7 +371,9 @@ end function randDDMarginal
 !> @date 02/05/15 MDG 1.1 consolidated routines for VMF and WAT distributions
 !--------------------------------------------------------------------------
 recursive function getDDDensityLBM(k,C,Dtype) result(LBM)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getDDDensityLBM
+#endif
 use local
 use error
 
@@ -428,7 +438,9 @@ end function getDDDensityLBM
 !> @date 01/07/15 MDG 1.0 original, based on Yu-Hui's Matlab code
 !--------------------------------------------------------------------------
 recursive function VMFMeanDirDensity(x, k, C) result(y)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: VMFMeanDirDensity
+#endif
 
 use local
 use constants
@@ -474,7 +486,9 @@ end function VMFMeanDirDensity
 !> @date 02/05/15 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function WatsonMeanDirDensity(x, k, C) result(y)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WatsonMeanDirDensity
+#endif
 
 use local
 use constants
@@ -538,7 +552,9 @@ end function WatsonMeanDirDensity
 !> @date 03/12/19 MDG 1.4 added 'sym' option to only generate the symmetry quaternions
 !--------------------------------------------------------------------------
 recursive subroutine DI_Init(dict,Dtype) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DI_Init
+#endif
 
 use local
 use typedefs
@@ -730,7 +746,9 @@ end subroutine DI_Init
 !> @date 02/06/15 MDG 1.2 removed full again, added Dtype and streamlined code; removed duplications
 !--------------------------------------------------------------------------
 recursive subroutine DI_EMforDD(X, dict, nums, seed, muhat, kappahat, Dtype)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DI_EMforDD
+#endif
 
 use local
 use constants
@@ -880,7 +898,9 @@ end subroutine DI_EMforDD
 !> @date 02/06/15 MDG 1.4 merged VMF and Watson Esteps into a single routine and renamed
 !--------------------------------------------------------------------------
 recursive function DD_Estep(X,dict,Pmdims,nums,Mu,Kappa,Dtype) result(R)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DD_Estep
+#endif
 
 use local
 use typedefs
@@ -939,7 +959,9 @@ end function DD_Estep
 !> @date 02/06/15 MDG 1.5 merged Msteps for VMF and WAT and renamed
 !--------------------------------------------------------------------------
 recursive function DD_Mstep(X,dict,Pmdims,nums,R,Dtype) result(MuKa)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DD_Mstep
+#endif
 
 use local
 use typedefs
@@ -1048,7 +1070,9 @@ end function DD_Mstep
 !> @date 12/05/16 MDG 1.5 intercepted case when Phi becomes zero for a VERY sharp texture...
 !--------------------------------------------------------------------------
 recursive subroutine DD_getQandL(X,dict,Pmdims,nums,MuKa,R,Q,L,Dtype)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DD_getQandL
+#endif
 
 use local
 use typedefs
@@ -1124,7 +1148,9 @@ end subroutine DD_getQandL
 !> @date 02/06/15 MDG 1.3 merged 'VMF' and 'WAT' routines and renamed
 !--------------------------------------------------------------------------
 recursive function DD_Density(X,nums,mu,kappa,C,Dtype) result(y)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DD_Density
+#endif
 
 use local
 
@@ -1177,7 +1203,9 @@ end function DD_Density
 !> @date 02/06/15 MDG 1.3 merged VMF and WAT routines
 !--------------------------------------------------------------------------
 recursive function logCp(kappa,Dtype) result(lCp)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: logCp
+#endif
 
 use local
 use constants
@@ -1243,7 +1271,9 @@ end function logCp
 !> @date 01/06/15 MDG 1.1 simplified summation loop and renamed routine
 !--------------------------------------------------------------------------
 recursive subroutine DI_Similarity_Classifier(array,k,npx,npy,returnarr)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DI_Similarity_Classifier
+#endif
 
 use local
 
@@ -1300,7 +1330,9 @@ end subroutine DI_Similarity_Classifier
 !> @date MDG 1.1 changed types to integer 
 !--------------------------------------------------------------------------
 recursive subroutine CardIntersection(set1,set2,k,res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CardIntersection
+#endif
 
 use local
 
@@ -1351,7 +1383,9 @@ end subroutine CardIntersection
 !> @date 07/29/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine ReduceDisorientationtoMFZ(ro, cell, FZtype, FZorder, roMFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReduceDisorientationtoMFZ
+#endif
 
 use local
 use rotations
@@ -1417,7 +1451,9 @@ end subroutine ReduceDisorientationtoMFZ
 !> @date 07/29/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine ReduceOrientationtoCubicEFZ(eu, dict, euFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReduceOrientationtoCubicEFZ
+#endif
 
 use local
 use rotations
@@ -1475,7 +1511,9 @@ end subroutine ReduceOrientationtoCubicEFZ
 !> @date 11/19/18 MDG 1.2 correction of tolerance issue
 !--------------------------------------------------------------------------
 recursive subroutine ReduceOrientationtoRFZ(eu, dict, FZtype, FZorder, euFZ, MFZ)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReduceOrientationtoRFZ
+#endif
 
 use local
 use rotations
@@ -1545,7 +1583,9 @@ end subroutine ReduceOrientationtoRFZ
 !> @date 07/29/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getDisorientationAngleDouble(eu1, eu2, dict, disang, ax)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getDisorientationAngleDouble
+#endif
 
 use local
 use rotations
@@ -1620,7 +1660,9 @@ end subroutine getDisorientationAngleDouble
 !> @date 07/29/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getDisorientationAngleSingle(eu1, eu2, dict, disang, ax) ! result(disang)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getDisorientationAngleSingle
+#endif
 
 use local
 use rotations
@@ -1694,7 +1736,9 @@ end subroutine getDisorientationAngleSingle
 !> @date 02/14/17 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getDisorientationAngleAxis(eu1, eu2, dict, disax)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getDisorientationAngleAxis
+#endif
 
 use local
 use rotations
@@ -1765,7 +1809,9 @@ end subroutine getDisorientationAngleAxis
 !> @date 02/14/17 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getDisorientationAngleAxisTwoPhases(eu1, eu2, dict1, dict2, disax)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getDisorientationAngleAxisTwoPhases
+#endif
 
 use local
 use rotations
@@ -1831,7 +1877,9 @@ end subroutine getDisorientationAngleAxisTwoPhases
 !> @date 03/13/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getAverageDisorientationMapSingle(eulers, dict, wd, ht, ADMap) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getAverageDisorientationMapSingle
+#endif
 
 use local
 use constants
@@ -1913,7 +1961,9 @@ end subroutine getAverageDisorientationMapSingle
 !> @date 03/13/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getAverageDisorientationMapDouble(eulers, dict, wd, ht, ADMap) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getAverageDisorientationMapDouble
+#endif
 
 use local
 use constants

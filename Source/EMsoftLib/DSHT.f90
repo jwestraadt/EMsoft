@@ -33,7 +33,7 @@
 ! 
 !> @details This implements Will Lenthe's square_sphere.hpp routines for the computation of 
 !> the spherical harmonic Fourier Transform, which are subsequently used in the EMSphInx algorithm.
-!> @reference: Reinecke , M. (2011). Libpsht–algorithms for efficient spherical harmonic transforms. 
+!> @reference: Reinecke , M. (2011). Libpsht???algorithms for efficient spherical harmonic transforms. 
 !>               Astronomy & Astrophysics, 526, A108.
 !> @reference: Schaeffer, N. (2013). Efficient spherical harmonic transforms aimed at pseudospectral 
 !>               numerical simulations. Geochemistry, Geophysics, Geosystems, 14(3), 751-758.
@@ -206,7 +206,9 @@ contains
   !> @date 07/30/19 WCL 2.0 modified to take half grid size instead of full grid size
   !--------------------------------------------------------------------------
   recursive function SH_cosLats(d, t) result(lat)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: SH_cosLats
+#endif
     use error
 
   implicit none
@@ -272,7 +274,9 @@ contains
   !> @date 07/30/19 WCL 1.0 original
   !--------------------------------------------------------------------------
   recursive function SH_dirCos(d, t) result(dc)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: SH_dirCos
+#endif
     use constants
 
   implicit none
@@ -346,7 +350,9 @@ contains
   !> @date 07/30/19 WCL 1.0 original
   !--------------------------------------------------------------------------
   recursive subroutine LegendreInterp(di, ni, si, do, no, so)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: LegendreInterp
+#endif
     use imageOPs
     use Lambert
   implicit none
@@ -435,7 +441,9 @@ contains
   !> @date 01/16/19 MDG 1.0 original, based on Will Lenthe's classes in square_sphere.hpp
   !--------------------------------------------------------------------------
   recursive subroutine SH_printRow(d, dunit, sqr, fname) 
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: SH_printRow
+#endif
 
   implicit none
 
@@ -476,7 +484,9 @@ contains
   !> @date 01/16/19 MDG 1.0 original, based on Will Lenthe's classes in square_sphere.hpp
   !--------------------------------------------------------------------------
   recursive subroutine SH_printRing(dim, dunit, rng, fname) 
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: SH_printRing
+#endif
 
   implicit none
 
@@ -535,7 +545,9 @@ contains
   !> @date 01/16/19 MDG 1.0 original
   !--------------------------------------------------------------------------
   recursive subroutine SH_readRing(d, MP, ringID, buffer) 
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: SH_readRing
+#endif
 
   use error
 
@@ -557,7 +569,7 @@ contains
     buffer(idx) = MP(icol, jrow)
 
     if (ringID.gt.1) then  ! this is a regular ring
-    ! we spiral counter-clockwise through the array and make a 90° turn at the diagonals
+    ! we spiral counter-clockwise through the array and make a 90?? turn at the diagonals
     ! go up to the upper right diagonal
       do jrow=1,ringID
         idx = idx + 1
@@ -615,7 +627,9 @@ contains
   !> @date 01/16/19 MDG 1.0 original
   !--------------------------------------------------------------------------
   recursive subroutine SH_writeRing(d, MP, ringID, buffer) 
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: SH_writeRing
+#endif
 
     use error
 
@@ -637,7 +651,7 @@ contains
     MP(icol, jrow) = buffer(idx)
 
     if (ringID.gt.1) then  ! this is a regular ring
-    ! we spiral counter-clockwise through the array and make a 90° turn at the diagonals
+    ! we spiral counter-clockwise through the array and make a 90?? turn at the diagonals
     ! go up to the upper right diagonal
       do jrow=1,ringID
         idx = idx + 1
@@ -699,7 +713,9 @@ contains
   !> @date 07/29/19 WCL 2.0 switch from dim to half dim
   !--------------------------------------------------------------------------
   recursive subroutine SH_computeWeightsSkip(SHTC, skp, ind)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: SH_computeWeightsSkip
+#endif
 
     use constants
     use io
@@ -819,7 +835,9 @@ contains
   !> @date 07/29/19 WCL 2.0 switch from dim to half dim
   !--------------------------------------------------------------------------
   recursive subroutine DiscreteSHTConstants_Init(this, d, l, layout) 
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: DiscreteSHTConstants_Init
+#endif
 
     use error
     use constants
@@ -923,7 +941,9 @@ contains
   !> @date 07/17/19 WCL 1.0 original
   !--------------------------------------------------------------------------
   recursive subroutine DiscreteSHTConstants_Destroy(this) 
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: DiscreteSHTConstants_Destroy
+#endif
   implicit none
 
     class(DiscreteSHTConstants),INTENT(INOUT) :: this
@@ -949,7 +969,9 @@ contains
   !> @date 07/17/19 WCL 1.0 original
   !--------------------------------------------------------------------------
   recursive subroutine DiscreteSHTConstants_Finalize(this) 
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: DiscreteSHTConstants_Finalize
+#endif
   implicit none
     type(DiscreteSHTConstants),INTENT(INOUT) :: this
     call this%destroy()
@@ -966,7 +988,9 @@ contains
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   recursive subroutine DiscreteSHT_Init(this, d, l, layout)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: DiscreteSHT_Init
+#endif
 
   implicit none
 
@@ -1010,7 +1034,9 @@ contains
   !> @date 07/17/19 WCL 1.0 original
   !--------------------------------------------------------------------------
   recursive subroutine DiscreteSHT_Destroy(this)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: DiscreteSHT_Destroy
+#endif
   implicit none
     class(DiscreteSHT),INTENT(INOUT) :: this ! for final
 
@@ -1046,7 +1072,9 @@ contains
   !> @date 07/17/19 WCL 1.0 original
   !--------------------------------------------------------------------------
   recursive subroutine DiscreteSHT_Finalize(this)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: DiscreteSHT_Finalize
+#endif
   implicit none
     type(DiscreteSHT),INTENT(INOUT) :: this
     call this%destroy()
@@ -1069,7 +1097,9 @@ contains
   !> @date 07/29/19 WCL 2.0 switch from dim to half dim
   !--------------------------------------------------------------------------
   recursive subroutine SH_analyze(this, mLPNH, mLPSH, alm)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: SH_analyze
+#endif
 
   implicit none
 
@@ -1168,7 +1198,9 @@ contains
   !> @date 07/29/19 WCL 2.0 switch from dim to half dim
   !--------------------------------------------------------------------------
   recursive subroutine SH_synthesize(this, alm, mLPNH, mLPSH, limL)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: SH_synthesize
+#endif
 
     use error
     use ieee_arithmetic

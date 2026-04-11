@@ -66,7 +66,9 @@ contains
 !> @date   07/02/17 MDG 3.1 split STEM into STEM and stemnl
 !--------------------------------------------------------------------------
 recursive subroutine init_STEM(STEM,stemnl,cell,nn,g)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_STEM
+#endif
 
 use io
 use crystal
@@ -470,7 +472,9 @@ end subroutine init_STEM
 !> @date   07/02/17 MDG 3.2 split STEM into STEM and stemnl
 !--------------------------------------------------------------------------
 recursive subroutine init_STEM_ZA(STEM,stemnl,cell,F,Dyn,khead,reflist,nn)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: init_STEM_ZA
+#endif
 
 use crystal
 use diffraction
@@ -579,7 +583,9 @@ end subroutine init_STEM_ZA
 !> @date   07/02/17 MDG 3.1 split STEM into STEM and namelist data structures; substantial simplification
 !--------------------------------------------------------------------------
 recursive subroutine read_STEM_data(STEM,stemnl,cell,F,Dyn,khead,reflist,geometry,nn,g,numk)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: read_STEM_data
+#endif
 
 use io
 use files

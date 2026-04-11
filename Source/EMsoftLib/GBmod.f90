@@ -64,7 +64,9 @@ contains
 !> @date 04/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GBO_minimal_U1_angle(qa,qb,qc,qd,exchange)  result(zeta)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GBO_minimal_U1_angle
+#endif
 
 use constants
 
@@ -126,7 +128,9 @@ end function GBO_minimal_U1_angle
 !> @date 04/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GBO_minimal_U1_angle_NB(qa,qc)  result(zeta)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GBO_minimal_U1_angle_NB
+#endif
 
 use constants
 
@@ -166,7 +170,9 @@ end function GBO_minimal_U1_angle_NB
 !> @date 04/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GBO_Omega(qa,qb,qc,qd,metric,noU1)  result(Omega)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GBO_Omega
+#endif
 
 use constants
 use quaternions
@@ -338,7 +344,9 @@ end function GBO_Omega
 !> @date 04/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GBO_minimize_U1_angle(qa,qb,qc,qd,numz,z,czs,szs,m,exchange)  result(zval)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GBO_minimize_U1_angle
+#endif
 
 use constants
 
@@ -447,7 +455,9 @@ end function GBO_minimize_U1_angle
 !> @date 04/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GBO_Omega_Refine(qa,qb,qc,qd,metric,init)  result(Omega)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GBO_Omega_Refine
+#endif
 
 use constants
 use quaternions
@@ -615,7 +625,9 @@ end function GBO_Omega_Refine
 !> @date 04/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GBO_Omega_symmetric(qa,qb,qc,qd,dict,solution,arclengths,single,noU1,metric,refine)  result(Omega)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GBO_Omega_symmetric
+#endif
 
 use constants
 use so3
@@ -780,7 +792,9 @@ end function GBO_Omega_symmetric
 !> @date 04/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GBO_Omega_NB(qa,qc)  result(Omega)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GBO_Omega_NB
+#endif
 
 use constants
 use quaternions
@@ -814,7 +828,9 @@ end function GBO_Omega_NB
 !> @date 04/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GBO_Omega_symmetric_NB(qa,qc,dict)  result(Omega)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GBO_Omega_symmetric_NB
+#endif
 
 use constants
 use so3
@@ -872,7 +888,9 @@ end function GBO_Omega_symmetric_NB
 !> @date 05/05/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GBO_SLERP(hcn1, hcn2, Omega, t, n)  result(hcnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GBO_SLERP
+#endif
 
 IMPLICIT NONE
 
@@ -909,7 +927,9 @@ end function GBO_SLERP
 !> @date 05/07/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GB_getCSLrod(CSLlabel, CSLnumber)  result(rod)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GB_getCSLrod
+#endif
 
 use typedefs
 use error
@@ -960,7 +980,9 @@ end function GB_getCSLrod
 !> @date 06/21/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GB_getGrainNormalVector(xyz, f, pos)  result(nvec)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GB_getGrainNormalVector
+#endif
 
 use typedefs
 use error
@@ -1027,7 +1049,9 @@ end function GB_getGrainNormalVector
 !> @date 06/21/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GB_getOlmstedRepresentation(nvec, pA, qB, verbose)  result(qA)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GB_getOlmstedRepresentation
+#endif
 
 use typedefs
 use error

@@ -38,7 +38,9 @@ type YDtype
 end type YDtype
 
 type (YDtype), allocatable  :: YD(:)    
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: YD
+#endif
 
 
 contains
@@ -47,7 +49,9 @@ contains
 
 
 recursive function YSHDisp(x,y,z,ii)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: YSHDisp
+#endif
 !
 ! compute the displacement field of an inclined dislocation intersection the top surface of 
 ! the foil, taking into account surface relaxations for the isotropic elastic case (cubic only) ... 
@@ -168,7 +172,9 @@ end function YSHDisp
 
 
 recursive subroutine makeYSHdislocation(i,dinfo, L)    
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: makeYSHdislocation
+#endif
 ! 
 ! this routine pre-computes a number of parameters related to the 
 ! geometry of the Yoffe&Shaibani&Hazzledine (YSH) surface-relaxed dislocation in an elastically
@@ -262,7 +268,9 @@ end subroutine makeYSHdislocation
 
 
 recursive subroutine read_YSH_dislocation_data(dislYname,numYdisl,DF_npix,DF_npiy,DF_gf,L,dinfo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: read_YSH_dislocation_data
+#endif
 
 use local
 use io

@@ -206,7 +206,9 @@ contains
 !> @date  07/02/18 SS 1.0 original, adapted from symmetry.f90 module
 !--------------------------------------------------------------------------
 recursive subroutine SYM_fillgen_3DQC(cell, t)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SYM_fillgen_3DQC
+#endif
 
 IMPLICIT NONE
 
@@ -261,7 +263,9 @@ end subroutine SYM_fillgen_3DQC
 !> @date 03/17/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function QC_get5Dindex(QCcell, QCindex) result(gindex)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_get5Dindex
+#endif
 
 
 IMPLICIT NONE
@@ -296,7 +300,9 @@ end function QC_get5Dindex
 !> @date 03/17/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function QC_invert5Dindex(QCcell, gindex) result(QCindex)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_invert5Dindex 
+#endif
 
 IMPLICIT NONE
 
@@ -323,7 +329,9 @@ end function QC_invert5Dindex
 !> @date 03/17/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function QC_get6Dindex(QCcell, QCindex) result(gindex)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_get6Dindex
+#endif
 
 use others, only: SSORT
 
@@ -356,7 +364,9 @@ end function QC_get6Dindex
 !> @date 03/17/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function QC_invert6Dindex(QCcell, gindex) result(QCindex)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::QC_invert6Dindex 
+#endif
 
 IMPLICIT NONE
 
@@ -380,7 +390,9 @@ end function QC_invert6Dindex
 !
 !--------------------------------------------------------------------------
 recursive subroutine Print3DQCSGTable(QCcell,toprint)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Print3DQCSGTable
+#endif
 
 use io
 use error
@@ -482,7 +494,9 @@ end subroutine Print3DQCSGTable
 !
 !--------------------------------------------------------------------------
 recursive subroutine Print2DQCSGTable(TDQCcell,toprint)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Print2DQCSGTable
+#endif
 
 use io
 use error
@@ -781,7 +795,9 @@ end subroutine Print2DQCSGTable
 !> @date   05/22/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetQCType(qcdim)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetQCType
+#endif
 
 use io
 
@@ -813,7 +829,9 @@ end subroutine GetQCType
 !> @date   05/22/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine Get2DQCLatParm(TDQCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Get2DQCLatParm
+#endif
 
 use io
 
@@ -894,7 +912,9 @@ end subroutine Get2DQCLatParm
 !> @date   05/22/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine Get3DQCLatParm(QCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Get3DQCLatParm
+#endif
 
 use io
 
@@ -939,7 +959,9 @@ end subroutine Get3DQCLatParm
 !> @date   05/22/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine Get3DQCSpaceGroup(QCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Get3DQCSpaceGroup
+#endif
 
 use io
 
@@ -972,7 +994,9 @@ end subroutine Get3DQCSpaceGroup
 !> @date   05/22/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine Get2DQCSpaceGroup(TDQCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Get2DQCSpaceGroup
+#endif
 
 use io
 
@@ -1006,7 +1030,9 @@ end subroutine Get2DQCSpaceGroup
 !> @date   05/23/18 SS 1.0 original, adapted from symmetry module
 !--------------------------------------------------------------------------
 recursive subroutine Get3DQCAsymPos(QCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Get3DQCAsymPos
+#endif
 
 use io
 use crystal, only: DisplayElements
@@ -1075,7 +1101,9 @@ end subroutine Get3DQCAsymPos
 !> @date   05/23/18 SS 1.0 original, adapted from symmetry module
 !--------------------------------------------------------------------------
 recursive subroutine Get2DQCAsymPos(TDQCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Get2DQCAsymPos
+#endif
 
 use io
 use crystal, only: DisplayElements
@@ -1147,7 +1175,9 @@ end subroutine Get2DQCAsymPos
 !> @date  05/23/18 SS 1.0 original, adapted from symmetry module 
 !--------------------------------------------------------------------------
 recursive subroutine Generate3DQCSymmetry(QCcell, dopg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Generate3DQCSymmetry
+#endif
 
 use io
 
@@ -1237,7 +1267,9 @@ end subroutine Generate3DQCSymmetry
 !> @date  05/23/18 SS 1.0 original, adapted from symmetry module 
 !--------------------------------------------------------------------------
 recursive subroutine Generate2DQCSymmetry(TDQCcell, dopg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Generate2DQCSymmetry
+#endif
 
 IMPLICIT NONE
 
@@ -1315,7 +1347,9 @@ end subroutine Generate2DQCSymmetry
 !> @date  05/23/18 SS 1.0 original, adapted from symmetry module 
 !--------------------------------------------------------------------------
 recursive subroutine Make3DQCGenerators(cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Make3DQCGenerators
+#endif
 
 IMPLICIT NONE
 
@@ -1402,7 +1436,9 @@ end subroutine Make3DQCGenerators
 !
 !> @date  05/23/18 SS 1.0 original, adapted from symmetry module 
 !--------------------------------------------------------------------------
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MakeTDQCGenerators
+#endif
 recursive subroutine MakeTDQCGenerators(TDQCcell)
 
 IMPLICIT NONE
@@ -1565,7 +1601,9 @@ end subroutine MakeTDQCGenerators
 !> @date   05/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive function isnew2DQC(SYM_icos, sym, nsym) result(new_sym)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: isnew2DQC
+#endif
 
 use typedefs
 use local
@@ -1606,7 +1644,9 @@ end function isnew2DQC
 !> @date   02/05/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function isnew3DQC(SYM_icos, sym, nsym) result(new_sym)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: isnew3DQC
+#endif
 
 use typedefs
 use local
@@ -1647,7 +1687,9 @@ end function isnew3DQC
 !> @date   05/01/18 SS 1.1 moved from  QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive function isnewvector2DQC_int(QCcell, hkl, orbit, nn) result(isnew)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: isnewvector2DQC_int
+#endif
 
 use local
 
@@ -1689,7 +1731,9 @@ end function isnewvector2DQC_int
 !> @date   05/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive function isnewvector2DQC_dbl(QCcell, hkl, orbit, nn) result(isnew)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: isnewvector2DQC_dbl
+#endif
 
 use local
 
@@ -1731,7 +1775,9 @@ end function isnewvector2DQC_dbl
 !> @date   05/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive function isnewvector3DQC_int(QCcell, hkl, orbit, nn) result(isnew)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: isnewvector3DQC_int
+#endif
 
 use local
 
@@ -1773,7 +1819,9 @@ end function isnewvector3DQC_int
 !> @date   05/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive function isnewvector3DQC_dbl(QCcell, hkl, orbit, nn) result(isnew)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: isnewvector3DQC_dbl
+#endif
 
 use local
 
@@ -1814,7 +1862,9 @@ end function isnewvector3DQC_dbl
 !> @date   05/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive function MatrixPower2DQC(A, n) result(B)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MatrixPower2DQC
+#endif
 
 use local
 use error
@@ -1867,7 +1917,9 @@ end function MatrixPower2DQC
 !> @date   02/05/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function MatrixPower3DQC(A, n) result(B)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MatrixPower3DQC
+#endif
 
 use local
 use error
@@ -1922,7 +1974,9 @@ end function MatrixPower3DQC
 !> @date   05/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive subroutine GetSymmetryOperatorsDoDecahedral(TDQCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSymmetryOperatorsDoDecahedral
+#endif
 
 use typedefs
 use local
@@ -2031,7 +2085,9 @@ end subroutine GetSymmetryOperatorsDoDecahedral
 !> @date   05/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive subroutine GetSymmetryOperatorsDecagonal(TDQCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSymmetryOperatorsDecagonal
+#endif
 
 use typedefs
 use local
@@ -2164,7 +2220,9 @@ end subroutine GetSymmetryOperatorsDecagonal
 !> @date   05/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive subroutine GetSymmetryOperatorsOctagonal(TDQCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSymmetryOperatorsOctagonal
+#endif
 
 use typedefs
 use local
@@ -2270,7 +2328,9 @@ end subroutine GetSymmetryOperatorsOctagonal
 !> @date   02/05/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine GetSymmetryOperatorsIcosahedral(QCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSymmetryOperatorsIcosahedral
+#endif
 
 use typedefs
 use local
@@ -2457,7 +2517,9 @@ end subroutine GetSymmetryOperatorsIcosahedral
 !> @date   05/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive subroutine Get2DQCPGsymmetry(QCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Get2DQCPGsymmetry
+#endif
 
 use error
 
@@ -2498,7 +2560,9 @@ end subroutine Get2DQCPGsymmetry
 !> @date   05/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive subroutine Get3DQCPGsymmetry(QCcell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Get3DQCPGsymmetry
+#endif
 
 use error
 
@@ -2535,7 +2599,9 @@ end subroutine Get3DQCPGsymmetry
 !> @date  06/05/14 MDG 4.1 made cell an argument instead of global variable 
 !--------------------------------------------------------------------------
 recursive subroutine matrixmult2DQC(cell, k1, k2)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: matrixmult2DQC
+#endif
    
 IMPLICIT NONE
 
@@ -2593,7 +2659,9 @@ end subroutine matrixmult2DQC
 !> @date  06/24/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine matrixmult3DQC(cell, k1, k2)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: matrixmult3DQC
+#endif
    
 IMPLICIT NONE
 
@@ -2652,7 +2720,9 @@ end subroutine matrixmult3DQC
 !> @date  06/05/14 MDG 4.1 made cell an argument instead of global variable 
 !--------------------------------------------------------------------------
 logical recursive function isitnew2DQC(cell,nsym)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: isitnew2DQC
+#endif
 
 IMPLICIT NONE
 
@@ -2699,7 +2769,9 @@ end function isitnew2DQC
 !> @date  06/24/18 SS 1.0 original
 !--------------------------------------------------------------------------
 logical recursive function isitnew3DQC(cell,nsym)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: isitnew3DQC
+#endif
 
 IMPLICIT NONE
 
@@ -2746,7 +2818,9 @@ end function isitnew3DQC
 !> @date   06/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive subroutine Get2DQCOrbit(QCcell, orbit, mm, nn)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::Get2DQCOrbit
+#endif
 
 use typedefs
 use local
@@ -2822,7 +2896,9 @@ end subroutine Get2DQCOrbit
 !> @date   06/01/18 SS 1.1 moved from QCmod to qcrystal
 !--------------------------------------------------------------------------
 recursive subroutine Get3DQCOrbit(QCcell, orbit, mm, nn)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT ::Get2DQCOrbit
+#endif
 
 use typedefs
 use local
@@ -2898,7 +2974,9 @@ end subroutine Get3DQCOrbit
 !> @date   10/13/98 SS 1.0 original, adapted from crystal.f90
 !--------------------------------------------------------------------------
 recursive subroutine extractposition(list,pt,iQC)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: extractposition
+#endif
 
 IMPLICIT NONE
 
@@ -3038,7 +3116,9 @@ end subroutine extractposition
 !> @date  05/24/18 SS 1.0 original, based on CalcPosition
 !--------------------------------------------------------------------------
 recursive subroutine Calc2DQCPositions(cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Calc2DQCPositions
+#endif
 
 use QCmod
 use error
@@ -3085,7 +3165,9 @@ end subroutine Calc2DQCPositions
 !> @date  06/25/18 SS 1.0 original, based on CalcPosition
 !--------------------------------------------------------------------------
 recursive subroutine Calc3DQCPositions(cell)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Calc3DQCPositions
+#endif
 
 use QCmod
 use error
@@ -3135,7 +3217,9 @@ end subroutine Calc3DQCPositions
 !> @date  07/02/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function IsGAllowedQC(cell,g) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: IsGAllowedQC
+#endif
 
 IMPLICIT NONE
 

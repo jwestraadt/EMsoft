@@ -13,7 +13,9 @@ CONTAINS
 
 
 SUBROUTINE rgbi3p(md, nxd, nyd, xd, yd, zd, nip, xi, yi, zi, ier)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rgbi3p
+#endif
 ! Code converted using TO_F90 by Alan Miller
 ! Date: 2003-06-11  Time: 10:11:03
 
@@ -187,7 +189,9 @@ END SUBROUTINE rgbi3p
 
 
 SUBROUTINE rgsf3p(md, nxd, nyd, xd, yd, zd, nxi, xi, nyi, yi, zi, ier)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rgsf3p
+#endif
 ! Rectangular-grid surface fitting
 ! (a master subroutine of the RGBI3P/RGSF3P subroutine package)
 
@@ -405,7 +409,9 @@ END FUNCTION z3f
 
 
 SUBROUTINE rgpd3p(nxd, nyd, xd, yd, zd, pdd)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rgpd3p
+#endif
 ! Partial derivatives of a bivariate function on a rectangular grid
 ! (a supporting subroutine of the RGBI3P/RGSF3P subroutine package)
 
@@ -888,7 +894,9 @@ END SUBROUTINE rgpd3p
 
 
 SUBROUTINE rglctn(nxd, nyd, xd, yd, nip, xi, yi, inxi, inyi)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rglctn
+#endif
 ! Location of the desired points in a rectangular grid
 ! (a supporting subroutine of the RGBI3P/RGSF3P subroutine package)
 
@@ -1030,7 +1038,9 @@ END SUBROUTINE rglctn
 
 
 SUBROUTINE rgplnl(nxd, nyd, xd, yd, zd, pdd, nip, xi, yi, inxi, inyi, zi)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rgplnl
+#endif
 ! Polynomials for rectangular-grid bivariate interpolation and surface fitting
 ! (a supporting subroutine of the RGBI3P/RGSF3P subroutine package)
 

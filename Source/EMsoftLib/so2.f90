@@ -62,7 +62,9 @@ contains
 !> @date 07/28/20 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine delete_SO2list(top)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: delete_SO2list
+#endif
 
 IMPLICIT NONE
 
@@ -100,7 +102,9 @@ end subroutine delete_SO2list
 !> @date 07/28/20 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getBSEDetectorGrid(nsteps, niz, noz, SO2list, SO2cnt)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getBSEDetectorGrid
+#endif
 
 use Lambert
 

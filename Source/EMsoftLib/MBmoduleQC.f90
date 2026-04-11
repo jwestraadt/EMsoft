@@ -103,7 +103,9 @@ contains
 !> @date  06/25/18 SS  3.3 moved to MBmoduleQC module
 !--------------------------------------------------------------------------
 recursive subroutine QC_GetDynMat2DQC(QCcell, listroot, listrootw, DynMat, nns, nnw, BlochMode)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_GetDynMat2DQC
+#endif
 
 use local
 use typedefs
@@ -250,7 +252,9 @@ end subroutine QC_GetDynMat2DQC
 !> @date  06/25/18 SS 1.1 moved to MBmoduleQC module
 !--------------------------------------------------------------------------
 recursive subroutine QC_GetDynMatMaster2DQC(QCcell, listroot, DynMat, nref)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_GetDynMatMaster2DQC
+#endif
 
 use io
 
@@ -339,7 +343,9 @@ end subroutine QC_GetDynMatMaster2DQC
 !> @date  06/25/18 SS 1.1 moved to MBmoduleQC module
 !--------------------------------------------------------------------------
 recursive subroutine QC_GetDynMat3DQC(QCcell, listroot, listrootw, DynMat, nns, nnw, BlochMode)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_GetDynMat3DQC
+#endif
 
 use local
 use typedefs
@@ -485,7 +491,9 @@ end subroutine QC_GetDynMat3DQC
 !> @date  06/25/18 SS 1.1 moved to MBmoduleQC module
 !--------------------------------------------------------------------------
 recursive subroutine QC_GetDynMatMaster3DQC(QCcell, listroot, DynMat, nref)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_GetDynMatMaster3DQC
+#endif
 
 use local
 use typedefs
@@ -562,7 +570,9 @@ end subroutine QC_GetDynMatMaster3DQC
 !> @date 05/01/18  SS 1.0 original (used to be in-line in ECP and ECCI programs)
 !--------------------------------------------------------------------------
 recursive subroutine TDQC_CalcSgh(QCcell,reflist,nn,numset,Sgh,nat)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TDQC_CalcSgh
+#endif
 
 use local
 use typedefs
@@ -648,7 +658,9 @@ end subroutine TDQC_CalcSgh
 !> @date 09/07/15  MDG 2.1 added zeroing of Sgh array
 !--------------------------------------------------------------------------
 recursive subroutine QC_CalcSgh(QCcell,reflist,nn,numset,Sgh,nat)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: QC_CalcSgh
+#endif
 
 use local
 use typedefs

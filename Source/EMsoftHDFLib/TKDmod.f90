@@ -86,7 +86,9 @@ contains
 !> @date 06/24/14  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine TKDreadangles(enl,angles,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TKDreadangles
+#endif
 
 use local
 use typedefs
@@ -206,7 +208,9 @@ end subroutine TKDreadangles
 !> @date 08/18/16  MDG 2.3 modified HDF file format 
 !--------------------------------------------------------------------------
 recursive subroutine TKDreadMCfile(enl,acc,efile,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TKDreadMCfile
+#endif
 
 use local
 use typedefs
@@ -387,7 +391,9 @@ end subroutine TKDreadMCfile
 !> @date 08/18/16  MDG 3.2 modified HDF file format 
 !--------------------------------------------------------------------------
 recursive subroutine TKDreadMasterfile(enl, master, mfile, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TKDreadMasterfile
+#endif
 
 use local
 use typedefs
@@ -549,7 +555,9 @@ end subroutine TKDreadMasterfile
 !> @date 01/03/18  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine TKDreadMasterfile_overlap(enl, master, mfile, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TKDreadMasterfile_overlap
+#endif
 
 use local
 use typedefs
@@ -703,7 +711,9 @@ end subroutine TKDreadMasterfile_overlap
 !> @date 02/19/19  MDG 2.0 corrects pattern orientation (manual indexing revealed an unwanted upside down flip)
 !--------------------------------------------------------------------------
 recursive subroutine TKDGenerateDetector(enl, acc, master, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TKDGenerateDetector
+#endif
 
 use local
 use typedefs
@@ -881,7 +891,9 @@ end subroutine TKDGenerateDetector
 !> @date 04/20/15 MDG 1.0 original, based on Saransh's twin routine above
 !--------------------------------------------------------------------------
 recursive subroutine GenerateTKDBackground(enl,acc,TKDBackground)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GenerateTKDBackground
+#endif
 
 use local
 use typedefs 
@@ -959,7 +971,9 @@ end subroutine GenerateTKDBackground
 !> @date 03/17/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CalcTKDPatternSingleFull(ipar,qu,accum,mLPNH,mLPSH,rgx,rgy,rgz,binned,Emin,Emax,mask,prefactor)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcTKDPatternSingleFull
+#endif
 
 use local
 use typedefs
@@ -1077,7 +1091,9 @@ end subroutine CalcTKDPatternSingleFull
 !> @date 07/07/15   SS  1.2 correction to the omega tilt parameter; old version in the comments
 !--------------------------------------------------------------------------
 recursive subroutine TKDFullGenerateDetector(enl, scintillator, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TKDFullGenerateDetector
+#endif
 
 use local
 use typedefs

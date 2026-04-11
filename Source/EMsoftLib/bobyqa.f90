@@ -125,7 +125,9 @@ contains
     recursive subroutine bobyqa (nipar, nfpar, ninit, ipar, fpar, initmeanval, expt1, n, npt, x, xl,&
                          xu, rhobeg, rhoend, iprint, maxfun, calfun, accum_e, mLPNH, mLPSH,&
                          nstep, stepsize, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: bobyqa
+#endif
 
         use,INTRINSIC :: ISO_C_BINDING
 
@@ -288,7 +290,9 @@ contains
                        rhobeg, rhoend, iprint,&
                        maxfun, xbase, xpt, fval, xopt, gopt, hq, pq, bmat, zmat, ndim, sl, su, xnew, xalt, &
                        d, vlag, w, calfun, accum_e, mLPNH, mLPSH, nstep, stepsize, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: bobyqb
+#endif
    
 
         implicit real (dbl) (a-h, o-z)
@@ -1068,7 +1072,9 @@ contains
  
     recursive subroutine altmov (n, npt, xpt, xopt, bmat, zmat, ndim, sl, su, kopt, knew, adelt, &
    & xnew, xalt, alpha, cauchy, glag, hcol, w)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: altmov
+#endif
  
         implicit real (dbl) (a-h, o-z)
  
@@ -1369,7 +1375,9 @@ contains
     recursive subroutine prelim (nipar, nfpar, ninit, ipar, fpar, initmeanval, expt1, n, npt, x, xl, xu, rhobeg,&
     iprint, maxfun, xbase, xpt, fval, gopt, hq, pq, bmat, zmat, ndim, sl, su, nf, kopt, calfun, accum_e, mLPNH, mLPSH,&
     nstep, stepsize, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: prelim
+#endif
    
         implicit real (dbl) (a-h, o-z)
 
@@ -1564,7 +1572,9 @@ contains
     recursive subroutine rescue (nipar, nfpar, ninit, ipar, fpar, initmeanval, expt1, n, npt, xl, xu, iprint,&
      maxfun, xbase, xpt, fval, xopt, gopt, hq, pq, bmat, zmat, ndim, sl, su, nf, delta, kopt, vlag,&
      ptsaux, ptsid, w, calfun, accum_e, mLPNH, mLPSH, nstep, stepsize, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rescue
+#endif
    
         implicit real (dbl) (a-h, o-z)
 
@@ -2010,7 +2020,9 @@ contains
  
     recursive subroutine trsbox (n, npt, xpt, xopt, gopt, hq, pq, sl, su, delta, xnew, d, gnew, &
    & xbdi, s, hs, hred, dsq, crvmin)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: trsbox
+#endif
    
         implicit real (dbl) (a-h, o-z)
         
@@ -2404,7 +2416,9 @@ contains
     end subroutine trsbox
  
     recursive subroutine update (n, npt, bmat, zmat, ndim, vlag, beta, denom, knew, w)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: update
+#endif
  
         implicit real (dbl) (a-h, o-z)
         

@@ -65,7 +65,9 @@ contains
 !> @date   06/10/14 MDG 2.0 removed all global variables; added defect, foil arguments
 !--------------------------------------------------------------------------
 recursive subroutine read_apb_data(defects,cell,DF_L,DF_npix,DF_npiy,dinfo)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: read_apb_data
+#endif
 
 use io
 use files

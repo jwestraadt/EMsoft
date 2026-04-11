@@ -51,6 +51,9 @@ set(EMsoftHDFLib_SRCS
 GetHDF5LinkLibraries(EMSOFT)
 
 add_library(EMsoftHDFLib ${LIB_TYPE} ${EMsoftHDFLib_SRCS})
+if(WIN32 AND BUILD_SHARED_LIBS)
+  target_compile_definitions(EMsoftHDFLib PRIVATE EMSOFT_USE_DLLEXPORT)
+endif()
 
 target_include_directories(EMsoftHDFLib 
                           PUBLIC 
@@ -127,4 +130,5 @@ set(ConfigPackageLocation ${lib_install_dir}/cmake/EMsoft)
       ${ConfigPackageLocation}
   )
 #endif()
+
 

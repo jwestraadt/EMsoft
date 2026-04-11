@@ -77,7 +77,9 @@ contains
 !> @date 03/20/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDF_writeNMLintegers(HDF_head, io_int, intlist, n_int)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeNMLintegers
+#endif
 
 IMPLICIT NONE
 
@@ -120,7 +122,9 @@ end subroutine HDF_writeNMLintegers
 !> @date 03/20/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDF_writeNMLreals(HDF_head, io_real, reallist, n_real)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeNMLreals
+#endif
 
 IMPLICIT NONE
 
@@ -163,7 +167,9 @@ end subroutine HDF_writeNMLreals
 !> @date 03/20/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDF_writeNMLdbles(HDF_head, io_real, reallist, n_real)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeNMLdbles
+#endif
 
 IMPLICIT NONE
 
@@ -213,7 +219,9 @@ end subroutine HDF_writeNMLdbles
 !> @date 03/20/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteLorentzNameList(HDF_head, knl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteLorentzNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -337,7 +345,9 @@ end subroutine HDFwriteLorentzNameList
 !> @date 03/20/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteKosselNameList(HDF_head, knl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteKosselNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -416,7 +426,9 @@ end subroutine HDFwriteKosselNameList
 !> @date 03/21/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteKosselMasterNameList(HDF_head, knl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteKosselMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -489,7 +501,9 @@ end subroutine HDFwriteKosselMasterNameList
 !> @date 09/06/17  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteLaueMasterNameList(HDF_head, knl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteLaueMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -568,7 +582,9 @@ end subroutine HDFwriteLaueMasterNameList
 !> @date 07/30/19  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteLaueNameList(HDF_head, lnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteLaueNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -658,7 +674,9 @@ end subroutine HDFwriteLaueNameList
 !> @date 01/30/20  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteLaueSlitNameList(HDF_head, lnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteLaueSlitNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -766,7 +784,9 @@ end subroutine HDFwriteLaueSlitNameList
 !> @date 09/06/17  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteCPLMmasterNameList(HDF_head, knl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteCPLMmasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -843,7 +863,9 @@ end subroutine HDFwriteCPLMmasterNameList
 !> @date 09/06/17  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteCPLMNameList(HDF_head, knl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteCPLMNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -911,7 +933,9 @@ end subroutine HDFwriteCPLMNameList
 !> @date 03/21/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteMCNameList(HDF_head, mcnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteMCNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -995,7 +1019,9 @@ end subroutine HDFwriteMCNameList
 !> @date 12/01/15  PGC 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteMCLIPSSNameList(HDF_head, mcnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteMCLIPSSNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1080,7 +1106,9 @@ end subroutine HDFwriteMCLIPSSNameList
 !> @date 10/12/15 SS  1.2 changes to handle new mc program
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteMCCLNameList(HDF_head, mcnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteMCCLNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1197,7 +1225,9 @@ end subroutine HDFwriteMCCLNameList
 !> @date 03/21/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteMCCLMultiLayerNameList(HDF_head, mcnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteMCCLMultiLayerNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1287,7 +1317,9 @@ end subroutine HDFwriteMCCLMultiLayerNameList
 !> @date 03/21/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEBSDMasterNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEBSDMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1414,7 +1446,9 @@ end subroutine HDFwriteEBSDMasterNameList
 !> @date 12/18/20  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteISEMasterNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteISEMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1506,7 +1540,9 @@ end subroutine HDFwriteISEMasterNameList
 !> @date 12/13/19  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEECMasterNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEECMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1597,7 +1633,9 @@ end subroutine HDFwriteEECMasterNameList
 !> @date 03/21/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEBSDoverlapNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEBSDoverlapNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1796,7 +1834,9 @@ end subroutine HDFwriteEBSDoverlapNameList
 !> @date 03/21/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEBSDSingleMasterNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEBSDSingleMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1899,7 +1939,9 @@ end subroutine HDFwriteEBSDSingleMasterNameList
 !> @date 01/04/19 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteRefineMartensiteNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteRefineMartensiteNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -1996,7 +2038,9 @@ end subroutine HDFwriteRefineMartensiteNameList
 !> @date 03/21/15  SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEBSDQCMasterNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEBSDQCMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -2059,7 +2103,9 @@ end subroutine HDFwriteEBSDQCMasterNameList
 !> @date 05/1/18  SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEBSD2DQCMasterNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEBSD2DQCMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -2145,7 +2191,9 @@ end subroutine HDFwriteEBSD2DQCMasterNameList
 !> @date 03/21/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteTKDMasterNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteTKDMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -2233,7 +2281,9 @@ end subroutine HDFwriteTKDMasterNameList
 !> @date 03/21/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteTKDspotsNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteTKDspotsNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -2327,7 +2377,9 @@ end subroutine HDFwriteTKDspotsNameList
 !> @date 12/10/16  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEBSDMasterOpenCLNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEBSDMasterOpenCLNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -2451,7 +2503,9 @@ end subroutine HDFwriteEBSDMasterOpenCLNameList
 !> @date 09/27/16  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteBetheparameterNameList(HDF_head, BetheParameters)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteBetheparameterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -2505,7 +2559,9 @@ end subroutine HDFwriteBetheparameterNameList
 !> @date 12/28/15  MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEBSDclusterNameList(HDF_head, emnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEBSDclusterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -2570,7 +2626,9 @@ end subroutine HDFwriteEBSDclusterNameList
 !> @date 01/04/18 MDG 1.2 added to Public repo
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteECPQCMasterNameList(HDF_head, ecpnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteECPQCMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -2632,7 +2690,9 @@ end subroutine HDFwriteECPQCMasterNameList
 !> @date 09/15/15 SS  1.1 changes after clean up of ECPmasterNameList
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteECPMasterNameList(HDF_head, ecpnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteECPMasterNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -2706,7 +2766,9 @@ end subroutine HDFwriteECPMasterNameList
 !> @date 01/25/17 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteECPZANameList(HDF_head, ecpnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteECPZANameList
+#endif
 
 use ISO_C_BINDING
 
@@ -2785,7 +2847,9 @@ end subroutine HDFwriteECPZANameList
 !> @date 03/22/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEBSDNameList(HDF_head, enl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEBSDNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -2951,7 +3015,9 @@ end subroutine HDFwriteEBSDNameList
 !> @date 04/04/21 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEBSDBatchNameList(HDF_head, enl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEBSDBatchNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -3057,7 +3123,9 @@ end subroutine HDFwriteEBSDBatchNameList
 !> @date 03/22/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEBSDdefectNameList(HDF_head, enl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEBSDdefectNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -3160,7 +3228,9 @@ end subroutine HDFwriteEBSDdefectNameList
 !> @date 03/22/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteTKDNameList(HDF_head, enl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteTKDNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -3283,7 +3353,9 @@ end subroutine HDFwriteTKDNameList
 !> @date 10/15/15 SS  1.2 changes for release
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteECPNameList(HDF_head, ecpnl, twolayerflag)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteECPNameList
+#endif
 
 use ISO_C_BINDING
 use error
@@ -3467,7 +3539,9 @@ end subroutine HDFwriteECPNameList
 !> @date 10/15/15 SS  1.2 changes for release
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteECPSingleNameList(HDF_head, ecpnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteECPSingleNameList
+#endif
 
 use ISO_C_BINDING
 use error
@@ -3566,7 +3640,9 @@ end subroutine HDFwriteECPSingleNameList
 !> @date 03/22/15 SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteECPDictionaryIndexingNameList(HDF_head, ecpnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteECPDictionaryIndexingNameList
+#endif
 
 use ISO_C_BINDING
 use error
@@ -3685,7 +3761,9 @@ end subroutine HDFwriteECPDictionaryIndexingNameList
 !> @date 06/22/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteLACBEDNameList(HDF_head, lacbednl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteLACBEDNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -3764,7 +3842,9 @@ end subroutine HDFwriteLACBEDNameList
 !> @date 11/24/18 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteCBEDNameList(HDF_head, cbednl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteCBEDNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -3847,7 +3927,9 @@ end subroutine HDFwriteCBEDNameList
 !> @date 03/22/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteECPpatternNameList(HDF_head,ecpnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteECPpatternNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -3915,7 +3997,9 @@ end subroutine HDFwriteECPpatternNameList
 !> @date 03/22/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwritePEDkinNameList(HDF_head,pednl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwritePEDkinNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -3992,7 +4076,9 @@ end subroutine HDFwritePEDkinNameList
 !> @date 03/22/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwritekinematicalNameList(HDF_head,knl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwritekinematicalNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -4057,7 +4143,9 @@ end subroutine HDFwritekinematicalNameList
 !> @date 03/23/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwritePEDZANameList(HDF_head,pednl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwritePEDZANameList
+#endif
 
 use ISO_C_BINDING
 
@@ -4143,7 +4231,9 @@ end subroutine HDFwritePEDZANameList
 !> @date 03/23/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteECCINameList(HDF_head,eccinl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteECCINameList
+#endif
 
 use ISO_C_BINDING
 
@@ -4271,7 +4361,9 @@ end subroutine HDFwriteECCINameList
 !> @date 03/23/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteRFZNameList(HDF_head,rfznl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteRFZNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -4356,7 +4448,9 @@ end subroutine HDFwriteRFZNameList
 !> @date 03/23/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteDictIndxOpenCLNameList(HDF_head,dictindxnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteDictIndxOpenCLNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -4435,7 +4529,9 @@ end subroutine HDFwriteDictIndxOpenCLNameList
 !> @date 03/23/15 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteEBSDDictionaryIndexingNameList(HDF_head,ebsdnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteEBSDDictionaryIndexingNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -4637,7 +4733,9 @@ end subroutine HDFwriteEBSDDictionaryIndexingNameList
 !> @date 05/07/17 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteTKDDictionaryIndexingNameList(HDF_head,tkdnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteTKDDictionaryIndexingNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -4826,7 +4924,9 @@ end subroutine HDFwriteTKDDictionaryIndexingNameList
 !> @date 10/20/16 SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteMCCLsphereNameList(HDF_head, mcnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteMCCLsphereNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -4933,7 +5033,9 @@ end subroutine HDFwriteMCCLsphereNameList
 !> @date 01/15/17 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteMCCLfoilNameList(HDF_head, mcnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteMCCLfoilNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -5016,7 +5118,9 @@ end subroutine HDFwriteMCCLfoilNameList
 !> @date 04/02/17 SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwritePFInversionNameList(HDF_head,epf)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwritePFInversionNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -5088,7 +5192,9 @@ end subroutine HDFwritePFInversionNameList
 !> @date 07/02/17 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteSTEMDCINameList(HDF_head,epf)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteSTEMDCINameList
+#endif
 
 use ISO_C_BINDING
 
@@ -5194,7 +5300,9 @@ end subroutine HDFwriteSTEMDCINameList
 !> @date 01/04/18 SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteGammaSTEMDCINameList(HDF_head,dcinl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteGammaSTEMDCINameList
+#endif
 
 use ISO_C_BINDING
 
@@ -5276,7 +5384,9 @@ end subroutine HDFwriteGammaSTEMDCINameList
 !> @date 01/04/18 SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteTGBSTEMDCINameList(HDF_head,dcinl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteTGBSTEMDCINameList
+#endif
 
 use ISO_C_BINDING
 
@@ -5353,7 +5463,9 @@ end subroutine HDFwriteTGBSTEMDCINameList
 !> @date 07/02/17 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteSTEMGeometryNameList(HDF_head,epf)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteSTEMGeometryNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -5421,7 +5533,9 @@ end subroutine HDFwriteSTEMGeometryNameList
 !> @date 02/22/18 SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteCBEDQCNameList(HDF_head, cbednl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteCBEDQCNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -5493,7 +5607,9 @@ end subroutine HDFwriteCBEDQCNameList
 !> @date 02/22/18 SS 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwrite2DQCCBEDNameList(HDF_head, cbednl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwrite2DQCCBEDNameList
+#endif
 
 use ISO_C_BINDING
 
@@ -5566,7 +5682,9 @@ end subroutine HDFwrite2DQCCBEDNameList
 !> @date 08/23/19 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 recursive subroutine HDFwriteHH4NameList(HDF_head, hhnl)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFwriteHH4NameList
+#endif
 
 use ISO_C_BINDING
 

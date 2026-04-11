@@ -73,16 +73,26 @@ use, intrinsic :: iso_c_binding
 real(kind=dbl),private,parameter        :: sq22=0.7071067811865475244D0 ! sqrt(2)/2
 real(kind=dbl),private,parameter        :: sq32=0.8660254037844386467D0 ! sqrt(3)/2
 real(kind=dbl),private,parameter        :: half=0.5D0                   ! 1/2
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: sq22
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: sq32
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: half
+#endif
 
 !> Maximum number of positions in asymmetric unit
   integer(kind=irg), parameter          :: maxpasym = 250   
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: maxpasym
+#endif
 !> Maximum number of defects of any given type
   integer(kind=irg), parameter          :: maxdefects = 250
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: maxdefects
+#endif
 
 !--------------------------------------------------------------------------
 !--------------------------------------------------------------------------
@@ -209,12 +219,16 @@ character(11),dimension(237) :: SYM_SGname= (/" P  1      " ," P -1      ", & ! 
         " F d 3 m   " ," F d 3 c   " ," I m 3 m   " ," I a 3 d   ", & ! TRIGONAL GROUPS RHOMBOHEDRAL SETTING
         " R 3   |146" ," R -3  |148" ," R 3 2 |155" ," R 3 m |160", &
         " R 3 c |161" ," R -3 m|166" ," R -3 c|167"/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SYM_SGname
+#endif
 
 !> extended Hermann-Mauguin symbols for the orthorhombic space groups in the following settings:
 character(8), dimension(6):: extendedOrthsettings = (/ &
     " a  b  c", " b  a -c", " c  a  b", "-c  b  a", " b  c  a", " a -c  b"  /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: extendedOrthsettings
+#endif
 
 character(11), dimension(6,59) :: extendedHMOrthsymbols = reshape( (/ &
     " P 2 2 2   ", " P 2 2 2   ", " P 2 2 2   ", " P 2 2 2   ", " P 2 2 2   ", " P 2 2 2   ", &
@@ -276,7 +290,9 @@ character(11), dimension(6,59) :: extendedHMOrthsymbols = reshape( (/ &
     " I b a m   ", " I b a m   ", " I m c b   ", " I m c b   ", " I c m a   ", " I c m a   ", &
     " I b c a   ", " I c a b   ", " I b c a   ", " I c a b   ", " I b c a   ", " I c a b   ", &
     " I m m a   ", " I m m b   ", " I b m m   ", " I c m m   ", " I m c m   ", " I m a m   " /), (/6, 59/) )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: extendedHMOrthsymbols
+#endif
 
 
 !>  SYM_GL  encoded generator strings
@@ -360,17 +376,23 @@ character(40),dimension(237) :: SYM_GL= (/  &
 "15aDDDbOOOcOOOdOOOeOOO0                 ","15aDDDbDODcODDdOOOeFBB0                 ","01dOOO0                                 ", &
 "11dOOO0                                 ","02dOOOfOOO0                             ","02dOOOlOOO0                             ", &
 "02dOOOlDDD0                             ","12dOOOfOOO0                             ","12dOOOfDDD0                             "/) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SYM_GL
+#endif
 
 !> SGXsym contains the first space group of each crystal system
 integer(kind=irg),dimension(7) :: SGXsym = (/ 1, 3, 16, 75, 143, 168, 195 /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SGXsym
+#endif
 
 !>  SGPG contains the first space group # for a given point group
 integer(kind=irg),dimension(32):: SGPG =(/1,2,3,6,10,16,25,47,75,81,83,89,99,111,123,143, &
                                           147,149,156,162,168,174,175,177,183,187,191,195, &
                                           200,207,215,221/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SGPG
+#endif
 
 !>  SGsym contains the numbers of all the symmorphic space groups
 integer(kind=irg),dimension(73) :: SGsym =(/1,2,3,5,6,8,10,12,16,21,22,23,25,35,38,42,44,47, &
@@ -379,7 +401,9 @@ integer(kind=irg),dimension(73) :: SGsym =(/1,2,3,5,6,8,10,12,16,21,22,23,25,35,
                                             157,160,162,164,166,168,174,175,177,183,187,189, &
                                             191,195,196,197,200,202,204,207,209,211,215,216, &
                                             217,221,225,229/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SGsym
+#endif
 
 !> SGsymnum contains the number of the symmorphic space group with the same point group symmetry
 !>     this is necessary because sometimes the numbering of the space groups is not continuous in
@@ -408,7 +432,9 @@ integer(kind=irg),dimension(73) :: SGsym =(/1,2,3,5,6,8,10,12,16,21,22,23,25,35,
                                          200, 200, 200, 200, 200, 200, 207, 207, 207, 207, &  ! 210
                                          207, 207, 207, 207, 215, 215, 215, 215, 215, 215, &  ! 220
                                          221, 221, 221, 221, 221, 221, 221, 221, 221, 221 /)  ! 230
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SGsymnum
+#endif
 
 ! these parameters implement the diffraction group
 ! formalism described in the BESR paper.
@@ -416,11 +442,15 @@ integer(kind=irg),dimension(73) :: SGsym =(/1,2,3,5,6,8,10,12,16,21,22,23,25,35,
 !> 10 2D point group symbols in International Tables order
 character(10),dimension(0:11)  :: PGTWD = (/ ' none     ','    1     ','    2     ','    m     ','  2mm     ','    4     ', &
                                              '  4mm     ','    3     ','   3m1    ','    6     ','  6mm     ','   31m    ' /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PGTWD
+#endif
 
 !> 10 2D point group orders in International Tables order
 integer(kind=irg),dimension(0:11)       :: PGTWDorder = (/0,1,2,2,4,4,8,3,6,6,12,6/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PGTWDorder
+#endif
 
 !> inverse table for 2D point groups; this essentially implements the inverse of Table 4 in BESR paper for the Bright Field symmetry.
 integer(kind=irg),dimension(12,11) :: PGTWDinverse = reshape((/ & 
@@ -430,7 +460,9 @@ integer(kind=irg),dimension(12,11) :: PGTWDinverse = reshape((/ &
                                    1,2,0,0,0,8,0,0,0,0,0,0,  1,3,0,0,0,9,0,0,0,0,0,0, &
                                    1,3,0,4,0,0,0,0,0,0,0,10, 1,3,7,4,0,0,0,0,0,0,0,0, &
                                    1,3,0,4,0,8,0,6,0,0,0,0 /), (/ 12,11 /))
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PGTWDinverse
+#endif
 
 
 !> 32 3D point group symbols in International Tables order; additional quasi-crystal rotational
@@ -441,36 +473,48 @@ character(5),dimension(36):: PGTHD =(/'    1','   -1','    2','    m','  2/m',' 
                                         '   3m','  -3m','    6','   -6','  6/m','  622', &
                                         '  6mm',' -6m2','6/mmm','   23','   m3','  432', &
                                         ' -43m',' m-3m','  532','  822',' 1022',' 1222' /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PGTHD
+#endif
 
 !> 32 3D point group orders in International Tables order
 integer(kind=irg),dimension(32)       :: PGTHDorder = (/ 1, 2, 2, 2, 4, 4, 4, 8, 4, 8, &
                                                          8, 8, 8, 8,16, 3, 6, 6, 6,12, &
                                                          6,12,12,12,12,12,24,12,24,24, &
                                                         24,48 /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PGTHDorder
+#endif
 
 !> 3D point groups : purely rotational point groups corresponding to each point group
 integer(kind=irg),dimension(36)   :: PGrot = (/1,1,3,1,3,6,3,6,9,3,9,12,9,6,12,16,16, &
                                               18,16,18,21,16,21,24,21,18,24,28,28,30,28,30,33,34,35,36/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PGrot
+#endif
 
 !> 3D point groups : Laue group number
 integer(kind=irg),dimension(36)   :: PGLaue =(/2,2,5,5,5,8,8,8,11,11,11,15,15,15,15,17,17, &
                                               20,20,20,23,23,23,27,27,27,27,29,29,32,32,32,33,34,35,36/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PGLaue
+#endif
 
 !> 3D point groups : inverted Laue group number
 integer(kind=irg),dimension(36)   :: PGLaueinv = (/1,1,2,2,2,3,3,3,4,4,4,5,5,5,5,6,6, &
                                                    7,7,7,8,8,8,9,9,9,9,10,10,11,11,11,12,13,14,15/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PGLaueinv
+#endif
 
 !> 3D point groups mapped onto kvector sampling type (used for master pattern computations) [-1 for special cases]
 integer(kind=irg),dimension(36)   :: PGSamplingType = (/1, 2, 3, 4, 5, 5, 5, 6, 5, 5, &
                                                         6, 6, 7,-1, 9,-1,-1,-1,-1,-1, &
                                                        15,12,17,16,18,-1,19, 3, 6, 6, &
                                                         8, 9, -1, -1, -1, -1 /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PGSamplingType
+#endif
 
 !> 31 diffraction group symbols in BESR order
 character(5),dimension(31)  :: DG =(/'    1','   1R','    2','   2R','  21R','   mR', &
@@ -479,42 +523,60 @@ character(5),dimension(31)  :: DG =(/'    1','   1R','    2','   2R','  21R','  
                                      '4mm1R','    3','   6R','  3mR','   3m','6RmmR', &
                                      '    6','  31R','  61R','6mRmR','  6mm',' 3m1R', &
                                      '6mm1R'/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DG
+#endif
 
 !> 31 diffraction group orders in BESR order
 integer(kind=irg),dimension(31) :: DGorder =(/1, 2, 2, 2, 4, 2, 2, 4, 4, 4, 4, 8, &
                                               4, 4, 8, 8, 8, 8,16, 3, 6, 6, 6,12, &
                                               6, 6,12,12,12,12,24/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DGorder
+#endif
 
 !> Bright Field planar point group for 31 diffraction groups (Table 2, column 2, BESR, with change in row ordering)
 integer(kind=irg),dimension(31) :: BFPG =(/1,2,2,1,2,3,3,4,4,4,3,4,5,5,5,6,6,6,6,7,7,8,8,8,9,9,9,10,10,10,10/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: BFPG
+#endif
 
 !> Whole Pattern planar point group for 31 diffraction groups (Table 2, column 3, BESR, with change in row ordering)
 integer(kind=irg),dimension(31) :: WPPG =(/1,1,2,1,2,1,3,3,2,4,3,4,5,2,5,5,6,4,6,7,7,7,8,8,9,7,9,9,10,8,10/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WPPG
+#endif
 
 !> Dark Field planar point group for 31 diffraction groups (Table 2, column 4, BESR, with change in row ordering)
 integer(kind=irg),dimension(31) :: DFGN = (/1,2,1,1,2,1,1,2,1,1,1,2,1,1,2,1,1,1,2,1,1,1,1,1,1,2,2,1,1,2,2/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DFGN
+#endif
 
 !> Dark Field planar point group for 31 diffraction groups (Table 2, column 5, BESR, with change in row ordering)
 integer(kind=irg),dimension(31) :: DFSP = (/0,0,0,0,0,3,3,4,3,3,3,4,0,0,0,3,3,3,4,0,0,3,3,3,0,0,0,3,3,4,4/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DFSP
+#endif
 
 !> 10 projection diffraction groups in BESR order (Table 2, column 8, BESR, with change in row ordering)
 integer(kind=irg),dimension(31) :: PDG = (/2,2,5,5,5,8,8,8,12,12,12,12,15,15,15,19,19,19,19,26,27,30,30, &
                                           31,27,26,27,31,31,30,31/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PDG
+#endif
 
 !> short hand for .FALSE. logical parameter
 logical,parameter,private :: FF=.FALSE.
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: FF
+#endif
 
 !> short hand for .TRUE. logical parameter
 logical,parameter,private :: TT=.TRUE.
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TT
+#endif
 
 !> Table 3 from BESR paper
 logical,dimension(32,31)  :: DGPG = reshape((/ &
@@ -549,7 +611,9 @@ logical,dimension(32,31)  :: DGPG = reshape((/ &
      FF,FF,TT,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,TT,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF, &
      FF,FF,FF,TT,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,TT,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF, &
      TT,FF,TT,TT,FF,TT,TT,FF,TT,TT,FF,TT,TT,TT,FF,TT,FF,TT,TT,FF,TT,TT,FF,TT,TT,TT,FF,TT,FF,TT,TT,FF/), (/32,31/))
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: DGPG
+#endif
 
 ! the following arrays are used for the symmetry compression step in 
 ! the spherical indexing (EMSphInx) package
@@ -564,7 +628,9 @@ integer(kind=irg),dimension(230) :: SHT_ZRot = (/ &
         3, 3, 3, 3, 3, 3, 6, 6, 6, 6, 6, 6, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, &
         6, 6, 3, 3, 3, 3, 6, 6, 6, 6, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, &
         4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SHT_ZRot
+#endif
 
 integer(kind=irg),dimension(230) :: SHT_mirInv = (/ &
         0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, &
@@ -577,7 +643,9 @@ integer(kind=irg),dimension(230) :: SHT_mirInv = (/ &
         1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 2, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, &
         0, 0, 2, 2, 2, 2, 3, 3, 3, 3, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 0, &
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 /) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SHT_mirInv
+#endif
 
 
 ! these lines are from an older version; not sure if they are still needed...
@@ -782,7 +850,9 @@ real(kind=dbl),dimension(4,152) :: SYM_Qsymop = reshape( (/ &
                               0.0D0, -0.707106781186547D0, -0.707106781186548D0, 0.0D0, &
                               0.0D0, -0.866025403784439D0, -0.5D0, 0.0D0 &
                               /), (/4,152/) )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SYM_Qsymop
+#endif
 
 
 !--------------------------------------------------------------------------
@@ -816,7 +886,9 @@ character(2),dimension(32) :: TSLsymtype = (/' 1',' 1',' 2',' 2',' 2','22','22',
                                              ' 4',' 4',' 4','42','42','42','42',' 3', &
                                              ' 3','32','32','32',' 6',' 6',' 6','62', &
                                              '62','62','62','23','23','43','43','43'/)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TSLsymtype
+#endif
                                              
 !--------------------------------------------------------------------------
 !--------------------------------------------------------------------------
@@ -1742,13 +1814,17 @@ end type LTEMstruct
 !--------------------------------------------------------------------------
 
 integer(kind=irg),parameter         :: CSLnumberdefined = 29
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CSLnumberdefined
+#endif
 
 character(3), dimension(CSLnumberdefined) :: CSLlabels = &
                                        (/ 'I  ', '3  ', '5  ', '7  ', '9  ', '11 ', '13a', '13b', '15 ', '17a', '17b', &
                                           '19a', '19b', '21a', '21b', '23 ', '25a', '25b', '27a', '27b', '29a', &
                                           '29b', '31a', '31b', '33a', '33b', '33c', '35a', '35b' /)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CSLlabels
+#endif
 
 integer(kind=irg),dimension(6,CSLnumberdefined)         :: CSLintegers = reshape((/ 0,1,0,1,0,1, &
                                                                                     1,3,1,3,1,3, &
@@ -1779,7 +1855,9 @@ integer(kind=irg),dimension(6,CSLnumberdefined)         :: CSLintegers = reshape
                                                                                     2,5,2,5,0,1, &
                                                                                     1,4,1,8,1,8, &
                                                                                     3,11,3,11,1,11 /), (/ 6, CSLnumberdefined /))
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CSLintegers
+#endif
 
 type AngleType
         real(kind=sgl),allocatable      :: quatang(:,:)

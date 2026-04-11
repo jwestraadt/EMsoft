@@ -32,11 +32,15 @@ public :: rng_t, rng_seed, rng_uniform
 
 ! Dimension of the state 
 integer, parameter :: ns = 4 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ns
+#endif
 
 ! Default seed vector 
 integer, parameter, dimension(ns) :: default_seed = (/ 521288629, 362436069, 16163801, 1131199299 /) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: default_seed
+#endif
 
 ! A data type for storing the state of the RNG 
 type :: rng_t 
@@ -49,7 +53,9 @@ contains
 
 ! Seeds the RNG using a single integer and a default seed vector. 
 recursive subroutine rng_seed(self, seed) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rng_seed
+#endif
 type(rng_t), intent(inout) :: self 
 integer, intent(in) :: seed 
 self%state(1) = seed 
@@ -61,7 +67,9 @@ end subroutine rng_seed
 
 ! Draws a uniform real number on [0,1]. 
 recursive function rng_uniform(self) result(u) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rng_uniform
+#endif
 type(rng_t), intent(inout) :: self 
 real :: u
 integer :: imz 

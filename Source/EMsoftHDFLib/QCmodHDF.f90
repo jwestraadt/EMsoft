@@ -49,7 +49,9 @@ contains
 !> @date 02/07/18  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine ECPreadQCMCMasterfile(enl,acc,master,efile,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPreadQCMCMasterfile
+#endif
 
 use NameListTypedefs
 use files

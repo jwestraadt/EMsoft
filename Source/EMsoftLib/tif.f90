@@ -170,7 +170,9 @@ contains
   ! @param iomessage: error message (filled if iostat.ne.0)
   ! @return: true if big endian, false if little endian
   function sys_big_endian(iostat, iomsg) result(sysBig)
+#ifdef EMSOFT_USE_DLLEXPORT
  !DEC$ ATTRIBUTES DLLEXPORT :: sys_big_endian
+#endif
    integer         , intent(out) :: iostat ! error flag
     character(len=*), intent(out) :: iomsg  ! error message
     logical                       :: sysBig ! true/false for little/big ended system
@@ -192,7 +194,9 @@ contains
   ! @param type: one of enumerated tiff data types (e.g. tiff_byte)
   ! @return: width of fortran type in bytes
   pure elemental function type_bytes(type) result(bytes)
+#ifdef EMSOFT_USE_DLLEXPORT
  !DEC$ ATTRIBUTES DLLEXPORT :: type_bytes
+#endif
    integer(int16), intent(in) :: type  ! tiff data type id
     integer                    :: bytes ! size of data type in bytes
     select case(type)
@@ -231,7 +235,9 @@ contains
   ! @brief: clean up memory alloted by an entry
   ! @param this: ifd entry to clean up
   subroutine entry_destroy(this)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: entry_destroy
+#endif
     type(entry), intent(inout) :: this ! ifd entry clean up
     if(allocated(this%valueBuff)) deallocate(this%valueBuff)
   end subroutine entry_destroy
@@ -244,7 +250,9 @@ contains
   ! @param iomsg: error message
   ! @param parse: flag for if appended data should be read
   subroutine entry_read(this, unit, wrongEndian, iostat, iomsg, parse)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: entry_read
+#endif
     class(entry)    , intent(inout)           :: this        ! ifd entry to read data into
     integer         , intent(in   )           :: unit        ! file handle to read from
     integer(int8)                             :: buff(12)    ! ifd entry header is always 12 bytes
@@ -313,7 +321,9 @@ contains
   ! @param iomsg: error message
   ! @param return: bytes of appended data written
   function entry_write(this, unit, dataOffset, iostat, iomsg) result(dataWidth)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: entry_write
+#endif
     class(entry)    , intent(in ) :: this       ! ifd entry to read data into
     integer         , intent(in ) :: unit       ! file handle to write to
     integer(int32)  , intent(in ) :: dataOffset ! position of to write appended data
@@ -357,7 +367,9 @@ contains
   ! @param tag: tiff tag to store
   ! @param value: int16 value
   subroutine entry_from_short(this, tag, value)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: entry_from_short
+#endif
     class(entry)  , intent(inout)   :: this  ! ifd entry to format
     integer(int16), intent(in   )   :: tag   ! entry tag
     integer(int16), intent(in   )   :: value ! entry value
@@ -374,7 +386,9 @@ contains
   ! @param tag: tiff tag to store
   ! @param value: int32 value
   subroutine entry_from_long(this, tag, value)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: entry_from_long
+#endif
     class(entry)  , intent(inout)   :: this  ! ifd entry to format
     integer(int16), intent(in   )   :: tag   ! entry tag
     integer(int32), intent(in   )   :: value ! entry value
@@ -391,7 +405,9 @@ contains
   ! @param tag: tiff tag to store
   ! @param value: int16 values
   subroutine entry_from_shorts(this, tag, values)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: entry_from_shorts
+#endif
     class(entry)  , intent(inout) :: this   ! ifd entry to format
     integer(int16), intent(in   ) :: tag    ! entry tag
     integer(int16), intent(in   ) :: values(:) ! entry values
@@ -408,7 +424,9 @@ contains
   ! @param tag: tiff tag to store
   ! @param value: int32 values
   subroutine entry_from_longs(this, tag, values)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: entry_from_longs
+#endif
     class(entry)  , intent(inout) :: this   ! ifd entry to format
     integer(int16), intent(in   ) :: tag    ! entry tag
     integer(int32), intent(in   ) :: values(:) ! entry values
@@ -426,7 +444,9 @@ contains
   ! @brief: clean up memory alloted by an ifd
   ! @param this: ifd to clean up
   subroutine ifd_destroy(this)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ifd_destroy
+#endif
     type(ifd), intent(inout) :: this ! ifd to clean up
     if(allocated(this%bitsPerSample    )) deallocate(this%bitsPerSample    )
     if(allocated(this%minSampleValue   )) deallocate(this%minSampleValue   )
@@ -454,7 +474,9 @@ contains
   ! @brief: initialize an ifd with default values
   ! @param this: ifd to initialize
   subroutine ifd_init(this)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ifd_init
+#endif
     class(ifd), intent(inout) :: this ! ifd to initialize
     if(allocated(this%minSampleValue)) deallocate(this%minSampleValue)
     if(allocated(this%maxSampleValue)) deallocate(this%maxSampleValue)
@@ -484,7 +506,9 @@ contains
   ! @brief: parse entry and copy data to correct ifd value
   ! @param e: entry to parse
   pure subroutine ifd_parse_entry(this, e)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ifd_parse_entry
+#endif
     type(ifd)  , intent(inout) :: this ! ifd to parse into
     type(entry), intent(in   ) :: e    ! entry to parse
     integer                    :: i
@@ -657,7 +681,9 @@ contains
   ! @param parse: flag for if data should actually be parsed (defaults to true)
   ! @return: offset to next ifd header (0 if this is the last ifd)
   function ifd_read_header(this, unit, pos, wrongEndian, iostat, iomsg, parse) result(nextOffset)
+#ifdef EMSOFT_USE_DLLEXPORT
  !DEC$ ATTRIBUTES DLLEXPORT :: ifd_read_header
+#endif
    class(ifd)      , intent(inout)           :: this        ! ifd entry to read data into
     integer         , intent(in   )           :: unit        ! file handle to read from
     integer(int32)  , intent(in   )           :: pos         ! position of ifd in stream
@@ -724,7 +750,9 @@ contains
   ! @param iostat: error flag (0 on success)
   ! @param iomsg: error message (filled if iostat.ne.0)
   subroutine ifd_read_image_data(this, unit, wrongEndian, iostat, iomsg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ifd_read_image_data
+#endif
     class(ifd)      , intent(inout)                       :: this        ! ifd entry to read data into
     integer         , intent(in   )                       :: unit        ! file handle to read from
     logical         , intent(in   )                       :: wrongEndian ! flag for files not in native ended-ness
@@ -868,7 +896,9 @@ contains
   ! @param iostat: error flag (0 on success)
   ! @param iomsg: error message (filled if iostat.ne.0)
   subroutine ifd_write_header(this, unit, lastEntry, iostat, iomsg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ifd_write_header
+#endif
     class(ifd)      , intent(in ) :: this      ! ifd entry to write data from
     integer         , intent(in ) :: unit      ! file handle to write into
     logical         , intent(in ) :: lastEntry ! flag for if this is the last ifd
@@ -899,7 +929,9 @@ contains
   ! @param this: ifd to compute size requirement for
   ! @return: bytes required to write ifd header
   function ifd_size(this) result(byteCount)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ifd_size
+#endif
     class(ifd)    , intent(in ) :: this      ! ifd entry to compute size of
     integer(int32)              :: byteCount ! size in bytes of ifd header on disk
     integer(int16)              :: numEntries, i, entryBytes
@@ -920,7 +952,9 @@ contains
   end function ifd_size
 
   subroutine ifd_set_type_and_dims(this, type, typeBytes, count, width, length)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ifd_set_type_and_dims
+#endif
     class(ifd)    , intent(inout) :: this             ! ifd data structure to fill
     integer       , intent(in   ) :: type             ! 1,2,3,5,6 for uint,int,fp,complex int,complex fp
     integer(int16), intent(in   ) :: typeBytes, count ! sample bytes + count
@@ -984,7 +1018,9 @@ contains
   ! @param this: ifd to check
   ! @return: true/false if ifd contains a simple/complex pixel type
   function ifd_is_simple(this) result(simple)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ifd_is_simple
+#endif
     class(ifd), intent(in) :: this   ! ifd data structure to check
     logical                :: simple ! true if all samples are same type
     integer                :: i, bits, type
@@ -1006,7 +1042,9 @@ contains
   ! @brief: clean up memory alloted by a tif
   ! @param this: tif to clean up
   subroutine tif_destroy(this)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tif_destroy
+#endif
     type(tif_t), intent(inout) :: this ! tif data structure to clean up
     if(allocated(this%directories)) deallocate(this%directories)
   end subroutine tif_destroy
@@ -1017,7 +1055,9 @@ contains
   ! @param iostat: error flag (0 on success)
   ! @param iomsg: error message (filled if iostat.ne.0)
   subroutine tif_read(this, filename, iostat, iomsg)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tif_read
+#endif
     class(tif_t)    , intent(inout) :: this     ! tif data structure to read file into
     character(len=*), intent(in   ) :: filename ! name of tiff file to read
     integer         , intent(out  ) :: iostat   ! error flag
@@ -1098,7 +1138,9 @@ contains
   ! @param iostat: error flag (0 on success)
   ! @param iomsg: error message (filled if iostat.ne.0)
   subroutine tif_write(this, filename, iostat, iomsg)
+#ifdef EMSOFT_USE_DLLEXPORT
  !DEC$ ATTRIBUTES DLLEXPORT :: tif_write
+#endif
    class(tif_t)    , intent(inout) :: this     ! tif data structure to write to file
     character(len=*), intent(in   ) :: filename ! name of tiff file to write
     integer         , intent(out  ) :: iostat   ! error flag
@@ -1172,7 +1214,9 @@ contains
   ! @param this: tif to check for simplicity
   ! @return: true (false) if the tif is (not) simple
   function tif_is_simple(this) result(simple)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tif_is_simple
+#endif
     class(tif_t), intent(in) :: this   ! tif data structure to check
     logical                  :: simple ! true if all samples are same type and slices are same dimensions
     integer                  :: i, bits, type, width, length, count
@@ -1199,7 +1243,9 @@ contains
   ! @param this: tif to extract image from
   ! @return: image_t (empty if the tif couldn't be converted)
   function tif_get_image(this) result(im)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: tif_get_image
+#endif
     class(tif_t) , intent(in) :: this ! tif data structure to extract image from
     type(image_t)             :: im
     integer                   :: i, sliceBytes
@@ -1256,7 +1302,9 @@ contains
   ! @param this: tif to extract image into
   ! @param im: image_t to extract image from
   subroutine tif_from_image(this, im)
+#ifdef EMSOFT_USE_DLLEXPORT
  !DEC$ ATTRIBUTES DLLEXPORT :: tif_from_image
+#endif
    class(tif_t) , intent(inout) :: this ! tif structure to fill
     type(image_t), intent(in   ) :: im   ! imnage to build tif from
     integer                      :: i, type, width, length, sliceBytes

@@ -20,7 +20,7 @@ if (Fortran_COMPILER_NAME MATCHES "gfortran.*")
                                 CONFIGURED_TEMPLATE_PATH   ${APP_DIR}/run_docs.sh.in  )
 endif()
 
-if (Fortran_COMPILER_NAME MATCHES "ifort.*")
+if (EMsoft_FORTRAN_IS_INTEL)
   if(WIN32)
     Message(STATUS "Python wrapper is only available on Windows Subsystem for Linux")
   endif()

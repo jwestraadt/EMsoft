@@ -41,7 +41,7 @@ foreach(SC ${EMSOFT_STRING_CONSTANTS})
     math(EXPR VAR_STR_LEN ${VAR_STR_LEN}-2)
     set(FORTRAN_STRING_CONSTANTS 
       ${FORTRAN_STRING_CONSTANTS}
-      "character(${VAR_STR_LEN}), parameter     :: SC_${VAR_NAME} = ${VAR_VALUE}\n!DEC$ ATTRIBUTES DLLEXPORT :: SC_${VAR_NAME}\n"
+      "character(${VAR_STR_LEN}), parameter     :: SC_${VAR_NAME} = ${VAR_VALUE}\n#ifdef EMSOFT_USE_DLLEXPORT\n!DEC$ ATTRIBUTES DLLEXPORT :: SC_${VAR_NAME}\n#endif\n"
       )
     set(CPP_STRING_CONSTANTS 
       ${CPP_STRING_CONSTANTS}
@@ -62,4 +62,5 @@ string(REPLACE  "!" ";" CPP_STRING_CONSTANTS ${CPP_STRING_CONSTANTS})
 cmpConfigureFileWithMD5Check(CONFIGURED_TEMPLATE_PATH "@EMsoftLib_SOURCE_DIR@/EMsoftStringConstants.h.in"
                              GENERATED_FILE_PATH "@EMsoftLib_BINARY_DIR@/EMsoftStringConstants.h"
                              VERBOSE TRUE)
+
 

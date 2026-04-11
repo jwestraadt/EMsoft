@@ -70,7 +70,9 @@ contains
 !> @date 03/28/19 MDG 1.0 original 
 !--------------------------------------------------------------------------
 recursive subroutine readLaueMasterFile(MPfile, lmnl, hdferr, LaueMPdata, getmLPNH, getmLPSH, getmasterSPNH, getmasterSPSH)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: readLaueMasterFile
+#endif
 
 use local
 use typedefs

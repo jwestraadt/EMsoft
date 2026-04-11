@@ -52,7 +52,9 @@ contains
 !--------------------------------------------------------------------------
 recursive subroutine BackProjectionCwrapper(ncub, ODF, PFhkl, nLam, PFLam, xtalname) &
 bind(c, name = 'BackProjectionCwrapper')
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: BackProjectionCwrapper
+#endif
 
 use symmetry
 use HDFsupport
@@ -141,7 +143,9 @@ end subroutine BackProjectionCwrapper
 !--------------------------------------------------------------------------
 recursive subroutine ForwardProjectionCwrapper(ncub, ODF, PFhkl, nLam, PFLam, xtalname) &
 bind(c, name = 'ForwardProjectionCwrapper')
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ForwardProjectionCwrapper
+#endif
 
 use symmetry
 use HDFsupport
@@ -231,7 +235,9 @@ end subroutine ForwardProjectionCwrapper
 !> @date 04/02/17     SS 1.0 original
 !-----------------------------------------------------------------------------------------
 subroutine WritePFInversionH5Data(epf, dstr, tstrb, progname, nmldeffile, ODF, PF, PFrecon)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WritePFInversionH5Data
+#endif
 
 use NameListTypedefs
 use io
@@ -375,7 +381,9 @@ end subroutine WritePFInversionH5Data
 !> @date 04/02/17     SS 1.0 original
 !-----------------------------------------------------------------------------------------
 subroutine WriteMTEXFiles(epf, PF, PFrecon, fname, incomplete)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WriteMTEXFiles
+#endif
 
 use local
 use io
@@ -452,7 +460,9 @@ end subroutine WriteMTEXFiles
 !> @date 04/04/17  SS 1.1 added x-ray scattering factors as weight factors
 !--------------------------------------------------------------------------
 recursive subroutine GetPoleFigureData(epf, PF, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetPoleFigureData
+#endif
 
 use local
 use typedefs
@@ -563,7 +573,9 @@ end subroutine GetPoleFigureData
 !--------------------------------------------------------------------------
 recursive subroutine CalcBigA(nmldeffile2, mm, nn, nnz, nnzcolidp, nnzcolp, nnzvalssortedp)&
 bind(c, name = 'CalcBigA')
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcBigA
+#endif
 
 use PFInversionmod
 use local

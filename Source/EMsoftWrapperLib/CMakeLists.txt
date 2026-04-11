@@ -33,6 +33,9 @@ set(EMsoftWrapperLib_HEADERS
 
 
 add_library(EMsoftWrapperLib ${LIB_TYPE} ${EMsoftWrapperLib_SOURCES} ${EMsoftWrapperLib_HEADERS})
+if(WIN32 AND BUILD_SHARED_LIBS)
+  target_compile_definitions(EMsoftWrapperLib PRIVATE EMSOFT_USE_DLLEXPORT)
+endif()
 target_link_libraries(EMsoftWrapperLib EMsoftHDFLib EMOpenCLLib)
 
 target_include_directories(EMsoftWrapperLib 
@@ -128,4 +131,5 @@ install(
   COMPONENT
     Devel
 )
+
 

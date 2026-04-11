@@ -261,13 +261,21 @@ set(EXE_DEBUG_EXTENSION "")
 
 # Get the name of the Fortran compiler for easier decisions
 get_filename_component (Fortran_COMPILER_NAME ${CMAKE_Fortran_COMPILER} NAME)
+set(EMsoft_FORTRAN_IS_GNU OFF)
+set(EMsoft_FORTRAN_IS_INTEL OFF)
+set(EMsoft_WINDOWS_INTEL_IPO_FLAG "/Qip")
+if(CMAKE_Fortran_COMPILER_ID STREQUAL "IntelLLVM")
+  set(EMsoft_WINDOWS_INTEL_IPO_FLAG "")
+endif()
 
 if (Fortran_COMPILER_NAME MATCHES "gfortran.*")
+  set(EMsoft_FORTRAN_IS_GNU ON)
   # These have been moved to the EMsoftLib library declaration as target_compile_options
   get_filename_component (Fortran_COMPILER_PATH ${CMAKE_Fortran_COMPILER} DIRECTORY)
   set(GFortran_LIB_DIR "${Fortran_COMPILER_PATH}/../lib")
 
-elseif (Fortran_COMPILER_NAME MATCHES "ifort.*")
+elseif (Fortran_COMPILER_NAME MATCHES "ifort.*" OR Fortran_COMPILER_NAME MATCHES "ifx.*" OR CMAKE_Fortran_COMPILER_ID STREQUAL "IntelLLVM")
+  set(EMsoft_FORTRAN_IS_INTEL ON)
   if(WIN32)
     set (CMAKE_SHARED_LINKER_FLAGS "/ignore:4217 /ignore:4049")
   else()

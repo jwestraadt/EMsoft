@@ -88,7 +88,9 @@ contains
 !> @date  10/04/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function vecnorm(vec) result(veclen)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: vecnorm
+#endif
 
 real(kind=sgl),INTENT(IN)        :: vec(:)
 real(kind=sgl)                   :: veclen
@@ -112,7 +114,9 @@ end function vecnorm
 !> @date  10/04/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function vecnorm_d(vec) result(veclen)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: vecnorm_d
+#endif
 
 real(kind=dbl),INTENT(IN)       :: vec(:)
 real(kind=dbl)                  :: veclen
@@ -136,7 +140,9 @@ end function vecnorm_d
 !> @date  10/04/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function vecnorm2(vec) result(veclen)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: vecnorm2
+#endif
 
 real(kind=sgl),INTENT(IN)        :: vec(:,:)
 real(kind=sgl)                   :: veclen
@@ -160,7 +166,9 @@ end function vecnorm2
 !> @date  10/04/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function vecnorm2_d(vec) result(veclen)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: vecnorm2_d
+#endif
 
 real(kind=dbl),INTENT(IN)        :: vec(:,:)
 real(kind=dbl)                   :: veclen
@@ -185,7 +193,9 @@ end function vecnorm2_d
 !> @date  10/24/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function infty() result(infinity)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: infty
+#endif
 
 real(kind=sgl)      :: infinity
 real(kind=sgl)      :: big 
@@ -207,7 +217,9 @@ end function infty
 !> @date  10/24/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function inftyd() result(infinity)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: inftyd
+#endif
 
 real(kind=dbl)      :: infinity
 real(kind=dbl)      :: big 
@@ -228,7 +240,9 @@ end function inftyd
 !> @date  10/04/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function nan() result(x)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: nan
+#endif
 
  use, intrinsic :: iso_fortran_env
  use, intrinsic :: ieee_arithmetic
@@ -252,7 +266,9 @@ end function nan
 !> @date  10/04/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function nan_d() result(x)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: nan_d
+#endif
 
  use, intrinsic :: iso_fortran_env
  use, intrinsic :: ieee_arithmetic
@@ -281,7 +297,9 @@ end function nan_d
 !> @date  09/29/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getPolarDecomposition(F, Rmatrix, Smatrix)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getPolarDecomposition
+#endif
 
 use local
 use error
@@ -344,7 +362,9 @@ end subroutine getPolarDecomposition
 !> @date    8/25/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine get_bit_parameters(bd, numbits, bitrange, bitmode, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: get_bit_parameters
+#endif
 
 use io
 
@@ -421,7 +441,9 @@ end subroutine get_bit_parameters
 !
 !--------------------------------------------------------------------------
 recursive subroutine mInvert_d(a,b,uni)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: mInvert_d
+#endif
 
 use error
 use io
@@ -488,7 +510,9 @@ end subroutine mInvert_d
 !
 !--------------------------------------------------------------------------
 recursive subroutine mInvert(a,b,uni)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: mInvert
+#endif
 
 use error
 use io
@@ -551,7 +575,9 @@ end subroutine mInvert
 !
 !--------------------------------------------------------------------------
 recursive subroutine cInvert(a,b)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cInvert
+#endif
 
 use error
 
@@ -606,7 +632,9 @@ end subroutine cInvert
 !> @date 06/05/14 MDG 1.1 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine MatrixExponential(A,E,z0,TP,nn)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MatrixExponential
+#endif
 
 use io
 use error
@@ -750,7 +778,9 @@ end subroutine MatrixExponential
 !> @date 12/31/14 MDG 1.0 original, rewritten with EMsoft module calls and renamed
 !--------------------------------------------------------------------------
 recursive function BesselIn(X,N) result(BESSI)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: BesselIn
+#endif
 ! original comment:
 !     This subroutine calculates the first kind modified Bessel function
 !     of integer order N, for any REAL X. We use here the classical
@@ -832,7 +862,9 @@ end function BesselIn
 !> @date 12/31/14 MDG 1.0 original, rewritten with EMsoft module calls and renamed
 !--------------------------------------------------------------------------
 recursive function BesselI0(X) result(BESSI0)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: BesselI0
+#endif
 
 use local
 
@@ -883,7 +915,9 @@ end function BesselI0
 !> @date 12/31/14 MDG 1.0 original, rewritten with EMsoft module calls and renamed
 !--------------------------------------------------------------------------
 recursive function BesselI1(X) result(BESSI1)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: BesselI1
+#endif
 
 use local
 
@@ -923,7 +957,9 @@ end function BesselI1
 
 
 recursive function c4_normal_01 ( seed )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: c4_normal_01
+#endif
 !*****************************************************************************80
 !
 !! C4_NORMAL_01 returns a unit pseudonormal C4.
@@ -969,7 +1005,9 @@ recursive function c4_normal_01 ( seed )
   return
 end
 recursive function c8_normal_01 ( seed )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: c8_normal_01
+#endif
 
 !*****************************************************************************80
 !
@@ -1016,7 +1054,9 @@ recursive function c8_normal_01 ( seed )
   return
 end
 recursive function i4_huge ( )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: i4_huge
+#endif
 
 !*****************************************************************************80
 !
@@ -1057,7 +1097,9 @@ recursive function i4_huge ( )
   return
 end
 recursive function i4_normal_ab ( a, b, seed )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: i4_normal_ab
+#endif
 
 !*****************************************************************************80
 !
@@ -1114,7 +1156,9 @@ recursive function i4_normal_ab ( a, b, seed )
   return
 end
 recursive function i8_normal_ab ( a, b, seed )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: i8_normal_ab
+#endif
 
 !*****************************************************************************80
 !
@@ -1172,7 +1216,9 @@ recursive function i8_normal_ab ( a, b, seed )
   return
 end
 recursive function r4_normal_01 ( seed )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r4_normal_01
+#endif
 
 !*****************************************************************************80
 !
@@ -1222,7 +1268,9 @@ recursive function r4_normal_01 ( seed )
   return
 end
 recursive function r4_normal_ab ( a, b, seed )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r4_normal_ab
+#endif
 
 !*****************************************************************************80
 !
@@ -1278,7 +1326,9 @@ recursive function r4_normal_ab ( a, b, seed )
 end
 
 recursive function r4_uniform_01 ( seed )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r4_uniform_01
+#endif
 
 !*****************************************************************************80
 !
@@ -1381,7 +1431,9 @@ recursive function r4_uniform_01 ( seed )
   return
 end
 recursive subroutine r4vec_uniform_01 ( n, seed, r )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r4vec_uniform_01 
+#endif
 
 !*****************************************************************************80
 !
@@ -1476,7 +1528,9 @@ recursive subroutine r4vec_uniform_01 ( n, seed, r )
   return
 end
 recursive subroutine r4vec_normal_ab ( n, a, b, seed, x )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r4vec_normal_ab 
+#endif
 
 !*****************************************************************************80
 !
@@ -1605,7 +1659,9 @@ recursive subroutine r4vec_normal_ab ( n, a, b, seed, x )
   return
 end
 recursive function r8_normal_01 ( seed )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8_normal_01
+#endif
 
 !*****************************************************************************80
 !
@@ -1655,7 +1711,9 @@ recursive function r8_normal_01 ( seed )
   return
 end
 recursive function r8_normal_ab ( a, b, seed )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8_normal_ab
+#endif
 
 !*****************************************************************************80
 !
@@ -1710,7 +1768,9 @@ recursive function r8_normal_ab ( a, b, seed )
   return
 end
 recursive function r8_uniform_01 ( seed )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8_uniform_01
+#endif
 
 !*****************************************************************************80
 !
@@ -1807,7 +1867,9 @@ recursive function r8_uniform_01 ( seed )
   return
 end
 recursive subroutine r8mat_normal_01 ( m, n, seed, r )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8mat_normal_01 
+#endif
 
 !*****************************************************************************80
 !
@@ -1877,7 +1939,9 @@ recursive subroutine r8mat_normal_01 ( m, n, seed, r )
   return
 end
 recursive subroutine r8mat_normal_ab ( m, n, a, b, seed, r )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8mat_normal_ab 
+#endif
 
 !*****************************************************************************80
 !
@@ -1951,7 +2015,9 @@ recursive subroutine r8mat_normal_ab ( m, n, a, b, seed, r )
   return
 end
 recursive subroutine r8vec_normal_01 ( n, seed, x )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8vec_normal_01 
+#endif
 
 !*****************************************************************************80
 !
@@ -2074,7 +2140,9 @@ recursive subroutine r8vec_normal_01 ( n, seed, x )
   return
 end
 recursive subroutine r8vec_normal_ab ( n, a, b, seed, x )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8vec_normal_ab 
+#endif
 
 !*****************************************************************************80
 !
@@ -2201,7 +2269,9 @@ recursive subroutine r8vec_normal_ab ( n, a, b, seed, x )
   return
 end
 recursive subroutine r8vec_uniform_01 ( n, seed, r )
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: r8vec_uniform_01 
+#endif
 
 !*****************************************************************************80
 !
@@ -2308,7 +2378,9 @@ end
 !> @date   06/04/13 MDG 3.0 rewrite
 !--------------------------------------------------------------------------
 recursive subroutine TransFourthRankTensor(al,cin,cout)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TransFourthRankTensor
+#endif
 
 IMPLICIT NONE
 
@@ -2396,7 +2468,9 @@ end subroutine TransFourthRankTensor
 !> @date   06/04/13 MDG 3.0 rewrite
 !--------------------------------------------------------------------------
 recursive subroutine laguer(a,m,x,eps,polish)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: laguer
+#endif
 
 use local
 
@@ -2477,7 +2551,9 @@ end subroutine laguer
 !> @date   06/04/13 MDG 3.0 rewrite
 !--------------------------------------------------------------------------
 recursive subroutine zroots(a,roots)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: zroots
+#endif
 
 use local
 
@@ -2535,7 +2611,9 @@ end subroutine
 ! using a proper interface for all possible formats
 !------------------------
 recursive subroutine PrintMatrix(s,a)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PrintMatrix
+#endif
 
 use local
 use io
@@ -2574,7 +2652,9 @@ end subroutine
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 logical recursive function point_inside_triangle(v0,v1,v2)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: point_inside_triangle
+#endif
 
 IMPLICIT NONE
 
@@ -2624,7 +2704,9 @@ end function point_inside_triangle
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive subroutine rank_points(p1,p2,p3,p4,xx,yy)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: rank_points
+#endif
 
 IMPLICIT NONE
 
@@ -2720,7 +2802,9 @@ end subroutine rank_points
 !> @date   03/25/13 MDG 3.0 updated IO
 !--------------------------------------------------------------------------
 recursive function point_inside_polygon(px,py,xx,yy) result(inorout)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: point_inside_polygon
+#endif
 
 IMPLICIT NONE
 
@@ -2765,7 +2849,9 @@ end function point_inside_polygon
 !----------------------------------------------------------------------------
 
 recursive FUNCTION EL2(X,QQC,AA,BB) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EL2
+#endif
 
 use local
 use constants
@@ -2832,7 +2918,9 @@ end function EL2
 
 
 recursive function el1k(phi,k) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: el1k
+#endif
 !
 ! Legendre elliptic integral of the first kind F(phi,k)
 !
@@ -2856,7 +2944,9 @@ res = el2(x,kc,1.D0,1.D0)
 end function el1k
 
 recursive function el2k(phi,k) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: el2k
+#endif
 !
 ! Legendre elliptic integral of the second kind E(phi,k)
 !
@@ -2893,7 +2983,9 @@ end function el2k
 !> @date  12/27/15 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function kdelta(i,j) result(k)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: kdelta
+#endif
 
 use local
 
@@ -2925,7 +3017,9 @@ end function kdelta
 !> @date 09/13/19  MDG 2.0 rewrite, verified against Mathematica for a couple of trial cases
 !--------------------------------------------------------------------------
 recursive subroutine cubicroots(co,X)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cubicroots
+#endif
 
 use local
 
@@ -2969,7 +3063,9 @@ end subroutine cubicroots
 !> @date  12/27/15 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine KClusterWeights(Matrix, NRow, NCol, NClusters, Niter, Wts)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: KClusterWeights
+#endif
 
 use local
 use io
@@ -3066,7 +3162,9 @@ end subroutine KClusterWeights
 !> @date  12/27/15 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine KCluster(Matrix, NRow, NCol, NClusters, Niter, IndexArray)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: KCluster
+#endif
 
 use local
 use io
@@ -3153,7 +3251,9 @@ end subroutine KCluster
 !> @date  01/06/15 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine ReorganizeClusters(Matrix, NRow, NCol, NClusters, NSC, NSR, IndexArray)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReorganizeClusters
+#endif
 
 use local
 use io
@@ -3294,7 +3394,9 @@ end subroutine ReorganizeClusters
 !> @date 12/01/16  MDG 1.1 split in single and double precision versions
 !--------------------------------------------------------------------------
 recursive function cross3(u, v) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cross3
+#endif
 
 IMPLICIT NONE
 
@@ -3323,7 +3425,9 @@ end function cross3
 !> @date 03/03/16   SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function cross3_d(u, v) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cross3_d
+#endif
 
 IMPLICIT NONE
 
@@ -3353,7 +3457,9 @@ end function cross3_d
 !> @date  07/28/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function vectormatch(n, va, vb) result(nce)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: vectormatch
+#endif
 
 IMPLICIT NONE
 
@@ -3403,7 +3509,9 @@ end function vectormatch
 !> @date  06/20/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function trilinear_splat(r, dr, init) result(grid3)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: trilinear_splat
+#endif
 
 IMPLICIT NONE
 
@@ -3464,7 +3572,9 @@ end function trilinear_splat
 !> @date  06/01/18 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function CalcDeterminant(A, m, n) result(determinant)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcDeterminant
+#endif
 
 use local
 use error
@@ -3514,7 +3624,9 @@ end function CalcDeterminant
 !> @date 11/17/15 SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function Jaccard_Distance(img1,img2,nn,mutualinformation) result(JD)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Jaccard_Distance
+#endif
 
 use local
 

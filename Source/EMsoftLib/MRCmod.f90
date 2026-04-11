@@ -144,7 +144,9 @@ contains
 !> @date 05/30/17 MDG 2.0 updated for use in EMsoft 
 !--------------------------------------------------------------------------
 recursive subroutine MRC_write_3Dvolume(MRCheader, FEIheaders, mrcname, numx, numy, numz, volume, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: MRC_write_3Dvolume
+#endif
 
 use local
 use io

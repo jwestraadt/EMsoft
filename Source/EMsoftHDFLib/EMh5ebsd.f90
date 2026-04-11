@@ -74,7 +74,9 @@ contains
 !> @date 02/11/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine h5ebsd_writeInfo(filetype, dstr, tstrb, tstre, progname, ebsdnl, nmldeffile, HDF_head)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5ebsd_writeInfo
+#endif
 
 use NameListTypedefs
 use NameListHandlers
@@ -162,7 +164,9 @@ end subroutine h5ebsd_writeInfo
 !> @date 02/11/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine h5tkd_writeInfo(filetype, dstr, tstrb, tstre, progname, tkdnl, nmldeffile, HDF_head)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5tkd_writeInfo
+#endif
 
 use NameListTypedefs
 use NameListHandlers
@@ -250,7 +254,9 @@ end subroutine h5tkd_writeInfo
 !> @date 02/11/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine h5ebsd_write2DImageFromVector(dataset, inpvec, nump, ebsdnl, HDF_head, binary)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5ebsd_write2DImageFromVector
+#endif
 
 use error
 use NameListTypedefs
@@ -331,7 +337,9 @@ end subroutine h5ebsd_write2DImageFromVector
 !> @date 02/11/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine h5tkd_write2DImageFromVector(dataset, inpvec, nump, tkdnl, HDF_head)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5tkd_write2DImageFromVector
+#endif
 
 use error
 use NameListTypedefs
@@ -391,7 +399,9 @@ end subroutine h5tkd_write2DImageFromVector
 !> @date 02/14/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine h5ebsd_writeCoordinateSystemGroup(HDF_head)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5ebsd_writeCoordinateSystemGroup
+#endif
 
 use error
 
@@ -514,7 +524,9 @@ end subroutine h5ebsd_writeCoordinateSystemGroup
 !> @date 02/14/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine h5ebsd_writePatternCenterGroup(xpc, ypc, L, delta, scdim, HDF_head)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5ebsd_writePatternCenterGroup
+#endif
 
 use error
 
@@ -573,7 +585,9 @@ end subroutine  h5ebsd_writePatternCenterGroup
 !> @date 02/14/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine h5ebsd_writePhaseGroup(groupname, xtalname, HDF_head)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5ebsd_writePhaseGroup
+#endif
 
 use error
 use io
@@ -750,7 +764,9 @@ end subroutine h5ebsd_writePhaseGroup
 !--------------------------------------------------------------------------
 subroutine h5ebsd_writeFile(vendor, ebsdnl, xtalname, dstr, tstrb, ipar, resultmain, exptIQ, indexmain, dicteulerarray, &
                             dpmap, progname, nmldeffile, OSMmap)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5ebsd_writeFile
+#endif
 
 use NameListTypedefs
 use io
@@ -1325,7 +1341,9 @@ end subroutine h5ebsd_writeFile
 !--------------------------------------------------------------------------
 subroutine h5tkd_writeFile(vendor, tkdnl, dstr, tstrb, ipar, resultmain, exptIQ, indexmain, eulerarray, dpmap, &
                             progname, nmldeffile, OSMmap)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5tkd_writeFile
+#endif
 
 use NameListTypedefs
 use io

@@ -75,7 +75,9 @@ contains
 !> @date 06/23/14 MDG 2.2 replaced Dyn structure by FN
 !--------------------------------------------------------------------------
 recursive subroutine Initialize_ReflectionList(cell, listroot, BetheParameter, FN, k, dmin, nref, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_ReflectionList
+#endif
 
 use local
 use typedefs
@@ -192,7 +194,9 @@ end subroutine Initialize_ReflectionList
 !> @date 11/30/14 MDG 3.0 forked from original to accommodate PED case
 !--------------------------------------------------------------------------
 recursive subroutine Initialize_ReflectionList_EwaldSweep(cell, listroot, FN, k, nref, pedangle, goffset, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Initialize_ReflectionList_EwaldSweep
+#endif
 
 use local
 use typedefs

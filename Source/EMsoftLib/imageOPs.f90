@@ -55,7 +55,9 @@ contains
   !@param dc0: true/false to make mean of rescaled image 0 / leave unchanged
   !@note     : wOut/wIn must == hOut/hIn (to the nearest int)
   subroutine RescaleImage(in, out, dc0)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: RescaleImage
+#endif
     use error
   implicit none
     real   (kind=dbl     ),INTENT(IN   )          :: in (1:,:)
@@ -91,7 +93,9 @@ contains
   !@param h   : input image height
   !@param s   : scale factor such that output size is rounded from s * (w, h)
   subroutine ImageRescaler_Init(this, w, h, s)
+#ifdef EMSOFT_USE_DLLEXPORT
   !DEC$ ATTRIBUTES DLLEXPORT :: ImageRescaler_Init
+#endif
     use FFTW3MOD
     use error
   implicit none
@@ -153,7 +157,9 @@ contains
   !@brief     : clean up an image rescaler
   !@param this: structure to clean up
   subroutine ImageRescaler_Destroy(this)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ImageRescaler_Destroy
+#endif
     use FFTW3MOD
   implicit none
     class(ImageRescaler),INTENT(INOUT) :: this ! structure to clean up
@@ -180,7 +186,9 @@ contains
   !@brief     : clean up resources automatically
   !@param this: structure to clean up
   subroutine ImageRescaler_Finalize(this)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ImageRescaler_Finalize
+#endif
     use FFTW3MOD
   implicit none
     type(ImageRescaler),INTENT(INOUT) :: this ! structure to clean up
@@ -194,7 +202,9 @@ contains
   !@param out : location to write rescaled image
   !@param dc0 : true/false to make mean of rescaled image 0 / leave unchanged
   subroutine ImageRescaler_Rescale(this, out, dc0)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ImageRescaler_Rescale
+#endif
     use FFTW3MOD
   implicit none
     class(ImageRescaler),INTENT(INOUT) :: this ! structure to use for rescaling
@@ -230,7 +240,9 @@ contains
   !@param out : location to write rescaled image
   !@param dc0 : true/false to make mean of rescaled image 0 / leave unchanged
   subroutine ImageRescaler_Rescale8(this, in, out, dc0)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ImageRescaler_Rescale8
+#endif
   implicit none
     class  (ImageRescaler),INTENT(INOUT)          :: this ! structure to use for rescaling
 !f2py intent(in,out) ::  this ! structure to use for rescaling
@@ -250,7 +262,9 @@ contains
   !@param out : location to write rescaled image
   !@param dc0 : true/false to make mean of rescaled image 0 / leave unchanged
   subroutine ImageRescaler_Rescale16(this, in, out, dc0)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ImageRescaler_Rescale16
+#endif
   implicit none
     class  (ImageRescaler),INTENT(INOUT)          :: this ! structure to use for rescaling
 !f2py intent(in,out) ::  this ! structure to use for rescaling
@@ -270,7 +284,9 @@ contains
   !@param out : location to write rescaled image
   !@param dc0 : true/false to make mean of rescaled image 0 / leave unchanged
   subroutine ImageRescaler_Rescale32(this, in, out, dc0)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ImageRescaler_Rescale32
+#endif
   implicit none
     class(ImageRescaler),INTENT(INOUT)          :: this ! structure to use for rescaling
 !f2py intent(in,out) ::  this ! structure to use for rescaling
@@ -290,7 +306,9 @@ contains
   !@param out : location to write rescaled image
   !@param dc0 : true/false to make mean of rescaled image 0 / leave unchanged
   subroutine ImageRescaler_Rescale64(this, in, out, dc0)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ImageRescaler_Rescale64
+#endif
   implicit none
     class(ImageRescaler),INTENT(INOUT)          :: this ! structure to use for rescaling
 !f2py intent(in,out) ::  this ! structure to use for rescaling

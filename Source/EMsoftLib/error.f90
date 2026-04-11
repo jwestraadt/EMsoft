@@ -71,7 +71,9 @@ contains
 !> @date   03/29/18 MDG 4.1 removed stdout argument
 ! ###################################################################
 recursive subroutine FatalError(var1,var2)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: FatalError
+#endif
 
 use io
 

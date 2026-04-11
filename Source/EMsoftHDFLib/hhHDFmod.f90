@@ -61,7 +61,9 @@ contains
 !> @date 08/22/19 MDG 1.0 adapted from similar code in dictionary indexing program
 !--------------------------------------------------------------------------
 recursive subroutine writeHH4_HDFfile(hhnl, BF, DF, dstr, tstrb, tstre, legendfiles, progname, nmldeffile)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: writeHH4_HDFfile
+#endif
 
 use HDF5
 use HDFsupport 
@@ -154,7 +156,9 @@ end subroutine writeHH4_HDFfile
 !> @date 02/11/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine hh_writeInfo(dstr, tstrb, tstre, progname, hhnl, nmldeffile, HDF_head)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: hh_writeInfo
+#endif
 
 use NameListTypedefs
 use NameListHandlers

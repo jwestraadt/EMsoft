@@ -66,7 +66,9 @@ contains
 !> @date 08/18/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function PostSlackMessage(MessageLines, NumLines, MessageTitle) result(status)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PostSlackMessage
+#endif
 
 use local
 
@@ -126,7 +128,9 @@ end function PostSlackMessage
 !> @date 08/18/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function PostEmailMessage(MessageLines, NumLines, MessageTitle) result(status)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PostEmailMessage
+#endif
 
 use local
 
@@ -179,7 +183,9 @@ end function PostEmailMessage
 !> @date 08/18/17 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function PostMessage(MessageLines, NumLines, MessageTitle) result(status)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: PostMessage
+#endif
 
 use local
 use io 

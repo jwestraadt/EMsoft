@@ -226,7 +226,9 @@ contains
 !--------------------------------------------------------------------------
 recursive subroutine EMsoftCgetEBSDPatterns(ipar, fpar, EBSDpattern, quats, accum_e, mLPNH, mLPSH, cproc, objAddress, cancel) &
            bind(c, name='EMsoftCgetEBSDPatterns')    ! this routine is callable from a C/C++ program
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoftCgetEBSDPatterns
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structure to
 ! make this routine callable by external programs, such as DREAM.3D
@@ -541,7 +543,9 @@ end subroutine EMsoftCgetEBSDPatterns
 !--------------------------------------------------------------------------
 recursive subroutine EMsoftCgetECPatterns(ipar, fpar, ECpattern, quats, accum_e, mLPNH, mLPSH, cproc, objAddress, cancel) &
            bind(c, name='EMsoftCgetECPatterns')    ! this routine is callable from a C/C++ program
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoftCgetECPatterns
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structures.
 ! The following is the mapping:
@@ -811,7 +815,9 @@ end subroutine EMsoftCgetECPatterns
 !--------------------------------------------------------------------------
 recursive subroutine EMsoftCgetMCOpenCL(ipar, fpar, spar, atompos, atomtypes, latparm, accum_e, accum_z, cproc, &
 objAddress, cancel) bind(c, name='EMsoftCgetMCOpenCL')    ! this routine is callable from a C/C++ program
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoftCgetMCOpenCL
+#endif
 
 ! ipar components
 ! ipar(1) : integer(kind=irg)       :: nx  = (numsx-1)/2
@@ -1345,7 +1351,9 @@ end subroutine EMsoftCgetMCOpenCL
 !--------------------------------------------------------------------------
 recursive subroutine EMsoftCgetEBSDmaster(ipar,fpar,atompos,atomtypes,latparm,accum_z,mLPNH,mLPSH,cproc,objAddress,cancel) &
            bind(c, name='EMsoftCgetEBSDmaster')    ! this routine is callable from a C/C++ program
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoftCgetEBSDmaster
+#endif
 
 ! these are the same as in the EMsoftCgetMCOpenCL routine, with a few extras at the end.
 ! ipar components
@@ -1995,7 +2003,9 @@ end subroutine EMsoftCgetEBSDmaster
 recursive subroutine EMsoftCgetEBSDreflectorranking(ipar,fpar,atompos,atomtypes,latparm,accum_e,mLPNH,mLPSH, &
                                           hkl,beta,XKI,EKI,cproc,objAddress,cancel) &
            bind(c, name='EMsoftCgetEBSDreflectorranking')    ! this routine is callable from a C/C++ program
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoftCgetEBSDreflectorranking
+#endif
 
 ! these are the same as in the EMsoftCgetMCOpenCL routine, with a few extras at the end.
 ! ipar components

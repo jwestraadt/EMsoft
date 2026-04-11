@@ -208,7 +208,9 @@ contains
 !> @date 08/31/15   MDG 1.1 coordinates are prescaled 
 !--------------------------------------------------------------------------
 recursive function Lambert2DSquareForwardSingle(xy,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert2DSquareForwardSingle
+#endif
 
 IMPLICIT NONE
 
@@ -265,7 +267,9 @@ end function Lambert2DSquareForwardSingle
 !> @date 08/31/15   MDG 1.1 coordinates are prescaled 
 !--------------------------------------------------------------------------
 recursive function Lambert2DSquareForwardDouble(xy,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert2DSquareForwardDouble
+#endif
 
 IMPLICIT NONE
 
@@ -325,7 +329,9 @@ end function Lambert2DSquareForwardDouble
 !> @date 08/31/15   MDG 1.1 return scaled coordinates
 !--------------------------------------------------------------------------
 recursive function Lambert2DSquareInverseSingle(xyz,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert2DSquareInverseSingle
+#endif
 
 IMPLICIT NONE
 
@@ -378,7 +384,9 @@ end function Lambert2DSquareInverseSingle
 !> @date 08/31/15   MDG 1.1 return scaled coordinates
 !--------------------------------------------------------------------------
 recursive function Lambert2DSquareInverseDouble(xyz,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert2DSquareInverseDouble
+#endif
 
 IMPLICIT NONE
 
@@ -439,7 +447,9 @@ end function Lambert2DSquareInverseDouble
 !> @date 08/30/15   MDG 1.2 moved grid-to-cartesian coordinate transformation inside routine
 !--------------------------------------------------------------------------
 recursive function Lambert2DHexForwardSingle(xy,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert2DHexForwardSingle
+#endif
 
 IMPLICIT NONE
 
@@ -511,7 +521,9 @@ end function Lambert2DHexForwardSingle
 !> @date 08/30/15   MDG 1.2 moved grid-to-cartesian coordinate transformation inside routine
 !--------------------------------------------------------------------------
 recursive function Lambert2DHexForwardDouble(xy,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert2DHexForwardDouble
+#endif
 
 IMPLICIT NONE
 
@@ -589,7 +601,9 @@ end function Lambert2DHexForwardDouble
 !> @date 08/30/15   MDG 1.3 moved grid-to-cartesian coordinate transformation inside routine
 !--------------------------------------------------------------------------
 recursive function Lambert2DHexInverseSingle(xyz,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert2DHexInverseSingle
+#endif
 
 IMPLICIT NONE
 
@@ -676,7 +690,9 @@ end function Lambert2DHexInverseSingle
 !> @date 08/30/15   MDG 1.3 moved grid-to-cartesian coordinate transformation inside routine
 !--------------------------------------------------------------------------
 recursive function Lambert2DHexInverseDouble(xyz,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert2DHexInverseDouble
+#endif
 
 IMPLICIT NONE
 
@@ -756,7 +772,9 @@ end function Lambert2DHexInverseDouble
 !> @date 08/29/15    MDG 1.1 debug
 !--------------------------------------------------------------------------
 recursive function GetSextantSingle(xy) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSextantSingle
+#endif
 
 IMPLICIT NONE
 
@@ -805,7 +823,9 @@ end function GetSextantSingle
 !> @date 08/29/15    MDG 1.1 debug
 !--------------------------------------------------------------------------
 recursive function GetSextantDouble(xy) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetSextantDouble
+#endif
 
 IMPLICIT NONE
 
@@ -847,8 +867,8 @@ end function GetSextantDouble
 !
 ! all derivations and equations can be found in 
 !
-! D. Rosca, A. Morawiec, and M. De Graef. “A new method of constructing a grid in the space of 
-! 3D rotations and its applications to texture analysis”. Modeling and Simulations in Materials 
+! D. Rosca, A. Morawiec, and M. De Graef. ???A new method of constructing a grid in the space of 
+! 3D rotations and its applications to texture analysis???. Modeling and Simulations in Materials 
 ! Science and Engineering 22, 075013 (2014)
 !--------------------------------------------------------------------------
 
@@ -868,7 +888,9 @@ end function GetSextantDouble
 !> @date 7/7/14  MDG 2.0 correction to cube edge length check
 !--------------------------------------------------------------------------
 recursive function Lambert3DCubeForwardSingle(xyzin,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert3DCubeForwardSingle
+#endif
 
 IMPLICIT NONE
 
@@ -962,7 +984,9 @@ end function Lambert3DCubeForwardSingle
 !> @date 7/7/14  MDG 2.0 correction to cube edge length check
 !--------------------------------------------------------------------------
 recursive function Lambert3DCubeForwardDouble(xyzin,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert3DCubeForwardDouble
+#endif
 
 IMPLICIT NONE
 
@@ -1058,7 +1082,9 @@ end function Lambert3DCubeForwardDouble
 !> @date 8/12/14    MDG 1.1 fixed acos() problem
 !--------------------------------------------------------------------------
 recursive function Lambert3DCubeInverseSingle(xyz,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert3DCubeInverseSingle
+#endif
 
 IMPLICIT NONE
 
@@ -1167,7 +1193,9 @@ end function Lambert3DCubeInverseSingle
 !> @date 8/12/14    MDG 1.1 fixed dacos() problem
 !--------------------------------------------------------------------------
 recursive function Lambert3DCubeInverseDouble(xyz,ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert3DCubeInverseDouble
+#endif
 
 IMPLICIT NONE
 
@@ -1273,7 +1301,9 @@ end function Lambert3DCubeInverseDouble
 !> @date 11/21/12    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GetPyramidSingle(xyz) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetPyramidSingle
+#endif
 
 IMPLICIT NONE
 
@@ -1336,7 +1366,9 @@ end function GetPyramidSingle
 !> @date 11/21/12    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function GetPyramidDouble(xyz) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetPyramidDouble
+#endif
 
 IMPLICIT NONE
 
@@ -1405,7 +1437,9 @@ end function GetPyramidDouble
 !> @date 7/12/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function Lambert3DBallToQuaternionSingle(xyz, ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert3DBallToQuaternionSingle
+#endif
 
 use quaternions
 use constants
@@ -1464,7 +1498,9 @@ end function Lambert3DBallToQuaternionSingle
 !> @date 7/12/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function Lambert3DBallToQuaternionDouble(xyz, ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert3DBallToQuaternionDouble
+#endif
 
 use quaternions
 use constants
@@ -1524,7 +1560,9 @@ end function Lambert3DBallToQuaternionDouble
 !> @date 7/12/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function Lambert3DCubeToQuaternionSingle(xyz, ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert3DCubeToQuaternionSingle
+#endif
 
 use quaternions
 
@@ -1557,7 +1595,9 @@ end function Lambert3DCubeToQuaternionSingle
 !> @date 7/12/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function Lambert3DCubeToQuaternionDouble(xyz, ierr) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Lambert3DCubeToQuaternionDouble
+#endif
 
 use quaternions
 
@@ -1597,7 +1637,9 @@ end function Lambert3DCubeToQuaternionDouble
 !> @date 7/12/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function StereoGraphicForwardSingle(xyz, ierr, Radius) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: StereoGraphicForwardSingle
+#endif
 
 IMPLICIT NONE
 
@@ -1639,7 +1681,9 @@ end function StereoGraphicForwardSingle
 !> @date 7/12/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function StereoGraphicForwardDouble(xyz, ierr, Radius) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: StereoGraphicForwardDouble
+#endif
 
 IMPLICIT NONE
 
@@ -1681,7 +1725,9 @@ end function StereoGraphicForwardDouble
 !> @date 7/12/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function StereoGraphicInverseSingle(xy, ierr, Radius, quat) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: StereoGraphicInverseSingle
+#endif
 
 use quaternions
 
@@ -1733,7 +1779,9 @@ end function StereoGraphicInverseSingle
 !> @date 7/12/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function StereoGraphicInverseDouble(xy, ierr, Radius, quat) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: StereoGraphicInverseDouble
+#endif
 
 use quaternions
 
@@ -1791,7 +1839,9 @@ end function StereoGraphicInverseDouble
 !> @date 8/01/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function LambertForwardSingle(xyz, ierr, Radius) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: LambertForwardSingle
+#endif
 
 IMPLICIT NONE
 
@@ -1840,7 +1890,9 @@ end function LambertForwardSingle
 !> @date 8/01/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function LambertForwardDouble(xyz, ierr, Radius) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: LambertForwardDouble
+#endif
 
 IMPLICIT NONE
 
@@ -1891,7 +1943,9 @@ end function LambertForwardDouble
 !> @date 8/01/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function LambertInverseSingle(xy, ierr, Radius) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: LambertInverseSingle
+#endif
 
 IMPLICIT NONE
 
@@ -1932,7 +1986,9 @@ end function LambertInverseSingle
 !> @date 8/01/13    MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function LambertInverseDouble(xy, ierr, Radius) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: LambertInverseDouble
+#endif
 
 IMPLICIT NONE
 
@@ -1989,7 +2045,9 @@ end function LambertInverseDouble
 !> @date  09/20/13 MDG 3.0 re-adapted to generate 2D equivalent point list
 !--------------------------------------------------------------------------
 recursive subroutine Apply2DLaueSymmetry(ipx,ipy,isym,iequiv,nequiv)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Apply2DLaueSymmetry
+#endif
 
 IMPLICIT NONE
 
@@ -2112,7 +2170,9 @@ end subroutine Apply2DLaueSymmetry
 !> @date  06/09/14 MDG 2.0 added TDPG argument 
 !--------------------------------------------------------------------------
 recursive subroutine Apply2DPGSymmetry(TDPG,ipx,ipy,isym,iequiv,nequiv)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Apply2DPGSymmetry
+#endif
 
 use io
 use typedefs
@@ -2195,7 +2255,9 @@ end subroutine Apply2DPGSymmetry
 !> @date  09/01/15 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine Apply3DPGSymmetry(cell,ipx,ipy,ipz,npx,iequiv,nequiv,usehex,stereographic,cubictype)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: Apply3DPGSymmetry
+#endif
 
 use local
 use crystal
@@ -2362,7 +2424,9 @@ end subroutine Apply3DPGSymmetry
 !> @date  01/18/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine LambertgetInterpolationSingle(dc, scl, npx, npy, nix, niy, nixp, niyp, dx, dy, dxm, dym, swap)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: LambertgetInterpolationSingle
+#endif
 
 use local
 use io
@@ -2444,7 +2508,9 @@ end subroutine LambertgetInterpolationSingle
 !> @date  01/18/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine LambertgetInterpolationDouble(dc, scl, npx, npy, nix, niy, nixp, niyp, dx, dy, dxm, dym, swap)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: LambertgetInterpolationDouble
+#endif
 
 use local
 use io
@@ -2516,7 +2582,9 @@ end subroutine LambertgetInterpolationDouble
 !> @date  01/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function InterpolationLambert2DSingle(dc, m, npx) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InterpolationLambert2DSingle
+#endif
 
 IMPLICIT NONE
 
@@ -2555,7 +2623,9 @@ end function InterpolationLambert2DSingle
 !> @date  01/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function InterpolationLambert2DDouble(dc, m, npx) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InterpolationLambert2DDouble
+#endif
 
 IMPLICIT NONE
 
@@ -2595,7 +2665,9 @@ end function InterpolationLambert2DDouble
 !> @date  01/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function InterpolationLambert3DSingle(dc, m, npx, nn) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InterpolationLambert3DSingle
+#endif
 
 IMPLICIT NONE
 
@@ -2637,7 +2709,9 @@ end function InterpolationLambert3DSingle
 !> @date  01/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function InterpolationLambert3DInteger(dc, m, npx, nn) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InterpolationLambert3DInteger
+#endif
 
 IMPLICIT NONE
 
@@ -2679,7 +2753,9 @@ end function InterpolationLambert3DInteger
 !> @date  01/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function InterpolationLambert4DSingle(dc, m, npx, nn) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InterpolationLambert4DSingle
+#endif
 
 IMPLICIT NONE
 
@@ -2722,7 +2798,9 @@ end function InterpolationLambert4DSingle
 !> @date  01/20/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function InterpolationLambert4DDouble4b4(dc, m, npx) result(res)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: InterpolationLambert4DDouble4b4
+#endif
 
 IMPLICIT NONE
 
@@ -2769,7 +2847,9 @@ end function InterpolationLambert4DDouble4b4
 !> @date  03/14/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine sampleVMF(mu, kappa, VMFscale, inten, npx, nix, niy, w, mLPNH, mLPSH, LegendreArray) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: sampleVMF
+#endif
 
 IMPLICIT NONE 
 
@@ -2833,7 +2913,9 @@ end subroutine sampleVMF
 !> @date  03/14/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HemiCheck(ix, iy, npx, North) result(xyz) 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HemiCheck
+#endif
 
 IMPLICIT NONE 
 

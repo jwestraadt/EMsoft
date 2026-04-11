@@ -10,6 +10,11 @@ function(AddHDF5CopyInstallRules)
   cmake_parse_arguments(Z "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN} )
   set(INTER_DIR "")
 
+  # Static HDF5 builds do not produce Windows DLLs to copy.
+  if(NOT HDF5_BUILD_SHARED_LIBS)
+    return()
+  endif()
+
   if(0)
     message(STATUS "Z_LIBNAME: ${Z_LIBNAME}")
     message(STATUS "Z_LIBVAR: ${Z_LIBVAR}")
@@ -23,6 +28,9 @@ function(AddHDF5CopyInstallRules)
     elseif(APPLE)
       set(h5LibName hdf5::${Z_LIBNAME}-static)
     endif()
+  endif()
+  if(NOT TARGET ${h5LibName})
+    return()
   endif()
 
 
@@ -152,7 +160,7 @@ if(HDF5_FOUND)
   endif()
 
 
-  if(WIN32)
+  if(WIN32 AND HDF5_BUILD_SHARED_LIBS)
     #hdf5 hdf5_f90cstub hdf5_fortran hdf5_hl_fortran
     AddHDF5CopyInstallRules(LIBVAR HDF5_LIB
                         LIBNAME hdf5

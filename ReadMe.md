@@ -58,7 +58,7 @@ If you want to build EMsoft yourself, it would make sense to first get a GitHub 
 
 (Please note: if you work on Mac OS X and an M1 processor, either on Monterey or Ventura, you should make sure that you use the homebrew gcc install; other gfortran versions may cause issues with the executables not linking to the correct libraries.  On ARM processors, both the Superbuild and EMsoft 5.X have been successfully built.)
 
-Then, starting in the top folder where you have cloned the EMsoft repository, carry out the following commands (for UNIX-type builds; on Windows, use nmake instead of make):
+Then, starting in the top folder where you have cloned the EMsoft repository, carry out the following commands for UNIX-like builds:
 
 ```fortran
   mkdir EMsoftBuild
@@ -75,6 +75,20 @@ Then, starting in the top folder where you have cloned the EMsoft repository, ca
 
 ```
 Note that *somepath* should be replaced with wherever you installed the SDK.  These commands should compile both a Release and a Debug version of EMsoft. You can then add the path to the EMsoftBuild/Release/Bin folder to your shell path and start using the programs.  Note that the Debug version of the executables will run much more slowly than the Release version, but, if something goes wrong during the run, the error message of the Debug version will be more informative than for the Release version.
+
+For Windows builds, assume that the SDK was already compiled with the EMsoft superbuild before you configure this repository. Start from an Intel oneAPI command prompt, or call `setvars.bat`, so that MSVC, MKL, HDF5, and the Intel Fortran compiler are already available in the environment. The current CMake configuration supports both the classic Intel compiler (`ifort`) and IntelLLVM (`ifx`); a standard Release build with the SDK that is already in place looks like this:
+
+```cmd
+call "C:\Program Files (x86)\Intel\oneAPI\setvars.bat" intel64 vs2022
+mkdir EMsoftBuild
+cd EMsoftBuild
+mkdir Release
+cd Release
+cmake -S ..\..\EMsoft -B . -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DEMsoft_SDK=C:\path\to\EMsoft_SDK -DCMAKE_Fortran_COMPILER=ifx
+cmake --build . --config Release
+```
+
+If you prefer the classic Intel compiler, replace `-DCMAKE_Fortran_COMPILER=ifx` with `-DCMAKE_Fortran_COMPILER=ifort`. No extra SDK rebuild is needed on the EMsoft side as long as the SDK itself was already built for the same compiler family and build type.
 
 To always maintain an up-to-date version of the package, you may want to create a little script that will help you synchronize the repositories and compile in one step.  Here is an example shell script for UNIX-flavored systems; the assumptions are that the EMsoft repository has been cloned into the folder EMsoftPublic, and the EMsoftData repository into EMsoftData:
 

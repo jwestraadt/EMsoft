@@ -92,7 +92,9 @@ contains
 !> @date 11/15/15 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine SinglePEDPattern(ipar, fpar, cpar, PEDpattern, quats)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SinglePEDPattern
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structures.
 ! The following is the mapping:
@@ -325,7 +327,9 @@ end subroutine SinglePEDPattern
 !> @date 11/15/15 MDG 1.0 first version
 !--------------------------------------------------------------------------
 recursive function SinglePEDPatternWrapper(argc, argv) bind(c, name='SinglePEDPatternWrapper') 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SinglePEDPatternWrapper
+#endif
 
 use,INTRINSIC :: ISO_C_BINDING
 

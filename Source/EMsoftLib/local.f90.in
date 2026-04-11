@@ -84,8 +84,12 @@ use,intrinsic :: ISO_C_BINDING
   integer,parameter                     :: sgl = SELECTED_REAL_KIND(p=6,r=37)
 !> double precision real kind parameter
   integer,parameter                     :: dbl = SELECTED_REAL_KIND(p=13,r=200)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: sgl
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: dbl
+#endif
 
 ! Define the "kind" parameters for short and regular integers,
 !> short integer kind parameter
@@ -94,41 +98,69 @@ use,intrinsic :: ISO_C_BINDING
   integer,parameter                     :: irg = SELECTED_INT_KIND(9)
 !> long long kind parameter
   integer,parameter                     :: ill = SELECTED_INT_KIND(12)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ish
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: irg
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ill
+#endif
 
 ! new kind parameter definitions for use with HDF5-1_12_2; replace Fortran_REAL_4 and 8 
  INTEGER, PARAMETER :: real_kind_7 = SELECTED_REAL_KIND(6,37) !should map to REAL*4 on most modern processors
  INTEGER, PARAMETER :: real_kind_15 = SELECTED_REAL_KIND(15,307) !should map to REAL*8 on most modern processors
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: real_kind_7 
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: real_kind_15 
+#endif
 
 !> character type used for json routines
   integer,parameter :: jsonCK = selected_char_kind('DEFAULT')
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: jsonCK
+#endif
 
 !> standard string length for filenames
   integer(kind=irg),parameter           :: fnlen = 512
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: fnlen
+#endif
 
 !> counter for non-fatal error messages in handling of environment variables;
 !> if this counter equals 0, then error warnings will be printed, otherwise not.
   integer(kind=irg)                     :: displayEMsoftWarningMessages = 0
   integer(kind=irg)                     :: displayConfigFileMissingMessage = 0
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: displayEMsoftWarningMessages
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: displayConfigFileMissingMessage
+#endif
 
 !> standard array size for all wrapper routine calls; applies to ipar, fpar, and spar arrays
   integer(c_int32_t),parameter          :: wraparraysize = 80
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: wraparraysize
+#endif
 
 !> reserved IO unit identifiers for postscript (20) and data (21-23)
   integer(kind=irg), parameter          :: psunit = 20, dataunit = 21, dataunit2 = 22, dataunit3 = 23
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: psunit
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: dataunit
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: dataunit2
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: dataunit3
+#endif
 
 !--------------------------------------------------------------------------
 !--------------------------------------------------------------------------
@@ -214,7 +246,9 @@ contains
 !> @date  08/18/17 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getNotify() result(Notify)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getNotify
+#endif
 
 IMPLICIT NONE
 
@@ -238,7 +272,9 @@ end function EMsoft_getNotify
 !> @date  08/18/17 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getSlackWebHookURL() result(SlackWebHookURL)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getSlackWebHookURL
+#endif
 
 IMPLICIT NONE
 
@@ -262,7 +298,9 @@ end function EMsoft_getSlackWebHookURL
 !> @date  08/18/17 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getSlackChannel() result(SlackChannel)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getSlackChannel
+#endif
 
 IMPLICIT NONE
 
@@ -286,7 +324,9 @@ end function EMsoft_getSlackChannel
 !> @date  07/02/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMsoftplatform() result(platform)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMsoftplatform
+#endif
 
 IMPLICIT NONE
 
@@ -309,7 +349,9 @@ end function EMsoft_getEMsoftplatform
 !> @date  08/18/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_geth5copypath() result(h5copypath)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_geth5copypath
+#endif
 
 IMPLICIT NONE
 
@@ -336,7 +378,9 @@ end function EMsoft_geth5copypath
 !> @date  07/02/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMsofttestpath() result(testpath)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMsofttestpath
+#endif
 
 IMPLICIT NONE
 
@@ -367,7 +411,9 @@ end function EMsoft_getEMsofttestpath
 !> @date  02/27/19 MDG 2.0 add functionality for environment variables
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMsoftHDFtest() result(doHDFtest)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMsoftHDFtest
+#endif
 
 use, intrinsic :: iso_fortran_env , only: error_unit, wp => real64
 
@@ -394,7 +440,9 @@ end function EMsoft_getEMsoftHDFtest
 !> @param no input parameters
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMsoftTestingPath() result(buildpath)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMsoftTestingPath
+#endif
 
 IMPLICIT NONE
 
@@ -419,7 +467,9 @@ end function EMsoft_getEMsoftTestingPath
 !> @date  07/02/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMsoftversion() result(version)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMsoftversion
+#endif
 
 IMPLICIT NONE
 
@@ -443,7 +493,9 @@ end function EMsoft_getEMsoftversion
 !> @date  
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMsoftRevision() result(revision)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMsoftRevision
+#endif
 
 IMPLICIT NONE
 
@@ -466,7 +518,9 @@ end function EMsoft_getEMsoftRevision
 !> @date  
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMsoftBuildDate() result(buildDate)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMsoftBuildDate
+#endif
 
 IMPLICIT NONE
 
@@ -490,7 +544,9 @@ end function EMsoft_getEMsoftBuildDate
 !> @date  07/02/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMsoftnativedelimiter() result(EMsoftnativedelimiter)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMsoftnativedelimiter
+#endif
 
 IMPLICIT NONE
 
@@ -518,7 +574,9 @@ end function EMsoft_getEMsoftnativedelimiter
 !> @date  07/02/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getConfigpath() result(configpath)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getConfigpath
+#endif
 
 IMPLICIT NONE
 
@@ -553,7 +611,9 @@ end function EMsoft_getConfigpath
 !> @date  02/19/20 MDG 2.1 changes to path determination logic (environment first, then config file)
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMsoftpathname() result(EMsoftpathname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMsoftpathname
+#endif
 
 use, intrinsic :: iso_fortran_env , only: error_unit, wp => real64
 
@@ -606,7 +666,9 @@ end function EMsoft_getEMsoftpathname
 !> @date  02/19/20 MDG 2.1 changes to path determination logic (environment first, then config file)
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMdatapathname() result(EMdatapathname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMdatapathname
+#endif
 
 use, intrinsic :: iso_fortran_env , only: error_unit, wp => real64
 
@@ -655,7 +717,9 @@ end function EMsoft_getEMdatapathname
 !> @date  03/02/19 MDG 2.0 add functionality for environment variables
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMXtalFolderpathname() result(EMXtalFolderpathname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMXtalFolderpathname
+#endif
 
 use, intrinsic :: iso_fortran_env , only: error_unit, wp => real64
 
@@ -705,7 +769,9 @@ end function EMsoft_getEMXtalFolderpathname
 !> @date  03/02/19 MDG 2.0 add functionality for environment variables
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMtmppathname() result(EMtmppathname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMtmppathname
+#endif
 
 use, intrinsic :: iso_fortran_env , only: error_unit, wp => real64
 
@@ -754,7 +820,9 @@ end function EMsoft_getEMtmppathname
 !> @date  03/02/19 MDG 2.0 add functionality for environment variables
 !--------------------------------------------------------------------------
 recursive function EMsoft_getUsername() result(username)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getUsername
+#endif
 
 IMPLICIT NONE
 
@@ -790,7 +858,9 @@ end function EMsoft_getUsername
 !> @date  03/02/19 MDG 2.0 add functionality for environment variables
 !--------------------------------------------------------------------------
 recursive function EMsoft_getUserlocation() result(userlocation)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getUserlocation
+#endif
 
 IMPLICIT NONE
 
@@ -827,7 +897,9 @@ end function EMsoft_getUserlocation
 !> @date  03/02/19 MDG 2.0 add functionality for environment variables
 !--------------------------------------------------------------------------
 recursive function EMsoft_getUseremail() result(useremail)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getUseremail
+#endif
 
 
 IMPLICIT NONE
@@ -858,7 +930,9 @@ end function EMsoft_getUseremail
 !> @date  09/10/19 MDG 1.1 add environment variable option for EMdevelop
 !--------------------------------------------------------------------------
 recursive function EMsoft_getEMdevelop() result(EMdevelop)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getEMdevelop
+#endif
 
 IMPLICIT NONE
 
@@ -894,7 +968,9 @@ end function EMsoft_getEMdevelop
 !> @date  10/28/17 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getRelease() result(Release)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getRelease
+#endif
 
 IMPLICIT NONE
 
@@ -926,7 +1002,9 @@ end function EMsoft_getRelease
 !> @date  02/27/19 MDG 2.0 add code to allow for operation without config json file
 !--------------------------------------------------------------------------
 recursive function EMsoft_getJSONparameter(ep, nobackslash) result(param)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getJSONparameter
+#endif
 
 use json_module
 
@@ -1028,7 +1106,9 @@ end function EMsoft_getJSONparameter
 !> @date  05/11/17 MDG 1.1 added support for JSON template files
 !--------------------------------------------------------------------------
 recursive function EMsoft_getTemplatepathname(json) result(templatepathname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getTemplatepathname
+#endif
 
 logical,INTENT(IN),OPTIONAL             :: json
 
@@ -1062,7 +1142,9 @@ end function EMsoft_getTemplatepathname
 !> @date  05/11/17 MDG 1.1 added support for JSON template files
 !--------------------------------------------------------------------------
 recursive function EMsoft_getwikipathname() result(wikipathname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getwikipathname
+#endif
 
 character(fnlen)                        :: wikipathname
 
@@ -1085,7 +1167,9 @@ end function EMsoft_getwikipathname
 !> @date  07/02/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getResourcepathname() result(resourcepathname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getResourcepathname
+#endif
 
 character(fnlen)                        :: resourcepathname
 
@@ -1108,7 +1192,9 @@ end function EMsoft_getResourcepathname
 !> @date  10/25/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getUserHomePath() result(userHomePathName)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getUserHomePath
+#endif
 
 character(fnlen)  :: userHomePathName
 character(9)      :: Home
@@ -1140,7 +1226,9 @@ end function EMsoft_getUserHomePath
 !> @date  10/25/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getUser() result(userName)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getUser
+#endif
 
 character(fnlen)  :: userName
 character(9)      :: User
@@ -1166,7 +1254,9 @@ end function EMsoft_getUser
 !> @date  07/02/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getOpenCLpathname() result(openclpathname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getOpenCLpathname
+#endif
 
 character(fnlen)                        :: openclpathname
 
@@ -1191,7 +1281,9 @@ end function EMsoft_getOpenCLpathname
 !> @date  08/15/17 MDG 1.1 removed need for xtal folder to be named XtalFolder
 !--------------------------------------------------------------------------
 recursive function EMsoft_getXtalpathname() result(xtalpathname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getXtalpathname
+#endif
 
 character(fnlen)                        :: xtalpathname, p
 
@@ -1214,7 +1306,9 @@ end function EMsoft_getXtalpathname
 !> @date  01/29/19 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getfftwWisdomfilename() result(fftwWisdomfilename)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getfftwWisdomfilename
+#endif
 
 character(fnlen)                        :: fftwWisdomfilename
 
@@ -1238,7 +1332,9 @@ end function EMsoft_getfftwWisdomfilename
 !> @date  07/02/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getTemplatecodefilename() result(templatecodefilename)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getTemplatecodefilename
+#endif
 
 character(fnlen)                        :: templatecodefilename
 
@@ -1261,7 +1357,9 @@ end function EMsoft_getTemplatecodefilename
 !> @date  09/08/19 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getwikicodefilename() result(wikicodefilename)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getwikicodefilename
+#endif
 
 character(fnlen)                        :: wikicodefilename
 
@@ -1284,7 +1382,9 @@ end function EMsoft_getwikicodefilename
 !> @date  09/05/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getWyckoffPositionsfilename() result(WPfilename)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getWyckoffPositionsfilename
+#endif
 
 character(fnlen)                        :: WPfilename
 
@@ -1308,7 +1408,9 @@ end function EMsoft_getWyckoffPositionsfilename
 !> @date  07/02/16 MDG 1.0 new function
 !--------------------------------------------------------------------------
 recursive function EMsoft_getRandomseedfilename() result(randomseedfilename)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_getRandomseedfilename
+#endif
 
 character(fnlen)                        :: randomseedfilename
 
@@ -1346,7 +1448,9 @@ end function EMsoft_getRandomseedfilename
 !--------------------------------------------------------------------------
 
 subroutine EMsoft(progname,progdesc,EMconfig,stdout,makeconfig,silent)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft
+#endif
 
 IMPLICIT NONE
 
@@ -1445,7 +1549,9 @@ end subroutine EMsoft
 !> @date  02/16/16 MDG 1.0 new routine
 !--------------------------------------------------------------------------
 function EMsoft_toNativePath(inpath) result(outpath)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_toNativePath
+#endif
 
 IMPLICIT NONE
 
@@ -1489,7 +1595,9 @@ end function EMsoft_toNativePath
 !> @date  02/16/16 MDG 1.0 original version
 !--------------------------------------------------------------------------
 function EMsoft_fromNativePath(inpath) result(outpath)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_fromNativePath
+#endif
 
 IMPLICIT NONE
 
@@ -1546,7 +1654,9 @@ end function EMsoft_fromNativePath
 !--------------------------------------------------------------------------
 
 subroutine EMsoft_path_init(config)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EMsoft_path_init
+#endif
 
 IMPLICIT NONE
 
@@ -1728,7 +1838,9 @@ end subroutine EMsoft_path_init
 !> @date 03/19/15 MDG added timestring and datestring optional arguments
 !--------------------------------------------------------------------------
 subroutine timestamp (stdout, timestring, datestring, silent)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: timestamp
+#endif
 
   IMPLICIT NONE
 

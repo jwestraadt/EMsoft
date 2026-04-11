@@ -104,7 +104,9 @@ contains
 !> @date 06/24/14  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine EBSDreadangles(enl,numangles,angles,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDreadangles
+#endif
 
 use local
 use typedefs
@@ -214,7 +216,9 @@ end subroutine EBSDreadangles
 !> @date 06/24/14  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine EBSDBatchreadangles(enl,numangles,angles,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDBatchreadangles
+#endif
 
 use local
 use typedefs
@@ -308,7 +312,9 @@ end subroutine EBSDBatchreadangles
 !> @date 06/24/14  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine EBSDFullreadangles(enl,numangles,angles,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDFullreadangles
+#endif
 
 use local
 use typedefs
@@ -409,7 +415,9 @@ end subroutine EBSDFullreadangles
 !> @date 02/22/18 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine EBSDreadorpcdef(enl,numangles,orpcdef,verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDreadorpcdef
+#endif
 
 use local
 use typedefs
@@ -510,7 +518,9 @@ end subroutine EBSDreadorpcdef
 !--------------------------------------------------------------------------
 recursive subroutine readEBSDMonteCarloFile(MCfile, mcnl, hdferr, EBSDMCdata, getAccume, getAccumz, getAccumSP, &
                                             getAccumxyz, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: readEBSDMonteCarloFile
+#endif
 
 use local
 use typedefs
@@ -825,7 +835,9 @@ end subroutine readEBSDMonteCarloFile
 !--------------------------------------------------------------------------
 recursive subroutine readEBSDMasterPatternFile(MPfile, mpnl, hdferr, EBSDMPdata, getkeVs, getmLPNH, getmLPSH, &
                                                getmasterSPNH, getmasterSPSH, keep4, defectMP, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: readEBSDMasterPatternFile
+#endif
 
 use local
 use typedefs
@@ -1173,7 +1185,9 @@ end subroutine readEBSDMasterPatternFile
 !--------------------------------------------------------------------------
 recursive subroutine CalcEBSDPatternSingleFull(ipar,qu,accum,mLPNH,mLPSH,rgx,rgy,rgz,binned,Emin,Emax,mask, &
                                                prefactor, Fmatrix, removebackground, applynoise)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcEBSDPatternSingleFull
+#endif
 
 use local
 use Lambert
@@ -1330,7 +1344,9 @@ end subroutine CalcEBSDPatternSingleFull
 !> @date 11/05/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CalcEBSDPatternDefect_zint(ipar,qu,mLPNH,mLPSH,rgx,rgy,rgz,binned, prefactor, Fmatrix)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcEBSDPatternDefect_zint
+#endif
 
 use local
 use Lambert
@@ -1420,7 +1436,9 @@ end subroutine CalcEBSDPatternDefect_zint
 !> @date 11/12/19 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine CalcEBSDPatternDefect_noint(ipar,qu,mLPNH,mLPSH,rgx,rgy,rgz,binned, prefactor, Fmatrix)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcEBSDPatternDefect_noint
+#endif
 
 use local
 use Lambert
@@ -1513,7 +1531,9 @@ end subroutine CalcEBSDPatternDefect_noint
 !> @date 07/06/16 MDG 1.0 original, based on CalcEBSDPatternSingleFull
 !--------------------------------------------------------------------------
 recursive subroutine CalcEBSDPatternSingleFullFast(ipar,qu,accum,mLPNH,mLPSH,rgx,rgy,rgz,binned,Emin,Emax,prefactor)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CalcEBSDPatternSingleFullFast
+#endif
 
 use local
 use Lambert
@@ -1611,7 +1631,9 @@ end subroutine CalcEBSDPatternSingleFullFast
 !> @date 08/24/17  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine EBSDcopyMCdata(inputfile, outputfile, h5)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDcopyMCdata
+#endif
 
 use local
 use error
@@ -1726,7 +1748,9 @@ end subroutine EBSDcopyMCdata
 !> @date 06/21/19  MDG 1.1 add option to skip copying of CrystalData group
 !--------------------------------------------------------------------------
 recursive subroutine EBSDcopyMPdata(inputfile, outputfile, h5, skipCrystalData)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDcopyMPdata
+#endif
 
 use local
 use error
@@ -1849,7 +1873,9 @@ end subroutine EBSDcopyMPdata
 !> @date 04/21/21 MDG 1.0 new routine used in EMEBSDanisotropic trial program 
 !--------------------------------------------------------------------------
 recursive subroutine EBSDgetDepthProfile(MCfile, mcnl, nz, dp, dv)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDgetDepthProfile
+#endif
 
 use HDF5
 use HDFsupport

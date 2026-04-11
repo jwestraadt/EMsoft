@@ -95,11 +95,21 @@ PUBLIC :: TIFF_nx, TIFF_ny, TIFF_Image, TIFF_filename, TIFF_Write_File, TIFF_Wri
  integer(kind=irg)                    :: TIFF_nx,TIFF_ny
  integer(kind=irg),allocatable        :: TIFF_Image(:,:), TIFF_RGBImage(:,:,:)
  character(fnlen)                     :: TIFF_filename
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TIFF_nx
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TIFF_ny
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TIFF_Image
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TIFF_RGBImage
+#endif
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TIFF_filename
+#endif
 
 contains
 
@@ -120,7 +130,9 @@ contains
 !> @date    8/28/01 MDG 2.0 commented and change of variable names
 !--------------------------------------------------------------------------
 recursive subroutine TIFF_Write_Byte_Into_Buffer(Bite)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TIFF_Write_Byte_Into_Buffer
+#endif
 
 IMPLICIT NONE
 
@@ -160,7 +172,9 @@ end subroutine TIFF_Write_Byte_Into_Buffer
 !> @date    8/28/01 MDG 2.0 commented and change of variable names
 !--------------------------------------------------------------------------
 recursive subroutine TIFF_Write_Word(Word,Length)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TIFF_Write_Word
+#endif
 
 IMPLICIT NONE
 
@@ -198,7 +212,9 @@ end subroutine TIFF_Write_Word
 !> @date    8/28/01 MDG 2.0 commented and change of variable names
 !--------------------------------------------------------------------------
 recursive subroutine TIFF_Make_Tag(Numbre,Tag_ID, Data_Type,Cnt,Offset)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TIFF_Make_Tag
+#endif
 
 IMPLICIT NONE
 
@@ -234,7 +250,9 @@ end subroutine TIFF_Make_Tag
 !
 !--------------------------------------------------------------------------
 recursive subroutine TIFF_Write_File
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TIFF_Write_File
+#endif
 
 IMPLICIT NONE
 
@@ -333,7 +351,9 @@ end subroutine TIFF_Write_File
 !
 !--------------------------------------------------------------------------
 recursive subroutine TIFF_Write_RGB_File
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: TIFF_Write_RGB_File
+#endif
 
 IMPLICIT NONE
 

@@ -182,7 +182,9 @@ contains
 !> @date 02/19/19 MDG 2.0 corrects pattern orientation (manual indexing revealed an unwanted upside down flip)
 !--------------------------------------------------------------------------
 recursive subroutine getEBSDPatterns(ipar, fpar, EBSDpattern, quats, accum_e, mLPNH, mLPSH)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getEBSDPatterns
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structure to
 ! make this routine callable by external programs; for calls from  C/C++, use the EsoftCgetEBSDPatterns routine instead.  
@@ -478,7 +480,9 @@ end subroutine getEBSDPatterns
 !> @date 02/19/19 MDG 2.0 corrects pattern orientation (manual indexing revealed an unwanted upside down flip)
 !--------------------------------------------------------------------------
 recursive subroutine getEBSDPatterns2(ipar, fpar, EBSDpattern, quats, accum_e, mLPNHsum, mLPSHsum)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getEBSDPatterns2
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structure to
 ! make this routine callable by external programs; for calls from  C/C++, use the EsoftCgetEBSDPatterns routine instead.  
@@ -744,7 +748,9 @@ end subroutine getEBSDPatterns2
 !> @date 11/04/15 MDG 1.2 added array of quaternions as input parameter
 !--------------------------------------------------------------------------
 recursive subroutine getECPatterns(ipar, fpar, ECpattern, quats, accum_e, mLPNH, mLPSH)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GetECPatterns
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structures.
 ! The following is the mapping:
@@ -1002,7 +1008,9 @@ end subroutine getECPatterns
 !> @date 11/09/15 MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine getKosselPatterns(ipar, fpar, Kosselpattern, quats, mLPNH, mLPSH)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getKosselPatterns
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structures.
 ! The following is the mapping:
@@ -1138,7 +1146,9 @@ end subroutine getKosselPatterns
 
 recursive subroutine EBSD4calfun(nipar, nfpar, ninit, ipar, fpar, initmeanval, expt, accum_e, &
                                 mLPNH, mLPSH, n, x, f, expt2, expt3, expt4, nstep, stepsize, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSD4calfun
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structures.
 ! The following is the mapping:
@@ -1562,7 +1572,9 @@ end subroutine EBSD4calfun
 
 recursive subroutine EBSDcalfun(nipar, nfpar, ninit, ipar, fpar, initmeanval, expt, accum_e, &
                                 mLPNH, mLPSH, n, x, f, nstep, stepsize, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EBSDcalfun
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structures.
 ! The following is the mapping:
@@ -1801,7 +1813,9 @@ end subroutine EBSDcalfun
 
 recursive subroutine ECPcalfun (nipar, nfpar, ninit, ipar, fpar, initmeanval, expt, accum_e, mLPNH, mLPSH, &
                                 n, x, f, nstep, stepsize, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ECPcalfun
+#endif
 
 ! the input parameters are all part of a ipar and fpar input arrays instead of the usual namelist structures.
 ! The following is the mapping:
@@ -2005,7 +2019,9 @@ end subroutine ECPcalfun
 !> @date 07/10/16 MDG 1.4 added energy min/max indices
 !--------------------------------------------------------------------------
 recursive function getEBSDPatternsWrapper(argc, argv) bind(c, name='getEBSDPatternsWrapper') 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getEBSDPatternsWrapper
+#endif
 
 use,INTRINSIC :: ISO_C_BINDING
 
@@ -2066,7 +2082,9 @@ end function getEBSDPatternsWrapper
 !> @date 11/02/15 MDG 1.1 simplified parameters
 !--------------------------------------------------------------------------
 recursive function getECPatternsWrapper(argc, argv) bind(c, name='getECPatternsWrapper') 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getECPatternsWrapper
+#endif
 
 use,INTRINSIC :: ISO_C_BINDING
 
@@ -2122,7 +2140,9 @@ end function getECPatternsWrapper
 !> @date 11/09/15 MDG 1.0 first version
 !--------------------------------------------------------------------------
 recursive function getKosselPatternsWrapper(argc, argv) bind(c, name='getKosselPatternsWrapper') 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: getKosselPatternsWrapper
+#endif
 
 use,INTRINSIC :: ISO_C_BINDING
 
@@ -2178,7 +2198,9 @@ end function getKosselPatternsWrapper
 !> @date 12/15/15  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function efitECPWrapper(argc, argv) bind(c, name='efitECPWrapper') 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: efitECPWrapper
+#endif
 
 use,INTRINSIC :: ISO_C_BINDING
 ! use bobyqa_module
@@ -2258,7 +2280,9 @@ end function efitECPWrapper
 !> @date 12/15/15  SS 1.0 original
 !--------------------------------------------------------------------------
 recursive function efitEBSDWrapper(argc, argv) bind(c, name='efitEBSDWrapper') 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: efitEBSDWrapper
+#endif
 
 use,INTRINSIC :: ISO_C_BINDING
 !use bobyqa_module
@@ -2335,7 +2359,9 @@ end function efitEBSDWrapper
 !> @date 07/18/20  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function adhisteqWrapper(argc, argv) bind(c, name='adhisteqWrapper') 
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: adhisteqWrapper
+#endif
 
 use,INTRINSIC :: ISO_C_BINDING
 use local

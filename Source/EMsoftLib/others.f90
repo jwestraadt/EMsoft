@@ -68,7 +68,9 @@ contains
 !> @date 3/21/13 MDG 2.0 updated IO statements
 !--------------------------------------------------------------------------
 complex recursive FUNCTION FSCATT (G,UL,Z,SYMBOL,ACCVLT,ABSFLG,ACCFLG,DWFLG)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: FSCATT
+#endif
 
 ! modified: 08.07.93  ! more precise fit to doyle turner table
 ! modified: 04.03.93  ! expansion in phonon abs. for small g
@@ -178,7 +180,9 @@ END FUNCTION
 !*******************************************************************
 
 FUNCTION WEKO (A,B,S)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: WEKO
+#endif
 
 ! ELECTRON SCATTERING AMPLITUDE F(S)
 
@@ -208,7 +212,9 @@ END FUNCTION
 ! ***************************************************************
 
 real FUNCTION FPHON (G,UL,A,B)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: FPHON
+#endif
 
 
 real(kind=sgl),parameter  :: FOURPI = 12.56636, FP2= FOURPI*FOURPI
@@ -238,7 +244,9 @@ END FUNCTION
 !*****************************************************************
 
 real FUNCTION RI1 (BI,BJ,G)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: RI1
+#endif
 
 ! ERSTES INTEGRAL FUER DIE ABSORPTIONSPOTENTIALE
 
@@ -286,7 +294,9 @@ END FUNCTION
 !**************************************************************************
 
 real FUNCTION RI2 (BI,BJ,G,U)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: RI2
+#endif
 
 ! ZWEITES INTEGRAL FUER DIE ABSORPTIONSPOTENTIALE
 
@@ -353,7 +363,9 @@ END FUNCTION
 !**************************************************************************
 
 real  FUNCTION RIH1 (X1,X2,X3)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: RIH1
+#endif
 
 ! WERTET DEN AUSDRUCK EXP(-X1) * ( EI(X2)-EI(X3) ) AUS
 
@@ -378,7 +390,9 @@ END FUNCTION
 !**************************************************************************
 
 real FUNCTION RIH2 (X)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: RIH2
+#endif
 
 ! WERTET X*EXP(-X)*EI(X) AUS FUER GROSSE X
 ! DURCH INTERPOLATION DER TABELLE ... AUS ABRAMOWITZ
@@ -400,7 +414,9 @@ END FUNCTION
 !**************************************************************************
 
 real FUNCTION RIH3 (X)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: RIH3
+#endif
 
 ! WERTET DEN AUSDRUCK EXP(-X) * EI(X) AUS
 
@@ -415,7 +431,9 @@ END FUNCTION
 ! ***********************************************************
 
 real FUNCTION EI (X)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: EI
+#endif
 
 ! EXPONENTIALINTEGRAL
 !   GETESTET -60 < X < 60
@@ -458,7 +476,9 @@ END FUNCTION
 !**************************************************************************
 
 SUBROUTINE GETWK (Z,SYMBOL,A,B)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: GETWK
+#endif
 
 ! UPDATE 07.07.93
 ! NOW 4 A AND 4 B
@@ -690,7 +710,9 @@ END SUBROUTINE
 !*******************************************************************
 
 real FUNCTION FCORE (G,Z,ACCVLT)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: FCORE
+#endif
 
 ! modified: 13.01.1992
 ! 
@@ -790,7 +812,9 @@ END FUNCTION
 !
 !--------------------------------------------------------------------------
 RECURSIVE SUBROUTINE SSORT (X, Y, N, KFLAG)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SSORT
+#endif
 
 !***BEGIN PROLOGUE  SSORT
 !***PURPOSE  Sort an array and optionally make the same interchanges in
@@ -1113,7 +1137,9 @@ END
 
 SUBROUTINE qsortd(x,ind,n) &
 bind(c, name = 'qsortd')
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: qsortd 
+#endif
 ! Code converted using TO_F90 by Alan Miller
 ! Date: 2002-12-18  Time: 11:55:47
 

@@ -127,7 +127,9 @@ contains
 !> @date 12/16/16  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine h5open_EMsoft(hdferr)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5open_EMsoft
+#endif
 
 use local
 
@@ -162,7 +164,9 @@ end subroutine h5open_EMsoft
 !> @date 12/16/16  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine h5close_EMsoft(hdferr)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5close_EMsoft
+#endif
 
 use local
 
@@ -197,7 +201,9 @@ end subroutine h5close_EMsoft
 !> @date 10/31/16  MDG 1.0 original
 !--------------------------------------------------------------------------
 pure recursive function cstringify(strin) result(cstrout)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: cstringify
+#endif
 
 use local
 use ISO_C_BINDING
@@ -232,7 +238,9 @@ end function cstringify
 !> @date 02/09/20  MDG 1.0 original
 !--------------------------------------------------------------------------
 pure recursive function carstringify(strin) result(cstrout)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: carstringify
+#endif
 
 use local
 use ISO_C_BINDING
@@ -267,7 +275,9 @@ end function carstringify
 !> @date 02/09/20  MDG 1.0 original
 !--------------------------------------------------------------------------
 pure recursive function fstringify(strin) result(fstrout)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: fstringify
+#endif
 
 use local
 use ISO_C_BINDING
@@ -326,7 +336,9 @@ end function fstringify
 !> @date 05/21/16 MDG 3.1 changed StartTime and StopTime to include the date for multi-day runs
 !--------------------------------------------------------------------------
 recursive subroutine HDF_writeEMheader(HDF_head, dstr, tstrb, tstre, prn, dataname)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeEMheader
+#endif
 
 use local
 use io
@@ -536,7 +548,9 @@ end subroutine HDF_writeEMheader
 !> @date 08/30/19 MDG 2.0 modified HDF_head definition for python f90wrap compatibility
 !--------------------------------------------------------------------------
 recursive subroutine HDF_push(HDF_head, oT, oID, oName, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_push
+#endif
 
 use local
 use io
@@ -595,7 +609,9 @@ end subroutine HDF_push
 !> @date 08/30/19 MDG 2.0 modified HDF_head definition for python f90wrap compatibility
 !--------------------------------------------------------------------------
 recursive subroutine HDF_pop(HDF_head, closeall, verbose)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_pop
+#endif
 
 use local
 use io
@@ -702,7 +718,9 @@ end subroutine HDF_pop
 !> @date 03/19/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_stackdump(HDF_head)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_stackdump
+#endif
 
 use local
 use io
@@ -750,7 +768,9 @@ end subroutine HDF_stackdump
 !> @date 12/16/16  MDG 2.0 reworked with new error handling approach
 !--------------------------------------------------------------------------
 recursive subroutine HDFerror_check(OffendingRoutine, error, Fatal)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDFerror_check
+#endif
 
 use io
 use local
@@ -793,7 +813,9 @@ end subroutine HDFerror_check
 !> @date 12/18/16  MDG 1.1 changed output to be identical to that of HDFerror_check
 !--------------------------------------------------------------------------
 recursive subroutine HDF_handleError(error,OffendingRoutine, NonFatal)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_handleError
+#endif
 
 use io
 use local
@@ -840,7 +862,9 @@ end subroutine HDF_handleError
 !> @date 03/17/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_createFile(HDFname, HDF_head) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_createFile
+#endif
 
 use local
 use ISO_C_BINDING
@@ -888,7 +912,9 @@ end function HDF_createFile
 !> @date 03/14/21  MDG 1.1 changed readonly logic
 !--------------------------------------------------------------------------
 recursive function HDF_openFile(HDFname, HDF_head, readonly) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_openFile
+#endif
 
 use local
 use ISO_C_BINDING
@@ -945,7 +971,9 @@ end function HDF_openFile
 !> @date 03/17/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_createGroup(groupname, HDF_head) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_createGroup
+#endif
 
 use ISO_C_BINDING
 
@@ -1003,7 +1031,9 @@ end function HDF_createGroup
 !> @date 03/17/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_openGroup(groupname, HDF_head) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_openGroup
+#endif
 
 use ISO_C_BINDING
 
@@ -1045,7 +1075,9 @@ end function HDF_openGroup
 !> @date 03/17/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_openDataset(dataname, HDF_head) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_openDataset
+#endif
 
 use ISO_C_BINDING
 
@@ -1091,7 +1123,9 @@ end function HDF_openDataset
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetTextFile(dataname, filename, HDF_head) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetTextFile
+#endif
 
 use ISO_C_BINDING
 
@@ -1203,7 +1237,9 @@ end function HDF_writeDatasetTextFile
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readfromTextfile(filename,nlines) result(stringarray)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readfromTextFile
+#endif
 
 use ISO_C_BINDING
 
@@ -1267,7 +1303,9 @@ end function HDF_readfromTextfile
 !> @date 12/14/16  MDG 1.1 added functionality for fixed length strings used by, e.g., DREAM.3D
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetStringArray(dataname, nlines, HDF_head, hdferr, stringarray)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetStringArray
+#endif
 
 use ISO_C_BINDING
 
@@ -1393,7 +1431,9 @@ end subroutine HDF_readDatasetStringArray
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_extractDatasetTextfile(dataname, textfile, HDF_head) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_extractDatasetTextfile
+#endif
 
 use ISO_C_BINDING
 
@@ -1491,7 +1531,9 @@ end function HDF_extractDatasetTextfile
 !> @date 05/20/16  MDG 1.1 correction for overflow of stringarray when input string is actually 132 characters long
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetStringArray(dataname, inputarray, nlines, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetStringArray
+#endif
 
 use ISO_C_BINDING
 
@@ -1607,7 +1649,9 @@ end function HDF_writeDatasetStringArray
 !> @date 03/31/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetCharArray1D(dataname, chararray, dims, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetCharArray1D
+#endif
 
 use ISO_C_BINDING
 
@@ -1689,7 +1733,9 @@ end function HDF_writeDatasetCharArray1D
 !> @date 03/31/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetCharArray2D(dataname, chararray, dims, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetCharArray2D
+#endif
 
 use ISO_C_BINDING
 
@@ -1769,7 +1815,9 @@ end function HDF_writeDatasetCharArray2D
 !> @date 03/31/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetCharArray3D(dataname, chararray, dims, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetCharArray3D
+#endif
 
 use ISO_C_BINDING
 
@@ -1849,7 +1897,9 @@ end function HDF_writeDatasetCharArray3D
 !> @date 03/31/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetCharArray4D(dataname, chararray, dims, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetCharArray4D
+#endif
 
 use ISO_C_BINDING
 
@@ -1932,7 +1982,9 @@ end function HDF_writeDatasetCharArray4D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetInteger(dataname, intval, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetInteger
+#endif
 
 use ISO_C_BINDING
 
@@ -2019,7 +2071,9 @@ end function HDF_writeDatasetInteger
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetInteger1byteArray1D(dataname, intarr, dim0, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetInteger1byteArray1D
+#endif
 
 use ISO_C_BINDING
 
@@ -2106,7 +2160,9 @@ end function HDF_writeDatasetInteger1byteArray1D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetIntegerArray1D(dataname, intarr, dim0, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetIntegerArray1D
+#endif
 
 use ISO_C_BINDING
 
@@ -2196,7 +2252,9 @@ end function HDF_writeDatasetIntegerArray1D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetIntegerArray2D(dataname, intarr, dim0, dim1, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetIntegerArray2D
+#endif
 
 use ISO_C_BINDING
 
@@ -2290,7 +2348,9 @@ end function HDF_writeDatasetIntegerArray2D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetIntegerArray3D(dataname, intarr, dim0, dim1, dim2, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetIntegerArray3D
+#endif
 
 use ISO_C_BINDING
 
@@ -2382,7 +2442,9 @@ end function HDF_writeDatasetIntegerArray3D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetIntegerArray4D(dataname, intarr, dim0, dim1, dim2, dim3, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetIntegerArray4D
+#endif
 
 use ISO_C_BINDING
 
@@ -2476,7 +2538,9 @@ end function HDF_writeDatasetIntegerArray4D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetFloat(dataname, fltval, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetFloat
+#endif
 
 use ISO_C_BINDING
 
@@ -2561,7 +2625,9 @@ end function HDF_writeDatasetFloat
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetDouble(dataname, dblval, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetDouble
+#endif
 
 use ISO_C_BINDING
 
@@ -2648,7 +2714,9 @@ end function HDF_writeDatasetDouble
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetFloatArray1D(dataname, fltarr, dim0, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetFloatArray1D
+#endif
 
 use ISO_C_BINDING
 
@@ -2739,7 +2807,9 @@ end function HDF_writeDatasetFloatArray1D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetFloatArray2D(dataname, fltarr, dim0, dim1, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetFloatArray2D
+#endif
 
 use ISO_C_BINDING
 
@@ -2831,7 +2901,9 @@ end function HDF_writeDatasetFloatArray2D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetFloatArray3D(dataname, fltarr, dim0, dim1, dim2, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetFloatArray3D
+#endif
 
 use ISO_C_BINDING
 
@@ -2924,7 +2996,9 @@ end function HDF_writeDatasetFloatArray3D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetFloatArray4D(dataname, fltarr, dim0, dim1, dim2, dim3, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetFloatArray4D
+#endif
 
 use ISO_C_BINDING
 
@@ -3019,7 +3093,9 @@ end function HDF_writeDatasetFloatArray4D
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetFloatArray6D(dataname, fltarr, dim0, dim1, dim2, dim3, dim4, dim5, &
                                                 HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetFloatArray6D
+#endif
 
 use ISO_C_BINDING
 
@@ -3110,7 +3186,9 @@ end function HDF_writeDatasetFloatArray6D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetDoubleArray1D(dataname, dblarr, dim0, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetDoubleArray1D
+#endif
 
 use ISO_C_BINDING
 
@@ -3198,7 +3276,9 @@ end function HDF_writeDatasetDoubleArray1D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetDoubleArray2D(dataname, dblarr, dim0, dim1, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetDoubleArray2D
+#endif
 
 use ISO_C_BINDING
 
@@ -3286,7 +3366,9 @@ end function HDF_writeDatasetDoubleArray2D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetDoubleArray3D(dataname, dblarr, dim0, dim1, dim2, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetDoubleArray3D
+#endif
 
 use ISO_C_BINDING
 
@@ -3376,7 +3458,9 @@ end function HDF_writeDatasetDoubleArray3D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_writeDatasetDoubleArray4D(dataname, dblarr, dim0, dim1, dim2, dim3, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeDatasetDoubleArray4D
+#endif
 
 use ISO_C_BINDING
 
@@ -3475,7 +3559,9 @@ end function HDF_writeDatasetDoubleArray4D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetCharArray1D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetCharArray1D
+#endif
 
 use ISO_C_BINDING
 
@@ -3545,7 +3631,9 @@ end subroutine HDF_readDatasetCharArray1D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetCharArray2D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetCharArray2D
+#endif
 
 use ISO_C_BINDING
 
@@ -3616,7 +3704,9 @@ end subroutine HDF_readDatasetCharArray2D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetCharArray3D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetCharArray3D
+#endif
 
 use ISO_C_BINDING
 
@@ -3687,7 +3777,9 @@ end subroutine HDF_readDatasetCharArray3D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetCharArray4D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetCharArray4D
+#endif
 
 use ISO_C_BINDING
 
@@ -3758,7 +3850,9 @@ end subroutine HDF_readDatasetCharArray4D
 !> @date 02/14/17  MDG 1.1 corrected closing order of dataspace and dataset
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetInteger(dataname, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetInteger
+#endif
 
 use ISO_C_BINDING
 
@@ -3820,7 +3914,9 @@ end subroutine HDF_readDatasetInteger
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetIntegerArray1D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetIntegerArray1D
+#endif
 
 use ISO_C_BINDING
 
@@ -3890,7 +3986,9 @@ end subroutine HDF_readDatasetIntegerArray1D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetIntegerArray2D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetIntegerArray2D
+#endif
 
 use ISO_C_BINDING
 
@@ -3960,7 +4058,9 @@ end subroutine HDF_readDatasetIntegerArray2D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetIntegerArray3D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetIntegerArray3D
+#endif
 
 use ISO_C_BINDING
 
@@ -4030,7 +4130,9 @@ end subroutine HDF_readDatasetIntegerArray3D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetIntegerArray4D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetIntegerArray4D
+#endif
 
 use ISO_C_BINDING
 
@@ -4101,7 +4203,9 @@ end subroutine HDF_readDatasetIntegerArray4D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetFloat(dataname, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetFloat
+#endif
 
 use ISO_C_BINDING
 
@@ -4164,7 +4268,9 @@ end subroutine HDF_readDatasetFloat
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetFloatArray1D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetFloatArray1D
+#endif
 
 use ISO_C_BINDING
 
@@ -4235,7 +4341,9 @@ end subroutine HDF_readDatasetFloatArray1D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetFloatArray2D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetFloatArray2D
+#endif
 
 use ISO_C_BINDING
 
@@ -4306,7 +4414,9 @@ end subroutine HDF_readDatasetFloatArray2D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetFloatArray3D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetFloatArray3D
+#endif
 
 use ISO_C_BINDING
 
@@ -4377,7 +4487,9 @@ end subroutine HDF_readDatasetFloatArray3D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetFloatArray4D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetFloatArray4D
+#endif
 
 use ISO_C_BINDING
 
@@ -4447,7 +4559,9 @@ end subroutine HDF_readDatasetFloatArray4D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetDouble(dataname, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetDouble
+#endif
 
 use ISO_C_BINDING
 
@@ -4511,7 +4625,9 @@ end subroutine HDF_readDatasetDouble
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetDoubleArray1D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetDoubleArray1D
+#endif
 
 use ISO_C_BINDING
 
@@ -4582,7 +4698,9 @@ end subroutine HDF_readDatasetDoubleArray1D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetDoubleArray2D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetDoubleArray2D
+#endif
 
 use ISO_C_BINDING
 
@@ -4653,7 +4771,9 @@ end subroutine HDF_readDatasetDoubleArray2D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetDoubleArray3D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetDoubleArray3D
+#endif
 
 use ISO_C_BINDING
 
@@ -4725,7 +4845,9 @@ end subroutine HDF_readDatasetDoubleArray3D
 !> @date 03/26/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive subroutine HDF_readDatasetDoubleArray4D(dataname, dims, HDF_head, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readDatasetDoubleArray4D
+#endif
 
 use ISO_C_BINDING
 
@@ -4810,7 +4932,9 @@ end subroutine HDF_readDatasetDoubleArray4D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabCharArray2D(dataname, wdata, hdims, offset, &
                                        dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabCharArray2D
+#endif
 
 use ISO_C_BINDING
 
@@ -4886,7 +5010,9 @@ end function HDF_writeHyperslabCharArray2D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabCharArray3D(dataname, wdata, hdims, offset, &
                                                  dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabCharArray3D
+#endif
 
 use ISO_C_BINDING
 
@@ -4958,7 +5084,9 @@ end function HDF_writeHyperslabCharArray3D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabCharArray4D(dataname, wdata, hdims, offset, &
                                                  dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabCharArray4D
+#endif
 
 use ISO_C_BINDING
 
@@ -5029,7 +5157,9 @@ end function HDF_writeHyperslabCharArray4D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabIntegerArray2D(dataname, wdata, hdims, offset, &
                                                     dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabIntegerArray2D
+#endif
 
 IMPLICIT NONE
 
@@ -5098,7 +5228,9 @@ end function HDF_writeHyperslabIntegerArray2D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabIntegerArray3D(dataname, wdata, hdims, offset, &
                                                     dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabIntegerArray3D
+#endif
 
 IMPLICIT NONE
 
@@ -5167,7 +5299,9 @@ end function HDF_writeHyperslabIntegerArray3D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabIntegerArray4D(dataname, wdata, hdims, offset, &
                                                     dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabintegerArray4D
+#endif
 
 IMPLICIT NONE
 
@@ -5236,7 +5370,9 @@ end function HDF_writeHyperslabIntegerArray4D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabFloatArray2D(dataname, wdata, hdims, offset, &
                                                   dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabFloatArray2D
+#endif
 
 IMPLICIT NONE
 
@@ -5306,7 +5442,9 @@ end function HDF_writeHyperslabFloatArray2D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabFloatArray3D(dataname, wdata, hdims, offset, &
                                                   dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabFloatArray3D
+#endif
 
 IMPLICIT NONE
 
@@ -5376,7 +5514,9 @@ end function HDF_writeHyperslabFloatArray3D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabFloatArray4D(dataname, wdata, hdims, offset, &
                                                   dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabFloatArray4D
+#endif
 
 IMPLICIT NONE
 
@@ -5446,7 +5586,9 @@ end function HDF_writeHyperslabFloatArray4D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabDoubleArray2D(dataname, wdata, hdims, offset, &
                                                    dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabDoubleArray2D
+#endif
 
 IMPLICIT NONE
 
@@ -5516,7 +5658,9 @@ end function HDF_writeHyperslabDoubleArray2D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabDoubleArray3D(dataname, wdata, hdims, offset, &
                                                    dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabDoubleArray3D
+#endif
 
 IMPLICIT NONE
 
@@ -5586,7 +5730,9 @@ end function HDF_writeHyperslabDoubleArray3D
 !--------------------------------------------------------------------------
 recursive function HDF_writeHyperslabDoubleArray4D(dataname, wdata, hdims, offset, &
                                                    dims, HDF_head, insert) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_writeHyperslabDoubleArray4D
+#endif
 
 IMPLICIT NONE
 
@@ -5651,7 +5797,9 @@ end function HDF_writeHyperslabDoubleArray4D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabCharArray2D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readHyperslabCharArray2D
+#endif
 
 use ISO_C_BINDING
 
@@ -5720,7 +5868,9 @@ end function HDF_readHyperslabCharArray2D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabCharArray3D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readHyperslabCharArray3D
+#endif
 
 use ISO_C_BINDING
 
@@ -5785,7 +5935,9 @@ end function HDF_readHyperslabCharArray3D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabCharArray4D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readHyperslabCharArray4D
+#endif
 
 use ISO_C_BINDING
 
@@ -5855,7 +6007,9 @@ end function HDF_readHyperslabCharArray4D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabIntegerArray2D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readHyperslabIntegerArray2D
+#endif
 
 IMPLICIT NONE
 
@@ -5920,7 +6074,9 @@ end function HDF_readHyperslabIntegerArray2D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabIntegerArray3D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readHyperslabIntegerArray3D
+#endif
 
 IMPLICIT NONE
 
@@ -5985,7 +6141,9 @@ end function HDF_readHyperslabIntegerArray3D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabIntegerArray4D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readHyperslabIntegerArray4D
+#endif
 
 IMPLICIT NONE
 
@@ -6050,7 +6208,9 @@ end function HDF_readHyperslabIntegerArray4D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabFloatArray2D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readHyperslabFloatArray2D
+#endif
 
 IMPLICIT NONE
 
@@ -6116,7 +6276,9 @@ end function HDF_readHyperslabFloatArray2D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabFloatArray3D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readHyperslabFloatArray3D
+#endif
 
 IMPLICIT NONE
 
@@ -6182,7 +6344,9 @@ end function HDF_readHyperslabFloatArray3D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabFloatArray4D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readHyperslabFloatArray4D
+#endif
 
 IMPLICIT NONE
 
@@ -6248,7 +6412,9 @@ end function HDF_readHyperslabFloatArray4D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabDoubleArray2D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readHyperslabDoubleArray2D
+#endif
 
 IMPLICIT NONE
 
@@ -6314,7 +6480,9 @@ end function HDF_readHyperslabDoubleArray2D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabDoubleArray3D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_readHyperslabDoubleArray3D
+#endif
 
 IMPLICIT NONE
 
@@ -6380,7 +6548,9 @@ end function HDF_readHyperslabDoubleArray3D
 !> @date 04/06/15  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_readHyperslabDoubleArray4D(dataname, offset, dims, HDF_head) result(rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: hdf_readHyperslabDoubleArray4D
+#endif
 
 IMPLICIT NONE
 
@@ -6456,7 +6626,9 @@ end function HDF_readHyperslabDoubleArray4D
 !> @date   09/29/16 MDG 5.1 added option to read CrystalData from currently open HDF file
 !--------------------------------------------------------------------------
 recursive subroutine CrystalData(cell,verbose, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CrystalData
+#endif
 
 use io
 use crystal
@@ -6530,7 +6702,9 @@ end subroutine CrystalData
 !> @date   09/28/16 MDG 5.2 added option to store CrystalData in currently open HDF file
 !--------------------------------------------------------------------------
 recursive subroutine SaveDataHDF(cell, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: SaveDataHDF
+#endif
 
 use io
 use crystal
@@ -6674,7 +6848,9 @@ end subroutine SaveDataHDF
 !> @date   09/29/16 MDG 5.2 added option to read CrystalData from currently open HDF file
 !--------------------------------------------------------------------------
 recursive subroutine ReadDataHDF(cell, existingHDFhead)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: ReadDataHDF
+#endif
 
 use io
 use crystal
@@ -6825,7 +7001,9 @@ end subroutine ReadDataHDF
 !> @date   12/14/16 MDG 1.0 original code 
 !--------------------------------------------------------------------------
 recursive function CheckFixedLengthflag(dataset, HDF_head) result(itis)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: CheckFixedLengthflag
+#endif
 
 use HDF5
 use h5lt
@@ -6871,7 +7049,9 @@ end function CheckFixedLengthflag
 !> @date   12/14/16 MDG 1.0 original code 
 !--------------------------------------------------------------------------
 recursive subroutine resetFixedLengthflag()
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: resetFixedLengthflag
+#endif
 
 FixedLengthflag = .FALSE.
 
@@ -6890,7 +7070,9 @@ end subroutine resetFixedLengthflag
 !> @date   10/27/16 PGC 1.0 original
 !--------------------------------------------------------------------------
 recursive SUBROUTINE h5_write_pseudo_bse_image(fname, dsetnm, hdferr, wdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5_write_pseudo_bse_image
+#endif
 
   USE ISO_C_BINDING
   IMPLICIT NONE
@@ -6958,7 +7140,9 @@ END SUBROUTINE h5_write_pseudo_bse_image
 !> @date   10/27/16 PGC 1.0 original
 !--------------------------------------------------------------------------
 recursive SUBROUTINE h5_tsl_read_ebsd_pattern(fname,dsetnm,hdferr,rdata, offset, szx, szy)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5_tsl_read_ebsd_pattern
+#endif
 
   USE ISO_C_BINDING
   IMPLICIT NONE
@@ -7028,7 +7212,9 @@ END SUBROUTINE h5_tsl_read_ebsd_pattern
 !> @date   10/27/16 PGC 1.0 original
 !--------------------------------------------------------------------------
 recursive SUBROUTINE h5_read_integer_dataset(fname, dsetnm, hdferr, rdata)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: h5_read_integer_dataset
+#endif
 
   USE ISO_C_BINDING
   IMPLICIT NONE
@@ -7083,7 +7269,9 @@ END SUBROUTINE h5_read_integer_dataset
 !> @date 07/11/18  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_addStringAttributeToGroup(dataname, stratt, HDF_head, overwrite) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_addStringAttributeToGroup
+#endif
 
 use ISO_C_BINDING
 
@@ -7176,7 +7364,9 @@ end function HDF_addStringAttributeToGroup
 !> @date 07/11/18  MDG 1.0 original
 !--------------------------------------------------------------------------
 recursive function HDF_getStringAttributeFromGroup(dataname, stratt, slen, HDF_head) result(success)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_getStringAttributeFromGroup
+#endif
 
 use ISO_C_BINDING
 
@@ -7256,7 +7446,9 @@ end function HDF_getStringAttributeFromGroup
 !> @date 02/11/16 MDG 1.0 original
 !--------------------------------------------------------------------------
 subroutine HDF_read2DImage(dataset, image, numx, numy, HDF_head)
+#ifdef EMSOFT_USE_DLLEXPORT
 !DEC$ ATTRIBUTES DLLEXPORT :: HDF_read2DImage
+#endif
 
 use error
 use h5im

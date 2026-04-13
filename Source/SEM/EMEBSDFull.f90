@@ -169,7 +169,7 @@ character(fnlen),INTENT(IN)                   :: progname
 logical                                       :: verbose
 type(unitcell)                                :: cell
 type(DynType)                                 :: Dyn
-type(gnode)                                   :: rlp, myrlp
+type(gnode),save                              :: rlp
 type(BetheParameterType)                      :: BetheParameters
 
 ! MC and Dynamical simulation variables
@@ -230,7 +230,7 @@ integer(c_size_t)                             :: cnum, cnuminfo
 ! dynamical calculation variables
 integer(kind=irg)                             :: nref, nns, nnw, iang, totstrong, totweak, numset, &
                                                  gzero, ix, nat(maxpasym), numEbins, numzbins
-real(kind=sgl)                                :: kk(3), FN(3), kkk(3), qu(4), testval, nabsl
+real(kind=sgl)                                :: kk(3), FN(3), kkk(3), qu(4), testval, nabsl, fnat
 type(reflisttype),pointer                     :: reflist,firstw, rltmp
 complex(kind=dbl)                             :: czero
 complex(kind=dbl), allocatable                :: DynMat(:,:), Lgh(:,:), Sgh(:,:,:), Lghtmp(:,:,:)
@@ -276,8 +276,7 @@ interface
 
 end interface
 
-
-!!$OMP THREADPRIVATE(rlp,cell) 
+!$OMP THREADPRIVATE(rlp)
 
 call timestamp(datestring=dstr, timestring=tstrb)
 tstre = tstrb
@@ -714,6 +713,13 @@ end do
 allocate(EBSDPatterns(enl%numsx,enl%numsy,numEbins,numangles))
 EBSDPatterns = 0.0
 
+nat = 0
+do i = 1,numset
+    nat(i) = cell%numat(i)
+end do
+if (sum(nat(1:numset)).le.0) call FatalError('ComputeFullEBSDPatterns',' invalid nat normalization factor')
+fnat = 1.0/float(sum(nat(1:numset)))
+
 ! allocate and compute the Sgh loop-up table
 call Initialize_SghLUT(cell, dmin, numset, nat, verbose)
 
@@ -737,8 +743,9 @@ do iang = 1,numangles
 
         EkeV = EkeVs(iE) !(iE - 1)*enl%Ebinsize + enl%Ehistmin
 
-!$OMP PARALLEL default(SHARED) PRIVATE(TID, i, ix, j, k, kk, kkk, nref, lambdaZ, myrlp, temp2, mLambda) &
-!$OMP& PRIVATE(FN, reflist, firstw, nns, nnw, DynMat, Sgh, Lghtmp, nat, kn, svals, mRelcor, mPsihat, hkl) 
+!$OMP PARALLEL default(SHARED) COPYIN(rlp) &
+!$OMP& PRIVATE(TID, i, ix, j, k, kk, kkk, nref, lambdaZ, temp2, mLambda) &
+!$OMP& PRIVATE(FN, reflist, firstw, nns, nnw, DynMat, Sgh, Lghtmp, kn, svals, mRelcor, mPsihat, hkl, istat, io_int) 
 
         temp2 = cCharge*0.5D0*EkeV*1000.D0/cRestmass/(cLight**2)
 ! relativistic correction factor (known as gamma)      
@@ -747,9 +754,9 @@ do iang = 1,numangles
         mPsihat = EkeV*(1.D0+temp2)*1000.D0
 ! correct for refraction        
         hkl=(/0,0,0/)
-        myrlp%method='WK'
-        call CalcUcg(cell,myrlp,hkl) 
-        mPsihat = mPsihat + dble(myrlp%Vmod)
+        rlp%method='WK'
+        call CalcUcg(cell,rlp,hkl) 
+        mPsihat = mPsihat + dble(rlp%Vmod)
         mLambda = temp1/dsqrt(mPsihat)
 
 !       call CalcWaveLength(cell, myrlp, skip) 
@@ -768,8 +775,8 @@ do iang = 1,numangles
 !$OMP DO SCHEDULE(DYNAMIC)
         do k = 1,enl%numsx*enl%numsy
 
-            i = mod(k,enl%numsy) + 1
-            j = (k-1)/enl%numsy + 1
+            j = mod(k-1,enl%numsy) + 1
+            i = (k-1)/enl%numsy + 1
 
             lambdaZ = 0.0
             lambdaZ(1:numzbins) = EBSDdetector%detector(i,j)%lambdaEZ(iE,1:numzbins)
@@ -795,7 +802,7 @@ do iang = 1,numangles
             allocate(DynMat(nns,nns))
             DynMat = czero
 
-            call GetDynMat(cell, reflist, firstw, myrlp, DynMat, nns, nnw)
+            call GetDynMat(cell, reflist, firstw, rlp, DynMat, nns, nnw)
                
 ! then we need to initialize the Sgh and Lgh arrays
             if (allocated(Sgh)) deallocate(Sgh)
@@ -824,7 +831,7 @@ do iang = 1,numangles
                  !svals(ix) = real(sum(Lgh(1:nns,1:nns)*Sgh(1:nns,1:nns,ix)))
                  svals(ix) = real(sum(Lghtmp(1:nns,1:nns,numzbins)*Sgh(1:nns,1:nns,ix)))
              end do
-             svals = svals/float(sum(nat(1:numset)))
+             svals = svals*fnat
              
              EBSDPatterns(i,j,iE,iang) = sum(svals)*prefactor
              call Delete_gvectorlist(reflist)
@@ -921,6 +928,7 @@ use files
 use diffraction
 use constants
 use math
+use, intrinsic :: ieee_arithmetic
 
 IMPLICIT NONE
 
@@ -932,13 +940,65 @@ integer(kind=sgl),INTENT(IN)        :: nt
 complex(kind=dbl),INTENT(OUT)       :: Lgh(nn,nn,nt)
 real(kind=sgl),INTENT(IN)           :: dthick
 
-integer                             :: i
+integer                             :: i, j, badrow, badcol
+integer, save                       :: nonfinite_trace_count = 0
 complex(kind=dbl),allocatable       :: Minp(:,:),Azz(:,:),ampl(:),ampl2(:)
+logical                             :: badMinp, badAzz
   
 allocate(Minp(nn,nn),Azz(nn,nn),ampl(nn),ampl2(nn))
 
 Minp = DynMat * cmplx(0.D0,cPi * cell%mLambda)
+badMinp = .FALSE.
+badrow = 0
+badcol = 0
+do j=1,nn
+  do i=1,nn
+    if ((.not.ieee_is_finite(real(Minp(i,j)))).or.(.not.ieee_is_finite(aimag(Minp(i,j))))) then
+      badMinp = .TRUE.
+      badrow = i
+      badcol = j
+      exit
+    end if
+  end do
+  if (badMinp.eqv..TRUE.) exit
+end do
+if ((badMinp.eqv..TRUE.).and.(nonfinite_trace_count.lt.10)) then
+  nonfinite_trace_count = nonfinite_trace_count + 1
+  write (*,'(A)') 'EMEBSDFull trace: non-finite Minp before MatrixExponential'
+  write (*,'(A,I8)') '  nn        = ', nn
+  write (*,'(A,I8)') '  row       = ', badrow
+  write (*,'(A,I8)') '  col       = ', badcol
+  write (*,'(A,ES12.4)') '  Re(Minp)  = ', real(Minp(badrow,badcol))
+  write (*,'(A,ES12.4)') '  Im(Minp)  = ', aimag(Minp(badrow,badcol))
+  write (*,'(A,ES12.4)') '  max|Minp| = ', maxval(abs(Minp))
+  write (*,'(A,F12.6)') '  dthick    = ', dthick
+end if
 call MatrixExponential(Minp, Azz, dble(dthick), 'Pade', nn)  
+badAzz = .FALSE.
+badrow = 0
+badcol = 0
+do j=1,nn
+  do i=1,nn
+    if ((.not.ieee_is_finite(real(Azz(i,j)))).or.(.not.ieee_is_finite(aimag(Azz(i,j))))) then
+      badAzz = .TRUE.
+      badrow = i
+      badcol = j
+      exit
+    end if
+  end do
+  if (badAzz.eqv..TRUE.) exit
+end do
+if ((badAzz.eqv..TRUE.).and.(nonfinite_trace_count.lt.10)) then
+  nonfinite_trace_count = nonfinite_trace_count + 1
+  write (*,'(A)') 'EMEBSDFull trace: non-finite Azz after MatrixExponential'
+  write (*,'(A,I8)') '  nn        = ', nn
+  write (*,'(A,I8)') '  row       = ', badrow
+  write (*,'(A,I8)') '  col       = ', badcol
+  write (*,'(A,ES12.4)') '  Re(Azz)   = ', real(Azz(badrow,badcol))
+  write (*,'(A,ES12.4)') '  Im(Azz)   = ', aimag(Azz(badrow,badcol))
+  write (*,'(A,ES12.4)') '  max|Azz|  = ', maxval(abs(Azz))
+  write (*,'(A,F12.6)') '  dthick    = ', dthick
+end if
 
 ampl = cmplx(0.D0,0.D0)
 ampl(1) = cmplx(1.0D0,0.D0)
